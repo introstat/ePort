@@ -1,0 +1,459 @@
+\documentclass[12pt,english,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+%\usepackage[letterpaper]{geometry}
+%\geometry{verbose,tmargin=4cm,bmargin=4.5cm,lmargin=3.2cm,rmargin=3.5cm}
+%\usepackage{setspace}
+%\usepackage{fullpage}
+%\usepackage{tikz}
+%\onehalfspacing
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\Rcode}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rcommand}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\textit{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\newcommand{\Rmethod}[1]{{\textit{#1}}}
+\newcommand{\Rclass}[1]{{\textit{#1}}}
+\makeatother
+
+
+\begin{document}
+
+
+<<include=FALSE>>=
+library(ggplot2)
+library(reshape2)
+library(xtable)
+library(MASS)
+#library(lme4)
+
+a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
+nQuestion = nrow(answerkey$simplekey)
+rows = nrow(sumry1)
+plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
+@
+
+\centerline{\Large\bf Statistics 101 Unit Analysis}
+
+
+\section{Overview}
+The unit assessment outcome file is \Sexpr{basename(Score_filename)}. 
+In this assessment there are \Sexpr{nQuestion} questions. 
+\Sexpr{rows} students submitted their answers. Each of them answered \Sexpr{a} questions. 
+
+The average grade for this class is \Sexpr{round(mean(sumry1$TotalScore),2)}. 
+The highest and lowest scores are \Sexpr{max(sumry1$TotalScore)} and
+\Sexpr{min(sumry1$TotalScore)}, 
+while the full credit for this assessment is
+\Sexpr{sumry1$FullScore[1]}, 
+and the possible lowest credit is 0. 
+The histogram and summary statistics for the scores are given by Figure \ref{mar:hist} and Table \ref{tab:summary}.
+
+<<echo=FALSE,results='asis'>>=
+
+fname=paste(plotprename,'_score.pdf',sep='')
+pdf(paste0("../",fname),width=4,height=4)
+ms=max(sumry1$TotalScore,na.rm=T)
+print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,ms+1)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:hist}Histograms of the scores}
+\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+su=data.frame(
+  Mean=mean(sumry1$TotalScore, na.rm=T), 
+  Std.dev=sd(sumry1$TotalScore, na.rm=T), 
+	' '=NA,
+  Min=min(sumry1$TotalScore, na.rm=T), 
+  Q1 = quantile(sumry1$TotalScore,0.25,na.rm=T),
+	Median=median(sumry1$TotalScore, na.rm=T), 
+  Q3 = quantile(sumry1$TotalScore,0.75,na.rm=T),
+	Max=max(sumry1$TotalScore, na.rm=T),
+	check.names=FALSE)
+#smrytable=t(su)
+#colnames(smrytable)='Score'
+print(xtable(su,caption='Summary statistics of the scores', label='tab:summary'),floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+
+@
+
+\clearpage
+\newpage{}
+\section{Learning Objectives}
+
+\bigskip{}
+
+The learning objectives in this unit are as follows.
+
+\bigskip{}
+
+<<echo=FALSE,results='asis'>>=
+cat("\\begin{small}")
+for (i in chpt_outcome_file) {
+  chapter=as.character(read.delim(i,head=FALSE)[,1])
+  chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
+  cat('\n\n \\bigskip{} \n\n ', gsub(".Outcomes.txt","",basename(i)),"\n\n \\bigskip{} \n\n ")
+  cat(chapter_outcomes,sep="\n\n")
+  cat("\\\\ \n ~~ \n")
+}
+cat("\\end{small}")
+@
+
+\newpage{}
+
+Tables \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} shows the summary of percentage scores by learning objective sets. 
+Among all the learning objectives, 
+\Sexpr{colnames(sumry2$ConceptCorrectPct)[which.max(sumry2$ConceptCorrectPct[1,])]}
+has the highest correct percentage, while 
+\Sexpr{colnames(sumry2$ConceptCorrectPct)[which.min(sumry2$ConceptCorrectPct[1,])]}
+has the lowest.
+
+<<echo=FALSE,results='asis'>>=
+LOsumry=t(sumry2$ConceptCorrectPct)
+LOsumry=data.frame(LOsumry[,1:2]," "=NA," "=NA,LOsumry[,3:5], check.names=FALSE)
+LOsumry=LOsumry[order(LOsumry$Mean,decreasing=TRUE),]
+LOsumryorder=rownames(LOsumry)
+
+output1 = data.frame(t(apply(Student_SetScore$ObjectiveSet$ConceptSetScore,1,`/`,Student_SetScore$ObjectiveSet$CSFullScore))[,LOsumryorder])
+output1 = melt(output1,id=0)
+output1$variable = factor(as.character(output1$variable),levels=LOsumryorder)
+output1$value = output1$value*100
+
+fnameO=paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
+pdf(paste0("../",fnameO),width=6,height=5)
+print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Objective", y="Percentage Correct"))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning objective.}
+\\end{marginfigure}',sub('\\.pdf','',fnameO)))
+
+print(xtable(LOsumry,caption='Summary statistics of the learning objectives. They are computed by the mean percentages correct of the questions in the learning objective. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'), 
+floating=FALSE, tabular.environment = "longtable")
+@
+
+
+<<include=FALSE>>=
+
+Total=sumry1$TotalScore/sumry1$FullScore*100
+CSScore=sumry1[,1:Student_SetScore$ObjectiveSet$nConceptSet+2]
+CSScore=t(apply(CSScore,1,function(x)x/Student_SetScore$ObjectiveSet$CSFullScore*100))
+CSScore=CSScore[,rev(LOsumryorder)]
+
+datpct = data.frame(CSScore)
+datpct$student = rownames(datpct)
+Learning_Objectives = melt(datpct,id.vars="student")
+colnames(Learning_Objectives)[2:3]=c("Objective","score")
+Learning_Objectives$Objective = factor(Learning_Objectives$Objective,levels=LOsumryorder)
+# f = lme(data=Learning_Objectives,fixed=score~Objective,random=~1|student)
+
+Learning_Objectives$score = Learning_Objectives$score*0.0098+.01
+f=glmmPQL(data=Learning_Objectives,fixed=score~Objective,random=~1|student,family=binomial(link="logit"))
+# f = glmer(score~Objective+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
+@
+
+
+To analyze the students' performance on different learning objectives, we consider the generalized mixed effects model:
+\[
+g(E[Y_{ij}|u_{j}])= \tau_{i}+u_{j}
+\]
+where $i=1,...,$\Sexpr{Student_SetScore$ObjectiveSet$nConceptSet} learning objectives; 
+$j=1,...,$\Sexpr{rows} students. $Y_{ij}$ is the score (scaled in $[0,1]$) of 
+the $j$th student in the $i$th learning objective. $\tau_i$ is the fixed effect, 
+which represents the actual level of the learning objective $i$. 
+$u_j$ is the random effect from the students with 
+$u_{j} \sim N(0,\sigma_{u}^{2})$.
+
+Since $Y_{ij} \in [0,1]$, and most of $y_{ij}$ take the value 1 
+(see Figure \ref{mar:crtpct_hist}), it is not easy to find an appropriate model.
+Beta distribution is possible if 0 and 1 are not in the range of $Y_{ij}$.
+Binomial distribution is another possibility if we do not scale the scores.
+Hence we assume that $Y$ is binomial with the logit link function,
+then the results are in Table \ref{tab:lme_fixed} and Figure \ref{mar:lme_coef}.
+
+<<echo=FALSE,results='asis'>>=
+fname=paste(plotprename,'_crtpct_hist.pdf',sep='')
+pdf(paste0("../",fname),width=5,height=4)
+print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning objective}
+\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+fixedcoef = f$coefficients$fixed
+fixedstd = sqrt(diag(f$varFix))
+fixedcoef_print = data.frame('est.'=fixedcoef,' '=NA,'lower'=fixedcoef+fixedstd*qt(0.025,f$fixDF$X[1]),'upper'=fixedcoef+fixedstd*qt(0.975,f$fixDF$X[1]))
+#fixedcoef = data.frame(intervals(f)$fixed)
+#fixedcoef_print = cbind(fixedcoef[,2,drop=FALSE],NA,fixedcoef[,c(1,3)])
+colnames(fixedcoef_print)[2]="  "
+print(xtable(fixedcoef_print,caption='95\\% confidence intervals of the fixed effects',label='tab:lme_fixed'), floating=FALSE, tabular.environment = "longtable")
+
+worseobj = rev(LOsumryorder[fixedcoef_print$upper<0])
+@
+
+It shows that \Sexpr{LOsumryorder[1]} is the best understood learning objective.
+\Sexpr{ifelse(length(worseobj)==0,"However, no objectives are",
+ifelse(length(worseobj)==1,sprintf("Objective %s is",worseobj),
+sprintf("Objectives %s are",paste(worseobj,collapse=","))))} 
+significantly worse than \Sexpr{LOsumryorder[1]}. 
+
+<<echo=FALSE,results='asis'>>=
+
+#fixedcoef_plot = fixedcoef[-1,]
+fixedcoef_plot = fixedcoef_print[-1,c(3,1,4)]
+fixedcoef_plot$name = paste(LOsumryorder[-1],"-",LOsumryorder[1],sep='')
+fixedcoef_plot = melt(fixedcoef_plot,id.vars='name')
+fixedcoef_plot$name = factor(fixedcoef_plot$name,levels=paste(LOsumryorder[-1],"-",LOsumryorder[1],sep=''))
+fixedcoef_plot$variable=as.character(fixedcoef_plot$variable)
+fixedcoef_plot$variable[fixedcoef_plot$variable %in% c("lower","upper")]="boundary"
+
+fname=paste(plotprename,'_lme_coef.pdf',sep='')
+pdf(paste0("../",fname),width=4,height=4)
+print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\caption{\\label{mar:lme_coef}95\\%% confidence intervals of the fixed effects coefficients}
+\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+@
+
+Nevertheless, the assumption is probably incorrect, as we could check the residuals in
+Figure \ref{fig:lme_qqnorm}.
+
+<<echo=FALSE,results='asis'>>=
+
+fname=paste(plotprename,'_lme_qqnorm.pdf',sep='')
+pdf(paste0("../",fname),width=6,height=4)
+print(qqnorm(f,~resid(., type = "p") | Objective, abline=c(0,1)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.8\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:lme_qqnorm}QQ-plot of the residuals by the generalized mixed effects model}
+\\end{wrapfigure}\\par\\end{center}',sub('\\.pdf','',fname)))
+
+@
+
+\clearpage
+\newpage{}
+\subsection{Question Sets}
+
+Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:QuestionSet_summary} shows the summary statistics of the percentage correct by question set. 
+As is shown, Question Set \Sexpr{colnames(sumry2$SetCorrectPct)[which.max(sumry2$SetCorrectPct[1,])]} has the highest mean correct percentage and question set \Sexpr{colnames(sumry2$SetCorrectPct)[which.min(sumry2$SetCorrectPct[1,])]} has the lowest mean.
+
+
+<<echo=FALSE,results='asis'>>=
+
+output1=data.frame(sumry2$ByQuestion[,c(1:4,8)],check.names=FALSE)
+output1$Count=as.integer(output1$Count)
+output1$"NA's"=as.integer(output1$"NA's")
+output1$Question=answerkey$simplekey$Question
+output1$Qset=answerkey$simplekey$Question.Set
+output1$LO=answerkey$simplekey$Objective.Set
+output1$FullPt=answerkey$simplekey$QFullPt
+output1=output1[,c(6:8,1,2,5,9,3,4)]
+rownames(output1)=NULL
+NArow=c(0,which(diff(as.integer(as.factor(output1$Qset)))==1))
+output2=cbind(1:nrow(output1),answerkey[[2]][,3:9],output1[,-c(1:3,7)])
+
+output1$LearnObj=factor(output1$LO,levels=LOsumryorder)
+
+Qsetsumry=ddply(output1,'Qset',summarise,LO=LO[1],'#'=length(CrtPct),Mean=mean(CrtPct),Std.dev=sd(CrtPct),Min=min(CrtPct),Median=median(CrtPct),Max=max(CrtPct))
+Qsetsumry$Std.dev[is.na(Qsetsumry$Std.dev)]=0
+Qsetsumry=Qsetsumry[order(Qsetsumry$Std.dev,decreasing=TRUE),]
+print(xtable(Qsetsumry,caption='Summary statistics of the question sets. They are computed by the mean percentages correct of the questions in the question set. The table is sorted from the largest standard deviation to the smallest.',label='tab:QuestionSet_summary',align="lcc|ccc|ccc"),floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+
+fnameQ=paste(plotprename,'_QuestionSet_boxplot.pdf',sep='')
+pdf(paste0("../",fnameQ),width=6,height=5)
+output1$Qset=factor(output1$Qset,levels=Qsetsumry$Qset)
+print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) + labs(x="Question Set",y="Percentage Correct") )
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\caption{\\label{mar:QuestionSet_summary}Side-by-side boxplots of the question correct percentage in each question set}
+\\end{marginfigure}',sub('\\.pdf','',fnameQ)))
+
+@
+
+
+\clearpage
+\newpage{}
+\subsection{Questions}
+
+Table \ref{tab:summary_question} compares the performance on each question. 
+
+
+
+<<echo=FALSE,results='asis'>>=
+
+names(output2)[1:8]=c('ID','LO','Qset','Name','Type','FullPt','QinSet','N')
+output2$Flag = flag(output2$Qset, output2$CrtPct, thres = 15)
+output2$ID = paste('\\hyperlink{',output1$Question,'.2}{',output2$ID,'}',sep='')
+for (i in 2:length(NArow)){
+  output2=rbind(output2[1:(NArow[i]+i-2),], NA, output2[(NArow[i]+i-1):nrow(output2),])
+}
+
+print(xtable(output2,caption='Summary statistics of each question',label='tab:summary_question',align="lcccl|cccc|ccccc|l"),sanitize.text.function=identity,
+floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+
+@
+
+\clearpage
+\newpage{}
+\section{Students}
+The percentages correct by learning objective and total for each student, sorted by the highest to lowest total are displayed in Table \ref{tab:LearningObj_data}. And the ranks in percentage are given in Table \ref{tab:LearningObj_rank}. Figure \ref{fig:LearningObj_rank} shows the percent rank of the students.
+
+<<echo=FALSE,results='asis'>>=
+CSScore=cbind(Total, CSScore)
+CSScorewithSpace=rbind(CSScore[CSScore[,1]>=60,,drop=FALSE],NA,CSScore[CSScore[,1]<60,,drop=FALSE])
+SplitCSSore=widetableinLaTeX(CSScorewithSpace,tablecaption='Sorted learning objective sets and total correct percentages',label='tab:LearningObj_data',cols=10)
+
+CSRank = round(100 - apply(CSScore,2,rank,ties.method='max')/nrow(CSScore)*100,2)
+PrintCSRank=widetableinLaTeX(CSRank,tablecaption='Rank of the students by the total and learning objective scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
+
+CSRank = data.frame(CSRank, Student=rownames(CSRank))
+tmptile=melt(CSRank,id.vars='Student')
+colnames(tmptile)[2:3]=c('LO','Percentage')
+tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
+
+fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
+pdf(paste0("../",fname),width=8,height=12)
+print(qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
+        xlab('Learning Objective')+
+        scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.95\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:LearningObj_rank}Heat map of the student ranks. Green represents the top rank, while red means the bottom.}
+\\end{wrapfigure}\\par\\end{center}', sub('\\.pdf','',fname)))
+@
+
+
+\clearpage
+\newpage{}
+\section{Summary of Questions}
+The description for each question is as follows:
+
+<<echo=FALSE,results='asis'>>=
+
+CompareSummary=matrix(nrow=nQuestion,ncol=7)
+
+for (j in 1:nQuestion) {
+  keysheet=answerkey$answerkey[answerkey$answerkey$Question==names(CountbyQuestion)[j],]
+  if (sum(posAnswer <- keysheet$Point>0) > 1) {
+      tmpanswer=paste(paste(1:sum(posAnswer),')',keysheet$Answer[posAnswer],sep=''),collapse=', ')
+  } else {tmpanswer = keysheet$Answer[posAnswer]}
+
+  tmpquestion = answerkey$question[[j]]
+  if (is.null(img <- attr(tmpquestion,"img"))){
+    cat('\\marginnote{\n\n',
+      paste(gsub('\\%','\\\\%',tmpquestion),collapse='\n\n\n\n'),
+      '\n\n}')
+  } else {
+    cat('\\marginnote{\n\n',
+      paste(preimg <- gsub('\\%','\\\\%',tmpquestion[1:(img-1)]),collapse='\n\n\n\n'),
+      sprintf('\n\n}\n\n\n\n\\vspace{%dcm}',vspace<-sum(ceiling(nchar(preimg)/120))+3))
+    cat(tmpquestion[img])
+    cat('\\marginnote{\n\n',
+      paste(gsub('\\%','\\\\%',tmpquestion[(img+1):length(tmpquestion)]),collapse='\n\n\n\n'),
+      '\n\n}')
+  }
+  
+  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. The correct answer is ',gsub('\\$','\\\\$',gsub('\\%','\\\\%',tmpanswer)),'. This question is selected with frequency ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. And, ', CountbyQuestion[j],' out of ', rows, ' students answered it. The average score is ',round(mean(ScorebyQuestion[,(j+1)],na.rm=TRUE), 2),' over ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+  cat(outscript)
+  
+  if (CountbyQuestion[j]!=0) {
+    cat('\n\n')
+
+    ##### The Graph #####
+
+    fname1=paste(plotprename,'_',j,'_answer.pdf',sep='')
+    fname2=paste(plotprename,'_',j,'_score.pdf',sep='')
+    if (any(nchar(as.character(tmpoutput$HWanswer[,j+1]))>12)){
+      abbrscore=abbr(tmpoutput$HWanswer[,j+1])$abbrv
+      glssry=abbr(tmpoutput$HWanswer[,j+1])$glossary
+      glssry[,1] = gsub('\\_','\\\\_',glssry[,1])
+      glssry[,2] = gsub('\\_','\\\\_',glssry[,2])
+    } else {
+      abbrscore=tmpoutput$HWanswer[,j+1]
+      glssry=NULL
+    }
+    abbrscore=as.factor(as.character(abbrscore[!is.na(abbrscore)]))
+    ord=table(abbrscore,useNA='no')
+    pdf(paste0("../",fname1))
+    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip()+theme(axis.text = element_text(size = rel(2))))
+    dev.off()
+ 
+
+    pdf(paste0("../",fname2))
+    print(qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+theme(axis.text = element_text(size = rel(2))))
+    dev.off()
+
+    cat(sprintf('\\begin{center} \\includegraphics[width=.45\\linewidth]{%s} \\includegraphics[width=.45\\linewidth]{%s} \\end{center}',sub('\\.pdf','',fname1), sub('\\.pdf','',fname2)), '\n\n')
+  
+    if (!is.null(glssry)){
+	    if (sum(glssry[,2]=='NA')) glssry=glssry[-which(glssry[,2]=='NA'),]
+		  cat(paste('Glossary for question',names(CountbyQuestion)[j],'.'))
+		  cat('\n\n')
+      if (!is.null(nrow(glssry))) {
+		    glsryscript=paste('(',1:nrow(glssry),') "',glssry[,1],'": ',glssry[,2],sep='')
+	      cat(paste(glsryscript,collapse='; '))
+			  cat('\n\n')
+      }
+    }
+
+    ##### Summary Table #####
+    
+    su=c(Mean=mean(ScorebyQuestion[,j+1], na.rm=TRUE),
+         Std.dev=sd(ScorebyQuestion[,j+1], na.rm=TRUE), 
+         Min=min(ScorebyQuestion[,j+1], na.rm=TRUE),
+         Median=median(ScorebyQuestion[,j+1], na.rm=TRUE), 
+         Max=max(ScorebyQuestion[,j+1], na.rm=TRUE))
+    smrytable=data.frame(su)
+    colnames(smrytable)='Value'
+    smrytable$Summary = names(su)
+    smrytable = smrytable[,2:1]
+    
+    ord = data.frame(as.matrix(ord[order(ord,decreasing=TRUE)]))
+    colnames(ord)='Count'
+    ord$Answer = rownames(ord)
+    ord = ord[,c(2,1)]
+    
+	  cat('\\begin{center}')
+    print(xtable(ord),floating=FALSE,include.rownames=FALSE)
+    cat('~~~~~~~~')
+    print(xtable(smrytable),floating=FALSE,include.rownames=FALSE)
+    cat('\\end{center}')
+	
+    CompareSummary[j,1:5]=su
+	  CompareSummary[j,6]=sum(is.na(ScorebyQuestion[,j+1]))
+	  CompareSummary[j,7]=CountbyQuestion[j]	
+  } else {
+    cat('No one answered this question.\n\n')
+  }
+  cat("\\newpage")
+}
+
+colnames(CompareSummary)=c("Mean.","Std","Min","Median","Max.","NA's","Count")
+rownames(CompareSummary)=names(CountbyQuestion)
+
+@
+
+\end{document}

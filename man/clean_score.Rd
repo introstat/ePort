@@ -1,0 +1,30 @@
+% Please edit documentation in R/clean_data.R
+\name{clean_score}
+\alias{clean_score}
+\title{Clean the scores to a simple format}
+\usage{
+clean_score(HWsheet, key, skip = NULL)
+}
+\arguments{
+\item{HWsheet}{the output of function \code{read_score}}
+
+\item{key}{the output of function \code{convertkey}}
+
+\item{skip}{a vector of integers to solve the problem like HW1 Question1}
+}
+\value{
+a list of four objects: a data frame of scores,
+a vector of numbers of response for each question,
+a vector of full points for each question,
+a data frame of answers.
+}
+\description{
+Match the answer key question names with the data files.
+If there are multiple attempts, the attempt with the highest
+score is kept. If some questions in the data files are not
+needed for analysis and not provided in the answer key, then
+we use argument \code{skip} to skip them.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

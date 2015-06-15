@@ -1,0 +1,68 @@
+% Please edit documentation in R/merge_semester.R
+\name{subset_data}
+\alias{subset_data}
+\title{Subset one section in use}
+\usage{
+subset_data(mergedat, files, choice = "all")
+}
+\arguments{
+\item{mergedat}{output from \code{merge_data}}
+
+\item{files}{output from \code{set_dir}}
+
+\item{choice}{section name. Default to be 'all',
+which means all the sections are selected.}
+}
+\value{
+a subset of \code{mergedat} with the same format
+}
+\description{
+If we want to generate a report for one section with
+many topics, this function could help to filter the
+section from the output of \code{merge_data}.
+}
+\examples{
+library(ePort)
+
+##### Homework reports #####
+## key ##
+# save the .doc file as .htm format, to keep the images
+key_htm = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic05.Questions.htm"
+refine_key(key_htm) # generate a clean answer key with paths to the plots in the question
+key_txt = gsub("htm$","txt",key_htm) # get the path/name of the new answer key
+
+## data ##
+datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files"
+topic = gsub('.Questions.txt','',gsub('Topic','',basename(key_txt)))
+namelist = list.files(path=datapath,full.names=TRUE)
+namelist = namelist[grep(paste('Topic',topic,'\\\\.',sep=''),basename(namelist))]
+namelist
+
+## learning objectives ##
+LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes/Topic05.Outcomes.txt"
+
+## 1. Individual report ##
+for (i in namelist) rewrite_data(i)
+for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="Rnw/hw-individual-short.Rnw")
+for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="Rnw/hw-individual.Rnw")
+
+## 2. Cross-section report ##
+report_routine(key_txt,namelist,LOfile=LOpath,knitfile="Rnw/hw-section-short.Rnw")
+report_routine(key_txt,namelist,LOfile=LOpath,knitfile="Rnw/hw-section.Rnw")
+
+## 3. Cross-topic report ##
+tabfiles = set_dir(datapath)
+tabfiles = tabfiles[tabfiles$section!='201' & tabfiles$topic \%in\% paste0('Topic0',1:5),]
+mgdata = merge_data(tabfiles)
+for (sctn in unique(tabfiles$section)) {
+  merged = subset_data(mgdata,tabfiles,choice=sctn)
+  knit("Rnw/hw-topic.Rnw",output=paste0('Stat101hwk_Unit1_Section',sctn,'.tex'))
+}
+
+## 4. Cross-section & cross-topic report ##
+merged = subset_data(mgdata,tabfiles)
+knit("Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

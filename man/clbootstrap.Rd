@@ -1,0 +1,29 @@
+% Please edit documentation in R/data_analysis.R
+\name{clbootstrap}
+\alias{clbootstrap}
+\title{Use bootstrap to find the best number of clusters}
+\usage{
+clbootstrap(dat, nt, nboot = 100, l = 9, seed = 201311, txtbar = TRUE)
+}
+\arguments{
+\item{dat}{a data frame, same format as function \code{cl}}
+
+\item{nt}{number of topics}
+
+\item{nboot}{number of bootstrap samples}
+
+\item{l}{number of clusters}
+
+\item{seed}{random seed}
+
+\item{txtbar}{whether the text progress bar is turned on}
+}
+\value{
+a data frame of the criteria values for \code{nboot} samples
+}
+\description{
+Results of the function \code{crtr} for bootstrap samples.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

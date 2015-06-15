@@ -1,0 +1,589 @@
+\documentclass[12pt,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+\makeatletter
+\makeatother
+
+\begin{document}
+
+<<include=FALSE>>=
+#opts_chunk$set(cache=TRUE)
+
+library(ggplot2)
+library(plyr)
+library(xtable)
+library(lme4)
+library(fpc)
+
+plotprename='Stat101_allSections_'
+nfile = nrow(merged$file)
+nsection = length(unique(merged$file$section))
+ntopic = length(unique(merged$file$topic))
+nstudent = nrow(merged$dat$CorrectPct)
+
+theme101 = theme(legend.position = "none",
+                 axis.text.x=element_text(size=15),
+                 axis.text.y=element_text(size=15))
+@
+
+\centerline{\Large\bf Statistics 101 Analysis}
+\centerline{\bf Homework Comparison by Topics and Sections}
+\centerline{\bf }
+
+
+\section{Overview}
+
+The report will compare the homework outcomes from 
+\Sexpr{nsection} sections in \Sexpr{ntopic} topics.
+
+There are totally \Sexpr{nstudent} students 
+who submitted the answers. 
+\Sexpr{nstudent-nrow(merged$dat$MissingTimes)}
+of them did all the homeworks. A summary of the number of students
+and counts of the missing homeworks are displayed in Table \ref{tab:count}.
+
+Since different homeworks have different full scores, 
+the percentages correct are used to compare among homeworks.
+The average correct percents for the \Sexpr{nfile} homeworks are 
+shown in Table \ref{tab:mean}.
+
+Figure \ref{mar:line} shows the temporal change of students' performance,
+and Figure \ref{fig:hist} compares the histograms of those homeworks.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+
+dat=melt(merged$dat$CorrectPct,id.vars=1:2,measure.vars=1:ntopic+2)
+colnames(dat)=c('Username','Section','Hwk','CrtPct')
+dat$CrtPct=as.numeric(as.character(dat$CrtPct))
+
+sumdat=ddply(dat,c('Section','Hwk'),summarize,
+             `0%`=min(CrtPct,na.rm=TRUE),
+             `5%`=unname(quantile(CrtPct,0.05,na.rm=TRUE)),
+             `10%`=unname(quantile(CrtPct,0.1,na.rm=TRUE)),
+             `20%`=unname(quantile(CrtPct,0.2,na.rm=TRUE)),
+             `25%`=unname(quantile(CrtPct,0.25,na.rm=TRUE)),
+             `30%`=unname(quantile(CrtPct,0.3,na.rm=TRUE)),
+             `40%`=unname(quantile(CrtPct,0.4,na.rm=TRUE)),
+             `50%`=unname(quantile(CrtPct,0.5,na.rm=TRUE)),
+             `60%`=unname(quantile(CrtPct,0.6,na.rm=TRUE)),
+             `70%`=unname(quantile(CrtPct,0.7,na.rm=TRUE)),
+             `75%`=unname(quantile(CrtPct,0.75,na.rm=TRUE)),
+             `80%`=unname(quantile(CrtPct,0.8,na.rm=TRUE)),
+             `90%`=unname(quantile(CrtPct,0.9,na.rm=TRUE)),
+             `95%`=unname(quantile(CrtPct,0.95,na.rm=TRUE)),
+             `100%`=max(CrtPct,na.rm=TRUE))
+
+fname=paste0(plotprename,'lineplot.pdf')
+pdf(paste0('../',fname),width=4,height=18)
+print(qplot(Hwk,`50%`,data=sumdat,geom='line',group=Section,fill=Section,
+      facets=Section~.,xlab='Topic',ylab='Correct Percentage') +
+        geom_line(aes(x=Hwk,y=CrtPct,group=Username),data=dat,alpha=0.1) +
+        geom_ribbon(aes(ymin=`5%`, ymax=`95%`),alpha=I(0.3)) +
+        geom_ribbon(aes(ymin=`25%`, ymax=`75%`),alpha=I(0.7)) +
+        geom_line(aes(y=`25%`,color=Section)) +
+        geom_line(aes(y=`75%`,color=Section)) +
+        geom_line(aes(y=`50%`)) + theme101)
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:line}Line plots of the correct percentages by section.
+The black lines give the medians in each topic;
+the dark colored areas show the interquartile ranges(25\\%%-75\\%%);
+and the light colored areas are the 5\\%%-95\\%% bands.
+The light grey lines are the real correct percentage by student.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+
+##########
+
+cnt = merged$dat$Score[1:nsection,2:(ntopic+2)]
+rownames(cnt) = unique(merged$file$section)
+colnames(cnt) = c('Total',paste('Missing',colnames(cnt)[-1],sep='.'))
+cnt$Total = table(merged$dat$Score$Section)
+
+avg = cnt[,-1]
+colnames(avg) = colnames(merged$dat$Score)[-(1:2)]
+
+for (i in 1:ntopic){
+  cnt[,i+1] = tapply(merged$dat$Score[,i+2],merged$dat$Score$Section,function(x){sum(is.na(x))})
+  avg[,i] = tapply(merged$dat$CorrectPct[,i+2],merged$dat$CorrectPct$Section,mean,na.rm=TRUE)
+}
+
+cnt = data.frame(as.matrix(cnt))
+avg = data.frame(as.matrix(avg))
+
+cond = (ntopic<5)
+print(xtable(if(cond){cnt}else{t(cnt)},
+      caption=sprintf('The number of students and counts of missing 
+                      homeworks by section. The first %s is the number 
+                      of students, and the rest %s are the number of 
+                      missing homeworks.',ifelse(cond,'column','row'),
+                      ifelse(cond,'columns','rows')),label='tab:count'),
+      floating=FALSE, tabular.environment = "longtable")
+
+print(xtable(if (ntopic<9) {avg} else {t(avg)},caption='Average correct percentages by section and topic.',label='tab:mean'),floating=FALSE, tabular.environment = "longtable")
+
+##########
+
+fname=paste0(plotprename,'histbystu.pdf')
+if (ntopic < 7) {
+  pdf(paste0('../',fname),width=3*ntopic, height=2*nsection)
+  print(qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 )
+} else {
+  pdf(paste0('../',fname),width=1.5*nsection, height=ntopic)
+  print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101)
+}
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{1.25\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.95\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:hist}Histograms of the percentages correct by section and topic.}
+\\end{wrapfigure}\\par\\end{center}',gsub("\\.pdf$","",fname)))
+
+@
+
+\clearpage
+\newpage{}
+\section{Factor effects and comparisons}
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+score = dat
+colnames(score)[-2] = c('Student','Topic','Score')
+score$Score = score$Score/100
+score$FullPoints = 0
+for (i in 1:ntopic){
+  for (j in 1:nsection){
+    score$FullPoints[score$Section==rownames(merged$dat$FullScore)[j] &
+                     score$Topic==colnames(merged$dat$FullScore)[i]] = 
+      merged$dat$FullScore[j,i]
+  }
+}
+score=score[complete.cases(score),]
+score=score[score$Score>0,]
+
+#f1=glmmPQL(data=score,fixed=Score~Topic+Section,random=~1+Section|Student,family=quasibinomial(link="logit"),weights=FullPoints)
+#f2=glmmPQL(data=score,fixed=Score~Topic+Section,random=~1|Student,family=quasibinomial(link="logit"),weights=FullPoints)
+f3=glmer(Score~Topic*Section+(1|Student),data=score, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+#f4=glmer(Score~Topic*Section+(1+Section|Student),data=score, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+f=f3
+
+score$Predict=fitted(f)
+score$Residual=score$Score-score$Predict
+
+est=fixef(f)
+estcov=vcov(f)
+
+##########
+
+predprob = merged$file[,-1]
+colnames(predprob)=c('Topic','Section')
+Topic = predprob$Topic
+Section = predprob$Section
+m = model.matrix(~Topic+Section+Topic:Section)
+pred = (m %*% est) [,1]
+predsd = sqrt(diag(m %*% estcov %*% t(m)))
+predprob$Predict = exp(pred) / (1+exp(pred))
+predprob$lower = exp(pred-qnorm(0.975)*predsd) / (1+exp(pred-qnorm(0.975)*predsd))
+predprob$upper = exp(pred+qnorm(0.975)*predsd) / (1+exp(pred+qnorm(0.975)*predsd))
+predprob$Topic = factor(predprob$Topic,levels=unique(predprob$Topic))
+ord_section = tapply(predprob$Predict,predprob$Section,mean)
+ord_section = names(ord_section[order(ord_section,decreasing=TRUE)])
+
+# predtable = round(m %*% diag(est),3)
+# coefname = names(est)
+# coefname[1] = 'Intercept'
+# pvalue = summary(f)$coefficients[,4]
+# signif = rep("*",length(pvalue))
+# signif[pvalue >= 0.05] = " " 
+# predprob$formula = apply(predtable,1,function(x){
+#     idx = which(x != 0)
+#     paste(sprintf("%.*f %s%s",3,x[idx],coefname[idx],signif[idx]),collapse=' + ')
+#   })
+# predprob$formula = gsub(" \\+ -"," - ",predprob$formula)
+# fml=data.frame("=",predprob[,4])
+# rownames(fml) = apply(predprob,1,function(x){
+#                   sprintf("phat(%s,%s)",x[1],x[2])
+#                 })
+# colnames(fml)=c("","Fixed effects")
+
+##########
+
+topic_est=est[2:ntopic]
+topic_estcov=estcov[2:ntopic,2:ntopic]
+topic_pmtrx = multiple_comparison(topic_est,as.matrix(topic_estcov),colnames(avg),nrow(score),FALSE)
+
+sec_est=est[1:(nsection-1)+ntopic]
+sec_estcov=estcov[1:(nsection-1)+ntopic,1:(nsection-1)+ntopic]
+sec_pmtrx=multiple_comparison(sec_est,as.matrix(sec_estcov),rownames(avg),nrow(score),FALSE)
+
+@
+
+To analyze the effects of sections and topics on students' performance, 
+we consider the generalized linear mixed model, with the response 
+(homework score), and the predictors 
+(section and topic).
+
+Let $Y_{ijk}$ denote the score that the $k$th student in Section 
+$j$ gets for Topic $i$. $i=1,...,$\Sexpr{ntopic} topics; 
+$j=1,...,$\Sexpr{nsection} sections; $k=1,...,n_j$ students.
+
+Consider that most homework questions give 1 point for 1 correct 
+answer, for example, a multiple choice is usually 1 point;
+a matching question with 6 items is usually 6 points.
+Hence we assume that the full point is equal to the number of 
+questions in one homework, and the students can only get 
+either 0 or 1 point for each question. Assume that the correct 
+probabilities of the questions in one homework are homogeneous, 
+denoted by $p_{ijk} \in (0,1)$, then we have 
+\[
+Y_{ijk} \sim Binomial(N_i, p_{ijk})
+\]
+where $N_i$ is the full point (i.e., the total number of questions) 
+of the $i$th homework.
+
+A mixed effects model is considered since we have 
+multiple measurements on each student, while the students 
+may have different ability to study. The fixed effects are 
+topic ($t$), section ($s$), and their interaction ($ts$). The 
+random effect is student ($u$). 
+
+Note that \Sexpr{nstudent} students are divided into 
+\Sexpr{nsection} sections. One issue is that 
+if we believe $\sigma_{u}^{2}$ are equal between 
+the sections. In this study we assume that the variances of 
+random effects are not equal, i.e., $u_{jk} \sim N(0,\sigma_{j}^{2})$.
+Hence we have the following equation,
+\[
+g(p_{ijk}) = \mu + t_{i}+s_{j}+ts_{ij}+u_{jk}
+\]
+where $g()$ is the link function. By default the software R will
+set $t_{1}=0$, $s_{1}=0$ and $ts_{ij}=0, \forall i,j = 1 $ 
+as the identifiability constraints.
+
+%The result for the fixed effects is in Table \ref{tab:model}. 
+%The asterisks indicates the significant coefficients at the 0.05 $\alpha$-level.
+The result of the model is as below. Figure \ref{mar:fitted} compares 
+the fitted values with the response. Figure \ref{fig:est_sec} 
+shows the estimated correct probability.
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+fname=paste0(plotprename,'fitted.pdf')
+pdf(paste0('../',fname),width=5,height=4)
+print(qplot(Score,Predict,data=score,color=Section,geom='point',alpha=I(0.4),
+            ylab='Predicted correct probability') + 
+        geom_abline(intercept=0, slope=1, color='grey'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:fitted}Scatterplot between the scaled scores and the 
+predicted correct probability. The predicted probability is continuous in (0,1).
+But the true scores are discrete.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+@
+\clearpage
+<<echo=FALSE,results="markup",warning=FALSE>>=
+summary(f)
+@
+
+<<echo=FALSE,results="asis",warning=FALSE>>=
+#summary(f)$coefficients
+#print(fml,right=FALSE)
+# print(xtable(fml,caption='Model result. The mean of the estimated
+#              correct percentages by topic and section is a linear 
+#              combination of the fixed effects. The asterisks indicates 
+#              the significant predictors at the 0.05 $\\alpha$-level.',
+#              label='tab:model',align=c('l','c','l')),
+#       floating=FALSE,tabular.environment = "longtable",size="footnotesize")
+@
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+fname=paste0(plotprename,'est_section.pdf')
+pdf(paste0('../',fname),width=7,height=4)
+print(qplot(Topic,Predict,data=predprob,group=Section,
+      geom='line',size=I(1.2),ylab='Estimated correct probability')+
+        geom_ribbon(aes(ymin=lower,ymax=upper,fill=Section),alpha=0.3)+
+        geom_line(aes(color=Section),size=1.2))
+#qplot(Topic,Score,data=score,geom='line',group=Student,color=Section,alpha=I(0.05)) +
+#geom_line(aes(x=Topic,y=Predict,group=Section,color=Section),data=predprob,size=I(1))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{H}{0.95\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.95\\textwidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:est_sec}The estimated correct probability by section.
+Averagely, section %s has the highest correct probability, and %s has the lowest.}
+\\end{wrapfigure}\\par\\end{center}',gsub("\\.pdf$","",fname),
+ord_section[1],ord_section[nsection]))
+@
+
+\clearpage
+From the model we see that some sections are better than other sections,
+and some topics are easier to understand than other topics.
+So the next question is that are the differences significant
+between topics and between sections? 
+
+We run the multiple test for comparison between the topics:
+\begin{enumerate}
+\item $H_{0}:\;\beta_{t_{i}}=0\qquad\textrm{vs}\qquad H_{a}:\;\beta_{t_{i}}\neq0$\\
+for $\forall\; i\in\{2,3,\cdots,$\Sexpr{ntopic}$\}$.
+\item $H_{0}:\;\beta_{t_{i}}-\beta_{t_{j}}=0\qquad\textrm{vs}\qquad H_{a}:\;\beta_{t_{i}}-\beta_{t_{j}}\neq0\qquad$\\
+for $\forall\; i\neq j,\; i,j\in\{2,3,\cdots,$\Sexpr{ntopic}$\}$.
+\end{enumerate}
+and get the the adjusted p-values by Bonferroni method in Table \ref{tab:pvalues_topic}.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+print(xtable(topic_pmtrx,caption='P-values of the multiple comparison between topics', label='tab:pvalues_topic',digits=4), floating=FALSE, tabular.environment = "longtable",size='tiny')
+@
+
+Then run the multiple test pairwisely between the sections:
+\begin{enumerate}
+\item $H_{0}:\;\beta_{s_{i}}=0\qquad\textrm{vs}\qquad H_{a}:\;\beta_{s_{i}}\neq0$\\
+for $\forall\; i\in\{2,3,\cdots,$\Sexpr{nsection}$\}$.
+\item $H_{0}:\;\beta_{s_{i}}-\beta_{s_{j}}=0\qquad\textrm{vs}\qquad H_{a}:\;\beta_{s_{i}}-\beta_{s_{j}}\neq0$\\
+for $\forall\; i\neq j,\; i,j\in\{2,3,\cdots,$\Sexpr{nsection}$\}$.
+\end{enumerate}
+and get the the adjusted p-values by Bonferroni method in Table \ref{tab:pvalues_sec}.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+print(xtable(sec_pmtrx,caption='P-values of the multiple comparison between sections', label='tab:pvalues_sec',digits=4), floating=FALSE, tabular.environment = "longtable")
+
+@
+
+
+\clearpage
+\newpage{}
+\section{Clustering}
+
+During a semester of 16 weeks, students may not keep the same pace 
+in studying. Some students are smart and working very hard all the 
+time. Some students start full of energy, and gradually lose 
+their passions. Some students do not take the course seriously 
+until they are challenged by some difficult content.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+
+clorig = cl(merged$dat$CorrectPct[,1:ntopic+2])
+clhc2 = clorig[,1:9]
+clhc2$Section = merged$dat$CorrectPct[rownames(clhc2),'Section']
+clhc2 = clhc2[order(clhc2$cl2,clhc2$cl3,clhc2$cl4,clhc2$cl5,
+                    clhc2$cl6,clhc2$cl7,clhc2$cl8,clhc2$cl9,decreasing=FALSE),]
+for (j in 1:9){
+  clhc2[,j] = as.integer(factor(clhc2[,j],levels=unique(clhc2[,j])))
+}
+clhc2 = clhc2[order(clhc2$Section,clhc2$cl2,clhc2$cl3,clhc2$cl4,clhc2$cl5,
+                    clhc2$cl6,clhc2$cl7,clhc2$cl8,clhc2$cl9,decreasing=FALSE),]
+for (j in 1:9){
+  tmp1 = tapply(clhc2[,j],factor(clhc2[,j]),function(x){sum(clhc2[,j]<=x[1])-length(x)/2})
+  tmp2 = table(clhc2[,j])
+  for (i in 1:j){
+    clhc2[clhc2[,j]==i,j] = tmp1[i] + seq(-tmp2[i]*0.2,tmp2[i]*0.2,length=tmp2[i])
+  }
+}
+
+clhc2$student = rownames(clhc2)
+clhc3 = melt(clhc2,id.var=c('student','Section'))
+clhc3$height=rep(attr(clorig,"height"),each=nrow(clhc2))
+
+clhc4=clhc3[order(clhc3$student,clhc3$Section,clhc3$variable),]
+clhc5=clhc4
+clhc5$value[-nrow(clhc5)]=clhc4$value[-1]
+clhc5$value[(1:(nrow(clhc5)/9))*9]=clhc5$value[(1:(nrow(clhc5)/9))*9-1]
+clhc6=rbind(clhc4,clhc5)
+clhc6=clhc6[rep(1:nrow(clhc5),each=2)+rep(c(0,nrow(clhc5)),nrow(clhc5)),]
+clhc6=clhc6[-((1:(nrow(clhc6)/18))*18),]
+
+bestcut_hclust = which.min(diff(unique(clhc6$height)))+1
+
+fname=paste0(plotprename,'hclust.pdf')
+pdf(paste0('../',fname),width=4,height=4)
+print(qplot(value,height,data=clhc6,group=student,color=Section,geom='path',
+      ylab='Clustering Height',xlab='Student'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:hclust}Tree plot of hierarchical clustering, 
+from one to nine clusters.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+
+##########
+
+crtrorig = crtr(clorig,ntopic)
+dfboot = clbootstrap(merged$dat$CorrectPct[,1:ntopic+2],ntopic,nboot=100,txtbar=FALSE)
+dfboot2 = melt(dfboot,id.vars=c('cluster','criteria'))
+
+crtr_bw = dfboot[dfboot$criteria=='SSE',-(1:2)]
+crtr_wb = dfboot[dfboot$criteria=='Rsquare',-(1:2)]
+range_bw = apply(crtr_bw,1,function(x)c(min(x),max(x)))
+range_wb = apply(crtr_wb,1,function(x)c(min(x),max(x)))
+cut_wb = diff(as.vector(range_wb))[seq(2,ncol(range_wb)*2-2,by=2)]
+cut_bw = rev(diff(as.vector(range_bw[,ncol(range_bw):1]))[seq(2,ncol(range_bw)*2-2,by=2)])
+bestcut_bw = which(cut_bw>=0)
+bestcut_wb = which(cut_wb>=0)
+bestcut_bw = if (length(bestcut_bw)) bestcut_bw[1]+1 else which.min(diff(crtrorig[crtrorig$criteria=='SSE','value']))+2
+bestcut_wb = if (length(bestcut_wb)) bestcut_wb[1]+1 else which.max(diff(crtrorig[crtrorig$criteria=='Rsquare','value']))+2
+bestcut_bbww = if (bestcut_bw == bestcut_wb) bestcut_bw else min(bestcut_bw,bestcut_wb)
+
+#bestcut = which.min(diff(height9)[-1])+2
+#if ((height9[1]-height9[2]) > (0.7*height9[1])) bestcut=2
+
+##########
+bestcut_pamk = pamk(clorig[,1:ntopic+9],krange=2:9)
+
+##########
+bestcut_vote = table(c(bestcut_hclust,bestcut_bw,bestcut_wb,bestcut_pamk$nc))
+bestcut = as.integer(names(bestcut_vote)[which.max(bestcut_vote)])
+@
+
+We are interested in finding some featured behaviors along with time,
+by clustering the students into groups. The result of hierarchical 
+clustering on the scaled scores is shown in Figure \ref{mar:hclust}. 
+Up to down it seperates the students in 1 to 9 groups.
+It suggests the best number of clusters is \Sexpr{bestcut_hclust}.
+
+Note that the euclidean distance of the correct percentages 
+is not a reasonable distance measure, because it emphasizes
+more on the score level, less on the temporal pattern. 
+For example, student A gets 100, 95, 90 for the first three homeworks;
+student B gets 70, 65, 60; and student C gets 60, 65, 70.
+Student A and B have the same decreasing pattern, but by the 
+euclidean distance, B and C are closer.
+
+Similar as using the correlation distance, we scaled the 
+correct percentages within the records of each student.
+Revisit the example above, the scaled scores for student 
+A and B are 1, 0, -1; for student C are -1, 0, 1. Then 
+A and B can be grouped together.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+fname=paste0(plotprename,'screeplot.pdf')
+pdf(paste0('../',fname),width=4,height=6)
+print(qplot(cluster,value,data=dfboot2,geom='point',alpha=I(0.1)) + 
+  facet_grid(criteria~., scales = "free_y") + geom_line(data=crtrorig))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:scree}Two criteria to refer the number of clusters.
+The points are results from bootstrap simulation, and the line connects 
+the real values from the criteria.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+@
+
+To find the better number of clusters, first we consider two simple 
+criteria. One is the within group sum of squares (SSE), the other is 
+the proportion of between group sum of squares (SSR) over the total 
+sum of squares (SSR+SSE), i.e., the R-square.
+Figure \ref{mar:scree} gives the scree plots for SSE and R-squares
+for the models with 2 to 9 clusters. The lines connect 
+the real values from the criteria, and the dots are the 
+bootstrap simulation. The plots suggest \Sexpr{bestcut_bbww} clusters.
+
+At the meanwhile, we consider another criterion - the optimum 
+average silhouette width. As seen in Figure \ref{mar:asw}, 
+it suggests the best number of clusters is \Sexpr{bestcut_pamk$nc}.
+
+Since \Sexpr{bestcut} clusters is a reasonable choice,
+the mean scaled scores of each cluster on each topic is displayed in 
+Figure \ref{fig:bestcut}.
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+#bestcut = 5
+
+bestcut_dat = data.frame(Cluster=clorig[,bestcut],
+                         Section=merged$dat$CorrectPct[rownames(clorig),'Section'],
+                         Student=rownames(clorig),
+                         clorig[,1:ntopic+9])
+bestcut_dat = bestcut_dat[rownames(clhc2),]
+bestcut_dat[,1] = factor(bestcut_dat[,1],levels=unique(bestcut_dat[,1]))
+
+bestcut_dat2=melt(bestcut_dat,id.var=1:3)
+bestcut_mean=ddply(bestcut_dat2,c('Cluster','variable'),summarise,center=mean(value))
+
+##########
+asw = data.frame(cluster=2:9,criterion=bestcut_pamk$crit[-1])
+fname=paste0(plotprename,'clustasw.pdf')
+pdf(paste0('../',fname),width=5,height=4)
+print(qplot(cluster,criterion,data=asw,geom=c('point','line'),ylab='criterion value'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:asw}Using the optimum average silhouette 
+width criterion to find the number of clusters. The larger value, 
+the better model.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+
+##########
+bestcut_table = table(bestcut_dat[,2],bestcut_dat[,1])
+bestcut_table_pct = prop.table(bestcut_table,2)*100
+print(xtable(bestcut_table_pct,caption='Contingency table in Column\\% between sections and clusters.', label='tab:cluster_pct',digits=2), floating=FALSE, tabular.environment = "longtable")
+
+fname=paste0(plotprename,'bestclust.pdf')
+pdf(paste0('../',fname),width=7,height=4)
+print(qplot(variable,value,data=bestcut_dat2,group=Student,
+            color=Cluster,geom='line',alpha=I(0.05),
+            xlab='Topic',ylab='Scaled score') +
+        geom_line(aes(x=variable,y=center,group=Cluster,color=Cluster),
+                  data=bestcut_mean,size=I(2)) + 
+        scale_colour_hue(h=c(40, 270)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{h}{0.95\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:bestcut}Trend of the %d clusters. 
+The thick lines connect the means of the clusters; 
+the light thin lines show the scaled scores by student.}
+\\end{wrapfigure}\\par\\end{center}',gsub("\\.pdf$","",fname), bestcut))
+
+jointTable = prop.table(t(bestcut_table))
+plotData = as.data.frame(jointTable)
+plotData$marginVar1 = prop.table(table(bestcut_dat2$Cluster))
+plotData$Proportion = plotData$Freq / plotData$marginVar1
+plotData$Cluster = c(0, cumsum(plotData$marginVar1)[1:bestcut -1]) + plotData$marginVar1 / 2
+colnames(plotData)[2]='Section'
+
+fname=paste0(plotprename,'clust_mosaic.pdf')
+pdf(paste0('../',fname),width=5,height=4)
+print(ggplot(plotData, aes(Cluster, Proportion)) +
+  geom_bar(stat = "identity", aes(width = marginVar1, fill = Section), col = "Black") +
+  geom_text(aes(label = as.character(Var1), x = Cluster, y = 1.05)) )
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:mosaic}Mosaic plot by section and cluster.}
+\\end{marginfigure}', sub('\\.pdf$','',fname)))
+@
+
+\clearpage
+\section{Students}
+
+<<echo=FALSE,results="asis">>=
+lagStudents = merged$dat$CorrectPct[,-ncol(merged$dat$CorrectPct)]
+lagStudents[,-(1:2)] = apply(lagStudents[,-(1:2)],2,function(x) x<quantile(x,.2,na.rm=TRUE))
+lagStudents = lagStudents[rowMeans(lagStudents[,-(1:2)],na.rm=TRUE)>0.5,]
+
+print(xtable(t(table(lagStudents$Section)),caption='Number of students that have at least a half of the homework scores in the bottom 20\\%.', label='tab:bottom20'), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+
+for (i in unique(lagStudents$Section)) {
+  emailaddress = paste0(lagStudents$Username[lagStudents$Section==i],'@iastate.edu')
+write.table(c("With semicolon:","",
+              paste(emailaddress,collapse='; '),
+              "","","With comma:","",
+              paste(emailaddress,collapse=', ')),
+            file=sprintf('../Stat101_section_%s_lower20pct.txt',i),
+            quote=FALSE,row.names=FALSE,col.names=FALSE)
+}
+@
+
+
+\clearpage
+\newpage{}
+\section{Acknowledgement}
+This report is generated by Xiaoyue Cheng, Dianne Cook, and Amy Froelich, using R-3.1.2 with packages knitr, xtable and ggplot2.
+
+\end{document}

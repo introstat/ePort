@@ -1,0 +1,278 @@
+\documentclass[12pt,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+\makeatletter
+\makeatother
+
+\begin{document}
+
+<<include=FALSE>>=
+#opts_chunk$set(cache=TRUE)
+
+library(ggplot2)
+library(xtable)
+
+plotprename=paste0('Stat101_Section',merged$format,"_")
+nfile = nrow(merged$file)
+topics = as.integer(gsub("[A-Za-z]","",merged$file$topic))
+
+@
+
+\centerline{\Large\bf Statistics 101 Analysis for Section \Sexpr{merged$format}}
+\centerline{\bf Homework Comparison across Topics \Sexpr{min(topics)} -- \Sexpr{max(topics)}}
+\centerline{\bf }
+
+
+\section{Overview}
+
+The \Sexpr{nfile} homework outcome files are \Sexpr{paste(basename(merged$file$file),collapse=', ')}.
+
+
+There are \Sexpr{nrow(merged$dat$CorrectPct)} students in Section \Sexpr{merged$format} 
+submitting their answers. \Sexpr{nrow(merged$dat$CorrectPct)-nrow(merged$dat$MissingTimes)}
+of them did all the homeworks. Since different homeworks have different full 
+scores, the percentages correct are used to compare among homeworks.
+The average correct percents for the \Sexpr{nfile} homeworks are 
+\Sexpr{paste(round(colMeans(merged$dat$CorrectPct[,1:nfile+2],na.rm=TRUE)),collapse=', ')}, respectively.
+Figure \ref{mar:hist} compares the histograms of those homeworks.
+Table \ref{tab:summary} and Figure \ref{fig:boxplot} display the basic summaries of the scores.
+
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+
+dat=melt(merged$dat$CorrectPct,id.vars=1:2,measure.vars=1:nfile+2)
+colnames(dat)=c('Username','Section','Hwk','CrtPct')
+dat$CrtPct=as.numeric(as.character(dat$CrtPct))
+
+if (nfile<10) {
+fname=paste0(plotprename,'histbystu.pdf')
+pdf(paste0("../",fname),width=4, height=18)
+print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
+} else {
+para = nfile %/% 7 + (nfile %% 7 > 0)
+for (j in 1:para) {
+fname=paste0(plotprename,'histbystu',j,'.pdf')
+pdf(paste0("../",fname),width=4, height=18)
+partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
+print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+{dev.off();invisible()}
+}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',paste0(plotprename,'histbystu1')))
+}
+
+tmp=merged$dat$CorrectPct[,1:nfile+2]
+su=cbind(Mean=round(colMeans(tmp,na.rm=TRUE),2), 
+  Std.dev=round(apply(tmp,2,sd,na.rm=TRUE),2), 
+  Min=apply(tmp,2,min,na.rm=TRUE),
+  Median=apply(tmp,2,median,na.rm=TRUE), 
+  Max=apply(tmp,2,max,na.rm=TRUE))
+su=as.data.frame(cbind(su[,1:2],NA,NA,su[,3:5]))
+colnames(su)[3:4]=" "
+print(xtable(su,caption=sprintf('Summary statistics for correct percentage. %s has the highest mean correct percentage, while %s has the lowest. %s has the largest standard deviation, and %s has the smallest.',rownames(su)[su$Mean==max(su$Mean,na.rm=TRUE)], rownames(su)[su$Mean==min(su$Mean,na.rm=TRUE)], rownames(su)[su$Std.dev==max(su$Std.dev,na.rm=TRUE)], rownames(su)[su$Std.dev==min(su$Std.dev,na.rm=TRUE)]
+),label='tab:summary'),floating=FALSE, tabular.environment = "longtable")
+
+@
+
+\clearpage
+
+<<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
+
+fname=paste0(plotprename,'boxplotbystu.pdf')
+pdf(paste0('../',fname),width=9,height=6)
+print(qplot(Hwk,CrtPct,data=dat,geom='boxplot')+
+      geom_line(aes(group=Username),alpha=0.2)+
+      geom_boxplot(aes(fill=Hwk))+
+      labs(x="Homework", y="Percentage Correct")+
+      theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.9\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.9\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:boxplot}Side-by-side boxplots of the percentages correct by students homeworks. %s has the highest median, while %s has the lowest median.}
+\\end{wrapfigure}\\par\\end{center}', sub('\\.pdf','',fname), paste(rownames(su)[su$Median==max(su$Median,na.rm=TRUE)],collapse=","), paste(rownames(su)[su$Median==min(su$Median,na.rm=TRUE)],collapse=",")))      
+
+if (nfile>=10) {
+    cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}\\end{marginfigure}',paste0(plotprename,'histbystu2')))
+}
+
+@
+
+\clearpage
+\newpage{}
+\section{Students}
+
+Figure \ref{fig:heatmap} and Table \ref{tab:data} give the percentage
+scores of each homework of all homeworks for every student in this section.
+Table \ref{tab:data} also provides the mean percentages by student.
+The students are sorted by their average percentage score of \Sexpr{nfile}
+homeworks. Table \ref{tab:lag} lists the students who were in the lower
+20\% of the class.
+
+<<echo=FALSE,results="asis">>=
+if (nfile>14) {
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\end{marginfigure}',paste0(plotprename,'histbystu3')))
+}
+
+
+tmp=merged$dat$CorrectPct[,-ncol(merged$dat$CorrectPct)]
+tmptile=melt(tmp,id.vars=1:2)
+colnames(tmptile)[c(1,3,4)]=c('Student','Topic','Percentage')
+tmptile$Student=factor(tmptile$Student,levels=rev(tmp$Username))
+fname=paste0(plotprename,'tile_student_topic.pdf')
+pdf(paste0("../",fname),width=8,height=12)
+print(qplot(Topic,Student,data=tmptile,geom='tile',fill=Percentage)+
+  scale_fill_continuous(low='red',high='white',name='Correct\nPercentage\n'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.95\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.99\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:heatmap}Heatmap of the percentage scores of all homeworks for students in the section. The grey areas are the missing values.}
+\\end{wrapfigure}\\par\\end{center}', sub('\\.pdf','',fname)))      
+
+@
+
+\clearpage
+
+<<echo=FALSE,results="asis">>=
+p90= max(which(merged$dat$CorrectPct$AvgCrtPct>=90))
+p80= max(which(merged$dat$CorrectPct$AvgCrtPct>=80))
+p70= max(which(merged$dat$CorrectPct$AvgCrtPct>=70))
+p60= max(which(merged$dat$CorrectPct$AvgCrtPct>=60))
+#tmp=cbind(Student=rownames(merged),merged)
+#tmp=rbind(tmp[1:p90,],NA,tmp[(p90+1):p80,],NA,tmp[(p80+1):p70,],NA,tmp[(p70+1):p60,],NA,tmp[(p60+1):nrow(tmp),])
+#print(xtable(tmp,caption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged)*100, 2)), as.character(round(sum(merged$AvgCrtPct<60,na.rm=TRUE)/nrow(merged)*100, 2))), label='tab:data'), floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+
+tmp=merged$dat$CorrectPct[,-(1:2)]
+tmp90=tmp[1:p90,,drop=FALSE]
+tmp80=tmp[(p90+1):p80,,drop=FALSE]
+tmp70=tmp[(p80+1):p70,,drop=FALSE]
+tmp60=tmp[(p70+1):p60,,drop=FALSE]
+tmp50=tmp[(p60+1):nrow(tmp),,drop=FALSE]
+if (nrow(tmp)==p90) {
+  tmp=tmp90
+} else if (nrow(tmp)==p80) {
+  tmp=rbind(tmp90,NA,tmp80)
+  rownames(tmp)[p90+1]=""
+} else if (nrow(tmp)==p70) {
+  tmp=rbind(tmp90,NA,tmp80,NA,tmp70)
+  rownames(tmp)[p90+1]=""
+  rownames(tmp)[p80+2]=" "
+} else if (nrow(tmp)==p60) {
+  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60)
+  rownames(tmp)[p90+1]=""
+  rownames(tmp)[p80+2]=" "
+  rownames(tmp)[p70+3]="  "
+} else {
+  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60,NA,tmp50)
+  rownames(tmp)[p90+1]=""
+  rownames(tmp)[p80+2]=" "
+  rownames(tmp)[p70+3]="  "
+  rownames(tmp)[p60+4]="   "
+}
+AllStudentScore=widetableinLaTeX(tmp,tablecaption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2)), as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct<60,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2))),label='tab:data',cols=7)
+
+
+# Lower 20%
+tmp=merged$dat$CorrectPct[,-c(1:2,ncol(merged$dat$CorrectPct))]
+tmp=apply(tmp,2,function(x){x<quantile(x,.2,na.rm=TRUE)})
+tmp=tmp[rowSums(tmp,na.rm=TRUE)>0,]
+tmplag=apply(tmp,2,function(x){
+  y=rep('',length(x))
+  y[is.na(x)]='\\color{gray}{NA}'
+  x[is.na(x)]=FALSE
+  y[x]='\\color{red}{X}'
+  return(y)
+})
+rownames(tmplag)=rownames(tmp)
+print(xtable(tmplag,caption='Students whose scores were under 20\\% of the class.',
+             label='tab:lag'), floating=FALSE, tabular.environment = "longtable",
+      sanitize.text.function=identity)
+
+
+## Trend
+#trend1=1:6
+#trend2=c(3,2,1,1,2,3)
+#trend3=c(1,2,3,3,2,1)
+#trend4=6:1
+
+#stutrend=t(apply(merged[,1:6],1,function(x){
+#    idx=!is.na(x)
+#    if (length(idx)>0)  {return(c(cor(x[idx],trend1[idx]), cor(x[idx],trend2[idx]), cor(x[idx],trend3[idx]), cor(x[idx],trend4[idx])))} else {return(rep(NA,5))}
+#  }))
+#stutrend=as.data.frame(stutrend)
+#colnames(stutrend)=c('Up',"Down-Up","Up-Down","Down")
+#stutrend$type=unlist(apply(stutrend,1,function(x){ifelse(length(which.max(x))>0,colnames(stutrend)[which.max(x)],NA)}))
+#stutrend$type=as.factor(stutrend$type)
+#merged$type=stutrend$type
+
+#fname='pcp.pdf'
+#pdf(fname,width=10,height=6)
+#print(ggpcp(merged,vars=colnames(merged)[1:6],scale="I") + geom_line(aes(colour=type,size=type),alpha=I(0.5))+ labs(x="Homework", y="Percentage Correct")+opts(axis.text.x=theme_text(size=15), axis.text.y=theme_text(size=15)) )
+#{dev.off();invisible()}
+##cat(sprintf('\\begin{figure}[!hpbt]\\centering \\includegraphics[width=0.9\\linewidth]{%s}
+##\\end{figure}',sub('\\.pdf','',fname)))
+#cat(sprintf('\\begin{center}
+#\\begin{figure}
+#\\begin{centering}
+#\\includegraphics[width=0.95\\linewidth]{%s}
+#\\par\\end{centering}
+#\\caption{\\label{fig:pcp}Parallel coordinates plot of the correct percentages by homeworks. The students are grouped by the shape of their score seires. Basically there are four groups: increasing all the time; firstly falling down then going back; firstly going up then dropping; consistently decreasing.}
+#\\end{figure}\\par\\end{center}', sub('\\.pdf','',fname)))            
+
+
+
+## Missing Data
+tmp1=table(merged$dat$MissingTimes[,2])
+tmp2=rep(NA,length(tmp1))
+for (i in 1:length(tmp1)) {
+  tmp2[i] = sprintf("%s student%s missed %s homework%s.",tmp1[i], ifelse(tmp1[i]>1,"s",""),names(tmp1)[i],ifelse(as.integer(names(tmp1)[i])>1,"s",""))
+}
+@
+
+\clearpage
+\newpage{}
+\section{Missing Data}
+Figure \ref{mar:missing} shows the summary of missing homeworks from the students. 
+Table \ref{tab:missing} lists the students who missed at least one homework. 
+%\Sexpr{paste(rev(tmp2),collapse=" ")}
+
+<<echo=FALSE,results="asis">>=
+
+tmp1=merged$dat$CorrectPct[,1,drop=FALSE]
+tmp1[,1]=0
+tmp2=merged$dat$MissingTimes[,2,drop=FALSE]
+tmp1[rownames(tmp2),1]=tmp2[,1]
+
+fname=paste0(plotprename,'missinghwk.pdf')
+pdf(paste0('../',fname), width=4, height=3)
+print(qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:missing}Histogram of the missing homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+print(xtable(tmp2,caption='Students with missing homeworks.',digits=0,label='tab:missing'), 
+floating=FALSE, tabular.environment = "longtable")
+
+@
+
+\clearpage
+\newpage{}
+\section{Acknowledgement}
+This report is generated by Xiaoyue Cheng, Dianne Cook, and Amy Froelich, using R-3.1.2 with package knitr, xtable and ggplot2.
+
+\end{document}

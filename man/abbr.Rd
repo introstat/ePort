@@ -1,0 +1,24 @@
+% Please edit documentation in R/report_format.R
+\name{abbr}
+\alias{abbr}
+\title{Abbreviate the long answers}
+\usage{
+abbr(avec, l = 12)
+}
+\arguments{
+\item{avec}{a vector of character or factor}
+
+\item{l}{maximum length of the}
+}
+\value{
+a list of two objects: a new vector with abbreviated
+names, and a glossary key.
+}
+\description{
+The long answers are replaced by the first letters of words,
+except that "not answered" is kept the same, and
+"" is replaced by "not answered".
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

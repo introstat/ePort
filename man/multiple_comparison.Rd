@@ -1,0 +1,29 @@
+% Please edit documentation in R/data_analysis.R
+\name{multiple_comparison}
+\alias{multiple_comparison}
+\title{Run the multiple comparison}
+\usage{
+multiple_comparison(est, estcov, coefname, n, ordermatrix = TRUE, method = "bonferroni")
+}
+\arguments{
+\item{est}{the estimated values of the fixed effects}
+
+\item{estcov}{the covariance matrix of the fixed effects}
+
+\item{coefname}{a vector of all levels (should contain one more level than est)}
+
+\item{n}{the number of rows in the design matrix of the model}
+
+\item{ordermatrix}{logical. If coefname should be ordered in the matrix or not.}
+
+\item{method}{the multiple comparison methods. See ?p.adjust}
+}
+\value{
+a matrix of p-values between each pair of levels
+}
+\description{
+Run the multiple comparison
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

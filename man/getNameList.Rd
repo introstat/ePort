@@ -1,0 +1,44 @@
+% Please edit documentation in R/de-identify_student.R
+\name{getNameList}
+\alias{getNameList}
+\title{Get a full list of the students' names}
+\usage{
+getNameList(dpath, section = NULL, semester = NULL, secblind = TRUE, save = TRUE)
+}
+\arguments{
+\item{dpath}{path to the data files}
+
+\item{section}{the digits in the file names that indicates
+the section. For example, "T01.201.csv" gives the section
+digits from 5 to 7. Default to be NULL.}
+
+\item{semester}{appendix to the code, e.g. "2014FALL". Default to be NULL.}
+
+\item{secblind}{if the section information should be de-identified or not.}
+
+\item{save}{if the dictionary from the students' names
+to the code should be saved or not}
+}
+\value{
+a data frame of two columns: students' names
+and the corresponding code
+}
+\description{
+Read the students' names from the data files, and write
+a dictionary for the names with de-identified code.
+}
+\examples{
+library(ePort)
+
+##### *. De-identify students #####
+
+# Copy the data files into a new folder, say, "Data Files (de-identified)".
+# Make sure that any csv files other than the student data are already removed, e.g. "nameCode.csv"
+
+datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files (de-identified)"
+a = getNameList(datapath, section=NULL, semester="s15", secblind=TRUE, save=TRUE)
+encodeName(datapath, dict=paste(datapath,"nameCode.csv",sep='/'))
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

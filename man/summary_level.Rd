@@ -1,0 +1,31 @@
+% Please edit documentation in R/data_summary.R
+\name{summary_level}
+\alias{summary_level}
+\title{Summary on questions}
+\usage{
+summary_level(QS, QSS, CSS = NULL)
+}
+\arguments{
+\item{QS}{a data frame of question scores. First object of
+the output from function \code{clean_score}.}
+
+\item{QSS}{a list. First object of the output from function
+\code{clean_set}: QuestionSet.}
+
+\item{CSS}{a list. Second object of the output from function
+\code{clean_set}: ObjectiveSet. Could be NULL.}
+}
+\value{
+a list of two or three objects (when \code{CSS} is not NULL).
+The first two objects are the summaries by question,
+and by question set. The optional third output is the
+summary by learning objective.
+}
+\description{
+Gives the correct percentage, count, mean, standard deviation,
+minimum, median, maximum, and the number of NA's
+by different levels.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

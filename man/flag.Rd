@@ -1,0 +1,29 @@
+% Please edit documentation in R/data_analysis.R
+\name{flag}
+\alias{flag}
+\title{Flag the unusual questions}
+\usage{
+flag(set, value, method = "outlier", thres)
+}
+\arguments{
+\item{set}{a vector to identify the question set}
+
+\item{value}{a numeric vector, usually is the correct percentage.}
+
+\item{method}{"cluster" or "outlier". "cluster" uses hierarchical
+clustering method, and cut the tree by the parameter \code{thres}.
+"outlier" will mark the values which differ from any other values
+in the same set by \code{thres}.}
+
+\item{thres}{the threshold of the height of hclust.}
+}
+\value{
+a vector of asterisks to mark the questions
+}
+\description{
+Two methods are provided to detect the unusual questions.
+See \code{method} for details.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

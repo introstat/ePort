@@ -1,0 +1,26 @@
+% Please edit documentation in R/clean_data.R
+\name{read_score}
+\alias{read_score}
+\title{Extract useful information from Blackboard data files}
+\usage{
+read_score(filename, savefile = FALSE, keepAttempts = FALSE)
+}
+\arguments{
+\item{filename}{file name of the Blackboard data with path}
+
+\item{savefile}{logical. If TRUE then the cleaned data is saved.}
+
+\item{keepAttempts}{logical. If FALSE then only the best attempt
+would be kept for future use.}
+}
+\value{
+a list of four objects: a data frame of scores,
+a data frame of answer, the file information, and the clean questions.
+}
+\description{
+Organize the data into a table with rows as students and columns
+as scores or answers.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

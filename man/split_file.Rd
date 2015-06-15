@@ -1,0 +1,57 @@
+% Please edit documentation in R/clean_csv.R
+\name{split_file}
+\alias{split_file}
+\title{Split one csv data file into two files}
+\usage{
+split_file(filenm, cut_idx, cut_type)
+}
+\arguments{
+\item{filenm}{file name with path.}
+
+\item{cut_idx}{the identified number of the last question in part 1.}
+
+\item{cut_type}{either "RsQ" or "ID". See detail.}
+}
+\value{
+two new csv files
+}
+\description{
+If one homework contains two topics, we need to split the file.
+For example, Chapter 2 covers the material for Topics 2 and 4.
+}
+\details{
+There are two types of \code{cut_type}: RsQ and ID.
+RsQ refers to the absolute ID for questions, which is consistent
+with the Respondus questions.
+ID refers to the questions that the students worked on.
+
+For example, students were given 36 questions for Chapter 2,
+the first 16 belong to Topic 2, so we set \code{cut_type='ID'}
+and \code{cut_idx=16}. An alternative way is to set
+\code{cut_type='RsQ'} and \code{cut_idx=53}, because the first
+16 questions given to the students contains 53 questions totally.
+}
+\examples{
+library(ePort)
+
+##### *. Split data files #####
+datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files/Ch3"
+namelist = list.files(path = datapath, full.names = TRUE)
+for (i in namelist) rewrite_data(i)  # May not need this rewriting step!
+for (i in c("AB", "CD", "EF", "GH", "JKQ", "LM")) {
+    tmp = namelist[grep(i, basename(namelist))]
+    split_file(tmp, 29, "ID")
+}
+
+##### *. Merge data files #####
+datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Data Files/Ch9-Ch11"
+namelist = list.files(path = datapath, full.names = TRUE)
+for (i in namelist) rewrite_data(i)  # May not need this rewriting step!
+for (i in c("AB", "CD", "EF", "GH", "JK", "LM")) {
+    tmp = namelist[grep(i, basename(namelist))]
+    combine_files(tmp[2], tmp[1], paste("Topic11", i, "csv", sep = "."))
+}
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

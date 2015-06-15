@@ -1,0 +1,28 @@
+% Please edit documentation in R/data_summary.R
+\name{summary_score}
+\alias{summary_score}
+\title{Summary on students}
+\usage{
+summary_score(QS, QSS, CSS = NULL)
+}
+\arguments{
+\item{QS}{a data frame of question scores. First object of
+the output from function \code{clean_score}.}
+
+\item{QSS}{a list. First object of the output from function
+\code{clean_set}: QuestionSet.}
+
+\item{CSS}{a list. Second object of the output from function
+\code{clean_set}: ObjectiveSet. Could be NULL.}
+}
+\value{
+a data frame with total scores, scores for question sets,
+learning objectives (if \code{CSS} is not NULL), and questions.
+}
+\description{
+Merge the scores at different levels (total, learning
+objectives, question sets, questions) together.
+}
+\author{
+Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}

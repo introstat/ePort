@@ -1,0 +1,133 @@
+\documentclass[12pt,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+\makeatletter
+\makeatother
+
+\begin{document}
+
+<<include=FALSE>>=
+
+library(ggplot2)
+library(xtable)
+library(plyr)
+library(reshape2)
+
+plotprename=paste0('Topic',topic)
+chpt=substr(basename(namelist)[1],1,regexpr("\\.",basename(namelist)[1])-1)
+
+highmean=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[1,]==max(instructor_scores$sumrytotal[1,])],sep=", ")
+
+highmedian=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[4,]==max(instructor_scores$sumrytotal[4,])],sep=", ")
+
+highstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[2,]==max(instructor_scores$sumrytotal[2,])],sep=", ")
+
+lowstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[2,]==min(instructor_scores$sumrytotal[2,])],sep=", ")
+
+HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set),'QSFullPt']))
+@
+
+
+
+\centerline{\Large\bf Statistics 101 Short Report for Topic \Sexpr{topic}}
+\centerline{\bf Homework Comparison among Sections}
+\centerline{\bf }
+
+\section{Overview}
+
+<<echo=FALSE,results='asis'>>=
+
+a=t(instructor_scores$sumrytotal)
+a=cbind(a[,1:2],NA,NA,a[,3:7])
+colnames(a)[3:4]= " "
+a=a[order(a[,1],decreasing=TRUE),]
+sectionscore=instructor_scores$score[,1:2]
+sectionscore$Section=factor(sectionscore$Section,levels=rownames(a))
+
+b=instructor_scores$QPct
+b$LearningObj=factor(as.character(b$LearningObj),levels=names(sort(rowMeans(instructor_scores$CsetAvgPct),dec=TRUE)))
+b$QuestionSet=factor(as.character(b$QuestionSet),levels=names(sort(rowMeans(instructor_scores$QsetAvgPct),dec=TRUE)))
+b$Section=factor(b$Section,levels=rownames(a)[rownames(a)%in% colnames(instructor_scores$QsetAvgScore)])
+b$section=factor(b$Section,levels=rev(levels(b$Section)))
+
+fname=paste0(plotprename,'_boxplot_score.pdf')
+pdf(paste0("../",fname),width=9,height=6)
+print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+{dev.off();invisible()}
+cat(sprintf('
+\\begin{marginfigure}
+\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{fig:boxplot-score}Boxplot for the overall scores by section. The highest median comes from Section %s.}
+\\end{marginfigure}', sub('\\.pdf','',fname), paste(highmedian,collapse=',')))
+
+@
+
+The homework results that will be compared are \Sexpr{paste(basename(namelist),collapse=', ')}.
+
+Figure \ref{fig:boxplot-score} shows the side-by-side boxplots
+for the overall scores by section.
+Table \ref{tab:Oset} gives the average percentages correct for
+each learning objective by section. Any percentages below 80
+will be marked red.
+
+<<echo=FALSE,results='asis'>>=
+cat("\\marginnote{\n\n \\bigskip{} \n\n \\bigskip{} \n\n} ")
+cat(c("\\marginnote{Learning objectives in this topic:",
+      chapter_outcomes,"}"),sep="\n\n \\bigskip{} \n\n")
+
+tmptab = instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE]
+tmptab[tmptab<80] = paste0('\\color{red}{',tmptab[tmptab<80],'}')
+print(xtable(tmptab,caption='Average percentages correct for each learning objective by section. Learning objectives are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable",sanitize.text.function=identity)
+@
+
+\subsection{Problematic question sets}
+
+<<echo=FALSE,results='asis'>>=
+
+output1=cbind(1:nrow(answerkey[[2]]),answerkey[[2]][,c(3:5,7)])
+colnames(output1) = c('ID','LO','Qset','Name','FullPt')
+output1$CrtPct = colMeans(instructor_scores$Qscore,na.rm=TRUE)
+output1$Mean = output1$CrtPct
+output1$CrtPct = output1$Mean/output1$FullPt*100
+rownames(output1)=NULL
+output1$Flag = flag(output1$Qset, output1$CrtPct, thres = 15)
+Qset_1 = unique(output1$Qset[output1$CrtPct<80])
+Qset_2 = unique(output1$Qset[output1$Flag!=""])
+Qset_display = union(Qset_1,Qset_2)
+output1 = output1[output1$Qset %in% Qset_display,c(1:4,6,8)]
+
+if (length(Qset_1)) {
+  output2 = output1[output1$Qset %in% Qset_1,]
+  NArow=c(0,which(diff(as.integer(as.factor(output2$Qset)))==1))
+  if ((l<-length(NArow)) > 1) {
+    for (i in 2:l){
+      output2=rbind(output2[1:(NArow[i]+i-2),], NA, output2[(NArow[i]+i-1):nrow(output2),])
+    }
+  }
+  print(xtable(output2[,1:5],caption='Question sets with any question correct percentage less than 80.',
+               label='tab:summary_question',align="lccclc"),
+        floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+}
+
+if (length(Qset_2)) {
+  output2 = output1[output1$Qset %in% Qset_2,]
+  NArow=c(0,which(diff(as.integer(as.factor(output2$Qset)))==1))
+  if ((l<-length(NArow)) > 1) {
+    for (i in 2:l){
+      output2=rbind(output2[1:(NArow[i]+i-2),], NA, output2[(NArow[i]+i-1):nrow(output2),])
+    }
+  }
+  print(xtable(output2,caption='Question sets with range greater than 15.',
+               label='tab:summary_question',align="lccclcl"),
+        floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+}
+
+@
+
+\end{document}

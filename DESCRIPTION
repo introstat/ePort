@@ -1,0 +1,21 @@
+Package: ePort
+Type: Package
+Title: Report Generating System for Intro Stat Education
+Version: 0.0.1
+Date: 2014-10-28
+Author: Xiaoyue Cheng, Dianne Cook, Amy Froelich
+Maintainer: Xiaoyue Cheng <xycheng@iastate.edu>
+Description: Generates reports for Stat 101 students and instructors.
+Imports:
+    knitr,
+    plyr,
+    reshape2,
+    XML,
+    xtable
+Suggests:
+    ggplot2,
+    lme4,
+    shiny
+License: GPL (>= 2.0)
+LazyData: true
+VignetteBuilder: knitr
