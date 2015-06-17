@@ -3,6 +3,4 @@ sudo: required
 language: r
 
 notifications:
-  email:
-    on_success: change
-    on_failure: change
+  email: false
