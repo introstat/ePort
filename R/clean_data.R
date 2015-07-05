@@ -15,6 +15,10 @@
 #' @export
 #' 
 read_score = function(filename, savefile=FALSE, keepAttempts=FALSE){
+  
+  # Declare these to NULL to appease R CMD check
+  `Possible Points`<-`Auto Score`<-Attempt<-Score<-NULL
+  
   scores = read.csv(filename, check.names = FALSE, 
                     colClasses=c(rep('character',6),rep('numeric',3)))
   scores[is.na(scores[,8]),8] = 0
@@ -77,6 +81,10 @@ read_score = function(filename, savefile=FALSE, keepAttempts=FALSE){
 #' @export
 #' 
 clean_score = function(HWsheet, key, skip=NULL){
+  
+  # Declare these to NULL to appease R CMD check
+  Attempt<-Score<-NULL
+  
   r1 = HWsheet$score
   r2 = HWsheet$answer
   r0 = r1[,c(1,3,4)]

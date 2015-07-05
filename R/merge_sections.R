@@ -115,7 +115,7 @@ merge_section2 = function(filenmlist, answerkey, skip=NULL){
     score[[i]]=clean_score(dat[[i]],answerkey,skip)
     set[[i]]=clean_set(score[[i]]$HWsheet, answerkey)
     
-    Qscore = rbind(Qscores, score[[i]]$HWsheet)
+    Qscore = rbind(Qscore, score[[i]]$HWsheet)
     QSscore = rbind(QSscore, set[[i]]$QuestionSet$QuestionSetScore)
     CSscore = rbind(CSscore, set[[i]]$ObjectiveSet$ConceptSetScore)
     
