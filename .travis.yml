@@ -1,0 +1,6 @@
+sudo: required
+ 
+language: r
+
+notifications:
+  email: false
