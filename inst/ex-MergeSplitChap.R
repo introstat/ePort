@@ -4,7 +4,7 @@ library(ePort)
 datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files/Ch3"
 namelist = list.files(path=datapath,full.names=TRUE)
 for (i in namelist) rewrite_data(i) # May not need this rewriting step!
-for(i in c('AB','CD','EF','GH','JKQ','LM')){
+for(i in c('AB','CD','EF','GH','JKQ')){
   tmp = namelist[grep(i,basename(namelist))]
   split_file(tmp, 29, "ID")
 }

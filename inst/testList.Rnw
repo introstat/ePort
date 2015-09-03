@@ -1,0 +1,62 @@
+%\documentclass[10pt,letterpaper]{article}
+%\documentclass[12pt,english,nohyper]
+\documentclass[12pt,english,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{geometry}
+\usepackage{pgffor}
+\usepackage{caption}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\makeatletter
+\makeatother
+\newcounter{marginresume}
+
+\begin{document}
+
+<<include=FALSE>>=
+library(ggplot2)
+library(reshape2)
+library(xtable)
+library(dplyr)
+library(stringr)
+
+ch_outcomes = character(4)
+ch_outcomes[1] = "\\item Identify a categorical variable."
+ch_outcomes[2] = "\\item Identify various ways to describe the distribution of a single categorical variable."
+ch_outcomes[3] = "\\item Identify and interpret components of a bar graph."
+ch_outcomes[4] = "\\item Interpret displays of the distribution of a single categorical variable."
+
+ch_out = character(4)
+ch_out[1] = "Identify a categorical variable."
+ch_out[2] = "Identify various ways to describe the distribution of a single categorical variable."
+ch_out[3] = "Identify and interpret components of a bar graph."
+ch_out[4] = "Interpret displays of the distribution of a single categorical variable."
+@
+
+\underline{Topic Learning Outcomes:}
+
+\begin{fullwidth}
+\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]
+  \item
+<<results="asis", echo=FALSE>>=
+  cat(ch_out, sep="\n\\item ")
+@
+\end{enumerate}
+\end{fullwidth}
+
+%\begin{fullwidth}
+%\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]  
+%\Sexpr{ch_outcomes}
+%\Sexpr{list(str_trim(unlist(strsplit(ch_outcomes, "[.]"))[2]))}
+%\end{enumerate}
+%\end{fullwidth}
+
+\end{document}

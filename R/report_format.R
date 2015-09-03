@@ -19,6 +19,7 @@
 #' @return a tex file to be compiled
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom knitr knit
+#' @importFrom stringr str_trim
 #' @export
 #' @example inst/ex-reportHwk.R
 #' 
@@ -56,6 +57,10 @@ report_routine = function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NUL
   }
   chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
   chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
+  
+  for (i in 1:length(chapter_outcomes)){
+    chapter_outcomes[i] = paste(str_trim(unlist(strsplit(chapter_outcomes[i], "[.]"))[2]),".",sep="")
+  }
   
   # Cross-section report
   if (length(Score_filename)>1){

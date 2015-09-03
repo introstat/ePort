@@ -1,4 +1,6 @@
 library(ePort)
+library(plyr)
+library(dplyr)
 
 ##### save data files into one csv file #####
 key_txt = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic05.Questions.txt"

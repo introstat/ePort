@@ -1,0 +1,40 @@
+\documentclass[12pt,english,nohyper]{tufte-handout}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{tabularx} % Make sure this is in there
+
+\begin{document}
+
+<<include=FALSE>>=
+library(ggplot2)
+library(xtable)
+@
+
+\centerline{\Large\bf This is my Main Title about Diamonds}
+
+<<echo=FALSE,results='asis'>>=
+fname='plot1.pdf'
+pdf(fname,width=4,height=4)
+print(qplot(depth,price,data=diamonds))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\caption{\\label{mar:hist}DEPTH vs PRICE in DIAMONDS dataset.}
+\\end{marginfigure}',sub('\\.pdf','',fname)))
+@
+
+This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report.
+
+This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. This is the paragraph in my report. 
+
+\bigskip{}
+
+\begin{fullwidth}
+\makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother
+<<echo=FALSE,results='asis'>>=
+x.big <- xtable(diamonds[1:100,1:4], label ='tab:mtcars',caption ='Diamonds have an interesting dataset.',align = c("rr|lr|r"))
+print(x.big, tabular.environment ='longtable', floating = FALSE, include.rownames=FALSE)
+@
+\end{fullwidth}
+
+\end{document}

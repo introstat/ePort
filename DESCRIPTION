@@ -11,6 +11,7 @@ Imports:
     plyr,
     reshape2,
     XML,
+    stringr,
     xtable
 Suggests:
     ggplot2,

@@ -10,6 +10,8 @@
 #' @return a list of results including the summaries and merged data
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom reshape2 melt
+#' @importFrom plyr ddply
+#' @importFrom plyr summarise
 #' @export
 #' @example inst/ex-mergeSections.R
 #' 

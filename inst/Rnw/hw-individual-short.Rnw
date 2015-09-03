@@ -6,9 +6,15 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
-
-\makeatletter
-\makeatother
+\usepackage{geometry}
+\usepackage{pgffor}
+%\usepackage{caption}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{microtype}
+%\usepackage{floatrow} % test for caption below
+\usepackage{tabularx}
+%\usepackage[capposition=bottom]{floatrow}
 
 \begin{document}
 
@@ -16,6 +22,8 @@
 library(ggplot2)
 library(reshape2)
 library(xtable)
+library(dplyr)
+library(stringr)
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
 nQuestion = nrow(answerkey$simplekey)
@@ -23,22 +31,111 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Statistics 101 Homework Short Report for \Sexpr{gsub("_"," ",plotprename)}}
+\centerline{\Large\bf Statistics 101 Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
 \vspace{1cm}
 
 <<echo=FALSE,results='asis'>>=
-
 fname=paste(plotprename,'_score.pdf',sep='')
 pdf(paste0("../",fname),width=4,height=4)
 ms=max(sumry1$TotalScore,na.rm=T)
-print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1))+theme(legend.position='none'))
+print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
-\\caption{\\label{mar:hist}Histograms of the scores. Color blue
-indicates the scores that are less than 80 percent of the full score.}
+\\caption{\\label{mar:hist}Histogram of scores. Blue data represent scores less than 80 percent.}
 \\end{marginfigure}',sub('\\.pdf','',fname)))
+@
 
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who did not perform well on this homework. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+\bigskip{}
+
+<<echo=FALSE,results='asis'>>=
+su=c(  
+  Mean=paste(format(mean(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),
+  Std.dev=paste(format(sd(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),
+  ' '=NA,
+  Min=paste(format(min(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),
+  Q1 = paste(format(quantile(sumry1$TotalScore,0.25,na.rm=T),nsmall=2,digits=2),sep=""),
+  Median=paste(format(median(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),
+  Q3 = paste(format(quantile(sumry1$TotalScore,0.75,na.rm=T),nsmall=2,digits=2),sep=""),
+  Max=paste(format(max(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""))
+su2=c(
+  paste("(", format(mean(sumry1$TotalScore/sumry1$FullScore[1]*100, na.rm=T),digits=2),"%)",sep=""), 
+  paste("(",format(sd(sumry1$TotalScore/sumry1$FullScore[1]*100, na.rm=T),digits=2),"%)",sep=""),
+  NA, 
+  paste("(",format(min(sumry1$TotalScore/sumry1$FullScore[1]*100, na.rm=T),digits=2),"%)", sep=""),
+  paste("(",format(quantile(sumry1$TotalScore/sumry1$FullScore[1]*100,0.25,na.rm=T,names=FALSE),digits=2),"%)", sep=""),
+  paste("(",format(median(sumry1$TotalScore/sumry1$FullScore[1]*100, na.rm=T),digits=2),"%)", sep=""),
+  paste("(",format(quantile(sumry1$TotalScore/sumry1$FullScore[1]*100,0.75,na.rm=T,names=FALSE),digits=2),"%)", sep=""),
+  paste("(",format(max(sumry1$TotalScore/sumry1$FullScore[1]*100, na.rm=T),digits=2),"%)", sep=""))
+su = rbind(su,su2)
+print(xtable(su,caption='Summary statistics of the scores', label='tab:summary'),floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+@
+
+<<echo=FALSE,warning=FALSE,results='asis'>>=
+Total=sumry1[,1,drop=FALSE]
+colnames(Total)='% Correct'
+Total[,1]=sumry1$TotalScore/sumry1$FullScore*100
+Total=Total[Total[,1]<80,1,drop=FALSE]
+
+Total = cbind(Row.Names = rownames(Total), Total)
+
+smallNR = nrow(Total) %/% 4
+bigNR = nrow(Total) %% 4
+
+if (bigNR !=0){
+  for (i in 1:(4-bigNR)){
+    Total = rbind(Total,c(" "," "))
+  }
+  Total[,2] = as.numeric(Total[,2])
+}
+
+nr = nrow(Total)/4
+
+df1 = Total[(1:nr),]
+df2 = Total[(nr+1):(2*nr),]
+df3 = Total[(2*nr+1):(3*nr),]
+df4 = Total[(3*nr+1):(4*nr),]
+
+dfFull = data.frame(df1,df2,df3,df4)
+names(dfFull) = c(" ","% Correct"," ","% Correct"," ","% Correct"," ","% Correct")
+row.names(dfFull) = NULL
+@
+
+\begin{fullwidth}
+\makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother
+<<echo=FALSE,results='asis'>>=
+x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='Students whose correct percentages are less than 80\\%.',align = c("rrr|lr|lr|lr"))
+print(x.big, tabular.environment ='longtable', floating = FALSE, include.rownames=FALSE)
+@
+\end{fullwidth}
+
+<<echo=FALSE,warning=FALSE,results='asis'>>=
+emailaddress = paste0(rownames(Total),'@iastate.edu')
+write.table(c("With semicolon:","",
+  paste(emailaddress,collapse='; '),
+  "","","With comma:","",
+  paste(emailaddress,collapse=', ')),
+  file=sprintf('../%s_students_below80.txt',plotprename),
+  quote=FALSE,row.names=FALSE,col.names=FALSE)
+@
+
+\vspace{-2mm}
+
+\noindent
+\underline{Topic \Sexpr{gsub("[a-zA-Z_]","",plotprename)} Learning Outcomes:}
+\vspace{2mm}
+
+\begin{fullwidth}
+\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]
+  \item
+<<results="asis", echo=FALSE>>=
+  cat(chapter_outcomes, sep="\n\\item ")
+@
+\end{enumerate}
+\end{fullwidth}
+
+<<echo=FALSE,results='asis'>>=
 LOsumry=t(sumry2$ConceptCorrectPct)
 LOsumry=data.frame(LOsumry[,1:2]," "=NA," "=NA,LOsumry[,3:5], check.names=FALSE)
 LOsumry=LOsumry[order(LOsumry$Mean,decreasing=TRUE),]
@@ -49,76 +146,42 @@ output1 = melt(output1, id=0)
 output1$variable = factor(as.character(output1$variable),levels=LOsumryorder)
 output1$value = output1$value*100
 
-cat("\\marginnote{\n\n \\bigskip{} \n\n} ")
-
-fnameO=paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
-pdf(paste0("../",fnameO),width=6,height=5)
-print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Objective", y="Percentage Correct"))
+fnameO <<- paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
+pdf(paste0("../",fnameO),width=6,height=7) # orig width=6,height=7
+sumVarVal <- summarize(group_by(output1,variable,value),Count=n())
+means=LOsumry$Mean
+sumVarVal$mean = means[as.numeric(sumVarVal$variable)]
+print(ggplot(sumVarVal, aes(variable, value)) + geom_point(aes(size = Count), pch=15) + guides(fill=guide_legend(title="New")) + theme(legend.background = element_rect(fill="gray90", size=.5, colour = "black"), legend.text=element_text(size=rel(1.3)), legend.title=element_text(size=rel(1.3), face="plain"), legend.position="bottom", axis.text = element_text(size=rel(1.3)), axis.title = element_text(size = rel(1.3))) + labs(x="Learning Outcome", y = "Percentage Grade") + geom_errorbar(stat = "hline", width=0.6, colour = "blue", size = 1, aes(ymax=..y..,ymin=..y.., yintercept = mean)))
 {dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning objective.}
-\\end{marginfigure}',sub('\\.pdf','',fnameO)))
-
-
-cat("\\marginnote{\n\n \\bigskip{} \n\n \\bigskip{} \n\n} ")
-cat(c("\\marginnote{Learning objectives in this topic:",
-      chapter_outcomes,"}"),sep="\n\n \\bigskip{} \n\n")
-
 @
 
-Each of the \Sexpr{rows} students answered \Sexpr{a} questions from
-\Sexpr{nQuestion} questions. Figure \ref{mar:hist} and
-Table \ref{tab:summary} give the overall summary.
-Table \ref{tab:studentsbelow80} lists the students who did not
-perform well in this homework. Table \ref{tab:QuestionSet_summary}
-and Figure \ref{mar:LearningObj_summary} shows the summary statistics
-of the percentage correct by question set and by learning objectives. 
-\bigskip{}
+\vspace{5mm}
 
+%\begin{fullwidth} %ADDED NOW
+%\makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother %ADDED NOW
+%\begin{centering}
+\begin{figure}[!ht]
+\includegraphics[width=\linewidth]{\Sexpr{fnameO}}
+\caption{Fluctuation diagram of percentage correct by learning outcome. Mean scores are drawn as blue bars.}
+\label{fig:LearningObj_summary}
+\end{figure}
+%\end{centering}
+%\end{fullwidth} %ADDED NOW
+
+\begin{fullwidth}
+\makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother
 <<echo=FALSE,results='asis'>>=
-
-su=data.frame(
-  Mean=mean(sumry1$TotalScore, na.rm=T), 
-  Std.dev=sd(sumry1$TotalScore, na.rm=T), 
-  ' '=NA,
-  Min=min(sumry1$TotalScore, na.rm=T), 
-  Q1 = quantile(sumry1$TotalScore,0.25,na.rm=T),
-	Median=median(sumry1$TotalScore, na.rm=T), 
-  Q3 = quantile(sumry1$TotalScore,0.75,na.rm=T),
-	Max=max(sumry1$TotalScore, na.rm=T),
-	check.names=FALSE)
-print(xtable(su,caption='Summary statistics of the scores', label='tab:summary'),floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
-
-
-Total=sumry1[,1,drop=FALSE]
-colnames(Total)='% Correct'
-Total[,1]=sumry1$TotalScore/sumry1$FullScore*100
-Total=Total[Total[,1]<80,1,drop=FALSE]
-print(xtable(Total,caption='Students whose correct percentages are less than 80\\%.',
-             label='tab:studentsbelow80',align='lr'),
-      floating=FALSE, tabular.environment = "longtable")
-emailaddress = paste0(rownames(Total),'@iastate.edu')
-write.table(c("With semicolon:","",
-              paste(emailaddress,collapse='; '),
-              "","","With comma:","",
-              paste(emailaddress,collapse=', ')),
-            file=sprintf('../%s_students_below80.txt',plotprename),
-            quote=FALSE,row.names=FALSE,col.names=FALSE)
-
-
 Qsetkey = unique(answerkey[[2]][,c(3,4,9)])
 rownames(Qsetkey) = Qsetkey[,2]
 colnames(Qsetkey) = c('LO','Qset','\\#')
 Qsetsumry = cbind(Qsetkey,t(sumry2$SetCorrectPct))
 Qsetsumry = Qsetsumry[order(Qsetsumry$Mean,decreasing=TRUE),]
 Qsetsumry$Mean[Qsetsumry$Mean<80] = paste0('\\color{red}{',Qsetsumry$Mean[Qsetsumry$Mean<80],'}')
-print(xtable(Qsetsumry,caption='Summary statistics of the question sets.
-             Rows are sorted by mean. Means less than 80 are marked red.',
-             label='tab:QuestionSet_summary',align="lcc|ccc|ccc"),
-      floating=FALSE, tabular.environment = "longtable",
-      include.rownames=FALSE,sanitize.text.function=identity)
 
+x.big <- xtable(Qsetsumry, label='tab:QuestionSet_summary', caption='Summary statistics of the question sets. Rows are sorted by mean scores, which are marked red if less than 80 percent.', align=c("lcc|ccc|ccc"))
+
+print(x.big, tabular.environment = "longtable", floating=FALSE, include.rownames=FALSE,sanitize.text.function=identity)
 @
+\end{fullwidth}
 
 \end{document}
