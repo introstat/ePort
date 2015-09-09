@@ -4,7 +4,7 @@ library(knitr)
 ##### Homework reports #####
 ## key ##
 # save the .doc file as .htm format, to keep the images
-key_htm = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic04.Questions.htm"
+key_htm = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic01.Questions.htm"
 refine_key(key_htm) # generate a clean answer key with paths to the plots in the question
 key_txt = gsub("htm$","txt",key_htm) # get the path/name of the new answer key
 
@@ -16,7 +16,7 @@ namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
 namelist
 
 ## learning objectives ##
-LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes/Topic04.Outcomes.txt" ### NEW PATH!!!
+LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes/Topic01.Outcomes.txt" ### NEW PATH!!!
 
 ## TOPIC 06 - FINAL- BE USED FOR EXAMPLE ######
 ##LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes-Final/Topic06.Outcomes.txt" ### NEW PATH!!!

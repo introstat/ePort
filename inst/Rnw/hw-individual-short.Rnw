@@ -105,8 +105,10 @@ row.names(dfFull) = NULL
 \begin{fullwidth}
 \makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother
 <<echo=FALSE,results='asis'>>=
+if (nrow(Total) > 0){
 x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='Students whose correct percentages are less than 80\\%.',align = c("rrr|lr|lr|lr"))
 print(x.big, tabular.environment ='longtable', floating = FALSE, include.rownames=FALSE)
+}
 @
 \end{fullwidth}
 
