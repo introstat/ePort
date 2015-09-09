@@ -1,0 +1,8 @@
+With semicolon:
+
+aholland@iastate.edu; caydeew@iastate.edu; coryb@iastate.edu; ktong@iastate.edu; lauraf@iastate.edu; majipp@iastate.edu; mtlane@iastate.edu; rissmana@iastate.edu; ario@iastate.edu; bjones@iastate.edu; dfrank@iastate.edu; aksperf@iastate.edu; jonesjbc@iastate.edu; jsschill@iastate.edu; kbecerra@iastate.edu; samartin@iastate.edu; chdavis@iastate.edu; blakeb1@iastate.edu; cjpetit@iastate.edu; zjimenez@iastate.edu; jrdoyle@iastate.edu; 22@iastate.edu; 23@iastate.edu; 24@iastate.edu
+
+
+With comma:
+
+aholland@iastate.edu, caydeew@iastate.edu, coryb@iastate.edu, ktong@iastate.edu, lauraf@iastate.edu, majipp@iastate.edu, mtlane@iastate.edu, rissmana@iastate.edu, ario@iastate.edu, bjones@iastate.edu, dfrank@iastate.edu, aksperf@iastate.edu, jonesjbc@iastate.edu, jsschill@iastate.edu, kbecerra@iastate.edu, samartin@iastate.edu, chdavis@iastate.edu, blakeb1@iastate.edu, cjpetit@iastate.edu, zjimenez@iastate.edu, jrdoyle@iastate.edu, 22@iastate.edu, 23@iastate.edu, 24@iastate.edu

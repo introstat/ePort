@@ -1,0 +1,8 @@
+With semicolon:
+
+dhveitch@iastate.edu; erdrusch@iastate.edu; jlduncan@iastate.edu; jtfitch@iastate.edu; shaclare@iastate.edu; smothers@iastate.edu; temperly@iastate.edu; tms19@iastate.edu; dljlewis@iastate.edu; jmflesch@iastate.edu; mishak24@iastate.edu; emweirup@iastate.edu; lorenzen@iastate.edu; yalih@iastate.edu; bmoreno@iastate.edu; pkellogg@iastate.edu; tpearp@iastate.edu; yshi@iastate.edu; akaufman@iastate.edu; cadebban@iastate.edu
+
+
+With comma:
+
+dhveitch@iastate.edu, erdrusch@iastate.edu, jlduncan@iastate.edu, jtfitch@iastate.edu, shaclare@iastate.edu, smothers@iastate.edu, temperly@iastate.edu, tms19@iastate.edu, dljlewis@iastate.edu, jmflesch@iastate.edu, mishak24@iastate.edu, emweirup@iastate.edu, lorenzen@iastate.edu, yalih@iastate.edu, bmoreno@iastate.edu, pkellogg@iastate.edu, tpearp@iastate.edu, yshi@iastate.edu, akaufman@iastate.edu, cadebban@iastate.edu

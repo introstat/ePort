@@ -1,0 +1,8 @@
+With semicolon:
+
+aclasen@iastate.edu; chandiw@iastate.edu; jarector@iastate.edu; kehughes@iastate.edu; kmaciel@iastate.edu; mshank@iastate.edu; rjlysne@iastate.edu; waday@iastate.edu; jhmead@iastate.edu; ptsperal@iastate.edu; adamsk@iastate.edu; jbags56@iastate.edu; ashlynl@iastate.edu; 14@iastate.edu; 15@iastate.edu; 16@iastate.edu
+
+
+With comma:
+
+aclasen@iastate.edu, chandiw@iastate.edu, jarector@iastate.edu, kehughes@iastate.edu, kmaciel@iastate.edu, mshank@iastate.edu, rjlysne@iastate.edu, waday@iastate.edu, jhmead@iastate.edu, ptsperal@iastate.edu, adamsk@iastate.edu, jbags56@iastate.edu, ashlynl@iastate.edu, 14@iastate.edu, 15@iastate.edu, 16@iastate.edu
