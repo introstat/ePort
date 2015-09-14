@@ -1,0 +1,8 @@
+With semicolon:
+
+doylsamu@iastate.edu; hanbrenn@iastate.edu; jlduncan@iastate.edu; logan21@iastate.edu; tjjensen@iastate.edu; ammacias@iastate.edu; bmoreno@iastate.edu; jackson1@iastate.edu
+
+
+With comma:
+
+doylsamu@iastate.edu, hanbrenn@iastate.edu, jlduncan@iastate.edu, logan21@iastate.edu, tjjensen@iastate.edu, ammacias@iastate.edu, bmoreno@iastate.edu, jackson1@iastate.edu

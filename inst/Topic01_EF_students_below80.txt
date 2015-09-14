@@ -1,0 +1,8 @@
+With semicolon:
+
+jsschill@iastate.edu; lenhartj@iastate.edu; oalvarez@iastate.edu; 4@iastate.edu
+
+
+With comma:
+
+jsschill@iastate.edu, lenhartj@iastate.edu, oalvarez@iastate.edu, 4@iastate.edu

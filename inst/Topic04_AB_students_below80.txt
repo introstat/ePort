@@ -1,8 +1,0 @@
-With semicolon:
-
-adice@iastate.edu; akmorton@iastate.edu; cds@iastate.edu; jaeleaha@iastate.edu; jtwalker@iastate.edu; kives@iastate.edu; nsevers@iastate.edu; bergeson@iastate.edu; capeters@iastate.edu; grantsch@iastate.edu; jwiltz17@iastate.edu; jcanders@iastate.edu; tbeatty@iastate.edu; evan@iastate.edu; crmwoods@iastate.edu; jng@iastate.edu
-
-
-With comma:
-
-adice@iastate.edu, akmorton@iastate.edu, cds@iastate.edu, jaeleaha@iastate.edu, jtwalker@iastate.edu, kives@iastate.edu, nsevers@iastate.edu, bergeson@iastate.edu, capeters@iastate.edu, grantsch@iastate.edu, jwiltz17@iastate.edu, jcanders@iastate.edu, tbeatty@iastate.edu, evan@iastate.edu, crmwoods@iastate.edu, jng@iastate.edu

@@ -1,8 +1,0 @@
-With semicolon:
-
-cgshine@iastate.edu; geronimo@iastate.edu; kallio@iastate.edu; moconnor@iastate.edu; mramm@iastate.edu; ihayes@iastate.edu; jfitch@iastate.edu; tjpyle@iastate.edu
-
-
-With comma:
-
-cgshine@iastate.edu, geronimo@iastate.edu, kallio@iastate.edu, moconnor@iastate.edu, mramm@iastate.edu, ihayes@iastate.edu, jfitch@iastate.edu, tjpyle@iastate.edu
