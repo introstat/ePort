@@ -76,37 +76,85 @@ Total[,1]=sumry1$TotalScore/sumry1$FullScore*100
 Total=Total[Total[,1]<80,1,drop=FALSE]
 
 Total = cbind(Row.Names = rownames(Total), Total)
+total80 = nrow(Total)
 
-smallNR = nrow(Total) %/% 4
-bigNR = nrow(Total) %% 4
+smallNR = total80 %/% 4
+bigNR = total80 %% 4
 
-if (bigNR !=0){
-  for (i in 1:(4-bigNR)){
-    Total = rbind(Total,c(" "," "))
+if (total80 < 4){
+  nr = 1
+  if (total80 ==1){
+    dfFull = Total[(1:nr),]
+    names(dfFull) = c(" ","% Correct")
+    row.names(dfFull) = NULL
   }
-  Total[,2] = as.numeric(Total[,2])
+  if (total80 ==2){
+    df1 = Total[(1:nr),]
+    df2 = Total[(nr+1):(2*nr),]
+    dfFull = data.frame(df1,df2)
+    names(dfFull) = c(" ","% Correct"," ","% Correct")
+    row.names(dfFull) = NULL
+  }
+  if (total80 ==3){
+    df1 = Total[(1:nr),]
+    df2 = Total[(nr+1):(2*nr),]
+    df3 = Total[(2*nr+1):(3*nr),]
+    dfFull = data.frame(df1,df2,df3)
+    names(dfFull) = c(" ","% Correct"," ","% Correct"," ","% Correct")
+    row.names(dfFull) = NULL
+  }
+} else {
+  if (bigNR !=0){
+    for (i in 1:(4-bigNR)){
+      Total = rbind(Total,c(" "," "))
+    }
+    Total[,2] = as.numeric(Total[,2])
+  }
+  nr = nrow(Total)/4
+  df1 = Total[(1:nr),]
+  df2 = Total[(nr+1):(2*nr),]
+  df3 = Total[(2*nr+1):(3*nr),]
+  df4 = Total[(3*nr+1):(4*nr),]
+  dfFull = data.frame(df1,df2,df3,df4)
+  names(dfFull) = c(" ","% Correct"," ","% Correct"," ","% Correct"," ","% Correct")
+  row.names(dfFull) = NULL
 }
-
-nr = nrow(Total)/4
-
-df1 = Total[(1:nr),]
-df2 = Total[(nr+1):(2*nr),]
-df3 = Total[(2*nr+1):(3*nr),]
-df4 = Total[(3*nr+1):(4*nr),]
-
-dfFull = data.frame(df1,df2,df3,df4)
-names(dfFull) = c(" ","% Correct"," ","% Correct"," ","% Correct"," ","% Correct")
-row.names(dfFull) = NULL
 @
 
-Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who did not perform well on this homework. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+\newif\ifPositive
+
+<<condtion2, echo = FALSE, results = "asis">>=
+if (nrow(Total) > 0) {
+  cat("\\Positivetrue")
+} else {
+  cat("\\Positivefalse")
+}
+@
+
+\ifPositive
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the \Sexpr{total80} students who did not perform well on this homework. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+\else
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+\fi
+
 \bigskip{}
 
 \begin{fullwidth}
 \makeatletter\setlength\hsize{\@tufte@fullwidth}\makeatother
 <<echo=FALSE,results='asis'>>=
 if (nrow(Total) > 0){
-x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='Students whose correct percentages are less than 80\\%.',align = c("rrr|lr|lr|lr"))
+  if (total80 ==1){
+    x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='The student whose percentage is less than 80\\%.',align = c("rrr"))
+  }  
+  if (total80 ==2){
+    x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='The 2 students whose percentages are less than 80\\%.',align = c("rrr|lr"))
+  }  
+  if (total80 ==3){
+    x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption ='The 3 students whose percentages are less than 80\\%.',align = c("rrr|lr|lr"))
+  }
+  if (total80 > 3){
+    x.big <- xtable(dfFull, label ='tab:studentsbelow80',caption =paste("The ", total80, "students whose percentages are less than 80\\%."),align = c("rrr|lr|lr|lr"))
+  }
 print(x.big, tabular.environment ='longtable', floating = FALSE, include.rownames=FALSE)
 }
 @

@@ -1,8 +1,0 @@
-With semicolon:
-
-bskank@iastate.edu; kehughes@iastate.edu; maurstad@iastate.edu; sully81@iastate.edu; zacharyt@iastate.edu; colen@iastate.edu; areuter@iastate.edu; 8@iastate.edu
-
-
-With comma:
-
-bskank@iastate.edu, kehughes@iastate.edu, maurstad@iastate.edu, sully81@iastate.edu, zacharyt@iastate.edu, colen@iastate.edu, areuter@iastate.edu, 8@iastate.edu

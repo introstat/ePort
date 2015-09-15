@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  9 SEP 2015 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 SEP 2015 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1182,11 +1182,11 @@ Package microtype Info: Loading generic settings for font family
 LaTeX Warning: Marginpar on page 1 moved.
 
 
-Underfull \vbox (badness 10000) detected at line 95
+Underfull \vbox (badness 10000) detected at line 92
  []
 
 
-Underfull \vbox (badness 10000) detected at line 113
+Underfull \vbox (badness 10000) detected at line 122
  []
 
 <Topic01_AB_LearningObj_boxplot.pdf, id=10, 433.62pt x 505.89pt>
@@ -1194,41 +1194,37 @@ File: Topic01_AB_LearningObj_boxplot.pdf Graphic file (type pdf)
 
 <use Topic01_AB_LearningObj_boxplot.pdf>
 Package pdftex.def Info: Topic01_AB_LearningObj_boxplot.pdf used on input line 
-147.
+156.
 (pdftex.def)             Requested size: 312.0pt x 364.01665pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--150
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 []\T1/pplj/m/n/10 (+20) Figure 2: []Fluctuation di-a-gram
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 \T1/pplj/m/n/10 (+20) of per-cent-age cor-rect by learn-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 \T1/pplj/m/n/10 (+20) ing out-come. Mean scores are
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []\T1/pplj/m/n/10 (+3) Table 3: Sum-mary statis-tics of the ques-tion sets. Row
 s are sorted
  []
 
 
-Underfull \vbox (badness 10000) detected at line 173
+Underfull \vbox (badness 10000) detected at line 182
  []
-
-
-Overfull \vbox (11.19885pt too high) has occurred while \output is active []
-
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1238,34 +1234,36 @@ Package bibentry Warning: You have used \nobibliography*
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-[2 <./Topic01_AB_LearningObj_boxplot.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
- (./Stat101hwk_Topic01_AB-short.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
+[2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
+ [3 <./Topic01_AB_LearningObj_boxplot.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
+
+(./Stat101hwk_Topic01_AB-short.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 186.
 Package rerunfilecheck Info: File `Stat101hwk_Topic01_AB-short.out' has not cha
 nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
  ) 
 Here is how much of TeX's memory you used:
- 16314 strings out of 493117
- 274160 string characters out of 6135433
- 397567 words of memory out of 5000000
- 19397 multiletter control sequences out of 15000+600000
+ 16318 strings out of 493117
+ 274201 string characters out of 6135433
+ 397565 words of memory out of 5000000
+ 19400 multiletter control sequences out of 15000+600000
  29473 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,11n,51p,486b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,11n,51p,488b,519s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on Stat101hwk_Topic01_AB-short.pdf (2 pages, 52315 bytes).
+Output written on Stat101hwk_Topic01_AB-short.pdf (3 pages, 52675 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
+ 70 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
  20491 words of extra memory for PDF output out of 20736 (max. 10000000)
 

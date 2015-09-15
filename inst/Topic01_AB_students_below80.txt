@@ -1,8 +1,0 @@
-With semicolon:
-
-ampink@iastate.edu; jwiltz17@iastate.edu; bergeson@iastate.edu; dhcousin@iastate.edu
-
-
-With comma:
-
-ampink@iastate.edu, jwiltz17@iastate.edu, bergeson@iastate.edu, dhcousin@iastate.edu

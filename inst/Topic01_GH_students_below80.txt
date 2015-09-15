@@ -1,8 +1,0 @@
-With semicolon:
-
-andrea@iastate.edu; lcherr@iastate.edu; ljkelly@iastate.edu; msaha@iastate.edu; rbadgley@iastate.edu; beross@iastate.edu; tevonm@iastate.edu; llasmins@iastate.edu; jdpauley@iastate.edu; schossow@iastate.edu; 11@iastate.edu; 12@iastate.edu
-
-
-With comma:
-
-andrea@iastate.edu, lcherr@iastate.edu, ljkelly@iastate.edu, msaha@iastate.edu, rbadgley@iastate.edu, beross@iastate.edu, tevonm@iastate.edu, llasmins@iastate.edu, jdpauley@iastate.edu, schossow@iastate.edu, 11@iastate.edu, 12@iastate.edu

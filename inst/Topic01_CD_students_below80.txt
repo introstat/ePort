@@ -1,8 +1,0 @@
-With semicolon:
-
-@iastate.edu
-
-
-With comma:
-
-@iastate.edu
