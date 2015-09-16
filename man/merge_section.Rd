@@ -51,4 +51,3 @@ write.csv(tmp2,file='Topic3.answer.csv')
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
-

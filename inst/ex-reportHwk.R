@@ -18,9 +18,6 @@ namelist
 ## learning objectives ##
 LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes/Topic01.Outcomes.txt" ### NEW PATH!!!
 
-## TOPIC 06 - FINAL- BE USED FOR EXAMPLE ######
-##LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes-Final/Topic06.Outcomes.txt" ### NEW PATH!!!
-
 ## 1. Individual report ##
 for (i in namelist) rewrite_data(i)
 for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw")

@@ -1,0 +1,9 @@
+Topic 02: Summarizing a Categorical Variable
+
+After studying this topic, students should be able to:
+
+A. Identify a categorical variable.
+B. Identify various displays of the distribution of a categorical variable.
+C. Identify and interpret components of a bar graph for a categorical variable.
+D. Interpret displays of the distribution of a categorical variable.
+

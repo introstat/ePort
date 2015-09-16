@@ -1,0 +1,14 @@
+Topic 01: Data
+
+
+After studying this topic, students should be able to:
+
+A. Identify the context of the data by answering the 5 W questions (who, what, where, when, why, and how).
+B. Identify the “who” and “what” data context questions from the structure of the data table. 
+C. Determine the structure of the data table based on given information.
+D. Determine whether variables are quantitative or categorical variables.
+E. Identify units for a quantitative variable.
+F. Identify categories for a categorical variable.
+G. Distinguish between population and sample in a given scenario.
+
+

@@ -1,0 +1,12 @@
+Topic 04: Summarizing Contingency Tables
+
+After studying this topic, students should be able to:
+ 
+A. Identify various displays of the relationship between two categorical variables.
+B. Describe the connection between the data table and the contingency table for summarizing the relationship between two categorical variables.
+C. Identify the response and explanatory variables for investigating the relationship between two categorical variables.
+D. Determine the marginal distributions of the two categorical variables from a contingency table.  
+E. Determine the conditional distributions or conditional proportions of the response variable given the explanatory variable from a contingency table.
+F. Interpret displays of the relationship between two categorical variables to make generalizations within the context of the problem.  
+G. Determine whether or not there is an association between the response variable and the explanatory variable using a mosaic plot (segmented bar charts) or contingency table.
+
