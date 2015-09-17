@@ -35,8 +35,8 @@ HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set
 
 
 
-\centerline{\Large\bf Statistics 101 Short Report for Topic \Sexpr{topic}}
-\centerline{\bf Homework Comparison among Sections}
+\centerline{\Large\bf Introductory Statistics Homework Short Report for Topic \Sexpr{topic}}
+\centerline{\bf Comparison among Sections}
 \centerline{\bf }
 
 \section{Overview}
@@ -73,7 +73,7 @@ The homework results that will be compared are \Sexpr{paste(basename(namelist),c
 Figure \ref{fig:boxplot-score} shows the side-by-side boxplots
 for the overall scores by section.
 Table \ref{tab:Oset} gives the average percentages correct for
-each learning objective by section. Any percentages below 80
+each learning outcome by section. Any percentages below 80
 will be marked red.
 
 <<echo=FALSE,results='asis'>>=
@@ -83,7 +83,7 @@ cat(c("\\marginnote{Learning objectives in this topic:",
 
 tmptab = instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE]
 tmptab[tmptab<80] = paste0('\\color{red}{',tmptab[tmptab<80],'}')
-print(xtable(tmptab,caption='Average percentages correct for each learning objective by section. Learning objectives are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable",sanitize.text.function=identity)
+print(xtable(tmptab,caption='Average percentages correct for each learning outcome by section. Learning outcomes are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable",sanitize.text.function=identity)
 @
 
 \subsection{Problematic question sets}

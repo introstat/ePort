@@ -43,20 +43,16 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Statistics 101 Homework Analysis}
+\centerline{\Large\bf Introductory Statistics Homework Analysis}
 
 
 \section{Overview}
-The homework outcome file is \Sexpr{basename(Score_filename)}.
-In this homework there are \Sexpr{nQuestion} questions.
-\Sexpr{rows} students submitted their answers. Each of them answered \Sexpr{a} questions.
+The file name with student responses and scores is \Sexpr{basename(Score_filename)}. \Sexpr{rows} students submitted the homework assignment.
 
-The average grade for this class is \Sexpr{round(mean(sumry1$TotalScore),2)}.
-The highest and lowest scores are \Sexpr{max(sumry1$TotalScore)} and
-\Sexpr{min(sumry1$TotalScore)},
-while the full credit for this homework is
-\Sexpr{sumry1$FullScore[1]},
-and the possible lowest credit is 0.
+Full credit for this homework assignment is \Sexpr{sumry1$FullScore[1]}. Each student was given \Sexpr{a} questions and this homework assignment contains a total of \Sexpr{nQuestion} questions.  
+
+The mean score of the \Sexpr{rows} students who submited the homework assignment is \Sexpr{round(mean(sumry1$TotalScore),2)}. The lowest and highest scores are \Sexpr{min(sumry1$TotalScore)} and \Sexpr{max(sumry1$TotalScore)}, respectively.
+
 The histogram and summary statistics for the scores are given by Figure \ref{mar:hist} and Table \ref{tab:summary}.
 
 <<echo=FALSE,results='asis'>>=
@@ -89,11 +85,11 @@ print(xtable(su,caption='Summary statistics of the scores', label='tab:summary')
 
 \clearpage
 \newpage{}
-\section{Learning Objectives}
+\section{Learning Outcomes}
 
 \bigskip{}
 
-The learning objectives in this chapter are as follows.
+The learning outcomes for this topic are:
 
 \bigskip{}
 
@@ -104,10 +100,10 @@ cat("\\\\ \n ~~ \n")
 
 \newpage{}
 
-Tables \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} shows the summary of percentage scores by learning objective sets.
-Among all the learning objectives,
+Table \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} show the summary of percentage scores by learning outcome.
+Among all learning outcomes, Outcome
 \Sexpr{colnames(sumry2$ConceptCorrectPct)[which.max(sumry2$ConceptCorrectPct[1,])]}
-has the highest correct percentage, while
+has the highest correct percentage, while Outcome
 \Sexpr{colnames(sumry2$ConceptCorrectPct)[which.min(sumry2$ConceptCorrectPct[1,])]}
 has the lowest.
 
@@ -124,14 +120,14 @@ output1$value = output1$value*100
 
 fnameO=paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
 pdf(paste0("../",fnameO),width=6,height=5)
-print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Objective", y="Percentage Correct"))
+print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Outcome", y="Percentage Correct"))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning objective.}
+\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning outcome.}
 \\end{marginfigure}',sub('\\.pdf','',fnameO)))
 
-print(xtable(LOsumry,caption='Summary statistics of the learning objectives. They are computed by the mean percentages correct of the questions in the learning objective. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'),
+print(xtable(LOsumry,caption='Summary statistics of the student percentage correct scores on the topic learning outcomes. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'),
 floating=FALSE, tabular.environment = "longtable")
 @
 
@@ -156,14 +152,14 @@ f=glmmPQL(data=Learning_Objectives,fixed=score~Objective,random=~1|student,famil
 @
 
 
-To analyze the students' performance on different learning objectives, we consider the generalized mixed effects model:
+To analyze the students' performance on different learning outcomes, we consider the generalized mixed effects model:
 \[
 g(E[Y_{ij}|u_{j}])= \tau_{i}+u_{j}
 \]
-where $i=1,...,$\Sexpr{Student_SetScore$ObjectiveSet$nConceptSet} learning objectives;
+where $i=1,...,$\Sexpr{Student_SetScore$ObjectiveSet$nConceptSet} learning outcomes;
 $j=1,...,$\Sexpr{rows} students. $Y_{ij}$ is the score (scaled in $[0,1]$) of
-the $j$th student in the $i$th learning objective. $\tau_i$ is the fixed effect,
-which represents the actual level of the learning objective $i$.
+the $j$th student in the $i$th learning outcome. $\tau_i$ is the fixed effect,
+which represents the actual level of the learning outcome $i$.
 $u_j$ is the random effect from the students with
 $u_{j} \sim N(0,\sigma_{u}^{2})$.
 
@@ -181,7 +177,7 @@ print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwi
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning objective}
+\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning outcome}
 \\end{marginfigure}',sub('\\.pdf','',fname)))
 
 fixedcoef = f$coefficients$fixed
@@ -195,10 +191,10 @@ print(xtable(fixedcoef_print,caption='95\\% confidence intervals of the fixed ef
 worseobj = rev(LOsumryorder[fixedcoef_print$upper<0])
 @
 
-It shows that \Sexpr{LOsumryorder[1]} is the best understood learning objective.
-\Sexpr{ifelse(length(worseobj)==0,"However, no objectives are",
-ifelse(length(worseobj)==1,sprintf("Objective %s is",worseobj),
-sprintf("Objectives %s are",paste(worseobj,collapse=","))))}
+It shows that \Sexpr{LOsumryorder[1]} is the best understood learning outcome.
+\Sexpr{ifelse(length(worseobj)==0,"However, no outcomes are",
+ifelse(length(worseobj)==1,sprintf("Outcome %s is",worseobj),
+sprintf("Outcomes %s are",paste(worseobj,collapse=","))))}
 significantly worse than \Sexpr{LOsumryorder[1]}.
 
 <<echo=FALSE,results='asis'>>=
@@ -245,8 +241,8 @@ cat(sprintf('\\begin{center}
 \newpage{}
 \subsection{Question Sets}
 
-Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:QuestionSet_summary} shows the summary statistics of the percentage correct by question set.
-As is shown, Question Set \Sexpr{colnames(sumry2$SetCorrectPct)[which.max(sumry2$SetCorrectPct[1,])]} has the highest mean correct percentage and question set \Sexpr{colnames(sumry2$SetCorrectPct)[which.min(sumry2$SetCorrectPct[1,])]} has the lowest mean.
+Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:QuestionSet_summary} shows the summary statistics of the percentage correct score by question for each question set. Percentage correct scores for questions in the same question set should have small variability.
+%As is shown, Question Set \Sexpr{colnames(sumry2$SetCorrectPct)[which.max(sumry2$SetCorrectPct[1,])]} has the highest mean correct percentage and question set \Sexpr{colnames(sumry2$SetCorrectPct)[which.min(sumry2$SetCorrectPct[1,])]} has the lowest mean.
 
 
 <<echo=FALSE,results='asis'>>=
@@ -268,7 +264,7 @@ output1$LearnObj=factor(output1$LO,levels=LOsumryorder)
 Qsetsumry=ddply(output1,'Qset',summarise,LO=LO[1],'#'=length(CrtPct),Mean=mean(CrtPct),Std.dev=sd(CrtPct),Min=min(CrtPct),Median=median(CrtPct),Max=max(CrtPct))
 Qsetsumry$Std.dev[is.na(Qsetsumry$Std.dev)]=0
 Qsetsumry=Qsetsumry[order(Qsetsumry$Std.dev,decreasing=TRUE),]
-print(xtable(Qsetsumry,caption='Summary statistics of the question sets. They are computed by the mean percentages correct of the questions in the question set. The table is sorted from the largest standard deviation to the smallest.',label='tab:QuestionSet_summary',align="lcc|ccc|ccc"),floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
+print(xtable(Qsetsumry,caption='Summary statistics of the percentage correct score by question for each question sets. The table is sorted from the largest standard deviation to the smallest.',label='tab:QuestionSet_summary',align="lcc|ccc|ccc"),floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
 
 fnameQ=paste(plotprename,'_QuestionSet_boxplot.pdf',sep='')
 pdf(paste0("../",fnameQ),width=6,height=5)
@@ -277,7 +273,7 @@ print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(axis.t
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:QuestionSet_summary}Side-by-side boxplots of the question correct percentage in each question set}
+\\caption{\\label{mar:QuestionSet_summary}Side-by-side boxplots of the question correct percentage score for each question set}
 \\end{marginfigure}',sub('\\.pdf','',fnameQ)))
 
 @
@@ -308,15 +304,15 @@ floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
 \clearpage
 \newpage{}
 \section{Students}
-The percentages correct by learning objective and total for each student, sorted by the highest to lowest total are displayed in Table \ref{tab:LearningObj_data}. And the ranks in percentage are given in Table \ref{tab:LearningObj_rank}. Figure \ref{fig:LearningObj_rank} shows the percent rank of the students.
+The percentages correct by learning outcome and total for each student, sorted by the highest to lowest total are displayed in Table \ref{tab:LearningObj_data}. And the ranks in percentage are given in Table \ref{tab:LearningObj_rank}. Figure \ref{fig:LearningObj_rank} shows the percent rank of the students.
 
 <<echo=FALSE,results='asis'>>=
 CSScore=cbind(Total, CSScore)
 CSScorewithSpace=rbind(CSScore[CSScore[,1]>=60,,drop=FALSE],NA,CSScore[CSScore[,1]<60,,drop=FALSE])
-SplitCSSore=widetableinLaTeX(CSScorewithSpace,tablecaption='Sorted learning objective sets and total correct percentages',label='tab:LearningObj_data',cols=10)
+SplitCSSore=widetableinLaTeX(CSScorewithSpace,tablecaption='Sorted learning outcomes sets and total correct percentages',label='tab:LearningObj_data',cols=10)
 
 CSRank = round(100 - apply(CSScore,2,rank,ties.method='max')/nrow(CSScore)*100,2)
-PrintCSRank=widetableinLaTeX(CSRank,tablecaption='Rank of the students by the total and learning objective scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
+PrintCSRank=widetableinLaTeX(CSRank,tablecaption='Rank of the students by the total and learning outcome scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
 
 CSRank = data.frame(CSRank, Student=rownames(CSRank))
 tmptile=melt(CSRank,id.vars='Student')
@@ -342,8 +338,8 @@ cat(sprintf('\\begin{center}
 \clearpage
 \newpage{}
 \section{Summary of Questions}
-The description for each question is as follows:
 
+%The correct answer is ',gsub('\\$','\\\\$',gsub('\\%','\\\\%',tmpanswer)),'. Code removed from Question output.
 <<echo=FALSE,results='asis'>>=
 
 CompareSummary=matrix(nrow=nQuestion,ncol=7)
@@ -375,7 +371,7 @@ for (j in 1:nQuestion) {
       '\n\n}')
   }
 
-  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. The correct answer is ',gsub('\\$','\\\\$',gsub('\\%','\\\\%',tmpanswer)),'. This question is selected with frequency ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. And, ', CountbyQuestion[j],' out of ', rows, ' students answered it. The average score is ',round(mean(ScorebyQuestion[,(j+1)],na.rm=TRUE), 2),' over ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. This question is selected from the question set with frequency ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. The question was administered to, ', CountbyQuestion[j],' out of a total of', rows, ' students. The average score is ',round(mean(ScorebyQuestion[,(j+1)],na.rm=TRUE), 2),' out of ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
   cat(outscript)
 
   if (CountbyQuestion[j]!=0) {

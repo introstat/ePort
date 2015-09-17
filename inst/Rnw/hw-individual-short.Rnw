@@ -31,7 +31,7 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Statistics 101 Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
+\centerline{\Large\bf Introductory Statistics Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
 \vspace{1cm}
 
 <<echo=FALSE,results='asis'>>=
@@ -46,7 +46,7 @@ cat(sprintf('\\begin{marginfigure}
 \\end{marginfigure}',sub('\\.pdf','',fname)))
 @
 
-Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who did not perform well on this homework. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who scored below 80 percent on the assignment. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
 \bigskip{}
 
 <<echo=FALSE,results='asis'>>=
