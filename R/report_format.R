@@ -86,7 +86,6 @@ report_routine = function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NUL
   sumry1 = summary_score(ScorebyQuestion, Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
   sumry2 = summary_level(tmpoutput, Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
   stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
-  # if stopping here, check the points in question titles with the max points given by sumry2$ByQuestion
   
   # Produce a tex report by kniting an rnw file
   if (is.null(knitfile)) knitfile=system.file("inst","hw-individual.Rnw",package="ePort")

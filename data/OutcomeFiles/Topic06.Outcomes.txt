@@ -1,0 +1,7 @@
+A. Use standardizing to determine how many standard deviations an observation is away from the mean value.
+B. Use z-scores to compare observations for different quantitative variables. 
+C. Explain how standardizing affects the shape, center, and variability of the distribution of a quantitative variable. 
+D. Determine which quantitative variables could be modeled using the normal distribution by interpreting graphical representations of the variable.
+E. Apply the 68-95-99.7 Rule to any quantitative variable with a normal distribution.
+F. Find percentile or area values for any given observation from a normal distribution.
+G. Find the value of an observation when given a percentile or area value from the normal distribution.

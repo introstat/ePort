@@ -1,0 +1,19 @@
+Topic 03:  Summarizing a Quantitative Variable
+
+After studying this topic, students should be able to:
+
+A. Identify a quantitative variable.
+B. Identify appropriate displays of a quantitative variable.
+C. Identify and interpret components of a histogram.
+D. Describe the shape of the distribution of a quantitative variable using a histogram or stem-and-leaf display.
+E. Identify important characteristics of the distribution of a quantitative variable using a histogram or stem-and-leaf display.
+F. Identify potential outliers in a distribution using a histogram or stem-and-leaf display. 
+G. Report the 5-number summary for a quantitative variable. 
+H. Calculate the 5-number summary for a quantitative variable.
+I. Describe the important characteristics of the 5-number summary. 
+J. Report the values of the mean and standard deviation for a quantitative variable.
+K. Calculate the mean and standard deviation for a quantitative variable.
+L. Describe the important characteristics of the mean and standard deviation. 
+M. Compare and contrast the median and the mean as numerical summaries of the center of the distribution of a quantitative variable. 
+N. Compare and contrast the range, interquartile range and the standard deviation as numerical summaries of the variability of the distribution of a quantitative variable.
+O. Identify the most appropriate measures of center and variability to use for a particular quantitative variable.
