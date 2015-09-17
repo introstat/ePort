@@ -1,0 +1,1146 @@
+T03.A.A.04-1.1.MU.1 
+Which of the following characteristics of pie is/are quantitative variables? CHOOSE ALL THAT APPLY.
+
+*a. Calorie count
+*b. Number of cups of flour used
+c. Type of pie (pecan, blueberry, etc.)
+d. Brand of sugar used
+
+
+T03.A.A.04-1.1.MU.2 
+Which of the following characteristics of a book is/are quantitative variables? CHOOSE ALL THAT APPLY.
+
+*a. Number of pages
+*b. Price in dollars
+c. Title
+d. Language the book is written in
+
+
+T03.A.A.04-1.1.MU.3 
+Which of the following characteristics of a cell phone is/are quantitative variables? CHOOSE ALL THAT APPLY.
+
+*a. Number of minutes used
+*b. Cost of roaming in dollars
+c. Provider (Sprint, Verizon, etc.)
+d. Brand (Samsung, LG, etc.)
+
+
+T03.A.A.04-1.1.MU.4 
+Which of the following characteristics of diamonds is/are quantitative variables? CHOOSE ALL THAT APPLY.
+
+*a. Cost in dollars
+*b. Weight in carats
+c. Cut (Princess, Round, etc.)
+d. Color
+
+
+T03.B.B.02-1.1.MC.salaries1 
+Which of the following is/are appropriate displays for the distribution of salaries at a small company with 75 employees? 
+I. Bar Graph II. Histogram III. Stem-and-leaf Plot
+
+a. I only
+b. II only
+c. I and II only
+*d. II and III only
+e. I, II and III
+
+
+T03.B.B.02-1.1.MC.salaries2 
+Which of the following is/are appropriate displays for the distribution of salaries at a small company with 75 employees? 
+I. Pie Graph II. Histogram III. Stem-and-leaf Plot
+
+a. I only
+b. II only
+c. I and II only
+*d. II and III only
+e. I, II and III
+
+
+T03.C.C.03-1.1.MC.horizontal 
+A histogram for the sale price of 100 cars is pictured below. 
+
+ 
+ <img> Topic03.Questions_files/image002.png
+
+
+ The values on the horizontal axis are:
+
+a. The number of cars.
+*b. The sale prices.
+c. The mean sales price for each bin.
+d. The mean number of cars for each bin.
+
+
+T03.C.C.03-1.1.MC.horizontal2 
+A histogram for the birth weight (in oz.) of a sample of 100 general introductory statistics students is pictured below. 
+
+ 
+ <img> Topic03.Questions_files/image004.png
+
+
+ The values on the horizontal axis are:
+
+a. The number of students.
+*b. The birth weights.
+c. The mean birth weight for each bin.
+d. The mean number of students for each bin.
+
+
+T03.C.C.03-1.1.MC.horizontal3 
+A histogram for the number of semester credits hours for a sample of 100 general introductory statistics students is pictured below. 
+
+ 
+ <img> Topic03.Questions_files/image006.png
+
+
+ The values on the horizontal axis are:
+
+a. The number of students.
+*b. The number of semester credit hours.
+c. The mean number of semester credit hours for each bin.
+d. The mean number of students for each bin.
+
+
+T03.C.D.03-1.1.MC.vertical 
+A histogram for the number of states in the United States visited by a random sample of 100 general introductory statistics students is pictured below. 
+ 
+ <img> Topic03.Questions_files/image008.png
+
+
+ The values on the vertical axis are:
+
+*a. The number of students.
+b. The number of states.
+c. The mean number of students for each bin.
+d. The mean number of states for each bin.
+
+
+T03.C.D.03-1.1.MC.vertical2 
+A histogram for the population of the 50 states in the United States in 1975 is pictured below. 
+ 
+ <img> Topic03.Questions_files/image010.png
+
+
+ The values on the vertical axis are:
+
+*a. The number of states.
+b. The state population.
+c. The mean number of states for each bin.
+d. The mean state population for each bin.
+
+
+T03.C.D.03-1.1.MC.vertical3 
+A histogram for the arrival times at the theater before the start of a new movie for 100 people is pictured below. 
+ 
+ <img> Topic03.Questions_files/image012.png
+
+
+ The values on the vertical axis are:
+
+*a. The number of people.
+b. The arrival times.
+c. The mean number of people for each bin.
+d. The mean arrival times for each bin.
+
+
+T03.C.E.03-1.1.MC.tips 
+Below is a histogram of the tips (in dollars) received by a server at a restaurant over a one-week period.
+ 
+ <img> Topic03.Questions_files/image014.png
+
+
+ The tallest bin has a count of 64. This indicates:
+
+a. There were 64 two dollar tips.
+b. There were 64 three dollar tips.
+c. There were 64 four dollar tips.
+*d. There were 64 tips between two and four dollars.
+
+
+T03.C.E.03-1.1.MC.tips2 
+Below is a histogram of the tips (in dollars) received by a server at a restaurant over a one-week period.
+ 
+ <img> Topic03.Questions_files/image015.png
+
+
+The second tallest bin has a count of 43. This indicates:
+
+a. There were 43 four dollar tips.
+b. There were 43 five dollar tips.
+c. There were 43 six dollar tips.
+*d. There were 43 tips between four and six dollars.
+
+
+T03.C.E.03-1.1.MC.tips3 
+Below is a histogram of the tips (in dollars) received by a server at a restaurant over a one-week period.
+ 
+ <img> Topic03.Questions_files/image015.png
+
+
+The fourth tallest bin has a count of 11. This indicates:
+
+a. There were 11 six dollar tips.
+b. There were 11 seven dollar tips.
+c. There were 11 eight dollar tips.
+*d. There were 11 tips between six and eight dollars.
+
+
+T03.C.F.04-1.1.MC.flights1 
+Below is a histogram for arrival delays of flights for an airline.
+ 
+ <img> Topic03.Questions_files/image017.png
+
+
+How many flights were delayed between 20 and 30 minutes?
+
+a. 18
+b. 13
+*c. 10
+d. 5
+
+
+T03.C.F.04-1.1.MC.flights2 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image018.png
+
+
+ How many flights were delayed between 10 and 20 minutes?
+
+*a. 18
+b. 13
+c. 10
+d. 5
+
+
+T03.C.F.04-1.1.MC.flights3 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image019.png
+
+
+ How many flights were delayed between 30 and 40 minutes?
+
+a. 18
+b. 13
+c. 10
+*d. 5
+
+
+T03.C.F.04-1.1.MC.flights4 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image020.png
+
+
+ How many flights were delayed between 0 and 10 minutes?
+
+a. 18
+*b. 13
+c. 10
+d. 5
+
+
+T03.C.G.04-1.1.MC.flights5 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image021.png
+
+
+How many flights were delayed between 0 and 20 minutes?
+
+
+*a. 31
+b. 28
+c. 15
+d. 12
+
+
+T03.C.G.04-1.1.MC.flights6 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image019.png
+
+
+How many flights were delayed between 10 and 30 minutes?
+
+
+a. 31
+*b. 28
+c. 15
+d. 12
+
+
+T03.C.G.04-1.1.MC.flights7 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image021.png
+
+
+How many flights were delayed between 20 and 40 minutes?
+
+
+a. 31
+b. 28
+*c. 15
+d. 12
+
+
+T03.C.G.04-1.1.MC.flights8 
+Below is a histogram for arrival delays of flights for an airline. 
+ 
+ <img> Topic03.Questions_files/image021.png
+
+
+How many flights were delayed between 30 and 50 minutes?
+
+
+a. 31
+b. 28
+c. 15
+*d. 12
+
+
+T03.D.H.04-2.1.MC.random1 
+Which of the following best describes the shape of the distribution pictured below? 
+ <img> Topic03.Questions_files/image023.png
+
+
+
+*a. Uniform
+b. Symmetric and unimodal
+c. Skewed left and unimodal
+d. Skewed left and bimodal
+e. Skewed right and unimodal
+f. Skewed right and bimodal
+
+
+T03.D.H.04-2.1.MC.random2 
+Which of the following best describes the shape of the distribution pictured below? 
+ <img> Topic03.Questions_files/image025.png
+
+
+
+a. Uniform
+b. Symmetric and unimodal
+*c. Skewed left and unimodal
+d. Skewed left and bimodal
+e. Skewed right and unimodal
+f. Skewed right and bimodal
+
+
+T03.D.H.04-2.1.MC.random3 
+Which of the following best describes the shape of the distribution pictured below? 
+ <img> Topic03.Questions_files/image027.png
+
+
+
+a. Uniform
+*b. Symmetric and unimodal
+c. Skewed left and unimodal
+d. Skewed left and bimodal
+e. Skewed right and unimodal
+f. Skewed right and bimodal
+
+
+T03.D.H.04-2.1.MC.random4 
+Which of the following best describes the shape of the distribution pictured below?
+ 
+ <img> Topic03.Questions_files/image029.png
+
+
+
+a. Uniform
+b. Symmetric and unimodal
+c. Skewed left and unimodal
+d. Skewed left and bimodal
+*e. Skewed right and unimodal
+f. Skewed right and bimodal
+
+
+T03.E.I.06-3.1.MC.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below is the histogram and stem-and-leaf plot for 40 times (in seconds) between eruptions for the Kiama blowhole in Australia. 
+ <img> Topic03.Questions_files/image031.png
+
+
+ 
+Which of the following statements does NOT describe the distribution of time between eruptions?
+
+a. There are 24 observations where the time between eruptions is less than 30 seconds.
+b. The distribution of the times between eruptions is skewed to the right.
+c. The mean time between eruptions is greater than the median time between eruptions.
+d. The minimum time between eruptions is 7 seconds.
+*e. The median time between eruptions is less than 20 seconds.
+
+
+T03.E.I.06-3.1.MC.FEV 
+Data are obtained on the forced expiratory volume (FEV) of youths in East Boston in the late 1970s. Forced expiratory volume (FEV) is a measure of lung capacity, in liters. The initial measurements in the 1970s provide a baseline value to study the impact of smoking on lung function. The data for this problem are a random sample of 100 FEV values. 
+ <img> Topic03.Questions_files/image033.png
+
+
+ 
+Which of the following statements does NOT describe the distribution of FEV values?
+
+a. The distribution of FEV values is slightly skewed to the right.
+b. The distribution of FEV values is unimodal.
+c. The center of the FEV values is between 2.0 and 2.5.
+d. The range of the FEV values is from 0.8 to 4.7.
+*e. The mean FEV value will be less than the median FEV value.
+
+
+T03.E.I.06-3.1.MC.diamonds 
+The sizes of diamonds (in carats) in 48 ladies diamond rings were recorded and the data are shown below. 
+ <img> Topic03.Questions_files/image035.png
+
+
+ 
+Which of the following statements does NOT describe the distribution of diamond size?
+
+a. The distribution of diamond size is skewed to the right.
+b. The mean diamond size will be greater than the median diamond size.
+c. The distribution of diamond size is bimodal with the larger mode between 0.15 to 0.2 carats and a smaller mode between 0.25 and 0.3 carats.
+d. There are 29 diamonds smaller than 0.2 carats in size.
+*e. The distribution of diamond size is unimodal with one mode between 0.15 and 0.2 carats.
+
+
+T03.E.I.06-3.1.MC.amps 
+A telecommunications equipment manufacturer was receiving complaints about low volume on long distance calls. Amplifiers are used to boost the signal at various points in the long distance lines. The boosting ability of the amplifiers is called gain. Amplifiers are designed to have a gain of 10 decibels (dB). This means that a 1 dB input signal would be boosted to a 10 dB output signal. A sample of 120 amplifiers is tested for gain.  
+ <img> Topic03.Questions_files/image037.png
+
+
+
+Which of the following statements does NOT describe the distribution of gain values?
+
+*a. The distribution of amplifier gain values is skewed to the left.
+b. The center of amplifier gain values is around 9 dB.
+c. The range of amplifier gain values is from 7.8 dB to 11.7 dB.
+d. The mean amplifier gain value will be greater than the median amplifier gain value.
+e. The distribution of amplifier gain values is unimodal with the mode between 8.5 dB and 9.0 dB.
+
+
+T03.E.I.06-3.1.MC.lowtemp 
+Below is the distribution of low temperatures (in degrees F) for 52 cities in the U.S. 
+ <img> Topic03.Questions_files/image039.png
+
+
+
+
+Which of the following statements does NOT describe the distribution of low temperatures?
+
+a. The distribution of low temperatures is roughly symmetric.
+b. The distribution of low temperatures is unimodal with the mode between 20 and 30 degrees F.
+c. The mean low temperature and the median low temperature are approximately equal.
+d. There are five cities with low temperatures between 0 and 10 degrees F.
+*e. Less than 10 cities have low temperatures between 30 and 40 degrees F.
+
+
+T03.E.I.06-3.1.MC.musicCDs 
+A random sample of 120 students was selected from those students who completed a survey in a general introductory statistics course. The survey asked the number of music CDs owned by each of these students. The histogram of the number of music CDs owned by the students is shown below. 
+ <img> Topic03.Questions_files/image041.png
+
+
+Which of the following statements does NOT describe the distribution of number of music CDs owned?
+
+a. There are 98 students who own less than 150 music CDs.
+b. The mean number of music CDs owned is greater than the median number of music CDs owned.
+c. The distribution of music CDs is unimodal with mode between 0 and 50 music CDs.
+d. The maximum number of CDs owned is between 600 and 650.
+*e. The distribution of music CDs owned is skewed to the left.
+
+
+T03.F.J.04-1.1.MC.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below are 40 times (in seconds) between eruptions for the Kiama blowhole in Australia. 
+ <img> Topic03.Questions_files/image042.png
+
+
+ 
+Based on the graphs, are there any apparent outliers in this distribution?
+
+*a. There is one apparent outlier.
+b. There are two apparent outliers.
+c. There are three apparent outliers.
+d. There are no apparent outliers.
+
+
+T03.F.J.04-1.1.MC.FEV 
+Data are obtained on the forced expiratory volume (FEV) of youths in East Boston in the late 1970s. Forced expiratory volume (FEV) is a measure of lung capacity, in liters. The initial measurements in the 1970s provide a baseline value to study the impact of smoking on lung function. The data for this problem are a random sample of 100 FEV values. 
+ <img> Topic03.Questions_files/image044.png
+
+
+ 
+Based on the histogram, are there any apparent outliers in the distribution?
+
+a. There is one apparent outlier.
+b. There are two apparent outliers.
+c. There are three apparent outliers.
+*d. There are no apparent outliers.
+
+
+T03.F.J.04-1.1.MC.amps 
+A telecommunications equipment manufacturer was getting complaints about low volume on long distance calls. Amplifiers are used to boost the signal at various points in the long distance lines. The boosting ability of the amplifiers is called gain. Amplifiers are designed to have a gain of 10 decibels (dB). This means that a 1 dB input signal would be boosted to a 10 dB output signal. 120 amplifiers were randomly chosen and tested for gain.  
+ <img> Topic03.Questions_files/image046.png
+
+
+ 
+Based on the graphs, are there any apparent outliers?
+
+a. There is one apparent outlier.
+b. There are two apparent outliers.
+c. There are three apparent outliers.
+*d. There are no apparent outliers.
+
+
+T03.F.J.04-1.1.MC.random2 
+Based on the graphs below, are there any apparent outliers in this distribution? 
+ <img> Topic03.Questions_files/image047.png
+
+
+
+*a. There is one apparent outlier.
+b. There are two apparent outliers.
+c. There are three apparent outliers.
+d. There are no apparent outliers.
+
+
+T03.G.K.04-1.1.MU.1 
+Using the summary statistics below, which of the following numbers belong in the five number summary? CHOOSE ALL THAT APPLY. 
+ <img> Topic03.Questions_files/image049.png
+
+
+
+*a. 258.7
+*b. 281.85
+*c. 288.35
+*d. 294.125
+*e. 318.9
+f. 288.59158
+g. 9.3119502
+h. 277.19
+i. 300.2
+j. 318.858
+
+
+T03.G.K.04-1.1.MU.2 
+Using the summary statistics below, which of the following numbers belong in the five number summary? CHOOSE ALL THAT APPLY. 
+ <img> Topic03.Questions_files/image051.png
+
+
+
+*a. 2635
+*b. 3230
+*c. 3406
+*d. 3660
+*e. 4162
+f. 3870.8
+g. 2879.6
+h. 3425.48
+i. 430
+j. 1527
+
+
+T03.G.K.04-1.1.MU.3 
+Using the summary statistics below, which of the following numbers belong in the five number summary? CHOOSE ALL THAT APPLY. 
+ <img> Topic03.Questions_files/image053.png
+
+
+
+*a. 7.8
+*b. 8.325
+*c. 8.9
+*d. 9.6
+*e. 11.7
+f. 3.9
+g. 1.275
+h. 9.0275
+i. 0.8612052
+j. 8
+
+
+T03.G.K.04-1.1.MU.4 
+Using the summary statistics below, which of the following numbers belong in the five number summary? CHOOSE ALL THAT APPLY. 
+ <img> Topic03.Questions_files/image055.png
+
+
+
+*a. 0.839
+*b. 1.74325
+*c. 2.282
+*d. 2.83525
+*e. 4.683
+f. 2.39487
+g. 0.8028653
+h. 3.844
+i. 1.092
+j. 3.6974
+
+
+T03.H.L.04-1.1.MC.birthwt 
+The birth weights (in grams) for each of 18 newborn girls born at a Brisbane, Australia hospital are recorded in the table below.
+ 
+ <img> Topic03.Questions_files/image057.png
+
+
+Select the correct five number summary of the birth weights.
+
+*a. 1745, 2576, 3381, 3523, 3866
+b. 1745, 2576, 3334, 3511.5, 3866
+c. 1745, 2846, 3428, 3523, 3866
+d. 1745, 2670.2, 3132.4, 3594.7, 3866
+
+
+T03.H.L.04-1.1.MC.heartrate 
+As part of a physiology study, participants had their heart rate (in beats per minute) taken by a trained nurse practitioner. Below are heart rates for a sample of 20 males.
+ 
+ <img> Topic03.Questions_files/image059.png
+
+
+Select the correct five number summary of the heart rates.
+
+*a. 64, 69.5, 72.5, 75, 82
+b. 64, 69, 72, 75, 82
+c. 64, 70, 73, 77, 82
+d. 64, 69, 72.5, 74, 82
+
+
+T03.H.L.04-1.1.MC.babe 
+Babe Ruth is arguably the best player to have ever played Major League Baseball. In his 22 seasons, he broke numerous records both for pitching (which he did early in his career) and for hitting. Below are the number of home runs Babe Ruth hit in his 22 seasons in the league from 1914 - 1935.
+ 
+ <img> Topic03.Questions_files/image061.png
+
+
+Select the correct five number summary for the number of home runs Babe Ruth hit per season.
+
+*a. 0, 11, 38, 47, 60
+b. 0, 8.5, 35, 46, 60
+c. 0, 11, 41, 48, 60
+d. 0, 8.5, 38, 46.5, 60
+
+
+T03.H.L.04-1.1.MC.hightemps 
+Below are the high temperatures recorded at an airport in a medium-sized city in the United States for the first 20 days of the month of January 2004.
+ 
+ <img> Topic03.Questions_files/image063.png
+
+
+Select the correct five number summary of the high temperatures.
+
+*a. 11, 24.5, 32.5, 39, 60
+b. 11, 23, 31, 40, 60
+c. 11, 26, 34, 45, 60
+d. 11, 24.5, 34, 39, 60
+
+
+T03.I.M.03-1.4.FB.five1 
+Fill in the blanks with the correct values: The five number summary for a particular quantitative variable is 
+Min = 28; Q1 = 37; Median = 43; Q3 = 60; Max = 61 The middle 50% of observations are between ______ and ______. 50% of observations are less than ______. The largest 25% of observations are greater than ______. 
+
+ Answers:
+ 
+ a. 37
+ 
+
+
+ b. 60
+ 
+
+
+ c. 43
+ 
+
+
+ d. 60
+ 
+
+
+
+
+T03.I.M.03-1.4.FB.five2 
+Fill in the blanks with the correct values: The five number summary for a particular quantitative variable is Min = 32; Q1 = 33; Median = 34; Q3 = 45; Max = 48 The middle 50% of observations are between ______ and ______. 50% of observations are less than ______. The largest 25% of observations are greater than ______. 
+
+ Answers:
+ 
+ a. 33
+ 
+
+
+ b. 45
+ 
+
+
+ c. 34
+ 
+
+
+ d. 45
+ 
+
+
+
+
+T03.I.M.03-1.4.FB.five3 
+Fill in the blanks with the correct values: The five number summary for a particular quantitative variable is 
+Min = 9; Q1 = 20; Median = 30; Q3 = 34; Max = 40 The middle 50% of observations are between ______ and ______. 50% of observations are less than ______. The largest 25% of observations are greater than ______. 
+
+ Answers:
+ 
+ a. 20
+ 
+
+
+ b. 34
+ 
+
+
+ c. 30
+ 
+
+
+ d. 34
+ 
+
+
+
+
+T03.J.N.04-1.2.FB.amps 
+A telecommunications equipment manufacturer was getting complaints about low volume on long distance calls. Amplifiers are used to boost the signal at various points in the long distance lines. The boosting ability of the amplifiers is called gain. Amplifiers are designed to have a gain of 10 decibels (dB). This means that a 1 dB input signal would be boosted to a 10 dB output signal. A sample of 120 amplifiers is tested for gain. The JMP output for the distribution gain for the 120 amplifiers is given below.  
+The sample mean amplifier gain, rounded to 2 decimal places, is ______ dB. The sample standard deviation of the amplifier gains, rounded to 2 decimal places, is ______ dB.  
+ <img> Topic03.Questions_files/image065.png
+
+
+
+ Answers:
+ 
+ a. 9.03
+ 
+
+
+ b. 0.86, .86
+ 
+
+
+
+
+T03.J.N.04-1.2.FB.FEV 
+Data are obtained on the forced expiratory volume (FEV) of youths in East Boston in the late 1970s. Forced expiratory volume (FEV) is a measure of lung capacity, in liters. The initial measurements in the 1970s provide a baseline value to study the impact of smoking on lung function. The data for this problem are a random sample of 100 FEV values. Below is JMP output for the data.  
+The sample mean FEV value, rounded to 3 decimal places, is ______. The sample standard deviation of the FEV values, rounded to 3 decimal places, is ______.  
+ <img> Topic03.Questions_files/image067.png
+
+
+
+ Answers:
+ 
+ a. 2.395
+ 
+
+
+ b. 0.803, .803
+ 
+
+
+
+
+T03.J.N.04-1.2.FB.birthwt 
+The following shows JMP output for the birth weight of male babies (in grams).  
+The sample mean birth weight for boys, rounded to 2 decimal places, is ______ g. The sample standard deviation of the birth weights for boys, rounded to 2 decimal places, is ______ g.  
+ <img> Topic03.Questions_files/image051.png
+
+
+
+ Answers:
+ 
+ a. 3425.48
+ 
+
+
+ b. 350.26
+ 
+
+
+
+
+T03.J.N.04-1.2.FB.heartrate 
+As part of a physiology study, participants had their heart rates (in beats per minute) taken by a trained nurse practitioner. 
+The sample mean heart rate, rounded to 1 decimal place, is ______ beats per minute. The sample standard deviation of the heart rates, rounded to 1 decimal place, is ______ beats per minute.  
+ <img> Topic03.Questions_files/image069.png
+
+
+
+ Answers:
+ 
+ a. 72.4
+ 
+
+
+ b. 4.7
+ 
+
+
+
+
+T03.K.O.04-1.1.FB.mean1 
+The data below represent measurements on city gas mileage of medium-sized sedans as analyzed by the Environmental Protection Agency. 15, 21, 13, 48, 22, 17, 20, 13, 26, 18 Calculate the mean for the EPA mileage. Round your answer to 1 decimal place. DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 21.3
+
+
+T03.K.O.04-1.1.FB.mean2 
+The data below represent measurements on city gas mileage of medium-sized sedans as analyzed by the Environmental Protection Agency. 17, 23, 19, 35, 15, 15, 25, 14, 22, 23 Calculate the mean for the EPA mileage. Round your answer to 1 decimal place. DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 20.8
+
+
+T03.K.O.04-1.1.FB.mean3 
+The data below represent measurements on city gas mileage of medium-sized sedans as analyzed by the Environmental Protection Agency. 17, 14, 23, 39, 26, 12, 16, 22, 26, 21 Calculate the mean for the EPA mileage. Round your answer to 1 decimal place. DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 21.6
+
+
+T03.K.O.04-1.1.FB.mean4 
+The data below represent measurements on city gas mileage of medium-sized sedans as analyzed by the Environmental Protection Agency. 15, 20, 28, 16, 22, 20, 16, 14, 12, 18 Calculate the mean for the EPA mileage. Round your answer to 1 decimal place. DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 18.1
+
+
+T03.K.P.04-1.1.FB.sd1 
+The data below represent measurements on city gas mileage for large sized sedans as analyzed by the Environmental Protection Agency. 10, 14, 8, 26, 11, 10, 12, 8, 17, 11 
+The mean of these EPA mileage values is 12.7. Compute the standard deviation for the EPA mileage. Round your final answer to 2 decimal places. DO NOT round any intermediate values and DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 5.40 
+b. 5.39 
+c. 5.41
+
+
+T03.K.P.04-1.1.FB.sd2 
+The data below represent measurements on city gas mileage for large sized sedans as analyzed by the Environmental Protection Agency. 12, 11, 13, 11, 24, 17, 17, 14, 9, 13 The mean of these EPA mileage values is 14.1. Compute the standard deviation for the EPA mileage. Round your final answer to 2 decimal places. DO NOT round any intermediate values and DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 4.31 
+b. 4.32 
+c. 4.30
+
+
+T03.K.P.04-1.1.FB.sd3 
+The data below represent measurements on city gas mileage for large sized sedans as analyzed by the Environmental Protection Agency. 14, 13, 14, 26, 15, 9, 11, 13, 15, 17 The mean of these EPA mileage values is 14.7. Compute the standard deviation for the EPA mileage. Round your final answer to 2 decimal places. DO NOT round any intermediate values and DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 4.55 
+b. 4.56 
+c. 4.54
+
+
+T03.K.P.04-1.1.FB.sd4 
+The data below represent measurements on city gas mileage for large sized sedans as analyzed by the Environmental Protection Agency. 12, 17, 13, 12, 9, 14, 15, 10, 20, 15 The mean of these EPA mileage values is 13.7. Compute the standard deviation for the EPA mileage. Round your final answer to 2 decimal places. DO NOT round any intermediate values and DO NOT include units in your answer.
+
+Correct Answer(s): 
+a. 3.27 
+b. 3.28 
+c. 3.26
+
+
+T03.L.Q.01-1.1.MC.mean 
+The mean of a quantitative variable
+
+a. measures the 50th percentile of the values of the variable.
+*b. measures the balancing point of the values of the variable.
+c. is equal to the value of the variable that occurs most often.
+
+
+T03.L.R.01-1.1.MC.stdev 
+The standard deviation of a quantitative variable
+
+a. measures the variability between the minimum and maximum values of the variable.
+b. measures the variability of the middle 50% of the values of the variable.
+*c. measures the variability of the observations around the mean value.
+d. measures the variability of the observations around the median value.
+
+
+T03.L.S.03-1.1.MC.height 
+The distribution of the heights of female students in a general introductory statistics course is unimodal with a mean of 65.03 inches and a standard deviation of 2.76 inches. Based on this information, the distribution of heights of these female students is most likely
+
+*a. Symmetric
+b. Skewed Left
+c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.L.S.03-1.1.MC.weight 
+The distribution of the weight of female babies born in a particular hospital over the course of a year is unimodal with a mean of 7.15 pounds and a standard deviation of 0.95 pounds. Based on this information, the distribution of the weight of female babies born in this particular hospital during the course of a year is most likely
+
+*a. Symmetric
+b. Skewed Left
+c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.L.S.03-1.1.MC.neck 
+The distribution of the neck size of 250 men is unimodal with a mean of 14.85 inches and a standard deviation of 0.68 inches. Based on this information, the distribution of the neck size of these men is most likely
+
+*a. Symmetric
+b. Skewed Left
+c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.L.T.03-1.1.MC.grades 
+The distribution of grades on the first exam in a general introductory statistics course is unimodal with a mean of 82 points out of 100 and a standard deviation of 15 points. Based on this information, the distribution of exam scores is most likely
+
+a. Symmetric
+*b. Skewed Left
+c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.L.T.03-1.1.MC.distance 
+The distribution of the distance from the hometowns of students in a general introductory statistics course to campus is unimodal with a mean of 321.4 miles and a standard deviation of 1,111.1 miles. Based on this information, the distribution of this distance is most likely
+
+a. Symmetric
+b. Skewed Left
+*c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.L.T.03-1.1.MC.exercise 
+The distribution of the number of hours students in a general introductory statistics course spend exercising in a typical week is unimodal with a mean of 3.7 hours and a standard deviation of 4.2 hours. Based on this information, the distribution of the number of hours spent exercising in a typical week is most likely
+
+a. Symmetric
+b. Skewed Left
+*c. Skewed Right
+d. We don't have enough information to answer the question.
+
+
+T03.M.U.02-1.1.MC.lowtemp 
+Below is the distribution of low temperatures (in degrees F) for 52 cities in the U.S.
+ 
+ <img> Topic03.Questions_files/image070.png
+
+
+Based on this information, the mean will be _____________ the median.
+
+a. greater than
+*b. approximately the same as
+c. less than
+
+
+T03.M.U.02-1.1.MC.hist1 
+For the distribution pictured below, the mean will be ____________ the median.
+ 
+ <img> Topic03.Questions_files/image071.png
+
+
+
+a. greater than
+*b. approximately the same as
+c. less than
+
+
+T03.M.V.03-1.1.MC.FEV 
+Data are obtained on the forced expiratory volume (FEV) of youths in East Boston in the late 1970s. Forced expiratory volume (FEV) is a measure of lung capacity, in liters. The initial measurements in the 1970s provide a baseline value to study the impact of smoking on lung function. The histogram and stem and leaf plot for a random sample of 100 FEV values are given below.
+ 
+ <img> Topic03.Questions_files/image072.png
+
+
+Based on the distribution, the mean will be _____________ the median.
+
+*a. greater than
+b. less than
+c. approximately the same as
+
+
+T03.M.V.03-1.1.MC.amps 
+A telecommunications equipment manufacturer was getting complaints about low volume on long distance calls. Amplifiers are used to boost the signal at various points in the long distance lines. The boosting ability of the amplifiers is called gain. Amplifiers are designed to have a gain of 10 decibels (dB). This means that a 1 dB input signal would be boosted to a 10 dB output signal. A sample of 120 amplifiers is tested for gain.
+ 
+ <img> Topic03.Questions_files/image073.png
+
+
+Based on the distribution, the mean will be ____________ the median.
+
+*a. greater than
+b. less than
+c. approximately the same as
+
+
+T03.M.V.03-1.1.MC.HW 
+Below is the distribution of proportion scores on a particular homework assignment in a general introductory statistics course.
+ 
+ <img> Topic03.Questions_files/image074.png
+
+
+Based on the distribution, the mean will be ____________ the median.
+
+a. greater than
+b. approximately the same as
+*c. less than
+
+
+T03.M.W.03-1.1.MC.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below are 40 times (in seconds) between eruptions for the Kiama blowhole in Australia. 
+ <img> Topic03.Questions_files/image075.png
+
+
+ 
+Choose the correct statement below.
+
+*a. The large outlier affects the value of the mean, but not the value of the median.
+b. The large outlier affects the value of the median, but not the value of the mean.
+c. The large outlier does not affect the value of the mean or the value of the median.
+d. The large outlier affects both the value of the mean and the value of the median.
+
+
+T03.M.W.03-1.1.MC.CDs 
+A random sample of 120 students was selected from those students who completed a survey in a general introductory statistics course. The survey asked the number of music CDs owned by each of these students. The histogram of the number of music CDs owned by the students is shown below. 
+ <img> Topic03.Questions_files/image077.png
+
+
+
+Choose the correct statement below.
+
+*a. The large outliers affect the value of the mean but not the value of the median.
+b. The large outliers affect the value of the median but not the value of the mean.
+c. The large outliers affect both the value of the median and the value of the mean.
+d. The large outliers do not affect the value of the mean or the value of the median.
+
+
+T03.M.W.03-1.1.MC.HW 
+Below is the distribution of proportion scores on a particular homework assignment in a general introductory statistics course.
+ 
+ <img> Topic03.Questions_files/image074.png
+
+
+Choose the correct statement below.
+
+*a. The small outlier affects the value of the mean but not the value of the median.
+b. The small outlier affects the value of the median but not the value of the mean.
+c. The small outlier affects both the value of the median and the value of the mean.
+d. The small outlier does not affect the value of the mean or the value of the median.
+
+
+T03.M.X.01-1.1.MC.change 
+A quantitative variable has 10 observations that have a median value of 22 and a mean value of 25. The minimum of the 10 observations was recorded incorrectly and is changed from a value of 5 to a value of 3. 
+Choose the correct statement below.
+
+*a. The mean value will change, but the median value will stay the same.
+b. The median value will change, but the mean value will stay the same.
+c. The mean and median values will both change.
+d. The mean and median values will both stay the same.
+
+
+T03.N.Y.01-1.1.MC.add 
+A quantitative variable has 10 observations that have a range of 8, an IQR of 2.5, and a standard deviation of 3. Five points are added to each of the 10 observations. 
+Choose the correct statement below.
+
+*a. The values of the range, IQR and standard deviation will all stay the same.
+b. The values of the range and IQR will stay the same, but the value of the standard deviation will change.
+c. The value of the standard deviation will stay the same, but the values of the range and IQR will change.
+d. The values of the range, IQR and standard deviation will all change.
+
+
+T03.N.Z.03-1.1.MC.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below are 40 times (in seconds) between eruptions for the Kiama blowhole in Australia. 
+ <img> Topic03.Questions_files/image078.png
+
+
+ 
+Which measure of variability is NOT affected by the large outlier in this distribution?
+
+a. Range
+*b. IQR
+c. Standard deviation
+
+
+T03.N.Z.03-1.1.MC.CDs 
+A random sample of 120 students was selected from those students who completed a survey in a general introductory statistics course. The survey asked the number of music CDs owned by each of these students. The histogram of the number of music CDs owned by the students is shown below. 
+ <img> Topic03.Questions_files/image077.png
+
+
+
+Which measure of variability is NOT affected by the large outliers in this distribution?
+
+a. Range
+*b. IQR
+c. Standard Deviation
+
+
+T03.N.Z.03-1.1.MC.HW 
+Below is the distribution of proportion scores on a particular homework assignment in a general introductory statistics course.
+ 
+ <img> Topic03.Questions_files/image079.png
+
+
+Which measure of variability is NOT affected by the small outlier in this distribution?
+
+a. Range
+*b. IQR
+c. Standard Deviation
+
+
+T03.O.AA.02-1.1.MC.lowtemp 
+Below is the distribution of low temperatures (in degrees F) for 52 cities in the U.S.
+ 
+ <img> Topic03.Questions_files/image081.png
+
+
+Which numerical summaries are most appropriate for this distribution?
+
+*a. mean and standard deviation
+b. five number summary
+c. median and standard deviation
+d. mean and range
+
+
+T03.O.AA.02-1.1.MC.random3 
+Which numerical summaries are most appropriate for the distribution pictured below?
+ 
+ <img> Topic03.Questions_files/image082.png
+
+
+
+*a. mean and standard deviation
+b. five number summary
+c. median and standard deviation
+d. mean and range
+
+
+T03.O.AB.03-1.1.MC.FEV 
+Data are obtained on the forced expiratory volume (FEV) of youths in East Boston in the late 1970s. Forced expiratory volume (FEV) is a measure of lung capacity, in liters. The initial measurements in the 1970s provide a baseline value to study the impact of smoking on lung function. The data for this problem are a random sample of 100 FEV values. 
+ <img> Topic03.Questions_files/image083.png
+
+
+ 
+Which numerical summaries are most appropriate for this distribution?
+
+a. mean and standard deviation
+*b. five number summary
+c. mean and range
+d. median and standard deviation
+
+
+T03.O.AB.03-1.1.MC.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below are 40 times (in seconds) between eruptions for the Kiama blowhole in Australia.
+ 
+ <img> Topic03.Questions_files/image075.png
+
+
+Which numerical summaries are most appropriate for this distribution?
+
+a. mean and standard deviation
+*b. five number summary
+c. mean and range
+d. median and standard deviation
+
+
+T03.O.AB.03-1.1.MC.random2 
+Which numerical summaries are most appropriate for the distribution pictured below? 
+ <img> Topic03.Questions_files/image074.png
+
+
+
+a. mean and standard deviation
+*b. five number summary
+c. mean and range
+d. median and standard deviation
+

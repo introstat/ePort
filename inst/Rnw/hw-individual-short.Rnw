@@ -36,7 +36,7 @@ plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 
 <<echo=FALSE,results='asis'>>=
 fname=paste(plotprename,'_score.pdf',sep='')
-pdf(paste0("../",fname),width=4,height=4)
+pdf(paste0(knito,"/",fname),width=4,height=4)
 ms=max(sumry1$TotalScore,na.rm=T)
 print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
 {dev.off();invisible()}
@@ -166,7 +166,8 @@ write.table(c("With semicolon:","",
   paste(emailaddress,collapse='; '),
   "","","With comma:","",
   paste(emailaddress,collapse=', ')),
-  file=sprintf('../%s_students_below80.txt',plotprename),
+  file=paste0(knito,"/",plotprename,"_students_below80.txt"),
+  #file=sprintf('../%s_students_below80.txt',plotprename),
   quote=FALSE,row.names=FALSE,col.names=FALSE)
 @
 
@@ -197,7 +198,7 @@ output1$variable = factor(as.character(output1$variable),levels=LOsumryorder)
 output1$value = output1$value*100
 
 fnameO <<- paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
-pdf(paste0("../",fnameO),width=6,height=7) # orig width=6,height=7
+pdf(paste0(knito,"/",fnameO),width=6,height=7) # orig width=6,height=7
 sumVarVal <- summarize(group_by(output1,variable,value),Count=n())
 means=LOsumry$Mean
 sumVarVal$mean = means[as.numeric(sumVarVal$variable)]

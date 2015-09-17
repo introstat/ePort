@@ -1,9 +1,0 @@
-Topic 05: Summarizing a Quantitative Variable between Groups
-
-After studying this topic, students should be able to:
-
-A. Choose suitable displays for comparing the distributions of a quantitative variable for two or more groups.
-B. Identify the components of an outlier boxplot.
-C. Compare and contrast the distributions of a quantitative variable for two or more groups using boxplots or histograms.
-D. Use the 5-number summary for a quantitative variable to determine potential outliers in the boxplot.
-E. Use boxplots and histograms to identify outliers for quantitative variables.

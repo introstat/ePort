@@ -25,8 +25,9 @@
 \newcommand{\class}[1]{{\textit{#1}}}
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
 
+\usepackage{Sweave}
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+\input{ePort-concordance}
 
 % <<label=R options,echo=FALSE>>=
 % options(width = 60)
@@ -42,17 +43,13 @@
 
 \title{Vignette for the ePort package:\\ Academic report generation for statistics instructors}
 \author{Xiaoyue Cheng, Dianne Cook, Amy Froelich}
-\date{\pkg{ePort} version \Sexpr{packageDescription("ePort")[["Version"]]} , \Sexpr{Sys.Date()} }
+\date{\pkg{ePort} version 0.0.1 , 2015-09-17 }
 \maketitle
 
 \tableofcontents
 \setcounter{footnote}{1} \footnotetext{This \LaTeX\ vignette document is created using the \R function \code{Sweave} on the \R package \pkg{ePort}. It is automatically downloaded with the package and can be accessed with the \R command \code{vignette("ePort")}.}  \newpage
 \setlength{\parskip}{10pt} % Inter-paragraph spacing
 
-<<echo=FALSE>>=
-rm(list=ls())
-library(knitr)
-@ 
 
 \section{Summary}
 
@@ -76,62 +73,78 @@ Both short and long versions of reports can be generated for any of the aforemen
 
 \R is a open source software project for statistical computing, and can be freely downloaded from the Comprehensive R Archive Network (CRAN) website. The link to contributed documentation on the CRAN website offers practical resources for an introduction to \R, in several languages. After downloading and installing \R, the installation of additional packages is straightforward. To install the \pkg{ePort} package from \R, use the command:
 
-<<results = hide, eval=FALSE>>=
-install.packages("ePort")
-@
+\begin{Schunk}
+\begin{Sinput}
+> install.packages("ePort")
+\end{Sinput}
+\end{Schunk}
 
 \noindent
 The \pkg{ePort} package should now be successfully installed. Next, to render it accessible to the current \R session, simply type:
 
-<<results = hide>>=
-library(ePort)
-@
+\begin{Schunk}
+\begin{Sinput}
+> library(ePort)
+\end{Sinput}
+\end{Schunk}
 
 To access help pages with example syntax and documentation for the available functions of the \pkg{ePort} package, please type:
 
-<<eval=FALSE>>=
-help(package="ePort")
-@ 
+\begin{Schunk}
+\begin{Sinput}
+> help(package="ePort")
+\end{Sinput}
+\end{Schunk}
 
 To access more detailed information about a specific function in the \pkg{ePort} package, use the following help command on that function, such as:
 
-<<eval=FALSE>>=
-help(merge_section)
-@ 
+\begin{Schunk}
+\begin{Sinput}
+> help(merge_section)
+\end{Sinput}
+\end{Schunk}
 
 The above command will return the help file for the function. The help file often includes freestanding example syntax to illustrate how function commands are executed. In the case of the function, the example syntax is the following three lines, which can be pasted directly into an \R session.
 
-<<eval=FALSE>>=
-# Fill later
-@ 
+\begin{Schunk}
+\begin{Sinput}
+> # Fill later
+\end{Sinput}
+\end{Schunk}
 
 \subsection{Preprocessing pipeline}
 
-<<message=FALSE, results=HIDE>>=
-key_htm = "/Users/lindz/ePort/data/KeyFiles/Topic06.Questions.htm"
-# generate a clean answer key with paths to the plots in questions
-refine_key(key_htm)
-# get the path/name of the new answer key
-key_txt = gsub("htm$","txt",key_htm)
-# Get the path for a data file
-datapath = "/Users/lindz/ePort/data/DataFiles/Topic06.AB.csv"
-# Get the path for the learning objective
-LOpath = "/Users/lindz/ePort/data/OutcomeFiles/Topic06.Outcomes.txt"
-rewrite_data(datapath)
-report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/data/ReportFiles")
-@
+\begin{Schunk}
+\begin{Sinput}
+> key_htm = "/Users/lindz/ePort/data/KeyFiles/Topic06.Questions.htm"
+> # generate a clean answer key with paths to the plots in questions
+> refine_key(key_htm)
+> # get the path/name of the new answer key
+> key_txt = gsub("htm$","txt",key_htm)
+> # Get the path for a data file
+> datapath = "/Users/lindz/ePort/data/DataFiles/Topic06.AB.csv"
+> # Get the path for the learning objective
+> LOpath = "/Users/lindz/ePort/data/OutcomeFiles/Topic06.Outcomes.txt"
+> rewrite_data(datapath)
+> report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/data/ReportFiles")
+\end{Sinput}
+\end{Schunk}
 
-<<>>=
-#report_routine(key_txt,datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito=getwd())
-#report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw")
-@
+\begin{Schunk}
+\begin{Sinput}
+> #report_routine(key_txt,datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito=getwd())
+> #report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw")
+\end{Sinput}
+\end{Schunk}
 
-<<>>=
-#data(sbGeneal)
-#head(sbGeneal)
-#dim(sbGeneal)
-#str(sbGeneal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #data(sbGeneal)
+> #head(sbGeneal)
+> #dim(sbGeneal)
+> #str(sbGeneal)
+\end{Sinput}
+\end{Schunk}
 
 \section{Generating Reports}
 
@@ -141,25 +154,31 @@ The \pkg{ePort} package offers several functions that result in useful reports. 
 
 The \pkg{ePort} package offers several functions that you can use to obtain information for individual vertices. First, the function \texttt{isParent()} can return a logical variable to indicate whether or not the second variety is a parent of the first variety.
 
-<<>>=
-#isParent("Young","Essex",sbGeneal)
-#isParent("Essex","Young",sbGeneal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #isParent("Young","Essex",sbGeneal)
+> #isParent("Essex","Young",sbGeneal)
+\end{Sinput}
+\end{Schunk}
 
 We see that ``Essex" is a parent of ``Young", and not vice-versa. In some cases, you may wish to obtain a complete list of all the parents of a given variety. This can be achieved using the \texttt{getParent()} function:
 
-<<>>=
-#getParent("Young",sbGeneal)
-#getParent("Tokyo",sbGeneal)
-#getYear("Tokyo", sbGeneal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #getParent("Young",sbGeneal)
+> #getParent("Tokyo",sbGeneal)
+> #getYear("Tokyo", sbGeneal)
+\end{Sinput}
+\end{Schunk}
 
 We learn from this that ``Essex" is not the only parent of ``Young"; ``Young" also has a parent ``Davis". We also see that ``Tokyo" does not have any documented parents in this dataset, and has an older year of introduction than other varieties we have examined thusfar. Likewise, in other cases, you may wish to obtain a complete list of all the children of a given variety. This can be achieved using the \texttt{getChild()} function:
 
-<<>>=
-#getChild("Tokyo",sbGeneal)
-#getChild("Ogden",sbGeneal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #getChild("Tokyo",sbGeneal)
+> #getChild("Ogden",sbGeneal)
+\end{Sinput}
+\end{Schunk}
 
 We find that even though the ``Tokyo" variety is a grandparent of the dataset, it only has two children, ``Ogden" and ``Volstate". However, one of its children, ``Ogden", produced Sexpr{length(getChild("Ogden",sbGeneal))} children.
 
@@ -171,10 +190,12 @@ If we only look at one generation of ancestors of the ``Young" variety, we shoul
 
 Say you have a pair of vertices, and you wish to determine the degree of the shortest path between them, where edges represent parent-child relationships. You can accomplish that with the \texttt{getDegree()} function.
 
-<<>>=
-#getDegree("Tokyo", "Ogden", ig, sbGeneal)
-#getDegree("Tokyo", "Holladay", ig, sbGeneal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #getDegree("Tokyo", "Ogden", ig, sbGeneal)
+> #getDegree("Tokyo", "Holladay", ig, sbGeneal)
+\end{Sinput}
+\end{Schunk}
 
 \subsection{One section Multiple topics}
 
