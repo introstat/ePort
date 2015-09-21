@@ -39,7 +39,7 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Statistics 101 Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
+\centerline{\Large\bf Introductory Statistics Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
 \vspace{1cm}
 
 <<data=hist, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent scores less than 80 percent.",fig.lp = "mar:hist">>=
@@ -48,6 +48,12 @@ ms=sumry1$FullScore[1]
 print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
 @
 
+<<<<<<< HEAD
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:hist} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who scored below 80 percent on the assignment. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+\bigskip{}
+
+=======
+>>>>>>> ce74844841a300df39d05c437d96c39519c0ac0f
 <<echo=FALSE,results='asis'>>=
 su=c(  
   Mean=paste(format(mean(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),

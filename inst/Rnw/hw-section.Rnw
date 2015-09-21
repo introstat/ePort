@@ -47,14 +47,14 @@ HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set
 
 
 
-\centerline{\Large\bf Statistics 101 Analysis}
-\centerline{\bf Homework Comparison among Sections}
+\centerline{\Large\bf Introductory Statistics Homework Analysis}
+\centerline{\bf Comparison among Sections}
 \centerline{\bf }
 
 \section{Overview}
 The homework results that will be compared are \Sexpr{paste(basename(namelist),collapse=', ')}. Those files record the scores of students who are taught by different instructors. The homework questions examine the understanding of \Sexpr{chpt}.
 
-The histograms of total scores are shown in Figure \ref{mar:hist}, on the right of the page. The range of the scores of this homework is [0,\Sexpr{HWFullPt}]. The summary statistics of the scores are given by Table \ref{tab:summary} and Figure \ref{fig:boxplot-score}. The table is sorted by the mean score of each section. Section \Sexpr{paste(highmean,collapse=',')} \Sexpr{ifelse(length(highmean)==1,"has","have")} the highest mean score, and section \Sexpr{paste(highmedian,collapse=",")} \Sexpr{ifelse(all(highmean==highmedian),"also","")}  \Sexpr{ifelse(length(highmedian)==1,"has","have")} the highest median. Section \Sexpr{paste(highstd,collapse=',')} \Sexpr{ifelse(length(highstd)==1,"has","have")} the largest standard deviation of the scores, while section \Sexpr{paste(lowstd,collapse=',')} \Sexpr{ifelse(length(lowstd)==1,"has","have")} the shortest spread (std.dev).
+Full credit for this homework assignment is \Sexpr{HWFullPt}. The histograms of total scores by section are shown in Figure \ref{mar:hist}. The summary statistics of the scores are given by Table \ref{tab:summary} and Figure \ref{fig:boxplot-score}. The table is sorted by the mean score of each section. Section \Sexpr{paste(highmean,collapse=',')} \Sexpr{ifelse(length(highmean)==1,"has","have")} the highest mean score, and section \Sexpr{paste(highmedian,collapse=",")} \Sexpr{ifelse(all(highmean==highmedian),"also","")}  \Sexpr{ifelse(length(highmedian)==1,"has","have")} the highest median. Section \Sexpr{paste(highstd,collapse=',')} \Sexpr{ifelse(length(highstd)==1,"has","have")} the largest standard deviation of the scores, while section \Sexpr{paste(lowstd,collapse=',')} \Sexpr{ifelse(length(lowstd)==1,"has","have")} the smallest.
 
 
 <<echo=FALSE,results='asis',fig.show='hide'>>=
@@ -97,11 +97,11 @@ cat(sprintf('\\begin{center}
 
 \clearpage
 \newpage{}
-\section{Learning Objectives}
+\section{Learning Outcomes}
 
 \bigskip{}
 
-The learning objectives in this chapter are as follows.
+The learning outcomes in this topic are:
 
 \bigskip{}
 <<echo=FALSE,results='asis'>>=
@@ -112,9 +112,9 @@ cat("\\\\ \n ~~ \n")
 \clearpage
 \newpage{}
 
-Figure \ref{mar:LOpct} displays the percentage correct of each question by section. The graph is facetted by the learning objectives. In addition, the order of learning objectives and sections are rearranged by their average percentages correct.
+Figure \ref{mar:LOpct} displays the percentage correct of each question by section. The graph is facetted by learning outcome. In addition, sections are ordered by their overall mean scores and learning outcomes are ordered by their average percentage correct scores.
 
-Table \ref{tab:Oset} and Figure \ref{sbsb-os} give the average percentages correct for each learning objective. The learning objective \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.max(apply(instructor_scores$CsetAvgPct,1,mean))]} has the highest correct percentage, and  \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.min(apply(instructor_scores$CsetAvgPct,1,mean))]} gets the lowest average correct percent.
+Table \ref{tab:Oset} and Figure \ref{sbsb-os} give the average percentages correct for each learning outcome. The learning outcome \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.max(apply(instructor_scores$CsetAvgPct,1,mean))]} has the highest correct percentage, and  \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.min(apply(instructor_scores$CsetAvgPct,1,mean))]} has the lowest average correct percent.
 
 <<echo=FALSE,results='asis'>>=
 fname=paste0(plotprename,'_Scatterplot_LOpct.pdf')
@@ -127,10 +127,10 @@ pdf(paste0("../",fname),width=4,height=18)
 print(qplot(section,Percent,data=b,geom='point',facets=LearningObj~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15)) + coord_flip() )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
-\\caption{\\label{mar:LOpct}Scatterplot of correct percentage by learning objectives. The sections are sorted by their overall mean scores, and the learning objectives are ordered by the mean correct percentage.}\\end{marginfigure}',sub('\\.pdf','',fname)))
+\\caption{\\label{mar:LOpct}Scatterplot of correct percentage by learning outcome. The sections are sorted by their overall mean scores, and the learning outcomes are ordered by the mean correct percentage.}\\end{marginfigure}',sub('\\.pdf','',fname)))
 
 
-print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE],caption='Average percentages correct for each learning objective by section. The learning objectives are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable")
+print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE],caption='Average percentages correct for each learning outcome by section. The learning outcomes are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable")
 
 fname=paste0(plotprename,'_Sidebyside_Boxplots_LearningObj.pdf')
 pdf(paste0("../",fname),width=12,height=6)
@@ -142,7 +142,7 @@ cat(sprintf('\\begin{center}
 \\begin{centering}
 \\includegraphics[width=0.98\\linewidth]{%s}
 \\par\\end{centering}
-\\caption{\\label{sbsb-os}Side-by-side boxplots for learning objectives by section. The learning objective on the left has the highest average correct percentage, while the one on the right has the lowest.}
+\\caption{\\label{sbsb-os}Side-by-side boxplots for learning outcomes by section. The learning outcome on the left has the highest average correct percentage, while the one on the right has the lowest.}
 \\end{wrapfigure}
 \\par\\end{center}',sub('\\.pdf','',fname)))
 
@@ -151,16 +151,16 @@ cat(sprintf('\\begin{center}
 \clearpage
 \newpage{}
 
-To analyze the students' performance by section and learning objectives, 
+To analyze the students' performance by section and learning outcomes, 
 we consider the generalized linear mixed model:
 \[
 g(E[Y_{ijk}|u_{jk}])= \mu+\tau_{i}+s_{j}+\tau s_{ij}+u_{jk}
 \]
-where $i=1,...,$\Sexpr{length(unique(answerkey$simplekey$Objective.Set))} learning objectives; 
+where $i=1,...,$\Sexpr{length(unique(answerkey$simplekey$Objective.Set))} learning outcomes; 
 $j=1,...,$\Sexpr{length(namelist)} sections; $k=1,...,n_j$ students.
 $Y_{ijk}$ is the score (scaled in $[0,1]$) of the $k$th student of 
-section $j$ in the $i$th learning objective. $\tau_i$ and $s_{j}$ are the 
-fixed effects of learning objective $i$ and section $j$. 
+section $j$ in the $i$th learning outcome. $\tau_i$ and $s_{j}$ are the 
+fixed effects of learning outcome $i$ and section $j$. 
 $\tau s_{ij}$ is the interaction between the two factors.
 $u_{jk}$ is the random effect from the students with 
 $u_{jk} \sim N(0,\sigma_{u}^{2})$.
@@ -169,7 +169,7 @@ By default the software R sets $\tau_{1}=0$, $s_{1}=0$ and
 $\tau s_{ij}=0, \forall i,j = 1 $ as the identifiability constraints.
 
 Table \ref{tab:pvalues_obj} and \ref{tab:pvalues_sec} present the p-values 
-of multiple comparison in the learning objectives and the sections. 
+of multiple comparison in the learning outcomes and the sections. 
 The result of the model is as follows.
 
 <<echo=FALSE,results='asis',warning=FALSE>>=
@@ -199,7 +199,7 @@ obj_est=est[1:(obj_r-1)]
 obj_estcov=estcov[1:(obj_r-1),1:(obj_r-1)]
 obj_pmtrx = multiple_comparison(obj_est,obj_estcov,levels(b$LearningObj),nrow(Learning_Objectives))
 
-print(xtable(obj_pmtrx,caption='P-values of the multiple comparison between learning objectives', label='tab:pvalues_obj',digits=4), floating=FALSE, tabular.environment = "longtable")
+print(xtable(obj_pmtrx,caption='P-values of the multiple comparison between learning outcomes', label='tab:pvalues_obj',digits=4), floating=FALSE, tabular.environment = "longtable")
 
 sec_r=length(namelist)
 sec_est=est[1:(sec_r-1)+obj_r-1]
@@ -219,9 +219,9 @@ summary(f)
 \newpage{}
 
 \section{Question Sets}
-The question set is a set of questions which are randomly delivered to the students. The questions in each question set should focus on the same learning objective and be equally difficult.
+The question set is a set of questions which are randomly delivered to the students. The questions in each question set cover the same learning outcome and should be equally difficult. 
 
-The average percentages correct for question sets are shown in Table \ref{tab:Qset-mean} and Figure \ref{mar:Qsetpct}. Among all the \Sexpr{nrow(instructor_scores$QsetAvgPct)} question sets, question set \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.max(apply(instructor_scores$QsetAvgPct,1,mean))]} has the highest correct percentage. \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.min(apply(instructor_scores$QsetAvgPct,1,mean))]} is the hardest question set which gets the lowest average score.
+The average percentages correct for question sets are shown in Table \ref{tab:Qset-mean} and Figure \ref{mar:Qsetpct}. Among all the \Sexpr{nrow(instructor_scores$QsetAvgPct)} question sets, question set \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.max(apply(instructor_scores$QsetAvgPct,1,mean))]} has the highest correct percentage. \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.min(apply(instructor_scores$QsetAvgPct,1,mean))]} is the hardest question set which has the lowest average score.
 
 <<echo=FALSE,results='asis'>>=
 
@@ -243,7 +243,7 @@ tmp1$Overall = round(colMeans(QsetCrtPct)*100,2)
 tmp1$Qset = QC[rownames(tmp1),1]
 tmp1$LO = QC[rownames(tmp1),2]
 tmp1$"#Qn"=unname(table(answerkey[[2]]$Question.Set))
-print(xtable(tmp1[levels(b$QuestionSet),c('Qset','LO','#Qn','Overall',levels(b$Section))],caption='Average percentages correct for each question set by section. The question sets are sorted by the section means. The second column indicates the corresponding learning objectives.', label='tab:Qset-mean',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+print(xtable(tmp1[levels(b$QuestionSet),c('Qset','LO','#Qn','Overall',levels(b$Section))],caption='Average percentages correct for each question set by section. The question sets are sorted by the section means. The second column indicates the corresponding learning outcomes.', label='tab:Qset-mean',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
 
 ## std.dev
 d=instructor_scores$QPct[,c(1,3,4,5)]
@@ -265,7 +265,7 @@ d=d[,c(1,2,ncol(d)-(1:0),3:(ncol(d)-2))]
 Table \ref{tab:Qset-sd} presents the standard deviation of the question correct rates by question set and section. Question set \Sexpr{rownames(d[d[,3]>1,4:9])[which.min(rowMeans(d[d[,3]>1,4:9]))]} has the smallest standard deviation, while \Sexpr{rownames(d[,4:9])[which.max(rowMeans(d[,4:9]))]} has the largest standard deviation.
 
 <<echo=FALSE,results='asis'>>=
-print(xtable(d,caption='Standard deviations of the percentages correct by section. The second column indicates the corresponding learning objectives. The third column gives the number of questions in each question set.', label='tab:Qset-sd',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+print(xtable(d,caption='Standard deviations of the percentages correct by section. The second column indicates the corresponding learning outcomes. The third column gives the number of questions in each question set.', label='tab:Qset-sd',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
 
 @
 

@@ -4,31 +4,31 @@ library(knitr)
 ##### Homework reports #####
 ## key ##
 # save the .doc file as .htm format, to keep the images
-#key_htm = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic01.Questions.htm"
-key_htm = "/Users/lindz/ePort/data/KeyFiles/Topic06.Questions.htm"
+key_htm = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Questions/Topic03.Questions.htm"
 refine_key(key_htm) # generate a clean answer key with paths to the plots in the question
 key_txt = gsub("htm$","txt",key_htm) # get the path/name of the new answer key
 
 ## data ##
-#datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files"
-namelist = "/Users/lindz/ePort/data/DataFiles/Topic06.AB.csv"
-#topic = gsub('.Questions.txt','',gsub('Topic','',basename(key_txt)))
-#namelist = list.files(path=datapath,full.names=TRUE)
-#namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
-#namelist
+datapath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Topic03Data"
+topic = gsub('.Questions.txt','',gsub('Topic','',basename(key_txt)))
+namelist = list.files(path=datapath,full.names=TRUE)
+namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
+namelist
 
 ## learning objectives ##
-#LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes/Topic01.Outcomes.txt"
-LOpath = "/Users/lindz/ePort/data/OutcomeFiles/Topic06.Outcomes.txt"
+LOpath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" ### NEW PATH!!!
+
+## TOPIC 06 - FINAL- BE USED FOR EXAMPLE ######
+##LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes-Final/Topic03.Outcomes.txt" ### NEW PATH!!!
 
 ## 1. Individual report ##
 for (i in namelist) rewrite_data(i)
-for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw")
-for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual.Rnw")
+for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="inst/Rnw/hw-individual-short.Rnw")
+for (i in namelist) report_routine(key_txt,datafile=i,rewrite=FALSE,LOfile=LOpath,knitfile="inst/Rnw/hw-individual.Rnw")
 
 ## 2. Cross-section report ##
-report_routine(key_txt,namelist,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-section-short.Rnw")
-report_routine(key_txt,namelist,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-section.Rnw")
+report_routine(key_txt,namelist,LOfile=LOpath,knitfile="inst/Rnw/hw-section-short.Rnw")
+report_routine(key_txt,namelist,LOfile=LOpath,knitfile="inst/Rnw/hw-section.Rnw")
 
 ## 3. Cross-topic report ##
 tabfiles = set_dir(datapath)
