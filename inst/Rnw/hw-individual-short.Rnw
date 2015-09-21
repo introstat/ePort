@@ -19,6 +19,14 @@
 \begin{document}
 
 <<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+
+<<include=FALSE>>=
 library(ggplot2)
 library(reshape2)
 library(xtable)
@@ -34,16 +42,10 @@ plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 \centerline{\Large\bf Statistics 101 Homework Short Report for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_"," ",plotprename))}}
 \vspace{1cm}
 
-<<echo=FALSE,results='asis'>>=
-fname=paste(plotprename,'_score.pdf',sep='')
-pdf(paste0(knito,"/",fname),width=4,height=4)
-ms=max(sumry1$TotalScore,na.rm=T)
+<<data=hist, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent scores less than 80 percent.",fig.lp = "mar:hist">>=
+#ms=max(sumry1$TotalScore,na.rm=T)
+ms=sumry1$FullScore[1]
 print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.98\\linewidth]{%s}
-\\caption{\\label{mar:hist}Histogram of scores. Blue data represent scores less than 80 percent.}
-\\end{marginfigure}',sub('\\.pdf','',fname)))
 @
 
 <<echo=FALSE,results='asis'>>=

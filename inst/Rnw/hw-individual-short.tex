@@ -1,0 +1,30 @@
+\documentclass[12pt,english,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{geometry}
+\usepackage{pgffor}
+%\usepackage{caption}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{microtype}
+%\usepackage{floatrow} % test for caption below
+\usepackage{tabularx}
+%\usepackage[capposition=bottom]{floatrow}
+
+\usepackage{Sweave}
+\begin{document}
+\input{hw-individual-short-concordance}
+
+\begin{Schunk}
+\begin{Sinput}
+> library(ggplot2)
+> library(reshape2)
+> library(xtable)
+> library(dplyr)
+> library(stringr)
+> a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
