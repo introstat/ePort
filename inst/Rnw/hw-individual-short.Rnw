@@ -8,15 +8,18 @@
 \usepackage[space]{grffile}
 \usepackage{geometry}
 \usepackage{pgffor}
-%\usepackage{caption}
 \usepackage{calc}
 \usepackage{enumitem}
 \usepackage{microtype}
-%\usepackage{floatrow} % test for caption below
 \usepackage{tabularx}
-%\usepackage[capposition=bottom]{floatrow}
 
 \begin{document}
+
+% Font of caption must be specified, otherwise gray
+\setcaptionfont{
+  \normalfont\footnotesize
+  \color{black}
+}
 
 <<include=FALSE>>=
 library(knitr)
@@ -32,6 +35,8 @@ library(reshape2)
 library(xtable)
 library(dplyr)
 library(stringr)
+# Specify directory for figure output
+#fig_directory <- "~/Desktop/figure/"
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
 nQuestion = nrow(answerkey$simplekey)

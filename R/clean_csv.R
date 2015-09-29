@@ -56,7 +56,7 @@ rewrite_data = function(filenm){
 #' @return two new csv files
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
-#' @example inst/ex-MergeSplitChap.R
+#' @example inst/ex-mergeSplitChap.R
 #' 
 split_file = function(filenm,cut_idx,cut_type){
   stopifnot(cut_type %in% c('RsQ','ID'))
@@ -92,7 +92,7 @@ split_file = function(filenm,cut_idx,cut_type){
 #' @return a new csv file
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
-#' @example inst/ex-MergeSplitChap.R
+#' @example inst/ex-mergeSplitChap.R
 #' 
 combine_files = function(file1,file2,newnm){
   dat1 = read.csv(file1, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))

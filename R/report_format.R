@@ -142,20 +142,20 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
 }
 
 
-#' Abbreviate the long answers
+#' Abbreviate verbose answers
 #' 
-#' The long answers are replaced by the first letters of words,
-#' except that "not answered" is kept the same, and
-#' "" is replaced by "not answered".
+#' Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered".
 #' 
-#' @param avec a vector of character or factor
-#' @param l maximum length of the 
-#' @return a list of two objects: a new vector with abbreviated
-#' names, and a glossary key.
+#' @param avec Original answer vector (in character or factor format).
+#' @param l Maximum length (in characters) of an original answer vector that does not need abbreviation.
+#' @return List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key.
+#' @examples
+#' avec = "The answer is more than l characters"
+#' abbr(avec, l=13)
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-abbr = function(avec, l=12) {
+abbr = function(avec, l=13) {
   avecformat = class(avec)
   if (avecformat %in% c('factor','character')){
     avec=as.character(avec)
