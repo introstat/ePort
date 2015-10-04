@@ -1,12 +1,11 @@
-#' Convert a txt answer key to a data frame
+#' Convert a TXT answer key to a data frame
 #'
-#' Answer keys downloaded from Respondus are plain txt files.
-#' This function will convert it into data frames.
+#' Answer keys downloaded from Respondus are plain txt files. This function will convert them into data frames.
 #'
-#' @param filenm file name of the answer key with path.
-#' @return a list of two data frames. The rows of the first one
-#' are the answers for each question, like a,b,c,d. The rows of
-#' the second data frame are the questions.
+#' @param filenm File name of the answer key with path
+#' @return List of two data frames. The rows of the first data frame
+#' are the answers for each question. The rows of the second data frame are the questions.
+#' @seealso \url{https://www.respondus.com/}
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #'

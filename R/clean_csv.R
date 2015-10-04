@@ -80,16 +80,16 @@ split_file = function(filenm,cut_idx,cut_type){
   write.csv(dat2,file=gsub('.csv$','.part2.csv',filenm),row.names=F)
 }
 
-#' Merge two csv files into one file
+#' Merge two CSV files into one file
 #' 
-#' If one topic is organized in two chapters, then we need to 
-#' merge two files together. Note that the Question ID and RsQ ID
-#' are updated for the second file when merging.
+#' If one topic is organized into two chapters, then we must 
+#' merge together the two files. Note that the Question ID and RsQ ID
+#' are updated for the second file upon merging.
 #' 
-#' @param file1 file name with path for the first file.
-#' @param file2 file name with path for the second file.
-#' @param newnm name for the new merged file.
-#' @return a new csv file
+#' @param file1 File name with path to the first file
+#' @param file2 File name with path to the second file
+#' @param newnm File name for the returned merged file
+#' @return A new CSV file
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' @example inst/ex-mergeSplitChap.R

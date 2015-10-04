@@ -7,17 +7,17 @@
 crtr(dat, ntopic, l = 9)
 }
 \arguments{
-\item{dat}{output of function \code{cl}}
+\item{dat}{Output of function \code{cl}}
 
-\item{ntopic}{number of topics}
+\item{ntopic}{Number of topics}
 
-\item{l}{number of clusters}
+\item{l}{Number of clusters}
 }
 \value{
-a data frame of three columns: cluster, criteria, and values
+Data frame of three columns: cluster, criteria, and values
 }
 \description{
-The criteria include SSR, SSE, and R-square.
+The criteria include SSR, SSE, and R-squared
 }
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>

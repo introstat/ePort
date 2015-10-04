@@ -80,14 +80,14 @@ multiple_comparison = function(est,estcov,coefname,n,ordermatrix=TRUE,method="bo
 }
 
 
-#' Cluster the students
+#' Cluster students by performance
 #' 
-#' @param dat a data frame with rows being the students and
-#' columns being the scores over the semester.
-#' @param l max number of clusters to try
-#' @return a data frame with the left part being the scaled
+#' @param dat Data frame with rows being the students and
+#' columns being the scores over the semester
+#' @param l Maximum number of clusters to try
+#' @return a Data frame with the left part being the scaled
 #' \code{dat} and the right part being the clustering labels
-#' for 1:\code{l} clusters.
+#' for 1:\code{l} clusters
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
@@ -112,12 +112,12 @@ cl = function(dat,l=9){
 
 #' Calculate the criterion values for different number of clusters
 #' 
-#' The criteria include SSR, SSE, and R-square.
+#' The criteria include SSR, SSE, and R-squared
 #' 
-#' @param dat output of function \code{cl}
-#' @param ntopic number of topics
-#' @param l number of clusters
-#' @return a data frame of three columns: cluster, criteria, and values
+#' @param dat Output of function \code{cl}
+#' @param ntopic Number of topics
+#' @param l Number of clusters
+#' @return Data frame of three columns: cluster, criteria, and values
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom reshape2 melt
 #' @export
@@ -146,15 +146,15 @@ crtr = function(dat,ntopic,l=9){
 
 #' Use bootstrap to find the best number of clusters
 #' 
-#' Results of the function \code{crtr} for bootstrap samples.
+#' Results of the function \code{crtr} for bootstrap samples
 #' 
-#' @param dat a data frame, same format as function \code{cl}
-#' @param nt number of topics
-#' @param nboot number of bootstrap samples
-#' @param l number of clusters
-#' @param seed random seed
-#' @param txtbar whether the text progress bar is turned on
-#' @return a data frame of the criteria values for \code{nboot} samples
+#' @param dat Data frame, same format as function \code{cl}
+#' @param nt Number of topics
+#' @param nboot Number of bootstrap samples
+#' @param l Number of clusters
+#' @param seed Random seed
+#' @param txtbar Whether or not the text progress bar is turned on
+#' @return Data frame of the criteria values for \code{nboot} samples
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 

@@ -1,11 +1,11 @@
 Package: ePort
 Type: Package
-Title: Report Generating System for Intro Stat Education
+Title: Student Performance Report Generation for Statistics Instructors
 Version: 0.0.1
-Date: 2014-10-28
-Author: Xiaoyue Cheng, Dianne Cook, Lindsay, Amy Froelich
-Maintainer: Xiaoyue Cheng <xycheng@iastate.edu>
-Description: Generates reports for Stat 101 students and instructors.
+Date: 2015-09-29
+Author: Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich
+Maintainer: Amy Froelich <amyf@iastate.edu>
+Description: Tools for course instructors to generate electronic reports that summarize and analyze student performance.
 Imports:
     knitr,
     plyr,

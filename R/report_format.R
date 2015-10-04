@@ -89,9 +89,13 @@ report_routine = function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NUL
   
   # Produce a tex report by kniting an rnw file
   if (is.null(knitfile)) knitfile=system.file("inst","hw-individual.Rnw",package="ePort")
-  knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
+  #knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
+  knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))),clean=T)
+  #system(sprintf("%s", paste0("rm -r ", paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))))
 }
 
+#knit2pdf("/inst/Rnw/myFile.Rnw","/path/myFile.tex",clean=T)
+#system(sprintf("%s", paste0("rm -r ", "/path/myFile.tex")))
 
 #' Split wide tables into several tables
 #' 
@@ -144,16 +148,16 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
 
 #' Abbreviate verbose answers
 #' 
-#' Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered".
+#' Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered"
 #' 
-#' @param avec Original answer vector (in character or factor format).
-#' @param l Maximum length (in characters) of an original answer vector that does not need abbreviation.
-#' @return List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key.
+#' @param avec Original answer vector (in character or factor format)
+#' @param l Maximum length (in characters) of an original answer vector that does not need abbreviation
+#' @return List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key
 #' @examples
 #' avec = "The answer is more than l characters"
 #' abbr(avec, l=13)
-#' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
+#' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' 
 abbr = function(avec, l=13) {
   avecformat = class(avec)

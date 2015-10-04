@@ -26,7 +26,14 @@
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
 
 % <<label=R options,echo=FALSE>>=
 % options(width = 60)
@@ -41,7 +48,7 @@
 % %@% TO ELIMINATE THE "+" IN CONSECUTIVE SCRIPT LINES
 
 \title{Vignette for the ePort package:\\ Academic report generation for statistics instructors}
-\author{Xiaoyue Cheng, Dianne Cook, Lindsay Rutter, Amy Froelich}
+\author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
 \date{\pkg{ePort} version \Sexpr{packageDescription("ePort")[["Version"]]} , \Sexpr{Sys.Date()} }
 \maketitle
 
@@ -64,7 +71,7 @@ At its simplest, a report can be generated for one topic and one section. This w
 
 Reports can also be generated for one topic across multiple sections, with output format that allows course coordinators to quickly determine how well and consistently the multiple sections performed on a particular topic. This could be particularly insightful in cases where discrepancies in student performance are discovered between sections, especially if different instructors and/or teaching methods are being used across the sections.
 
-In addition, reports can be generated for one unit (group of topics), either within one section or between multiple sections. This allows coordinators to assess student performance across all the learning outcomes of the combined topics that form the unit, and to quantify the consistency of students perform across sections.
+In addition, reports can be generated for one unit (group of topics), either within one section or between multiple sections. This allows coordinators to assess student performance across all the learning outcomes of the combined topics that form the unit, and to quantify the consistency of how students perform across sections.
 
 Both short and long versions of reports can be generated for any of the aforementioned scenarios. Short versions of reports provide brief summarizations of student performance without regard to individual problems, whereas long versions of reports provide detailed summarizations of student performance for each problem in the assignment. Hence, reports can also be used to confirm the suitability of assigned problems. For instance, in some courses, problems that assess the same learning outcome and are intended to be of equal difficulty levels are grouped into a problem set, and each student is assigned a random subset from this set of problems. However, sometimes there may be an unexpected discrepancy in student performance between problems in a given problem set, indicating an unintended discrepancy in the clearness or difficulty level of the problems to which students are randomly assigned. This package will allow users to efficiently find and fix such issues. 
 
@@ -76,14 +83,14 @@ Both short and long versions of reports can be generated for any of the aforemen
 
 \R is a open source software project for statistical computing, and can be freely downloaded from the Comprehensive R Archive Network (CRAN) website. The link to contributed documentation on the CRAN website offers practical resources for an introduction to \R, in several languages. After downloading and installing \R, the installation of additional packages is straightforward. To install the \pkg{ePort} package from \R, use the command:
 
-<<results = hide, eval=FALSE>>=
+<<results='hide', eval=FALSE>>=
 install.packages("ePort")
 @
 
 \noindent
 The \pkg{ePort} package should now be successfully installed. Next, to render it accessible to the current \R session, simply type:
 
-<<results = hide>>=
+<<results='hide'>>=
 library(ePort)
 @
 
@@ -107,18 +114,21 @@ The above command will return the help file for the function. The help file ofte
 
 \subsection{Preprocessing pipeline}
 
-<<message=FALSE, results=HIDE>>=
-key_htm = "/Users/lindz/ePort/data/KeyFiles/Topic06.Questions.htm"
+%sigma(system.file("examples/ediaspora.gexf.xml", package = "sigma"))
+
+<<message=FALSE>>=
+key_htm = "/Users/lindz/ePort/inst/examples/KeyFiles/Topic06.Questions.htm"
 # generate a clean answer key with paths to the plots in questions
 refine_key(key_htm)
 # get the path/name of the new answer key
 key_txt = gsub("htm$","txt",key_htm)
 # Get the path for a data file
-datapath = "/Users/lindz/ePort/data/DataFiles/Topic06.AB.csv"
+datapath = "/Users/lindz/ePort/inst/examples/DataFiles/Topic06.AB.csv"
 # Get the path for the learning objective
-LOpath = "/Users/lindz/ePort/data/OutcomeFiles/Topic06.Outcomes.txt"
+LOpath = "/Users/lindz/ePort/inst/examples/OutcomeFiles/Topic06.Outcomes.txt"
 rewrite_data(datapath)
-report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/data/ReportFiles")
+#report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/data/ReportFiles")
+report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/inst/examples/ReportFiles")
 @
 
 <<>>=
@@ -200,6 +210,6 @@ As such, this plotting command does not provide visual information about specifi
 
 The \pkg{ePort} package offers various plotting tools that can assist those studying genealogical lineages in the data exploration phases. As each plot comes with its advantages and disadvantages, we recommend for users to explore several of the available visualization tools.
 
-This vignette briefly introduced some of the capabilities of the \pkg{ePort} package. Inevitably, new approaches will necessitate new features in subsequent versions and might reveal unforeseen bugs. Please send comments, suggestions, questions, and bug reports to \texttt{lrutter@iastate.edu}.
+This vignette briefly introduced some of the capabilities of the \pkg{ePort} package. Inevitably, new approaches will necessitate new features in subsequent versions and might reveal unforeseen bugs. Please send comments, suggestions, questions, and bug reports to \texttt{amyf@iastate.edu}.
 
 \end{document}

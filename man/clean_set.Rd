@@ -7,12 +7,12 @@
 clean_set(HWsheet, key)
 }
 \arguments{
-\item{HWsheet}{the output of function \code{clean_score} $HWsheet}
+\item{HWsheet}{The output of function \code{clean_score} $HWsheet}
 
-\item{key}{the output of function \code{convertkey}}
+\item{key}{The output of function \code{convertkey}}
 }
 \value{
-a list of two data frames of scores for the question
+List of two data frames of scores for the question
 sets and learning objectives respectively.
 }
 \description{

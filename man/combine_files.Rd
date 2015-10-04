@@ -2,24 +2,24 @@
 % Please edit documentation in R/clean_csv.R
 \name{combine_files}
 \alias{combine_files}
-\title{Merge two csv files into one file}
+\title{Merge two CSV files into one file}
 \usage{
 combine_files(file1, file2, newnm)
 }
 \arguments{
-\item{file1}{file name with path for the first file.}
+\item{file1}{File name with path to the first file}
 
-\item{file2}{file name with path for the second file.}
+\item{file2}{File name with path to the second file}
 
-\item{newnm}{name for the new merged file.}
+\item{newnm}{File name for the returned merged file}
 }
 \value{
-a new csv file
+A new CSV file
 }
 \description{
-If one topic is organized in two chapters, then we need to
-merge two files together. Note that the Question ID and RsQ ID
-are updated for the second file when merging.
+If one topic is organized into two chapters, then we must
+merge together the two files. Note that the Question ID and RsQ ID
+are updated for the second file upon merging.
 }
 \examples{
 library(ePort)

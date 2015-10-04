@@ -16,10 +16,7 @@ namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
 namelist
 
 ## learning objectives ##
-LOpath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" ### NEW PATH!!!
-
-## TOPIC 06 - FINAL- BE USED FOR EXAMPLE ######
-##LOpath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Topic Outcomes-Final/Topic03.Outcomes.txt" ### NEW PATH!!!
+LOpath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
 
 ## 1. Individual report ##
 for (i in namelist) rewrite_data(i)

@@ -161,9 +161,9 @@ clean_score = function(HWsheet, key, skip=NULL){
 
 #' Get the Question Set and Objective Set Scores
 #' 
-#' @param HWsheet the output of function \code{clean_score} $HWsheet
-#' @param key the output of function \code{convertkey}
-#' @return a list of two data frames of scores for the question
+#' @param HWsheet The output of function \code{clean_score} $HWsheet
+#' @param key The output of function \code{convertkey}
+#' @return List of two data frames of scores for the question
 #' sets and learning objectives respectively.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
@@ -188,10 +188,10 @@ clean_set = function(HWsheet, key){
 
 #' Remove the HTML strings in the answer
 #' 
-#' @param HWsheet a vector or data frame of characters
-#' @param mark logical. If TRUE then some marks are given to the matching questions.
-#' @param image logical. If TRUE then some marks are given to the embedded images.
-#' @return a vector or data frame with no HTML strings
+#' @param HWsheet Vector or data frame of characters
+#' @param mark Logical. If TRUE then some marks are given to the matching questions
+#' @param image Logical. If TRUE then some marks are given to the embedded images
+#' @return Vector or data frame with no HTML strings
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom XML getNodeSet
 #' @importFrom XML htmlParse

@@ -2,23 +2,24 @@
 % Please edit documentation in R/clean_key.R
 \name{convertkey}
 \alias{convertkey}
-\title{Convert a txt answer key to a data frame}
+\title{Convert a TXT answer key to a data frame}
 \usage{
 convertkey(filenm)
 }
 \arguments{
-\item{filenm}{file name of the answer key with path.}
+\item{filenm}{File name of the answer key with path}
 }
 \value{
-a list of two data frames. The rows of the first one
-are the answers for each question, like a,b,c,d. The rows of
-the second data frame are the questions.
+List of two data frames. The rows of the first data frame
+are the answers for each question. The rows of the second data frame are the questions.
 }
 \description{
-Answer keys downloaded from Respondus are plain txt files.
-This function will convert it into data frames.
+Answer keys downloaded from Respondus are plain txt files. This function will convert them into data frames.
 }
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
+}
+\seealso{
+\url{https://www.respondus.com/}
 }
 

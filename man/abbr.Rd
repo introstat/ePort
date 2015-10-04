@@ -7,15 +7,15 @@
 abbr(avec, l = 13)
 }
 \arguments{
-\item{avec}{Original answer vector (in character or factor format).}
+\item{avec}{Original answer vector (in character or factor format)}
 
-\item{l}{Maximum length (in characters) of an original answer vector that does not need abbreviation.}
+\item{l}{Maximum length (in characters) of an original answer vector that does not need abbreviation}
 }
 \value{
-List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key.
+List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key
 }
 \description{
-Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered".
+Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered"
 }
 \examples{
 avec = "The answer is more than l characters"

@@ -7,23 +7,23 @@
 clbootstrap(dat, nt, nboot = 100, l = 9, seed = 201311, txtbar = TRUE)
 }
 \arguments{
-\item{dat}{a data frame, same format as function \code{cl}}
+\item{dat}{Data frame, same format as function \code{cl}}
 
-\item{nt}{number of topics}
+\item{nt}{Number of topics}
 
-\item{nboot}{number of bootstrap samples}
+\item{nboot}{Number of bootstrap samples}
 
-\item{l}{number of clusters}
+\item{l}{Number of clusters}
 
-\item{seed}{random seed}
+\item{seed}{Random seed}
 
-\item{txtbar}{whether the text progress bar is turned on}
+\item{txtbar}{Whether or not the text progress bar is turned on}
 }
 \value{
-a data frame of the criteria values for \code{nboot} samples
+Data frame of the criteria values for \code{nboot} samples
 }
 \description{
-Results of the function \code{crtr} for bootstrap samples.
+Results of the function \code{crtr} for bootstrap samples
 }
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>

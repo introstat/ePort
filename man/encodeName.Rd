@@ -2,18 +2,18 @@
 % Please edit documentation in R/de-identify_student.R
 \name{encodeName}
 \alias{encodeName}
-\title{Encode the students' names in the data files}
+\title{Encode all student names in the data files}
 \usage{
 encodeName(dpath, dict = "nameCode.csv")
 }
 \arguments{
-\item{dpath}{path to the data files}
+\item{dpath}{Path to the data files}
 
-\item{dict}{file name with path for the dictionary. Default to be "nameCode.csv".}
+\item{dict}{File name with path for the dictionary. Default is "nameCode.csv"}
 }
 \description{
 Read the name dictionary, and rewrite the data files
-by the de-identified names.
+into the de-identified names
 }
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>

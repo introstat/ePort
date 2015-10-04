@@ -41,13 +41,13 @@ getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=T
 }
 
 
-#' Encode the students' names in the data files
+#' Encode all student names in the data files
 #' 
 #' Read the name dictionary, and rewrite the data files
-#' by the de-identified names.
+#' into the de-identified names
 #' 
-#' @param dpath path to the data files
-#' @param dict file name with path for the dictionary. Default to be "nameCode.csv".
+#' @param dpath Path to the data files
+#' @param dict File name with path for the dictionary. Default is "nameCode.csv"
 #' @return NULL
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export

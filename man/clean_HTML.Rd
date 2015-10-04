@@ -7,14 +7,14 @@
 clean_HTML(HWsheet, mark = TRUE, image = FALSE)
 }
 \arguments{
-\item{HWsheet}{a vector or data frame of characters}
+\item{HWsheet}{Vector or data frame of characters}
 
-\item{mark}{logical. If TRUE then some marks are given to the matching questions.}
+\item{mark}{Logical. If TRUE then some marks are given to the matching questions}
 
-\item{image}{logical. If TRUE then some marks are given to the embedded images.}
+\item{image}{Logical. If TRUE then some marks are given to the embedded images}
 }
 \value{
-a vector or data frame with no HTML strings
+Vector or data frame with no HTML strings
 }
 \description{
 Remove the HTML strings in the answer
