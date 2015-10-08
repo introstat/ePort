@@ -9,6 +9,7 @@ Description: Tools for course instructors to generate electronic reports that su
 Imports:
     knitr,
     plyr,
+    dplyr,
     reshape2,
     XML,
     stringr,

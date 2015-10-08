@@ -349,7 +349,7 @@ for (j in 1:nQuestion) {
     if (length(img)==1 || all(diff(img)==1)) {
       cat(tmpquestion[img])
     } else {
-      sandwichnote = setdiff(min(img):max(img),img)
+      sandwichnote = dplyr::setdiff(min(img):max(img),img)
       tmpquestion[sandwichnote] = paste0('\\marginnote{\n\n',gsub('\\%','\\\\%',tmpquestion[sandwichnote]),'\n\n}')
       cat(tmpquestion[min(img):max(img)])
     }

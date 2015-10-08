@@ -54,7 +54,7 @@ convertkey = function(filenm){
     test3 = grep("^\\[[a-z]\\]",keylist[[i]][[1]]) # MA answer
     test6 = which(keylist[[i]][[1]]=="Correct Answer:") #Calculated
     test7 = which(keylist[[i]][[1]] %in% c("Correct Answer(s):","Answers:")) #Short Answer #Fill in the Blank #Calculated
-    test4 = setdiff(1:length(keylist[[i]][[1]]),c(test1,test2,test3,test6,test7))
+    test4 = dplyr::setdiff(1:length(keylist[[i]][[1]]),c(test1,test2,test3,test6,test7))
     test5 = if(length(test4)){-test4}else{1:length(keylist[[i]][[1]])}
     test9 = grep("^ *<img> ",keylist[[i]][[1]])
 

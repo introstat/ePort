@@ -26,7 +26,7 @@ set_dir = function(data.dir=NULL, data.list=NULL){
   hwk_files = hwk_files[order(hwk_topic,hwk_section),]
   chap10 = grep("^[A-Za-z]{2}1[0-9]",hwk_files[,2])
   chap20 = grep("^[A-Za-z]{2}2[0-9]",hwk_files[,2])
-  chap00 = setdiff(1:nrow(hwk_files),c(chap10,chap20))
+  chap00 = dplyr::setdiff(1:nrow(hwk_files),c(chap10,chap20))
   hwk_files = hwk_files[c(chap00,chap10,chap20),]
   rownames(hwk_files) = 1:nrow(hwk_files)
   return(hwk_files)
