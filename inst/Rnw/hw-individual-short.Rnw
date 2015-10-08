@@ -54,9 +54,6 @@ ms=sumry1$FullScore[1]
 print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
 @
 
-Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:histScore} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the students who scored below 80 percent on the assignment. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
-\bigskip{}
-
 <<echo=FALSE,results='asis'>>=
 su=c(  
   Mean=paste(format(mean(sumry1$TotalScore, na.rm=T),nsmall=2,digits=2),sep=""),
@@ -143,7 +140,7 @@ if (nrow(Total) > 0) {
 @
 
 \ifPositive
-Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:histScore} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the \Sexpr{total80} students who did not perform well on this homework. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
+Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:histScore} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:studentsbelow80} lists the \Sexpr{total80} students who scored below 80 percent on the assignment. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
 \else
 Each of the \Sexpr{rows} students were given \Sexpr{a} questions from a bank of \Sexpr{nQuestion} questions. Figure \ref{mar:histScore} and Table \ref{tab:summary} give the overall summary of student performance. Table \ref{tab:QuestionSet_summary} and Figure \ref{fig:LearningObj_summary} provide summary statistics of the scores per question set and learning outcome.
 \fi
