@@ -7,17 +7,17 @@ Author: Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich
 Maintainer: Amy Froelich <amyf@iastate.edu>
 Description: Tools for course instructors to generate electronic reports that summarize and analyze student performance.
 Imports:
-    knitr,
-    plyr,
-    dplyr,
-    reshape2,
-    XML,
-    stringr,
-    xtable
+    knitr (>= 1.11),
+    plyr (>= 1.8.3),
+    dplyr (>= 0.4.3),
+    reshape2 (>= 1.4.1),
+    XML (>= 3.98-1.3),
+    stringr (>= 1.0.0),
+    xtable (>= 1.7-4),
+    ggplot2 (>= 1.0.1),
+    lme4 (>= 1.1-9)
 Suggests:
-    ggplot2,
-    lme4,
-    shiny
+    shiny (>= 0.12.2)
 License: GPL (>= 2.0)
 LazyData: true
 VignetteBuilder: knitr
