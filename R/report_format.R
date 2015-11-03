@@ -24,7 +24,7 @@
 #' @example inst/ex-reportHwk.R
 #'
 report_routine =
-  function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NULL,type=NULL,rewrite=FALSE,skip=NULL,LOfile=NULL,knitfile=NULL,knito=getwd()){
+  function(keyfile,datafile=NULL,keepfiles=FALSE, keeptex=FALSE, keepimage=FALSE, topic=NULL,section=NULL,path=NULL,type=NULL,rewrite=FALSE,skip=NULL,LOfile=NULL,knitfile=NULL,knito=getwd()){
     
     stopifnot(!is.null(datafile) || all(!is.null(c(topic,section,path,type))))
     
@@ -76,10 +76,8 @@ report_routine =
       return()
     }
     
-    ##### WARNING !!! ############################################################
-    ##### the original data files would be rewritten! ############################
-    if (rewrite) rewrite_data(Score_filename) ####################################
-    ##############################################################################
+    ##### WARNING !!! #### the original data files would be rewritten! ###
+    if (rewrite) rewrite_data(Score_filename)
     
     # Read the data
     Student_Score = read_score(Score_filename)
@@ -96,14 +94,19 @@ report_routine =
                            Student_SetScore$ObjectiveSet)
     stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
     
-    # Produce a tex report by kniting an rnw file
-    if (is.null(knitfile))
-      knitfile=system.file("inst","hw-individual.Rnw",package="ePort")
-    #knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
-    knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))),clean=T)
-    #system(sprintf("%s", paste0("rm -r ",paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))))
-    on.exit(unlink(paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile))))))
-  }
+    # Produce a tex report by kniting an .Rnw file
+    if (is.null(knitfile)){
+      knitfile=system.file("inst/Rnw","hw-individual.Rnw",package="ePort")
+    }
+    if (keepfiles){
+      knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
+    }else{
+      knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))),clean=T)
+    }
+    if (!keeptex){
+      on.exit(unlink(paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))) 
+    }
+}
 
 
 #' Split wide tables into several tables

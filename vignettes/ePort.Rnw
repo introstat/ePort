@@ -136,11 +136,6 @@ report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/
 @
 
 <<>>=
-#report_routine(key_txt,datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito=getwd())
-#report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw")
-@
-
-<<>>=
 #data(sbGeneal)
 #head(sbGeneal)
 #dim(sbGeneal)

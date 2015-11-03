@@ -37,9 +37,12 @@ suppressPackageStartupMessages(library(dplyr, quietly=TRUE))
 suppressPackageStartupMessages(library(stringr, quietly=TRUE))
 
 # Specify directory for figure output
-#temppath <- tempdir()
-temppath <- normalizePath(tempdir(), winslash = '/')
-opts_chunk$set(fig.path = temppath)
+if (!keepimage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(knito,"/"))
+}
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
 nQuestion = nrow(answerkey$simplekey)
@@ -52,12 +55,9 @@ for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_","
 ",plotprename))}}
 \vspace{1cm}
 
-<<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent scores less than 80 percent.", fig.lp = "mar:">>=
+<<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent scores less than 80 percent.",fig.lp = "mar:">>=
 ms=sumry1$FullScore[1]
-print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1))
-+ theme(legend.position="none", axis.text =
-element_text(size=rel(1.5)), axis.title = element_text(size =
-rel(1.5))) + labs(x="Total Score", y = "Count"))
+print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
 @
 
 <<echo=FALSE,results='asis'>>=

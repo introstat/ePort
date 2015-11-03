@@ -4,7 +4,8 @@
 \alias{report_routine}
 \title{Generate a report for one homework}
 \usage{
-report_routine(keyfile, datafile = NULL, topic = NULL, section = NULL,
+report_routine(keyfile, datafile = NULL, keepfiles = FALSE,
+  keeptex = FALSE, keepimage = FALSE, topic = NULL, section = NULL,
   path = NULL, type = NULL, rewrite = FALSE, skip = NULL,
   LOfile = NULL, knitfile = NULL, knito = getwd())
 }
