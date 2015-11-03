@@ -1,8 +1,8 @@
 #' Generate a report for one homework
-#' 
+#'
 #' A tex file will be generated from the specified data files,
 #' answer key, and learning outcomes.
-#' 
+#'
 #' @param keyfile the file name with path for the answer key
 #' @param datafile the file name with path for the data
 #' @param topic the topic number, could be integer or character
@@ -22,88 +22,97 @@
 #' @importFrom stringr str_trim
 #' @export
 #' @example inst/ex-reportHwk.R
-#' 
-report_routine = function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NULL,type=NULL,rewrite=FALSE,skip=NULL,LOfile=NULL,knitfile=NULL,knito=getwd()){
-  
-  stopifnot(!is.null(datafile) || all(!is.null(c(topic,section,path,type))))
-  
-  # Find the file name
-  if (is.null(datafile)) {
-    Score_filename = paste(path,type,topic,'.',section,'.csv',sep='')
-  } else {
-    Score_filename = datafile
-    path = dirname(datafile)[1]
-    type = basename(datafile)[1]
-    number1 = as.vector(gregexpr("[0-9]",type)[[1]])
-    topic = substr(type, number1[1], number1[min(2,length(number1))])
-    dot1 = as.vector(gregexpr("\\.",type)[[1]])
-    section = substr(type, dot1[1]+1, dot1[2]-1)
-    type = substr(type, 1, number1[1]-1)
+#'
+report_routine =
+  function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NULL,type=NULL,rewrite=FALSE,skip=NULL,LOfile=NULL,knitfile=NULL,knito=getwd()){
+    
+    stopifnot(!is.null(datafile) || all(!is.null(c(topic,section,path,type))))
+    
+    # Find the file name
+    if (is.null(datafile)) {
+      Score_filename = paste(path,type,topic,'.',section,'.csv',sep='')
+    } else {
+      Score_filename = datafile
+      path = dirname(datafile)[1]
+      type = basename(datafile)[1]
+      number1 = as.vector(gregexpr("[0-9]",type)[[1]])
+      topic = substr(type, number1[1], number1[min(2,length(number1))])
+      dot1 = as.vector(gregexpr("\\.",type)[[1]])
+      section = substr(type, dot1[1]+1, dot1[2]-1)
+      type = substr(type, 1, number1[1]-1)
+    }
+    
+    # Read the answer key
+    answerkey = convertkey(keyfile)
+    if (type=="Unit") {
+      answerkey[[1]]$Objective.Set =
+        paste0(answerkey[[1]]$Topic,answerkey[[1]]$Objective.Set)
+      answerkey[[2]]$Objective.Set =
+        paste0(answerkey[[2]]$Topic,answerkey[[2]]$Objective.Set)
+    }
+    
+    # Learning objective file
+    if (is.null(LOfile)) {
+      chpt_outcome_file=gsub('Data Files.*$','Topic Outcomes/',Score_filename)
+      chpt_outcome_file=paste(chpt_outcome_file,type,topic,'.Outcomes.txt',sep='')
+    } else {
+      chpt_outcome_file = LOfile
+    }
+    chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
+    chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
+    
+    for (i in 1:length(chapter_outcomes)){
+      chapter_outcomes[i] =
+        paste(str_trim(unlist(strsplit(chapter_outcomes[i],
+                                       "[.]"))[2]),".",sep="")
+    }
+    
+    # Cross-section report
+    if (length(Score_filename)>1){
+      instructor_scores = merge_section(Score_filename, answerkey,skip=NULL)
+      if (is.null(knitfile))
+        knitfile=system.file("inst","hw-section.Rnw",package="ePort")
+      knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(knitfile)))))
+      return()
+    }
+    
+    ##### WARNING !!! ############################################################
+    ##### the original data files would be rewritten! ############################
+    if (rewrite) rewrite_data(Score_filename) ####################################
+    ##############################################################################
+    
+    # Read the data
+    Student_Score = read_score(Score_filename)
+    tmpoutput = clean_score(Student_Score, answerkey, skip=skip)
+    #skip=1 for Topic 1 Fall 2013
+    ScorebyQuestion = tmpoutput$HWsheet
+    CountbyQuestion = tmpoutput$nResponse
+    Student_SetScore = clean_set(ScorebyQuestion, answerkey)
+    
+    # Summary
+    sumry1 = summary_score(ScorebyQuestion,
+                           Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
+    sumry2 = summary_level(tmpoutput, Student_SetScore$QuestionSet,
+                           Student_SetScore$ObjectiveSet)
+    stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
+    
+    # Produce a tex report by kniting an rnw file
+    if (is.null(knitfile))
+      knitfile=system.file("inst","hw-individual.Rnw",package="ePort")
+    #knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
+    knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))),clean=T)
+    #system(sprintf("%s", paste0("rm -r ",paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))))
+    on.exit(unlink(paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile))))))
   }
-  
-  # Read the answer key
-  answerkey = convertkey(keyfile)
-  if (type=="Unit") {
-    answerkey[[1]]$Objective.Set = paste0(answerkey[[1]]$Topic,answerkey[[1]]$Objective.Set)
-    answerkey[[2]]$Objective.Set = paste0(answerkey[[2]]$Topic,answerkey[[2]]$Objective.Set)
-  }
-  
-  # Learning objective file
-  if (is.null(LOfile)) {
-    chpt_outcome_file=gsub('Data Files.*$','Topic Outcomes/',Score_filename)
-    chpt_outcome_file=paste(chpt_outcome_file,type,topic,'.Outcomes.txt',sep='')
-  } else {
-    chpt_outcome_file = LOfile
-  }
-  chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
-  chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
-  
-  for (i in 1:length(chapter_outcomes)){
-    chapter_outcomes[i] = paste(str_trim(unlist(strsplit(chapter_outcomes[i], "[.]"))[2]),".",sep="")
-  }
-  
-  # Cross-section report
-  if (length(Score_filename)>1){
-    instructor_scores = merge_section(Score_filename, answerkey,skip=NULL)
-    if (is.null(knitfile)) knitfile=system.file("inst","hw-section.Rnw",package="ePort")
-    knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(knitfile)))))
-    return()
-  }
-  
-  ##### WARNING !!! ############################################################
-  ##### the original data files would be rewritten! ############################
-  if (rewrite) rewrite_data(Score_filename) ####################################
-  ##############################################################################
-  
-  # Read the data 
-  Student_Score = read_score(Score_filename)
-  tmpoutput = clean_score(Student_Score, answerkey, skip=skip) # skip=1 for Topic 1 Fall 2013
-  ScorebyQuestion = tmpoutput$HWsheet
-  CountbyQuestion = tmpoutput$nResponse
-  Student_SetScore = clean_set(ScorebyQuestion, answerkey)
-  
-  # Summary
-  sumry1 = summary_score(ScorebyQuestion, Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
-  sumry2 = summary_level(tmpoutput, Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
-  stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
-  
-  # Produce a tex report by kniting an rnw file
-  if (is.null(knitfile)) knitfile=system.file("inst","hw-individual.Rnw",package="ePort")
-  #knit(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))
-  knit2pdf(knitfile,paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))),clean=T)
-  #system(sprintf("%s", paste0("rm -r ", paste0(knito,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(knitfile)))))))
-}
 
-#knit2pdf("/inst/Rnw/myFile.Rnw","/path/myFile.tex",clean=T)
-#system(sprintf("%s", paste0("rm -r ", "/path/myFile.tex")))
 
 #' Split wide tables into several tables
-#' 
+#'
 #' When a table contains many columns, the display in pdf file
 #' produced by LaTeX will be too wide to see. This function
 #' cuts the table into several tables, each of which has no
 #' more than \code{cols} columns.
-#' 
+#'
 #' @param atable a data frame to be printed by \code{xtable}.
 #' @param tablecaption caption of the tables. Printed only
 #' after the first table.
@@ -114,7 +123,7 @@ report_routine = function(keyfile,datafile=NULL,topic=NULL,section=NULL,path=NUL
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom xtable xtable
 #' @export
-#' 
+#'
 widetableinLaTeX=function(atable, tablecaption, label, cols=7){
   n = ncol(atable)
   lasttablecolumn = n%%cols
@@ -135,11 +144,13 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
   }
   outcome = list()
   outcome[[1]]=atable[,startcol[1]:endcol[1]]
-  print(xtable::xtable(outcome[[1]],caption=tablecaption,label=label), floating=FALSE, tabular.environment = "longtable")
+  print(xtable::xtable(outcome[[1]],caption=tablecaption,label=label),
+        floating=FALSE, tabular.environment = "longtable")
   if (ntable > 1) {
     for (i in 2:ntable){
       outcome[[i]]=atable[,startcol[i]:endcol[i]]
-      print(xtable::xtable(outcome[[i]]), floating=FALSE, tabular.environment = "longtable")
+      print(xtable::xtable(outcome[[i]]), floating=FALSE,
+            tabular.environment = "longtable")
     }
   }
   return(outcome)
@@ -147,9 +158,9 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
 
 
 #' Abbreviate verbose answers
-#' 
+#'
 #' Some answer vectors may be too verbose to represent in visual plots. Verbose answers are abbreviated to a string containing the first letter of each word, "not answered" answers remain the same, and "" answers are returned as "not answered"
-#' 
+#'
 #' @param avec Original answer vector (in character or factor format)
 #' @param l Maximum length (in characters) of an original answer vector that does not need abbreviation
 #' @return List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key
@@ -158,7 +169,7 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
 #' abbr(avec, l=13)
 #' @export
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
-#' 
+#'
 abbr = function(avec, l=13) {
   avecformat = class(avec)
   if (avecformat %in% c('factor','character')){

@@ -52,9 +52,7 @@ for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_","
 ",plotprename))}}
 \vspace{1cm}
 
-<<histScore, echo=FALSE, fig.env = "marginfigure", out.width =
-"0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent
-scores less than 80 percent.", fig.lp = "mar:">>=
+<<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores. Blue data represent scores less than 80 percent.", fig.lp = "mar:">>=
 ms=sumry1$FullScore[1]
 print(qplot(TotalScore,data=sumry1,geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1))
 + theme(legend.position="none", axis.text =
@@ -234,9 +232,7 @@ write.table(c("With semicolon:","",
 \end{enumerate}
 \end{fullwidth}
 
-<<LearningObj_summary, echo=FALSE, out.width = "0.98\\linewidth",
-fig.cap = "Fluctuation diagram of percentage correct by learning
-outcome. Mean scores are drawn as blue bars">>=
+<<LearningObj_summary, echo=FALSE, out.width = "0.98\\linewidth", fig.cap = "Fluctuation diagram of percentage correct by learning outcome. Mean scores are drawn as blue bars">>=
 LOsumry=t(sumry2$ConceptCorrectPct)
 LOsumry=data.frame(LOsumry[,1:2]," "=NA," "=NA,LOsumry[,3:5], check.names=FALSE)
 LOsumry=LOsumry[order(LOsumry$Mean,decreasing=TRUE),]
