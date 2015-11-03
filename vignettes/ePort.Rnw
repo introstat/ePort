@@ -110,29 +110,29 @@ The above command will return the help file for the function. The help file ofte
 
 <<eval=FALSE>>=
 # Fill later
-@ 
+@
 
 \subsection{Preprocessing pipeline}
 
-%sigma(system.file("examples/ediaspora.gexf.xml", package = "sigma"))
+knitfile=system.file("inst","hw-individual.Rnw",package="ePort")
 
 <<message=FALSE>>=
-key_htm = "/Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions.htm"
+key_htm = system.file("inst/extdata/KeyFiles", "Topic06.Questions.htm", package="ePort") 
 # generate a clean answer key with paths to the plots in questions
 refine_key(key_htm)
 # get the path/name of the new answer key
 key_txt = gsub("htm$","txt",key_htm)
 # Get the path for a data file
-datapath = "/Users/lindz/ePort/inst/extdata/DataFiles/Topic06.AB.csv"
+datapath = system.file("inst/extdata/DataFiles", "Topic06.AB.csv", package="ePort")
 # Get the path for the learning objective
-LOpath = "/Users/lindz/ePort/inst/extdata/OutcomeFiles/Topic06.Outcomes.txt"
+LOpath = system.file("inst/extdata/OutcomeFiles", "Topic06.Outcomes.txt", package="ePort")
 rewrite_data(datapath)
 @
 
 You can generate the report summary then as follows:
 
 <<eval=FALSE>>=
-report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile="/Users/lindz/ePort/inst/Rnw/hw-individual-short.Rnw",knito="/Users/lindz/ePort/inst/extdata/ReportFiles")
+report_routine(key_txt,datafile=datapath,rewrite=FALSE,LOfile=LOpath,knitfile=system.file("inst/Rnw/", "hw-individual-short.Rnw", package="ePort"),knito=system.file("inst/extdata/ReportFiles", package="ePort"))
 @
 
 <<>>=
