@@ -1,4 +1,53 @@
-\documentclass{article}
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 \setlength{\parindent}{0pt} % Remove indent at new paragraphs
 \setcounter{secnumdepth}{0}  % Remove section numbering at certain depth
 \usepackage[round,sort]{natbib}
@@ -24,16 +73,11 @@
 \newcommand{\pkg}[1]{{\texttt{#1}}}
 \newcommand{\class}[1]{{\textit{#1}}}
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \sloppy
 
-<<include=FALSE>>=
-library(knitr)
-opts_chunk$set(
-concordance=TRUE
-)
-@
+
 
 
 % <<label=R options,echo=FALSE>>=
@@ -50,17 +94,14 @@ concordance=TRUE
 
 \title{Vignette for the ePort package:\\ Academic report generation for statistics instructors}
 \author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
-\date{\pkg{ePort} version \Sexpr{packageDescription("ePort")[["Version"]]} , \Sexpr{Sys.Date()} }
+\date{\pkg{ePort} version 0.0.1 , 2015-11-05 }
 \maketitle
 
 \tableofcontents
 \setcounter{footnote}{1} \footnotetext{This \LaTeX\ vignette document is created using the \R function \code{Sweave} on the \R package \pkg{ePort}. It is automatically downloaded with the package and can be accessed with the \R command \code{vignette("ePort")}.}  \newpage
 \setlength{\parskip}{10pt} % Inter-paragraph spacing
 
-<<echo=FALSE>>=
-rm(list=ls())
-library(knitr)
-@ 
+
 
 \section{Summary}
 
@@ -84,30 +125,46 @@ Both short and long versions of reports can be generated for any of the aforemen
 
 \R is a open source software project for statistical computing, and can be freely downloaded from the Comprehensive R Archive Network (CRAN) website. The link to contributed documentation on the CRAN website offers practical resources for an introduction to \R, in several languages. After downloading and installing \R, the installation of additional packages is straightforward. To install the \pkg{ePort} package from \R, use the command:
 
-<<results='hide', eval=FALSE>>=
-install.packages("ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \noindent
 The \pkg{ePort} package should now be successfully installed. Next, to render it accessible to the current \R session, simply type:
 
-<<results='hide'>>=
-library(ePort)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(ePort)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \subsection{Help Files}
 
 To access help pages with example syntax and documentation for the available functions of the \pkg{ePort} package, please type:
 
-<<eval=FALSE>>=
-help(package="ePort")
-@ 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{help}\hlstd{(}\hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 To access more detailed information about a specific function in the \pkg{ePort} package, use the following help command on that function, such as:
 
-<<eval=FALSE>>=
-help(merge_section)
-@ 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{help}\hlstd{(merge_section)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
 
@@ -117,9 +174,16 @@ A directory that contains example data is automatically installed with the ePort
 
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the R console:
 
-<<>>=
-system.file("inst/extdata/", package="ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] "/Users/lindz/ePort/inst/extdata"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 * Add in picture with layout of the example data file  
 * Describe necessary format of each type of example data file  
@@ -138,90 +202,134 @@ In this demonstration, we will create a report for \texttt{Topic 06} and \texttt
 
 The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is as follows:
 
-<<eval=FALSE>>=
-key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{key_htm} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/KeyFiles/Topic06.Questions.htm"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
 
-refine_key(key_htm)
+\hlkwd{refine_key}\hlstd{(key_htm)}
 
-keypath = gsub("htm$","txt",key_htm)
+\hlstd{key_txt} \hlkwb{=} \hlkwd{gsub}\hlstd{(}\hlstr{"htm$"}\hlstd{,}\hlstr{"txt"}\hlstd{,key_htm)}
 
-datapath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
+\hlstd{datapath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06.AB.csv"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
 
-rewrite_data(datapath)
+\hlkwd{rewrite_data}\hlstd{(datapath)}
 
-LOpath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
+\hlstd{LOpath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutcomeFiles/Topic06.Outcomes.txt"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
 
-report_routine(keyfile=keypath,datafile=datapath,LOfile=LOpath,knitfile=system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort"),knito=system.file("inst/extdata/ReportFiles", package="ePort"))
-@
+\hlkwd{report_routine}\hlstd{(key_txt,}\hlkwc{datafile}\hlstd{=datapath,}\hlkwc{LOfile}\hlstd{=LOpath,}\hlkwc{knitfile}\hlstd{=}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/Rnw/hw-individual-short.Rnw"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{),}\hlkwc{knito}\hlstd{=}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/ReportFiles"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 We now briefly explain each step of the process. First, we must save the absolute pathway of this answer key. Here, we save it to a string variable called \texttt{key\_htm}.
 
-<<eval=FALSE>>=
-key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{key_htm} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/KeyFiles"}\hlstd{,} \hlstr{"Topic06.Questions.htm"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Second, we must parse and clean this .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refine\_key()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file:
 
-<<eval=FALSE>>=
-refine_key(key_htm)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{refine_key}\hlstd{(key_htm)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 By default, the \texttt{refine\_key()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and clean .txt file we just created, \texttt{Topic06.Questions.txt}.
 
-Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keypath}.
+Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{key\_txt}.
 
-<<eval=FALSE>>=
-keypath = gsub("htm$","txt",key_htm)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{key_txt} \hlkwb{=} \hlkwd{gsub}\hlstd{(}\hlstr{"htm$"}\hlstd{,}\hlstr{"txt"}\hlstd{,key_htm)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{datapath}.
 
-<<eval=FALSE>>=
-datapath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{datapath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles"}\hlstd{,} \hlstr{"Topic06.AB.csv"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 After this, our fifth step is to prime the data file to be compatible with our next steps of generating the reports. We do this by running the \texttt{rewrite\_data()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
 
-<<eval=FALSE>>=
-rewrite_data(datapath)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{rewrite_data}\hlstd{(datapath)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Our sixth step is to save the absolute path of our learning outcome file. Below, we save this to a variable called \texttt{LOpath}.
 
-<<eval=FALSE>>=
-LOpath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{LOpath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutcomeFiles"}\hlstd{,} \hlstr{"Topic06.Outcomes.txt"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file), our seventh and last step is to generate the report using the \texttt{report\_routine()} function. Here, we specify that we want to output our report to the \texttt{ReportFiles} subdirectory, and that we want a short report.
 
-<<eval=FALSE>>=
-report_routine(keyfile=keypath,datafile=datapath,LOfile=LOpath,knitfile=system.file("inst/Rnw/", "hw-individual-short.Rnw", package="ePort"),knito=system.file("inst/extdata/ReportFiles", package="ePort"))
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{report_routine}\hlstd{(key_txt,}\hlkwc{datafile}\hlstd{=datapath,}\hlkwc{LOfile}\hlstd{=LOpath,}\hlkwc{knitfile}\hlstd{=}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/Rnw/"}\hlstd{,} \hlstr{"hw-individual-short.Rnw"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{),}\hlkwc{knito}\hlstd{=}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/ReportFiles"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have successfully run the report generation, we can find our report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report \texttt{Stat101hwkTopic06ABshort.pdf} and a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.
 
 
 
 
-<<>>=
-#isParent("Young","Essex",sbGeneal)
-#isParent("Essex","Young",sbGeneal)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#isParent("Young","Essex",sbGeneal)}
+\hlcom{#isParent("Essex","Young",sbGeneal)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 We see that ``Essex" is a parent of ``Young", and not vice-versa. In some cases, you may wish to obtain a complete list of all the parents of a given variety. This can be achieved using the \texttt{getParent()} function:
 
-<<>>=
-#getParent("Young",sbGeneal)
-#getParent("Tokyo",sbGeneal)
-#getYear("Tokyo", sbGeneal)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#getParent("Young",sbGeneal)}
+\hlcom{#getParent("Tokyo",sbGeneal)}
+\hlcom{#getYear("Tokyo", sbGeneal)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 We learn from this that ``Essex" is not the only parent of ``Young"; ``Young" also has a parent ``Davis". We also see that ``Tokyo" does not have any documented parents in this dataset, and has an older year of introduction than other varieties we have examined thusfar. Likewise, in other cases, you may wish to obtain a complete list of all the children of a given variety. This can be achieved using the \texttt{getChild()} function:
 
-<<>>=
-#getChild("Tokyo",sbGeneal)
-#getChild("Ogden",sbGeneal)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#getChild("Tokyo",sbGeneal)}
+\hlcom{#getChild("Ogden",sbGeneal)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 We find that even though the ``Tokyo" variety is a grandparent of the dataset, it only has two children, ``Ogden" and ``Volstate". However, one of its children, ``Ogden", produced Sexpr{length(getChild("Ogden",sbGeneal))} children.
 
@@ -233,10 +341,14 @@ If we only look at one generation of ancestors of the ``Young" variety, we shoul
 
 Say you have a pair of vertices, and you wish to determine the degree of the shortest path between them, where edges represent parent-child relationships. You can accomplish that with the \texttt{getDegree()} function.
 
-<<>>=
-#getDegree("Tokyo", "Ogden", ig, sbGeneal)
-#getDegree("Tokyo", "Holladay", ig, sbGeneal)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#getDegree("Tokyo", "Ogden", ig, sbGeneal)}
+\hlcom{#getDegree("Tokyo", "Holladay", ig, sbGeneal)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \subsection{One section Multiple topics}
 

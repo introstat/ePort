@@ -2,7 +2,7 @@ Package: ePort
 Type: Package
 Title: Student Performance Report Generation for Statistics Instructors
 Version: 0.0.1
-Date: 2015-09-29
+Date: 2015-11-03
 Author: Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich
 Maintainer: Amy Froelich <amyf@iastate.edu>
 Description: Tools for course instructors to generate electronic reports that summarize and analyze student performance.
