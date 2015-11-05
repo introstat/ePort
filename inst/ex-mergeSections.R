@@ -3,15 +3,15 @@ library(plyr)
 library(dplyr)
 
 ##### save data files into one csv file #####
-key_txt = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic05.Questions.txt"
-datapath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files"
+keyFile = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Database Questions/Topic05.Questions.txt"
+dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files"
 topic = "05"
-namelist = list.files(path=datapath,full.names=TRUE)
+namelist = list.files(path=dataPath,full.names=TRUE)
 namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
 namelist
 
-answerkey = convertkey(key_txt)
-instructor_scores = merge_section(namelist, answerkey,skip=NULL)
+answerkey = convertKey(keyFile)
+instructor_scores = mergeSection(namelist, answerkey,skip=NULL)
 rownames(instructor_scores$score) = instructor_scores$score$student
 tmp1 = instructor_scores$Qscore
 l = ncol(tmp1)

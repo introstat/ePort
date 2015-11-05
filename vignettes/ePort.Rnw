@@ -106,7 +106,7 @@ help(package="ePort")
 To access more detailed information about a specific function in the \pkg{ePort} package, use the following help command on that function, such as:
 
 <<eval=FALSE>>=
-help(merge_section)
+help(mergeSection)
 @ 
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
@@ -141,17 +141,19 @@ The block of code we will use to generate our \texttt{Topic 06} \texttt{Section 
 <<eval=FALSE>>=
 key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
 
-refine_key(key_htm)
+refineKey(key_htm)
 
-keypath = gsub("htm$","txt",key_htm)
+keyPath = gsub("htm$","txt",key_htm)
 
-datapath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
+dataPath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
 
-rewrite_data(datapath)
+rewriteData(dataPath)
 
-LOpath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
+LOPath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
 
-report_routine(keyfile=keypath,datafile=datapath,LOfile=LOpath,knitfile=system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort"),knito=system.file("inst/extdata/ReportFiles", package="ePort"))
+outPath = system.file("inst/extdata/ReportFiles", package="ePort")
+
+makeReport(keyFile=keyPath,dataFile=dataPath,LOFile=LOPath,reportType=system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort"),outFile=outPath)
 @
 
 We now briefly explain each step of the process. First, we must save the absolute pathway of this answer key. Here, we save it to a string variable called \texttt{key\_htm}.
@@ -163,7 +165,7 @@ key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="eP
 Second, we must parse and clean this .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refine\_key()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file:
 
 <<eval=FALSE>>=
-refine_key(key_htm)
+refineKey(key_htm)
 @
 
 By default, the \texttt{refine\_key()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and clean .txt file we just created, \texttt{Topic06.Questions.txt}.
@@ -174,28 +176,28 @@ Our third step is to save the absolute pathway of this new and cleaned .txt answ
 keypath = gsub("htm$","txt",key_htm)
 @
 
-Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{datapath}.
+Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{dataPath}.
 
 <<eval=FALSE>>=
-datapath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
+dataPath = system.file("inst/extdata/DataFiles/Topic06.AB.csv", package="ePort")
 @
 
 After this, our fifth step is to prime the data file to be compatible with our next steps of generating the reports. We do this by running the \texttt{rewrite\_data()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
 
 <<eval=FALSE>>=
-rewrite_data(datapath)
+rewriteData(dataPath)
 @
 
-Our sixth step is to save the absolute path of our learning outcome file. Below, we save this to a variable called \texttt{LOpath}.
+Our sixth step is to save the absolute path of our learning outcome file. Below, we save this to a variable called \texttt{LOPath}.
 
 <<eval=FALSE>>=
-LOpath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
+LOPath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
 @
 
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file), our seventh and last step is to generate the report using the \texttt{report\_routine()} function. Here, we specify that we want to output our report to the \texttt{ReportFiles} subdirectory, and that we want a short report.
 
 <<eval=FALSE>>=
-report_routine(keyfile=keypath,datafile=datapath,LOfile=LOpath,knitfile=system.file("inst/Rnw/", "hw-individual-short.Rnw", package="ePort"),knito=system.file("inst/extdata/ReportFiles", package="ePort"))
+makeReport(keyFile=keypath,dataFile=dataPath,LOFile=LOPath,reportType=system.file("inst/Rnw/", "hw-individual-short.Rnw", package="ePort"),outFile=system.file("inst/extdata/ReportFiles", package="ePort"))
 @
 
 Now that we have successfully run the report generation, we can find our report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report \texttt{Stat101hwkTopic06ABshort.pdf} and a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.

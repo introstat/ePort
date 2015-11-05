@@ -9,7 +9,7 @@
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #'
-convertkey = function(filenm){
+convertKey = function(filenm){
   key = readLines(filenm)
   key = gsub("\xa0","",key)
   key = gsub("\x93","",key)
@@ -139,7 +139,7 @@ convertkey = function(filenm){
 #' @importFrom XML xmlGetAttr
 #' @export
 #'
-refine_key = function(key){
+refineKey = function(key){
   doc.html = htmlParse(key,useInternalNodes=TRUE,encoding='UTF-8')
   doc.text = xpathSApply(doc.html, "//p//span", xmlValue)
   doc.img = xpathSApply(doc.html, "//p//span", xmlChildren)

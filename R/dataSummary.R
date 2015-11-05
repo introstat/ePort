@@ -4,17 +4,17 @@
 #' objectives, question sets, questions) together.
 #' 
 #' @param QS a data frame of question scores. First object of
-#' the output from function \code{clean_score}.
+#' the output from function \code{cleanScore}.
 #' @param QSS a list. First object of the output from function
-#' \code{clean_set}: QuestionSet.
+#' \code{cleanSet}: QuestionSet.
 #' @param CSS a list. Second object of the output from function
-#' \code{clean_set}: ObjectiveSet. Could be NULL.
+#' \code{cleanSet}: ObjectiveSet. Could be NULL.
 #' @return a data frame with total scores, scores for question sets,
 #' learning objectives (if \code{CSS} is not NULL), and questions.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-summary_score = function(QS, QSS, CSS=NULL) {
+summaryScore = function(QS, QSS, CSS=NULL) {
   FullScore=sum(QSS$QSFullScore)
   if (is.null(CSS)){
     tmp = cbind(QS[, 1],rep(FullScore,nrow(QS)), QSS$QuestionSetScore, QS[, 2:ncol(QS)])
@@ -34,11 +34,11 @@ summary_score = function(QS, QSS, CSS=NULL) {
 #' by different levels.
 #' 
 #' @param QS a data frame of question scores. First object of
-#' the output from function \code{clean_score}.
+#' the output from function \code{cleanScore}.
 #' @param QSS a list. First object of the output from function
-#' \code{clean_set}: QuestionSet.
+#' \code{cleanSet}: QuestionSet.
 #' @param CSS a list. Second object of the output from function
-#' \code{clean_set}: ObjectiveSet. Could be NULL.
+#' \code{cleanSet}: ObjectiveSet. Could be NULL.
 #' @return a list of two or three objects (when \code{CSS} is not NULL).
 #' The first two objects are the summaries by question,
 #' and by question set. The optional third output is the
@@ -46,7 +46,7 @@ summary_score = function(QS, QSS, CSS=NULL) {
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-summary_level = function(QS, QSS, CSS=NULL) {
+summaryLevel = function(QS, QSS, CSS=NULL) {
   CorrectPct = round(apply(QS$HWsheet[, 2:ncol(QS$HWsheet)], 
                            2, mean, na.rm = TRUE)/QS$QFullScore*100, 2)
   sumrymean=round(apply(QS$HWsheet[, 2:ncol(QS$HWsheet)], 

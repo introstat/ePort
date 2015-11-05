@@ -14,13 +14,13 @@
 #' @importFrom plyr summarise
 #' @export
 #' 
-read_score = function(filename, savefile=FALSE, keepAttempts=FALSE){
+readScore = function(filename, savefile=FALSE, keepAttempts=FALSE){
   scores = read.csv(filename, check.names = FALSE, 
                     colClasses=c(rep('character',6),rep('numeric',3)))
   scores[is.na(scores[,8]),8] = 0
   scores$Question_id = as.integer(substr(scores$Question, 9, 11))
-  scores$Question = clean_HTML(scores$Question, mark=FALSE, image=FALSE)
-  scores$Answer = clean_HTML(scores$Answer,image=TRUE)
+  scores$Question = cleanHTML(scores$Question, mark=FALSE, image=FALSE)
+  scores$Answer = cleanHTML(scores$Answer,image=TRUE)
   attempt = paste(scores$Username,scores$`Question ID`,sep='-')
   scores$Attempt = 1
   scores$Attempt[duplicated(attempt)] = 2
@@ -64,8 +64,8 @@ read_score = function(filename, savefile=FALSE, keepAttempts=FALSE){
 #' needed for analysis and not provided in the answer key, then
 #' we use argument \code{skip} to skip them.
 #' 
-#' @param HWsheet the output of function \code{read_score}
-#' @param key the output of function \code{convertkey}
+#' @param HWsheet the output of function \code{readScore}
+#' @param key the output of function \code{convertKey}
 #' @param skip a vector of integers to solve the problem like HW1 Question1
 #' @return a list of four objects: a data frame of scores,
 #' a vector of numbers of response for each question,
@@ -76,7 +76,7 @@ read_score = function(filename, savefile=FALSE, keepAttempts=FALSE){
 #' @importFrom plyr summarise
 #' @export
 #' 
-clean_score = function(HWsheet, key, skip=NULL){
+cleanScore = function(HWsheet, key, skip=NULL){
   r1 = HWsheet$score
   r2 = HWsheet$answer
   r0 = r1[,c(1,3,4)]
@@ -161,14 +161,14 @@ clean_score = function(HWsheet, key, skip=NULL){
 
 #' Get the Question Set and Objective Set Scores
 #' 
-#' @param HWsheet The output of function \code{clean_score} $HWsheet
-#' @param key The output of function \code{convertkey}
+#' @param HWsheet The output of function \code{cleanScore} $HWsheet
+#' @param key The output of function \code{convertKey}
 #' @return List of two data frames of scores for the question
 #' sets and learning objectives respectively.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-clean_set = function(HWsheet, key){
+cleanSet = function(HWsheet, key){
   Qset = unique(key$simplekey$Question.Set)
   nQset = length(Qset)
   Oset = unique(key$simplekey$Objective.Set)
@@ -201,7 +201,7 @@ clean_set = function(HWsheet, key){
 #' @importFrom XML xpathSApply
 #' @export
 #' 
-clean_HTML = function(HWsheet, mark=TRUE, image=FALSE){
+cleanHTML = function(HWsheet, mark=TRUE, image=FALSE){
   if (is.vector(HWsheet)){
     HWsheet = gsub(' +$','',gsub('^ +','',HWsheet))
     if (mark) {
@@ -231,6 +231,6 @@ clean_HTML = function(HWsheet, mark=TRUE, image=FALSE){
     return(HWsheet)
   }
   n = ncol(HWsheet)
-  for (i in 1:n) HWsheet[,i] = clean_HTML(HWsheet[,i])
+  for (i in 1:n) HWsheet[,i] = cleanHTML(HWsheet[,i])
   return(HWsheet)
 }

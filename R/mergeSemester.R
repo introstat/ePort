@@ -12,7 +12,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #' 
-set_dir = function(data.dir=NULL, data.list=NULL){
+setDir = function(data.dir=NULL, data.list=NULL){
   if (is.null(data.dir) && is.null(data.list)) {
     message("Please select any file in your data directory ...")
     data.dir = dirname(file.choose())
@@ -39,7 +39,7 @@ set_dir = function(data.dir=NULL, data.list=NULL){
 #' this function will merge the total scores and correct percentages
 #' into data frames with rows being students and columns being topics.
 #' 
-#' @param files output from \code{set_dir}
+#' @param files output from \code{setDir}
 #' @return a list of four data frames. First two are the data frames
 #' with rows being the students and columns being the Topics for
 #' scores and correct percentage. The third and fourth data frames
@@ -49,13 +49,13 @@ set_dir = function(data.dir=NULL, data.list=NULL){
 #' @export
 #' @example inst/ex-reportHwk.R
 #' 
-merge_data = function(files){
+mergeData = function(files){
   nfile=nrow(files)
   dat=list()
   score=data.frame()
   pb = txtProgressBar(min = 0, max = nfile, style = 3, label="Read the data ...")
   for (i in 1:nfile) {
-    dat[[i]]=data.frame(read_score(files[i,"file"],keepAttempts=FALSE)$score[,c(1,2,4)],Topic=files[i,"topic"],Section=files[i,"section"],stringsAsFactors=FALSE)
+    dat[[i]]=data.frame(readScore(files[i,"file"],keepAttempts=FALSE)$score[,c(1,2,4)],Topic=files[i,"topic"],Section=files[i,"section"],stringsAsFactors=FALSE)
     score=rbind(score,dat[[i]])
     setTxtProgressBar(pb, i)
   }
@@ -104,10 +104,10 @@ merge_data = function(files){
 #' 
 #' If we want to generate a report for one section with
 #' many topics, this function could help to filter the
-#' section from the output of \code{merge_data}.
+#' section from the output of \code{mergeData}.
 #' 
-#' @param mergedat output from \code{merge_data}
-#' @param files output from \code{set_dir}
+#' @param mergedat output from \code{mergeData}
+#' @param files output from \code{setDir}
 #' @param choice section name. Default to be 'all',
 #' which means all the sections are selected.
 #' @return a subset of \code{mergedat} with the same format
@@ -115,7 +115,7 @@ merge_data = function(files){
 #' @export
 #' @example inst/ex-reportHwk.R
 #' 
-subset_data = function(mergedat,files,choice='all'){
+subsetData = function(mergedat,files,choice='all'){
   if (choice!='all'){
     stopifnot(length(choice)==1, choice %in% files$section)
     files=files[files$section == choice,,drop=FALSE]

@@ -216,11 +216,11 @@ ord_section = names(ord_section[order(ord_section,decreasing=TRUE)])
 
 topic_est=est[2:ntopic]
 topic_estcov=estcov[2:ntopic,2:ntopic]
-topic_pmtrx = multiple_comparison(topic_est,as.matrix(topic_estcov),colnames(avg),nrow(score),FALSE)
+topic_pmtrx = multipleComparison(topic_est,as.matrix(topic_estcov),colnames(avg),nrow(score),FALSE)
 
 sec_est=est[1:(nsection-1)+ntopic]
 sec_estcov=estcov[1:(nsection-1)+ntopic,1:(nsection-1)+ntopic]
-sec_pmtrx=multiple_comparison(sec_est,as.matrix(sec_estcov),rownames(avg),nrow(score),FALSE)
+sec_pmtrx=multipleComparison(sec_est,as.matrix(sec_estcov),rownames(avg),nrow(score),FALSE)
 
 @
 
@@ -367,7 +367,7 @@ until they are challenged by some difficult content.
 
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 
-clorig = cl(merged$dat$CorrectPct[,1:ntopic+2])
+clorig = clusterStudents(merged$dat$CorrectPct[,1:ntopic+2])
 clhc2 = clorig[,1:9]
 clhc2$Section = merged$dat$CorrectPct[rownames(clhc2),'Section']
 clhc2 = clhc2[order(clhc2$cl2,clhc2$cl3,clhc2$cl4,clhc2$cl5,
@@ -412,20 +412,20 @@ from one to nine clusters.}
 
 ##########
 
-crtrorig = crtr(clorig,ntopic)
-dfboot = clbootstrap(merged$dat$CorrectPct[,1:ntopic+2],ntopic,nboot=100,txtbar=FALSE)
+clusterCriteriaorig = clusterCriteria(clorig,ntopic)
+dfboot = clusterBootstrap(merged$dat$CorrectPct[,1:ntopic+2],ntopic,nboot=100,txtbar=FALSE)
 dfboot2 = melt(dfboot,id.vars=c('cluster','criteria'))
 
-crtr_bw = dfboot[dfboot$criteria=='SSE',-(1:2)]
-crtr_wb = dfboot[dfboot$criteria=='Rsquare',-(1:2)]
-range_bw = apply(crtr_bw,1,function(x)c(min(x),max(x)))
-range_wb = apply(crtr_wb,1,function(x)c(min(x),max(x)))
+clusterCriteria_bw = dfboot[dfboot$criteria=='SSE',-(1:2)]
+clusterCriteria_wb = dfboot[dfboot$criteria=='Rsquare',-(1:2)]
+range_bw = apply(clusterCriteria_bw,1,function(x)c(min(x),max(x)))
+range_wb = apply(clusterCriteria_wb,1,function(x)c(min(x),max(x)))
 cut_wb = diff(as.vector(range_wb))[seq(2,ncol(range_wb)*2-2,by=2)]
 cut_bw = rev(diff(as.vector(range_bw[,ncol(range_bw):1]))[seq(2,ncol(range_bw)*2-2,by=2)])
 bestcut_bw = which(cut_bw>=0)
 bestcut_wb = which(cut_wb>=0)
-bestcut_bw = if (length(bestcut_bw)) bestcut_bw[1]+1 else which.min(diff(crtrorig[crtrorig$criteria=='SSE','value']))+2
-bestcut_wb = if (length(bestcut_wb)) bestcut_wb[1]+1 else which.max(diff(crtrorig[crtrorig$criteria=='Rsquare','value']))+2
+bestcut_bw = if (length(bestcut_bw)) bestcut_bw[1]+1 else which.min(diff(clusterCriteriaorig[clusterCriteriaorig$criteria=='SSE','value']))+2
+bestcut_wb = if (length(bestcut_wb)) bestcut_wb[1]+1 else which.max(diff(clusterCriteriaorig[clusterCriteriaorig$criteria=='Rsquare','value']))+2
 bestcut_bbww = if (bestcut_bw == bestcut_wb) bestcut_bw else min(bestcut_bw,bestcut_wb)
 
 #bestcut = which.min(diff(height9)[-1])+2
@@ -463,7 +463,7 @@ A and B can be grouped together.
 fname=paste0(plotprename,'screeplot.pdf')
 pdf(paste0('../',fname),width=4,height=6)
 print(qplot(cluster,value,data=dfboot2,geom='point',alpha=I(0.1)) + 
-  facet_grid(criteria~., scales = "free_y") + geom_line(data=crtrorig))
+  facet_grid(criteria~., scales = "free_y") + geom_line(data=clusterCriteriaorig))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}

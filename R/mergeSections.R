@@ -5,8 +5,8 @@
 #' them together.
 #' 
 #' @param filenmlist a vector of file names of the Blackboard data with path
-#' @param answerkey the output of function \code{convertkey}
-#' @param skip a vector of integers. Same as the parameter in \code{clean_score}.
+#' @param answerkey the output of function \code{convertKey}
+#' @param skip a vector of integers. Same as the parameter in \code{cleanScore}.
 #' @return a list of results including the summaries and merged data
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom reshape2 melt
@@ -15,7 +15,7 @@
 #' @export
 #' @example inst/ex-mergeSections.R
 #' 
-merge_section = function(filenmlist, answerkey, skip=NULL){
+mergeSection = function(filenmlist, answerkey, skip=NULL){
   dat=tmp=scores=counts=QsetCrtPct=CsetCrtPct=list()
   Qsscores=Csscores=QsFscore=CsFscore=list()
   rows=totalmean=totalstd=totalmin=totalq1=totalmedian=totalq3=totalmax=c()
@@ -25,9 +25,9 @@ merge_section = function(filenmlist, answerkey, skip=NULL){
   SectionName=substr(basename(filenmlist),dotpos[1]+1,dotpos[2]-1)
   
   for (i in 1:length(filenmlist)){
-    dat[[i]]=read_score(filenmlist[i])
-    scores[[i]]=clean_score(dat[[i]],answerkey,skip)
-    tmp[[i]] = clean_set(scores[[i]]$HWsheet, answerkey)
+    dat[[i]]=readScore(filenmlist[i])
+    scores[[i]]=cleanScore(dat[[i]],answerkey,skip)
+    tmp[[i]] = cleanSet(scores[[i]]$HWsheet, answerkey)
     
     Qscores = rbind(Qscores, scores[[i]]$HWsheet)
     Qanswers = rbind(Qanswers, scores[[i]]$HWanswer)
@@ -106,16 +106,16 @@ merge_section = function(filenmlist, answerkey, skip=NULL){
   return(outcome)
 }
 
-merge_section2 = function(filenmlist, answerkey, skip=NULL){
+mergeSection2 = function(filenmlist, answerkey, skip=NULL){
   dat=score=set=list()
   Qscore=QSscore=CSscore=NULL
   Qscorelist=QSscorelist=CSscorelist=list()
   QSpctlist=CSpctlist=list()
   
   for (i in 1:length(filenmlist)){
-    dat[[i]]=read_score(filenmlist[i])    
-    score[[i]]=clean_score(dat[[i]],answerkey,skip)
-    set[[i]]=clean_set(score[[i]]$HWsheet, answerkey)
+    dat[[i]]=readScore(filenmlist[i])    
+    score[[i]]=cleanScore(dat[[i]],answerkey,skip)
+    set[[i]]=cleanSet(score[[i]]$HWsheet, answerkey)
     
     Qscore = rbind(Qscores, score[[i]]$HWsheet)
     QSscore = rbind(QSscore, set[[i]]$QuestionSet$QuestionSetScore)

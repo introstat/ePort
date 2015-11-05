@@ -13,7 +13,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #' 
-rewrite_data = function(filenm){
+rewriteData = function(filenm){
   csv = read.delim(filenm,header=FALSE)[,1]
   csv = as.character(csv)
   
@@ -58,7 +58,7 @@ rewrite_data = function(filenm){
 #' @export
 #' @example inst/ex-mergeSplitChap.R
 #' 
-split_file = function(filenm,cut_idx,cut_type){
+splitFile = function(filenm,cut_idx,cut_type){
   stopifnot(cut_type %in% c('RsQ','ID'))
   dat = read.csv(filenm, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))
   if (cut_type=='RsQ') {
@@ -94,7 +94,7 @@ split_file = function(filenm,cut_idx,cut_type){
 #' @export
 #' @example inst/ex-mergeSplitChap.R
 #' 
-combine_files = function(file1,file2,newnm){
+combineFiles = function(file1,file2,newnm){
   dat1 = read.csv(file1, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))
   dat2 = read.csv(file2, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))
   dat1maxID = max(as.integer(substring(dat1[,4],13)))

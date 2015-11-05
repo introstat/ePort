@@ -16,10 +16,10 @@
 #' @param path the directory to the data files
 #' @param type the strings before the topic number in the csv file name
 #' @param rewrite logical. If TRUE then the csv files are rewritten.
-#' @param skip a vector of integers. Same as the parameter in \code{clean_score}.
+#' @param skip a vector of integers. Same as the parameter in \code{cleanScore}.
 #' @param reportType the file name with path for the Rnw file to knit.
 #' Could be NULL, then will be auto-completed by the file in the inst folder.
-#' @param outPath the directory to save the tex file
+#' @param outFile the directory to save the tex file
 #' @return a tex file to be compiled
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom knitr knit
@@ -28,9 +28,9 @@
 #' @example inst/ex-reportHwk.R
 #'
 makeReport =
-  function(keyFile=NULL, dataFile=NULL, LOFile=NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, reportType=NULL, outPath=NULL){
+  function(keyFile=NULL, dataFile=NULL, LOFile=NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, reportType=NULL, outFile=NULL){
     
-    stopifnot(!is.null(dataFile) || all(!is.null(c(topic,section,path,type))))
+    try(if(is.null(outFile)) stop("Need to define outFile, see help(makeReport)"))
     
     # Find the file name
     if (is.null(dataFile)) {
@@ -47,7 +47,7 @@ makeReport =
     }
     
     # Read the answer key
-    answerkey = convertkey(keyFile)
+    answerkey = convertKey(keyFile)
     if (type=="Unit") {
       answerkey[[1]]$Objective.Set =
         paste0(answerkey[[1]]$Topic,answerkey[[1]]$Objective.Set)
@@ -73,27 +73,27 @@ makeReport =
     
     # Cross-section report
     if (length(Score_filename)>1){
-      instructor_scores = merge_section(Score_filename, answerkey,skip=NULL)
+      instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
       if (is.null(reportType))
         reportType=system.file("inst","hw-section.Rnw",package="ePort")
-      knit(reportType,paste0(outPath,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(reportType)))))
+      knit(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(reportType)))))
       return()
     }
 
-    if (rewrite) rewrite_data(Score_filename)
+    if (rewrite) rewriteData(Score_filename)
     
     # Read the data
-    Student_Score = read_score(Score_filename)
-    tmpoutput = clean_score(Student_Score, answerkey, skip=skip)
+    Student_Score = readScore(Score_filename)
+    tmpoutput = cleanScore(Student_Score, answerkey, skip=skip)
     #skip=1 for Topic 1 Fall 2013
     ScorebyQuestion = tmpoutput$HWsheet
     CountbyQuestion = tmpoutput$nResponse
-    Student_SetScore = clean_set(ScorebyQuestion, answerkey)
+    Student_SetScore = cleanSet(ScorebyQuestion, answerkey)
     
     # Summary
-    sumry1 = summary_score(ScorebyQuestion,
+    sumry1 = summaryScore(ScorebyQuestion,
                            Student_SetScore$QuestionSet, Student_SetScore$ObjectiveSet)
-    sumry2 = summary_level(tmpoutput, Student_SetScore$QuestionSet,
+    sumry2 = summaryLevel(tmpoutput, Student_SetScore$QuestionSet,
                            Student_SetScore$ObjectiveSet)
     stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
     
@@ -102,12 +102,12 @@ makeReport =
       reportType=system.file("inst/Rnw","hw-individual.Rnw",package="ePort")
     }
     if (keepFiles){
-      knit2pdf(reportType,paste0(outPath,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
     }else{
-      knit2pdf(reportType,paste0(outPath,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
     }
     if (!keepTex){
-      on.exit(unlink(paste0(outPath,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))) 
+      on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))) 
     }
 }
 
@@ -130,7 +130,7 @@ makeReport =
 #' @importFrom xtable xtable
 #' @export
 #'
-widetableinLaTeX=function(atable, tablecaption, label, cols=7){
+wideTableLatex=function(atable, tablecaption, label, cols=7){
   n = ncol(atable)
   lasttablecolumn = n%%cols
   if (lasttablecolumn==0){
@@ -172,11 +172,11 @@ widetableinLaTeX=function(atable, tablecaption, label, cols=7){
 #' @return List with two objects. The first object is the returned abbreviated answer vector. The second object is a glossary key
 #' @examples
 #' avec = "The answer is more than l characters"
-#' abbr(avec, l=13)
+#' shortenAnswers(avec, l=13)
 #' @export
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #'
-abbr = function(avec, l=13) {
+shortenAnswers = function(avec, l=13) {
   avecformat = class(avec)
   if (avecformat %in% c('factor','character')){
     avec=as.character(avec)

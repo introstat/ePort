@@ -52,7 +52,7 @@ flag = function(set,value,method="outlier",thres){
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-multiple_comparison = function(est,estcov,coefname,n,ordermatrix=TRUE,method="bonferroni"){
+multipleComparison = function(est,estcov,coefname,n,ordermatrix=TRUE,method="bonferroni"){
   stopifnot(length(coefname)==(length(est)+1))
   r=length(coefname)
   idx=t(combn(r,2)-1)
@@ -91,7 +91,7 @@ multiple_comparison = function(est,estcov,coefname,n,ordermatrix=TRUE,method="bo
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-cl = function(dat,l=9){
+clusterStudents = function(dat,l=9){
   nc = ncol(dat)
   dat = na.omit(dat)
   clust_dat = t(apply(dat,1,function(x){
@@ -122,7 +122,7 @@ cl = function(dat,l=9){
 #' @importFrom reshape2 melt
 #' @export
 #' 
-crtr = function(dat,ntopic,l=9){
+clusterCriteria = function(dat,ntopic,l=9){
   res = data.frame(SSR=rep(0,l),SSE=rep(0,l))
   rownames(res) = paste('cluster',1:l,sep='')
   globalmean = colMeans(dat[,1:ntopic+l])
@@ -146,7 +146,7 @@ crtr = function(dat,ntopic,l=9){
 
 #' Use bootstrap to find the best number of clusters
 #' 
-#' Results of the function \code{crtr} for bootstrap samples
+#' Results of the function \code{clusterCriteria} for bootstrap samples
 #' 
 #' @param dat Data frame, same format as function \code{cl}
 #' @param nt Number of topics
@@ -158,7 +158,7 @@ crtr = function(dat,ntopic,l=9){
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
-clbootstrap = function(dat,nt,nboot=100,l=9,seed=201311,txtbar=TRUE){
+clusterBootstrap = function(dat,nt,nboot=100,l=9,seed=201311,txtbar=TRUE){
   set.seed(seed)
   n = nrow(dat)
   resboot = matrix(0,nrow=2*(l-1),ncol=nboot)
@@ -166,13 +166,13 @@ clbootstrap = function(dat,nt,nboot=100,l=9,seed=201311,txtbar=TRUE){
   for (s in 1:nboot){
     tmpsample = sample(1:n,replace=TRUE)
     tmpdat = dat[tmpsample,]
-    clboot = cl(tmpdat,l=l)
-    crtrboot = crtr(clboot,nt,l=l)
-    resboot[,s] = crtrboot$value
+    clboot = clusterStudents(tmpdat,l=l)
+    clusterCriteriaboot = clusterCriteria(clboot,nt,l=l)
+    resboot[,s] = clusterCriteriaboot$value
     if (txtbar) setTxtProgressBar(pb, s)
   }
   if (txtbar) close(pb)
-  dfboot=data.frame(crtrboot[,1:2],resboot)
+  dfboot=data.frame(clusterCriteriaboot[,1:2],resboot)
   colnames(dfboot)[-(1:2)]=paste('b',1:nboot,sep='')
   return(dfboot)
 }

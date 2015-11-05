@@ -37,11 +37,11 @@ suppressPackageStartupMessages(library(dplyr, quietly=TRUE))
 suppressPackageStartupMessages(library(stringr, quietly=TRUE))
 
 # Specify directory for figure output
-if (!keepimage){
+if (!keepImage){
   temppath <- normalizePath(tempdir(), winslash = '/')
   opts_chunk$set(fig.path = temppath) 
 }else{
-  opts_chunk$set(fig.path = paste0(knito,"/"))
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
 }
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
@@ -212,7 +212,7 @@ write.table(c("With semicolon:","",
   paste(emailaddress,collapse='; '),
   "","","With comma:","",
   paste(emailaddress,collapse=', ')),
-  file=paste0(knito,"/",plotprename,"_students_below80.txt"),
+  file=paste0(outFile,"/",plotprename,"_students_below80.txt"),
   #file=sprintf('../%s_students_below80.txt',plotprename),
   quote=FALSE,row.names=FALSE,col.names=FALSE)
 @

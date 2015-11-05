@@ -184,7 +184,7 @@ if (nrow(tmp)==p90) {
   rownames(tmp)[p70+3]="  "
   rownames(tmp)[p60+4]="   "
 }
-AllStudentScore=widetableinLaTeX(tmp,tablecaption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2)), as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct<60,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2))),label='tab:data',cols=7)
+AllStudentScore=wideTableLatex(tmp,tablecaption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2)), as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct<60,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2))),label='tab:data',cols=7)
 
 
 # Lower 20%

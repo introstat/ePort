@@ -203,14 +203,14 @@ estcov=as.matrix(vcov(f)[-1,-1])
 obj_r=length(levels(b$LearningObj))
 obj_est=est[1:(obj_r-1)]
 obj_estcov=estcov[1:(obj_r-1),1:(obj_r-1)]
-obj_pmtrx = multiple_comparison(obj_est,obj_estcov,levels(b$LearningObj),nrow(Learning_Objectives))
+obj_pmtrx = multipleComparison(obj_est,obj_estcov,levels(b$LearningObj),nrow(Learning_Objectives))
 
 print(xtable(obj_pmtrx,caption='P-values of the multiple comparison between learning objectives', label='tab:pvalues_obj',digits=4), floating=FALSE, tabular.environment = "longtable")
 
 sec_r=length(namelist)
 sec_est=est[1:(sec_r-1)+obj_r-1]
 sec_estcov=estcov[1:(sec_r-1)+obj_r-1,1:(sec_r-1)+obj_r-1]
-sec_pmtrx=multiple_comparison(sec_est,sec_estcov,rownames(a),nrow(Learning_Objectives))
+sec_pmtrx=multipleComparison(sec_est,sec_estcov,rownames(a),nrow(Learning_Objectives))
 
 print(xtable(sec_pmtrx,caption='P-values of the multiple comparison between sections', label='tab:pvalues_sec',digits=4), floating=FALSE, tabular.environment = "longtable")
 
@@ -369,8 +369,8 @@ for (j in 1:nQuestion) {
     fname1=paste(plotprename,'_',j,'_answer.pdf',sep='')
     fname2=paste(plotprename,'_',j,'_score.pdf',sep='')
     if (any(nchar(as.character(instructor_scores$Qanswer[,j]))>12)){
-      abbrscore=abbr(instructor_scores$Qanswer[,j])$abbrv
-  	  glssry=abbr(instructor_scores$Qanswer[,j])$glossary
+      abbrscore=shortenAnswers(instructor_scores$Qanswer[,j])$abbrv
+  	  glssry=shortenAnswers(instructor_scores$Qanswer[,j])$glossary
       glssry[,1] = gsub('\\_','\\\\_',glssry[,1])
       glssry[,2] = gsub('\\_','\\\\_',glssry[,2])
 	  }else{

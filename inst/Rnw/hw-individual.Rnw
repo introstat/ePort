@@ -308,10 +308,10 @@ The percentages correct by learning outcome and total for each student, sorted b
 <<echo=FALSE,results='asis'>>=
 CSScore=cbind(Total, CSScore)
 CSScorewithSpace=rbind(CSScore[CSScore[,1]>=60,,drop=FALSE],NA,CSScore[CSScore[,1]<60,,drop=FALSE])
-SplitCSSore=widetableinLaTeX(CSScorewithSpace,tablecaption='Sorted learning outcomes sets and total correct percentages',label='tab:LearningObj_data',cols=10)
+SplitCSSore=wideTableLatex(CSScorewithSpace,tablecaption='Sorted learning outcomes sets and total correct percentages',label='tab:LearningObj_data',cols=10)
 
 CSRank = round(100 - apply(CSScore,2,rank,ties.method='max')/nrow(CSScore)*100,2)
-PrintCSRank=widetableinLaTeX(CSRank,tablecaption='Rank of the students by the total and learning outcome scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
+PrintCSRank=wideTableLatex(CSRank,tablecaption='Rank of the students by the total and learning outcome scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
 
 CSRank = data.frame(CSRank, Student=rownames(CSRank))
 tmptile=melt(CSRank,id.vars='Student')
@@ -381,8 +381,8 @@ for (j in 1:nQuestion) {
     fname1=paste(plotprename,'_',j,'_answer.pdf',sep='')
     fname2=paste(plotprename,'_',j,'_score.pdf',sep='')
     if (any(nchar(as.character(tmpoutput$HWanswer[,j+1]))>12)){
-      abbrscore=abbr(tmpoutput$HWanswer[,j+1])$abbrv
-      glssry=abbr(tmpoutput$HWanswer[,j+1])$glossary
+      abbrscore=shortenAnswers(tmpoutput$HWanswer[,j+1])$abbrv
+      glssry=shortenAnswers(tmpoutput$HWanswer[,j+1])$glossary
       glssry[,1] = gsub('\\_','\\\\_',glssry[,1])
       glssry[,2] = gsub('\\_','\\\\_',glssry[,2])
     } else {
