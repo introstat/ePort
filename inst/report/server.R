@@ -13,7 +13,7 @@ shinyServer(function(input, output) {
     DataFile = input$filenm
     LoFile = input$lo
     
-    for (i in DataFile$dataPath) makeReport(KeyFile$dataPath[1],dataFile=i,rewrite=FALSE,skip=NULL,LOFile=LoFile$dataPath[1],reportType=NULL)
+    for (i in DataFile$dataPath) makeReport(KeyFile$dataPath[1],dataFile=i,rewrite=FALSE,skip=NULL,loFile=LoFile$dataPath[1],reportType=NULL)
     
     par(mar = c(5.1, 4.1, 0, 1))
     plot(rnorm(30),rnorm(30),

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  9 NOV 2015 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  7 NOV 2015 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,15 +538,17 @@ es/Topic06.Questions.htm"[][],[] []package[][]=[][]"ePort"[][])[][]
  []
 
 
-Overfull \hbox (18.4175pt too wide) in paragraph at lines 216--216
-[][]\OT1/cmtt/m/n/10 dataPath[] []=[] []system.file[][]([][]"inst/extdata/DataF
-iles/Topic06/Topic06.AB.csv"[][],[] []package[][]=[][]"ePort"[][])[][] 
- []
-
-
 Overfull \hbox (13.16754pt too wide) in paragraph at lines 220--220
 [][]\OT1/cmtt/m/n/10 loPath[] []=[] []system.file[][]([][]"inst/extdata/Outcome
 Files/Topic06.Outcomes.txt"[][],[] []package[][]=[][]"ePort"[][])[][] 
+ []
+
+
+Overfull \hbox (370.16443pt too wide) in paragraph at lines 224--224
+[][]\OT1/cmtt/m/n/10 makeReport[][]([][]keyFile[][]=keyPath,[] []dataFile[][]=d
+ataPath,[] []loFile[][]=loPath,[] []reportType[][]=[][]system.file[][]([][]"ins
+t/Rnw/hw-individual-short.Rnw"[][],[] []package[][]=[][]"ePort"[][]),[] []outFi
+le[][]=outPath)[][] 
  []
 
 Package color Info: Redefining color shadecolor on input line 232.
@@ -560,12 +562,6 @@ es/Topic06.Questions.htm"[][],[] []package[][]=[][]"ePort"[][])[][]
 Package color Info: Redefining color shadecolor on input line 242.
 Package color Info: Redefining color shadecolor on input line 254.
 Package color Info: Redefining color shadecolor on input line 264.
-
-Overfull \hbox (18.4175pt too wide) in paragraph at lines 266--266
-[][]\OT1/cmtt/m/n/10 dataPath[] []=[] []system.file[][]([][]"inst/extdata/DataF
-iles/Topic06/Topic06.AB.csv"[][],[] []package[][]=[][]"ePort"[][])[][] 
- []
-
 Package color Info: Redefining color shadecolor on input line 274.
 Package color Info: Redefining color shadecolor on input line 284.
 
@@ -575,92 +571,62 @@ Files/Topic06.Outcomes.txt"[][],[] []package[][]=[][]"ePort"[][])[][]
  []
 
 Package color Info: Redefining color shadecolor on input line 294.
-Package color Info: Redefining color shadecolor on input line 304.
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+Overfull \hbox (627.41219pt too wide) in paragraph at lines 296--296
+[][]\OT1/cmtt/m/n/10 makeReport[][]([][]keyFile[][]=keypath,[][]dataFile[][]=da
+taPath,[][]loFile[][]=loPath,[][]reportType[][]=[][]system.file[][]([][]"inst/R
+nw/"[][],[] []"hw-individual-short.Rnw"[][],[] []package[][]=[][]"ePort"[][]),[
+][]outFile[][]=[][]system.file[][]([][]"inst/extdata/ReportFiles"[][],[] []pack
+age[][]=[][]"ePort"[][]))[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 \OT1/cmr/m/n/10 The short re-port sum-ma-riza-tion we cre-ated for one sec-tion
  one topic
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 331--332
+Underfull \hbox (badness 1406) in paragraph at lines 308--309
 \OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 Stat101hwkTopic06ABshort.pdf\OT1/cmr/m/n/10 )
  may be help-ful for users who want to view a brief and
  []
 
-Package color Info: Redefining color shadecolor on input line 334.
+[5]
+Package color Info: Redefining color shadecolor on input line 311.
 
-Overfull \hbox (86.6669pt too wide) in paragraph at lines 336--336
-[][]\OT1/cmtt/m/n/10 makeReport[][]([][]keyFile[][]=keyPath,[][]dataFile[][]=da
-taPath,[][]loFile[][]=loPath,[][]reportType[][]=[][]"secTopicLong"[][],[][]outF
-ile[][]=outPath)[][] 
+Overfull \hbox (622.16223pt too wide) in paragraph at lines 313--313
+[][]\OT1/cmtt/m/n/10 makeReport[][]([][]keyFile[][]=keypath,[][]dataFile[][]=da
+taPath,[][]loFile[][]=loPath,[][]reportType[][]=[][]system.file[][]([][]"inst/R
+nw/"[][],[] []"hw-individual-long.Rnw"[][],[] []package[][]=[][]"ePort"[][]),[]
+[]outFile[][]=[][]system.file[][]([][]"inst/extdata/ReportFiles"[][],[] []packa
+ge[][]=[][]"ePort"[][]))[][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 350.
+Package color Info: Redefining color shadecolor on input line 321.
+Package color Info: Redefining color shadecolor on input line 332.
+Package color Info: Redefining color shadecolor on input line 344.
 [6]
-Overfull \hbox (469.91356pt too wide) in paragraph at lines 352--352
-[][]\OT1/cmtt/m/n/10 dataListPath[] []=[] []c[][]([][]system.file[][]([][]"inst
-/extdata/DataFiles/Topic06/Topic06.AB.csv"[][],[] []package[][]=[][]"ePort"[][]
-),[] []system.file[][]([][]"inst/extdata/DataFiles/Topic06/Topic06.CD.csv"[][],
-[] []package[][]=[][]"ePort"[][]))[][] 
- []
-
-Package color Info: Redefining color shadecolor on input line 360.
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 363
-.
-(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/omscmtt.fd
-File: omscmtt.fd 
-)
-LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 363.
-
-Overfull \hbox (67.4032pt too wide) in paragraph at lines 365--365
-[]  []\OT1/cmtt/m/it/10 #makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,re
-portType="secTopicLong",outFile=outPath)[][] 
- []
-
-Package color Info: Redefining color shadecolor on input line 374.
-LaTeX Font Info:    Font shape `OMS/cmtt/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 377.
-
-Overfull \hbox (40.65355pt too wide) in paragraph at lines 377--377
-[][]\OT1/cmtt/m/it/10 #namelist = list.files(path=dataFolder, pattern = "^[^.]*
-\OMS/cmsy/m/n/10 n\OT1/cmtt/m/it/10 .[^.]*\OMS/cmsy/m/n/10 n\OT1/cmtt/m/it/10 .
-[^.]*$", full.names=FALSE)[][] 
- []
-
-
-Overfull \hbox (156.65242pt too wide) in paragraph at lines 378--378
-[][]\OT1/cmtt/m/it/10 #http://stackoverflow.com/questions/9949176/match-string-
-with-exactly-2-of-a-given-character-e-g-2-literal-periods[][] 
- []
-
-
-Overfull \hbox (469.91356pt too wide) in paragraph at lines 381--381
-[][]\OT1/cmtt/m/n/10 dataListPath[] []=[] []c[][]([][]system.file[][]([][]"inst
-/extdata/DataFiles/Topic06/Topic06.AB.csv"[][],[] []package[][]=[][]"ePort"[][]
-),[] []system.file[][]([][]"inst/extdata/DataFiles/Topic06/Topic06.CD.csv"[][],
-[] []package[][]=[][]"ePort"[][]))[][] 
- []
-
+Package color Info: Redefining color shadecolor on input line 363.
+ [7]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
-[7]
+ [8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
  (./ePort.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
 Package rerunfilecheck Info: File `ePort.out' has not changed.
-(rerunfilecheck)             Checksum: 8BDB51F93207833781E8E808DBECEBF6;627.
+(rerunfilecheck)             Checksum: 690F524DC94D2CFC8057B760E13C550E;1168.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
  ) 
 Here is how much of TeX's memory you used:
- 9012 strings out of 493117
- 134209 string characters out of 6135433
- 234536 words of memory out of 5000000
- 12308 multiletter control sequences out of 15000+600000
- 13127 words of font info for 52 fonts, out of 8000000 for 9000
+ 9006 strings out of 493117
+ 133924 string characters out of 6135433
+ 236536 words of memory out of 5000000
+ 12298 multiletter control sequences out of 15000+600000
+ 12781 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,7n,43p,1010b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,7n,43p,1010b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb>
@@ -671,15 +637,13 @@ local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
 al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
 texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on ePort.pdf (7 pages, 183410 bytes).
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on ePort.pdf (8 pages, 163365 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

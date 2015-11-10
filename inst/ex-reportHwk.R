@@ -16,16 +16,16 @@ namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
 namelist
 
 ## learning objectives ##
-LOPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
+loPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
 
 ## 1. Individual report ##
 for (i in namelist) rewriteData(i)
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,LOFile=LOPath,reportType="inst/Rnw/hw-individual-short.Rnw")
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,LOFile=LOPath,reportType="inst/Rnw/hw-individual.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual-short.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual.Rnw")
 
 ## 2. Cross-section report ##
-makeReport(keyPath=keyFile,namelist,LOFile=LOPath,reportType="inst/Rnw/hw-section-short.Rnw")
-makeReport(keyPath=keyFile,namelist,LOFile=LOPath,reportType="inst/Rnw/hw-section.Rnw")
+makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section-short.Rnw")
+makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section.Rnw")
 
 ## 3. Cross-topic report ##
 tabfiles = setDir(dataPath)

@@ -4,25 +4,25 @@
 \alias{makeReport}
 \title{Generate a report for one homework}
 \usage{
-makeReport(keyFile = NULL, dataFile = NULL, LOFile = NULL,
-  keepFiles = FALSE, keepTex = FALSE, keepImage = FALSE, topic = NULL,
-  section = NULL, path = NULL, type = NULL, rewrite = FALSE,
-  skip = NULL, reportType = NULL, outFile = NULL)
+makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
+  reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
+  keepImage = FALSE, topic = NULL, section = NULL, path = NULL,
+  type = NULL, rewrite = FALSE, skip = NULL, outFile = NULL)
 }
 \arguments{
 \item{keyFile}{file name with path for the answer key}
 
 \item{dataFile}{the file name with path for the data}
 
-\item{LOFile}{the file name with path for the learning outcomes. Could be
-NULL, then will be auto-completed by "path/../Topic Outcomes/*.Outcomes.txt".}
+\item{loFile}{the file name with path for the learning outcomes.}
+
+\item{reportType}{the type of report}
 
 \item{keepFiles}{keep files (.aux, .log, etc) used to generate .tex file, default is FALSE}
 
 \item{keepTex}{keep .tex file, default is FALSE}
 
-\item{keepImage}{keep individual image files used to generate .tex file, default is FALSE
-keepTex=FALSE, keepImage=FALSE}
+\item{keepImage}{keep individual image files used to generate .tex file, default is FALSE}
 
 \item{topic}{the topic number, could be integer or character}
 
@@ -35,9 +35,6 @@ keepTex=FALSE, keepImage=FALSE}
 \item{rewrite}{logical. If TRUE then the csv files are rewritten.}
 
 \item{skip}{a vector of integers. Same as the parameter in \code{cleanScore}.}
-
-\item{reportType}{the file name with path for the Rnw file to knit.
-Could be NULL, then will be auto-completed by the file in the inst folder.}
 
 \item{outFile}{the directory to save the tex file}
 }
@@ -67,16 +64,16 @@ namelist = namelist[grep(paste('Topic',topic,'\\\\.',sep=''),basename(namelist))
 namelist
 
 ## learning objectives ##
-LOPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
+loPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
 
 ## 1. Individual report ##
 for (i in namelist) rewriteData(i)
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,LOFile=LOPath,reportType="inst/Rnw/hw-individual-short.Rnw")
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,LOFile=LOPath,reportType="inst/Rnw/hw-individual.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual-short.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual.Rnw")
 
 ## 2. Cross-section report ##
-makeReport(keyPath=keyFile,namelist,LOFile=LOPath,reportType="inst/Rnw/hw-section-short.Rnw")
-makeReport(keyPath=keyFile,namelist,LOFile=LOPath,reportType="inst/Rnw/hw-section.Rnw")
+makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section-short.Rnw")
+makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section.Rnw")
 
 ## 3. Cross-topic report ##
 tabfiles = setDir(dataPath)

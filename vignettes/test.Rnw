@@ -1,0 +1,57 @@
+\documentclass{article}
+\setlength{\parindent}{0pt} % Remove indent at new paragraphs
+\setcounter{secnumdepth}{0}  % Remove section numbering at certain depth
+\usepackage[round,sort]{natbib}
+\usepackage{fixltx2e}
+\usepackage{graphicx}	% For external pictures
+\usepackage{float}
+\usepackage{subfig}	% Add subfigures within figures
+\usepackage{verbatim}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{amssymb,amsbsy,amsmath}
+\usepackage{epsfig}
+\usepackage[left=3cm,top=3cm,bottom=3.5cm,right=3cm]{geometry} % For easy document margins
+\usepackage{fancyhdr} % For customization of header/footer
+\usepackage{adjustbox}
+\numberwithin{equation}{section} % Equation numbers relative to sections
+
+
+\begin{document}
+\sloppy
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+<<echo=FALSE>>=
+rm(list=ls())
+library(knitr)
+@ 
+
+\section{Examples}
+
+\subsection{Easy Example}
+
+Here is an example you can run below:
+
+<<eval=FALSE>>=
+example1 = function1("it does not surpass the line")
+@
+
+Here is a second example you can run below. Unfortunately, you cannot even see teh whole example code because it runs off the page:
+
+<<eval=FALSE, tidy=FALSE>>=
+example2 = function2(input1="this example", input2 = "has a lot of inputs", input3="which makes it impossible", input4 = "to fit on the same line")
+@
+
+Can I fix this second example by forcing a break as such?:
+
+<<eval=FALSE>>=
+example2 = function2(input1="this example", input2 = "has a lot of inputs",
+input3="which makes it impossible", input4 = "to fit on the same line")
+@
+
+\end{document}

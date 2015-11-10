@@ -5,20 +5,17 @@
 #'
 #' @param keyFile file name with path for the answer key
 #' @param dataFile the file name with path for the data
-#' @param LOFile the file name with path for the learning outcomes. Could be
-#' NULL, then will be auto-completed by "path/../Topic Outcomes/*.Outcomes.txt".
+#' @param loFile the file name with path for the learning outcomes.
+#' @param reportType the type of report
 #' @param keepFiles keep files (.aux, .log, etc) used to generate .tex file, default is FALSE
 #' @param keepTex keep .tex file, default is FALSE
 #' @param keepImage keep individual image files used to generate .tex file, default is FALSE
-#' keepTex=FALSE, keepImage=FALSE
 #' @param topic the topic number, could be integer or character
 #' @param section the section name, usually one of 'AB', 'CD', 'GHQ', '201', ...
 #' @param path the directory to the data files
 #' @param type the strings before the topic number in the csv file name
 #' @param rewrite logical. If TRUE then the csv files are rewritten.
 #' @param skip a vector of integers. Same as the parameter in \code{cleanScore}.
-#' @param reportType the file name with path for the Rnw file to knit.
-#' Could be NULL, then will be auto-completed by the file in the inst folder.
 #' @param outFile the directory to save the tex file
 #' @return a tex file to be compiled
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
@@ -28,9 +25,23 @@
 #' @example inst/ex-reportHwk.R
 #'
 makeReport =
-  function(keyFile=NULL, dataFile=NULL, LOFile=NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, reportType=NULL, outFile=NULL){
+  #function(keyFile=NULL, dataFile=NULL, loFile=NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, reportType=menu(c("secTopicShort", "secTopicLong", "crossSecTopicShort", "crossSecTopicLong", "secUnit", "crossSecUnit")), outFile=NULL){
+
+  function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
+    
+    if (is.null(reportType)){
+      reportMenu <- menu(choices=c("One section one topic short version (secTopicShort)", "One section one topic long version (secTopicLong)", "Multiple sections one topic short version (crossSecTopicShort)", "Multiple sections one topic short version (crossSecTopicLong)", "One section one unit (secUnit)", "Multiple sections one unit (crossSecUnit)"), title=paste("\nPlease enter integer (1-6) corresponding to desired report type below.", "\n\n", trimws("Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).", which="both"), sep=""))
+      trans <- setNames(c("secTopicShort", "secTopicLong", "crossSecTopicShort", "crossSecTopicLong", "secUnit", "crossSecUnit"),c(1,2,3,4,5,6))
+      reportType <- trans[as.character(reportMenu)]
+    }
     
     try(if(is.null(outFile)) stop("Need to define outFile, see help(makeReport)"))
+    if (reportType=="secTopicShort"){
+      reportType = system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort")
+    }
+    if (reportType=="secTopicLong"){
+      reportType = system.file("inst/Rnw/hw-individual.Rnw", package="ePort")
+    }
     
     # Find the file name
     if (is.null(dataFile)) {
@@ -56,12 +67,7 @@ makeReport =
     }
     
     # Learning objective file
-    if (is.null(LOFile)) {
-      chpt_outcome_file=gsub('Data Files.*$','Topic Outcomes/',Score_filename)
-      chpt_outcome_file=paste(chpt_outcome_file,type,topic,'.Outcomes.txt',sep='')
-    } else {
-      chpt_outcome_file = LOFile
-    }
+    chpt_outcome_file = loFile
     chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
     chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
     
@@ -74,8 +80,6 @@ makeReport =
     # Cross-section report
     if (length(Score_filename)>1){
       instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
-      if (is.null(reportType))
-        reportType=system.file("inst","hw-section.Rnw",package="ePort")
       knit(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(reportType)))))
       return()
     }
@@ -98,9 +102,6 @@ makeReport =
     stopifnot(all(sumry2$ByQuestion[,1]<=100),all(sumry2$SetCorrectPct[5,]<=100),all(sumry2$ConceptCorrectPct[5,]<=100))
     
     # Produce a tex report by kniting an .Rnw file
-    if (is.null(reportType)){
-      reportType=system.file("inst/Rnw","hw-individual.Rnw",package="ePort")
-    }
     if (keepFiles){
       knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
     }else{

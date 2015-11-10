@@ -26,9 +26,37 @@
 \newcommand{\Rclass}[1]{{\textit{#1}}}
 \makeatother
 
-
 \begin{document}
 
+% Font of caption must be specified, otherwise gray
+\setcaptionfont{
+  \normalfont\footnotesize
+  \color{black}
+}
+
+<<include=FALSE>>=
+suppressPackageStartupMessages(library(knitr, quietly=TRUE))
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+<<setup, echo=FALSE>>=
+suppressPackageStartupMessages(library(ggplot2, quietly=TRUE))
+suppressPackageStartupMessages(library(reshape2, quietly=TRUE))
+suppressPackageStartupMessages(library(xtable, quietly=TRUE))
+suppressPackageStartupMessages(library(plyr, quietly=TRUE))
+suppressPackageStartupMessages(library(dplyr, quietly=TRUE))
+suppressPackageStartupMessages(library(stringr, quietly=TRUE))
+
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
+@
 
 <<include=FALSE>>=
 library(ggplot2)

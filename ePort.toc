@@ -5,13 +5,7 @@
 \contentsline {subsection}{Example Data}{3}{section*.6}
 \contentsline {section}{Generating Reports}{4}{section*.7}
 \contentsline {subsection}{One section one topic}{4}{section*.8}
-\contentsline {subsection}{{Multiple section one topic}}{6}{section*.9}
-\contentsline {subsection}{One section Multiple topics}{6}{section*.10}
-\contentsline {subsection}{Multiple Sections Multiple Topics}{7}{section*.11}
-\contentsline {section}{Short reports}{7}{section*.12}
-\contentsline {subsection}{Brief summarizations}{7}{section*.13}
-\contentsline {subsection}{Low-scoring students}{7}{section*.14}
-\contentsline {section}{Long reports}{7}{section*.15}
-\contentsline {subsection}{Individual problem summarizations}{7}{section*.16}
-\contentsline {subsection}{Clustering analysis}{7}{section*.17}
-\contentsline {section}{Conclusions}{7}{section*.18}
+\contentsline {subsubsection}{Short version}{4}{section*.9}
+\contentsline {subsubsection}{Long version}{6}{section*.10}
+\contentsline {subsubsection}{Running on batch of sections}{6}{section*.11}
+\contentsline {section}{Conclusions}{7}{section*.12}

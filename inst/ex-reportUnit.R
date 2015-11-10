@@ -13,10 +13,10 @@ namelist = namelist[grep(paste('Unit',topic,'\\.',sep=''),basename(namelist))]
 namelist
 
 # choose the corresponding topics
-LOPath = list.files(path="~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Topic Outcomes",pattern='\\.txt$',full.names=TRUE)[12:15]
+loPath = list.files(path="~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Topic Outcomes",pattern='\\.txt$',full.names=TRUE)[12:15]
 
 ## 1. Individual unit report ##
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,LOFile=LOPath,reportType="Rnw/unit-individual.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="Rnw/unit-individual.Rnw")
 
 ## 2. Cross-section unit report ##
-makeReport(keyPath=keyFile,namelist,LOFile=LOPath,reportType="Rnw/unit-section.Rnw")
+makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="Rnw/unit-section.Rnw")
