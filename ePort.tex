@@ -62,6 +62,7 @@
 \usepackage[left=3cm,top=3cm,bottom=3.5cm,right=3cm]{geometry} % For easy document margins
 \usepackage{fancyhdr} % For customization of header/footer
 \usepackage{adjustbox}
+\usepackage{framed}
 \numberwithin{equation}{section} % Equation numbers relative to sections
 
 % ---------------------------------------------------------------------------------------------------------------------------------------
@@ -115,7 +116,7 @@ Reports can also be generated for one topic across multiple sections, with outpu
 
 In addition, reports can be generated for one unit (group of topics), either within one section or between multiple sections. This allows coordinators to assess student performance across all the learning outcomes of the combined topics that form the unit, and to quantify the consistency of how students perform across sections.
 
-Both short and long versions of reports can be generated for any of the aforementioned scenarios. Short versions of reports provide brief summarizations of student performance without regard to individual problems, whereas long versions of reports provide detailed summarizations of student performance for each problem in the assignment. Hence, reports can also be used to confirm the suitability of assigned problems. For instance, in some courses, problems that assess the same learning outcome and are intended to be of equal difficulty levels are grouped into a problem set, and each student is assigned a random subset from this set of problems. However, sometimes there may be an unexpected discrepancy in student performance between problems in a given problem set, indicating an unintended discrepancy in the clearness or difficulty level of the problems to which students are randomly assigned. This package will allow users to efficiently find and fix such issues. 
+In general, both short and long versions of reports can be generated. Short versions of reports provide brief summarizations of student performance without regard to individual problems, whereas long versions of reports provide detailed summarizations of student performance for each individual problem in the assignment. Hence, long reports can also be used to confirm the suitability of assigned problems. For instance, in some courses, problems that assess the same learning outcome and are intended to be of equal difficulty levels are grouped into a problem set, and each student is assigned a random subset from this set of problems. However, sometimes there may be an unexpected discrepancy in student performance between problems in a given problem set, indicating an unintended discrepancy in the clearness or difficulty level of the problems to which students are randomly assigned. This package will allow users to efficiently find and fix such issues. 
 
 \bigskip
 
@@ -144,7 +145,7 @@ The \pkg{ePort} package should now be successfully installed. Next, to render it
 \end{kframe}
 \end{knitrout}
 
-\subsection{Help Files}
+\subsection{Help files}
 
 To access help pages with example syntax and documentation for the available functions of the \pkg{ePort} package, please type:
 
@@ -168,7 +169,7 @@ To access more detailed information about a specific function in the \pkg{ePort}
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
 
-\subsection{Example Data}
+\subsection{Example data}
 
 A directory that contains example data is automatically installed with the ePort package. The name of this directory is \texttt{extdata}. Understanding the location, layout, and content of the \texttt{extdata} directory will be necessary to continue with the examples provided in the vignette.
 
@@ -180,7 +181,7 @@ The absolute pathway to the \texttt{extdata} directory on your local computer ca
 \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## [1] "/Users/lindz/ePort/inst/extdata"
+## [1] ""
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -192,11 +193,23 @@ To view this file, simply open it in a Web Brower (Mozilla Firefox, Google Chrom
 
 \section{Generating Reports}
 
-The \pkg{ePort} package offers several functions that result in useful reports. Below is a brief introduction to some of the available functions.
+\subsection{Types of reports - Overview}
 
-\subsection{One section one topic}
+Currently, the \pkg{ePort} package offers six report types, depending on what the user is trying to compare and analyze about student performance. The same function \texttt{makeReport()} is used to generate each of these six report types; however, the input parameter \texttt{reportType} to the function will be different depending on which of the six report types the user wishes to run. Since it is most efficient for the user to hard-code in the \texttt{reportType} parameter, below is a reference for the parameter options (in quotes) for each of the six report types: 
+\begin{framed}
+\begin{itemize}
+\vspace{-3mm}
+\item One topic for one section - short version (``secTopicShort")
+\item One topic for one section - long version (``secTopicLong")
+\item One topic comparing multiple sections - short version (``crossSecTopicShort")
+\item One topic comparing multiple sections - long version (``crossSecTopicLong")
+\item One unit (group of topics) for one section (``secUnit")
+\item One unit (group of topics) comparing multiple sections (``crossSecUnit")
+\end{itemize}
+\end{framed}
+This information can also be obtained by running \texttt{help(makeReport)}, and will be demonstrated in the next two sections immediately below.
 
-\subsubsection{Short version}
+\subsection{One topic for one section - Short version}
 
 We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{ReportFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{ReportFiles} subdirectory should be empty, as we have not generated any example reports yet.
 
@@ -236,7 +249,7 @@ We now briefly explain each step of the process. First, we must save the absolut
 \end{kframe}
 \end{knitrout}
 
-Second, we must parse and clean this .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refine\_key()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file:
+Second, we must parse and clean this .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refineKey()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -246,7 +259,7 @@ Second, we must parse and clean this .htm answer key file, and convert it to pla
 \end{kframe}
 \end{knitrout}
 
-By default, the \texttt{refine\_key()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and clean .txt file we just created, \texttt{Topic06.Questions.txt}.
+By default, the \texttt{refineKey()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and clean .txt file we just created, \texttt{Topic06.Questions.txt}.
 
 Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keypath}.
 
@@ -268,7 +281,7 @@ Now that we have the absolute path of our cleaned .txt answer key, our fourth st
 \end{kframe}
 \end{knitrout}
 
-After this, our fifth step is to prime the data file to be compatible with our next steps of generating the reports. We do this by running the \texttt{rewrite\_data()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
+After this, our fifth step is to prime the data file to be compatible with our next steps of generating the reports. We do this by running the \texttt{rewriteData()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -308,27 +321,42 @@ Now that we have primed our three input files (cleaned answer key, data file, an
 \end{kframe}
 \end{knitrout}
 
-\textit{Upon running this code, you will receive the following message and menu asking for your input:}
+Upon running this code, you will receive the following message and menu asking for your input:
 
+\begin{framed}
+\vspace{1mm}
 Please enter integer (1-6) corresponding to desired report type below.
 
-Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport). 
+Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).
 
-1: One section one topic short version (secTopicShort)
-2: One section one topic long version (secTopicLong)
-3: Multiple sections one topic short version (crossSecTopicShort)
-4: Multiple sections one topic short version (crossSecTopicLong)
-5: One section one unit (secUnit)
-6: Multiple sections one unit (crossSecUnit)
+1: One topic for one section - short version (``secTopicShort")\\
+2: One topic for one section - long version (``secTopicLong")\\
+3: One topic comparing multiple sections - short version (``crossSecTopicShort")\\
+4: One topic comparing multiple sections - long version (``crossSecTopicLong")\\
+5: One unit (group of topics) for one section (``secUnit")\\
+6: One unit (group of topics) comparing multiple sections (``crossSecUnit")\\
+\end{framed}
 
-Now that we have successfully run the report generation, we can find our report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101hwkTopic06ABshort.pdf}) of one topic (\texttt{Topic 06}) and one section (\texttt{Section AB}).
+Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. However, upon seeing the menu option, we can also escape out of the command, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile}\hlstd{=keyPath,} \hlkwc{dataFile}\hlstd{=dataPath,} \hlkwc{loFile}\hlstd{=loPath,} \hlkwc{outFile}\hlstd{=outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+The advantage to specifying by hard-coding the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}).
+
+Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101hwkTopic06ABshort.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
 
 %%% Add more here
 And a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.
 
-\subsubsection{Long version}
+\subsection{One topic for one section - Long version}
 
-The short report summarization we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, this type specifying the \texttt{reportType} parameter as such%%%%
+The short report summarization we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter as あs
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -340,7 +368,8 @@ The short report summarization we created for one section one topic (\texttt{Sta
 
 We can find our output report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06ABlong.pdf}) of one topic (\texttt{Topic 06}) and one section (\texttt{Section AB}).
 
-\subsubsection{Running on batch of sections}
+\subsection{Running sequentially on batch of sections}
+\label{sec:sequential}
 
 If a course has multiple sections, and we wish to create an individual report for each of the many sections, then one inconvenient way to accomplish this would be to run the example code above, separately for each section at a time, with new data files each time. However, a more convenient way to accomplish the task would be to run all the reports at once. We are still using the same key and learning outcome files, although we would now need two data files (one with the answers from students in \texttt{Section AB} and one with the answers from students in \texttt{Section CD}).
 
