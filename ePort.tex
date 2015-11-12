@@ -95,7 +95,7 @@
 
 \title{Vignette for the ePort package:\\ Academic report generation for statistics instructors}
 \author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
-\date{\pkg{ePort} version 0.0.1 , 2015-11-09 }
+\date{\pkg{ePort} version 0.0.1 , 2015-11-10 }
 \maketitle
 
 \tableofcontents
@@ -181,7 +181,7 @@ The absolute pathway to the \texttt{extdata} directory on your local computer ca
 \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## [1] ""
+## [1] "/Users/lindz/ePort/inst/extdata"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -356,7 +356,7 @@ And a .txt file that contains the list of students who have scored below 80 on t
 
 \subsection{One topic for one section - Long version}
 
-The short report summarization we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter as あs
+The short report summarization we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -366,7 +366,7 @@ The short report summarization we created for one section one topic (\texttt{Sta
 \end{kframe}
 \end{knitrout}
 
-We can find our output report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06ABlong.pdf}) of one topic (\texttt{Topic 06}) and one section (\texttt{Section AB}).
+We can find our output report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06ABlong.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
 
 \subsection{Running sequentially on batch of sections}
 \label{sec:sequential}

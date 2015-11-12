@@ -26,37 +26,9 @@
 \newcommand{\Rclass}[1]{{\textit{#1}}}
 \makeatother
 
+
 \begin{document}
 
-% Font of caption must be specified, otherwise gray
-\setcaptionfont{
-  \normalfont\footnotesize
-  \color{black}
-}
-
-<<include=FALSE>>=
-suppressPackageStartupMessages(library(knitr, quietly=TRUE))
-opts_chunk$set(
-concordance=TRUE
-)
-@
-
-<<setup, echo=FALSE>>=
-suppressPackageStartupMessages(library(ggplot2, quietly=TRUE))
-suppressPackageStartupMessages(library(reshape2, quietly=TRUE))
-suppressPackageStartupMessages(library(xtable, quietly=TRUE))
-suppressPackageStartupMessages(library(plyr, quietly=TRUE))
-suppressPackageStartupMessages(library(dplyr, quietly=TRUE))
-suppressPackageStartupMessages(library(stringr, quietly=TRUE))
-
-# Specify directory for figure output
-if (!keepImage){
-  temppath <- normalizePath(tempdir(), winslash = '/')
-  opts_chunk$set(fig.path = temppath) 
-}else{
-  opts_chunk$set(fig.path = paste0(outFile,"/"))
-}
-@
 
 <<include=FALSE>>=
 library(ggplot2)
@@ -398,7 +370,7 @@ for (j in 1:nQuestion) {
       '\n\n}')
   }
 
-  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. This question is selected from the question set with frequency ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. The question was administered to, ', CountbyQuestion[j],' out of a total of', rows, ' students. The average score is ',round(mean(ScorebyQuestion[,(j+1)],na.rm=TRUE), 2),' out of ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. This question was selected from the question set with a frequency of ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. The question was administered to ', CountbyQuestion[j],' out of the total of ', rows, ' students. The average score was ',round(mean(ScorebyQuestion[,(j+1)],na.rm=TRUE), 2),' out of ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
   cat(outscript)
 
   if (CountbyQuestion[j]!=0) {

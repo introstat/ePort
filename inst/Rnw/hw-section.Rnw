@@ -358,7 +358,8 @@ for (j in 1:nQuestion) {
       '\n\n}')
   }
   
-  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. The correct answer is ',gsub('\\$','\\\\$',gsub('\\%','\\\\%',tmpanswer)),'. This question is selected with frequency ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. And, ', CountbyQuestion[j],' out of ', rows, ' students answered it. The average score is ',round(mean(instructor_scores$Qscore[,j],na.rm=TRUE), 2),' over ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. This question was selected from the question set with a frequency of ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. The question was administered to ', CountbyQuestion[j],' out of the total of ', rows, ' students. The average score was ',round(mean(instructor_scores$Qscore[,j],na.rm=TRUE), 2),' out of ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+
   cat(outscript)
   
   if (CountbyQuestion[j]!=0) {
