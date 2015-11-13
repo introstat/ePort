@@ -29,12 +29,32 @@
 
 \begin{document}
 
+% Font of caption must be specified, otherwise gray
+\setcaptionfont{
+  \normalfont\footnotesize
+  \color{black}
+}
 
 <<include=FALSE>>=
-library(ggplot2)
-library(reshape2)
-library(xtable)
-library(MASS)
+suppressPackageStartupMessages(library(knitr, quietly=TRUE))
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+<<setup, echo=FALSE>>=
+suppressPackageStartupMessages(library(ggplot2, quietly=TRUE))
+suppressPackageStartupMessages(library(reshape2, quietly=TRUE))
+suppressPackageStartupMessages(library(xtable, quietly=TRUE))
+suppressPackageStartupMessages(library(MASS, quietly=TRUE))
+
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
 nQuestion = nrow(answerkey$simplekey)
@@ -52,20 +72,14 @@ Full credit for this homework assignment is \Sexpr{sumry1$FullScore[1]}. Each st
 
 The mean score of the \Sexpr{rows} students who submited the homework assignment is \Sexpr{round(mean(sumry1$TotalScore),2)}. The lowest and highest scores are \Sexpr{min(sumry1$TotalScore)} and \Sexpr{max(sumry1$TotalScore)}, respectively.
 
-The histogram and summary statistics for the scores are given by Figure \ref{mar:hist} and Table \ref{tab:summary}.
+The histogram and summary statistics for the scores are given by Figure \ref{mar:histScore} and Table \ref{tab:summary}.
 
-<<echo=FALSE,results='asis'>>=
-
-fname=paste(plotprename,'_score.pdf',sep='')
-pdf(paste0("../",fname),width=4,height=4)
+<<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores.",fig.lp = "mar:">>=
 ms=max(sumry1$TotalScore,na.rm=T)
 print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,ms+1)))
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.98\\linewidth]{%s}
-\\caption{\\label{mar:hist}Histograms of the scores}
-\\end{marginfigure}',sub('\\.pdf','',fname)))
+@
 
+<<echo=FALSE,results='asis'>>=
 su=data.frame(
   Mean=mean(sumry1$TotalScore, na.rm=T),
   Std.dev=sd(sumry1$TotalScore, na.rm=T),
@@ -76,10 +90,7 @@ su=data.frame(
   Q3 = quantile(sumry1$TotalScore,0.75,na.rm=T),
 	Max=max(sumry1$TotalScore, na.rm=T),
 	check.names=FALSE)
-#smrytable=t(su)
-#colnames(smrytable)='Score'
 print(xtable(su,caption='Summary statistics of the scores', label='tab:summary'),floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
-
 @
 
 \clearpage
@@ -99,7 +110,7 @@ cat("\\\\ \n ~~ \n")
 
 \newpage{}
 
-Table \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} show the summary of percentage scores by learning outcome.
+Table \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObjSummary} show the summary of percentage scores by learning outcome.
 Among all learning outcomes, Outcome
 \Sexpr{colnames(sumry2$ConceptCorrectPct)[which.max(sumry2$ConceptCorrectPct[1,])]}
 has the highest correct percentage, while Outcome
@@ -116,23 +127,19 @@ output1 = data.frame(t(apply(Student_SetScore$ObjectiveSet$ConceptSetScore,1,`/`
 output1 = melt(output1,id=0)
 output1$variable = factor(as.character(output1$variable),levels=LOsumryorder)
 output1$value = output1$value*100
+@
 
-fnameO=paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
-pdf(paste0("../",fnameO),width=6,height=5)
+<<LearningObjSummary, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Side-by-side boxplots of the correct percentages by learning outcome.",fig.lp = "mar:">>=
 print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Outcome", y="Percentage Correct"))
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning outcome.}
-\\end{marginfigure}',sub('\\.pdf','',fnameO)))
+@
 
+<<echo=FALSE,results='asis'>>=
 print(xtable(LOsumry,caption='Summary statistics of the student percentage correct scores on the topic learning outcomes. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'),
 floating=FALSE, tabular.environment = "longtable")
 @
 
 
 <<include=FALSE>>=
-
 Total=sumry1$TotalScore/sumry1$FullScore*100
 CSScore=sumry1[,1:Student_SetScore$ObjectiveSet$nConceptSet+2]
 CSScore=t(apply(CSScore,1,function(x)x/Student_SetScore$ObjectiveSet$CSFullScore*100))
@@ -163,22 +170,17 @@ $u_j$ is the random effect from the students with
 $u_{j} \sim N(0,\sigma_{u}^{2})$.
 
 Since $Y_{ij} \in [0,1]$, and most of $y_{ij}$ take the value 1
-(see Figure \ref{mar:crtpct_hist}), it is not easy to find an appropriate model.
+(see Figure \ref{mar:crtpctHist}), it is not easy to find an appropriate model.
 Beta distribution is possible if 0 and 1 are not in the range of $Y_{ij}$.
 Binomial distribution is another possibility if we do not scale the scores.
 Hence we assume that $Y$ is binomial with the logit link function,
-then the results are in Table \ref{tab:lme_fixed} and Figure \ref{mar:lme_coef}.
+then the results are in Table \ref{tab:lme_fixed} and Figure \ref{mar:lmeCoef}.
+
+<<crtpctHist, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "Histogram of the scaled scores by learning outcome.",fig.lp = "mar:">>=
+print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+@
 
 <<echo=FALSE,results='asis'>>=
-fname=paste(plotprename,'_crtpct_hist.pdf',sep='')
-pdf(paste0("../",fname),width=5,height=4)
-print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning outcome}
-\\end{marginfigure}',sub('\\.pdf','',fname)))
-
 fixedcoef = f$coefficients$fixed
 fixedstd = sqrt(diag(f$varFix))
 fixedcoef_print = data.frame('est.'=fixedcoef,' '=NA,'lower'=fixedcoef+fixedstd*qt(0.025,f$fixDF$X[1]),'upper'=fixedcoef+fixedstd*qt(0.975,f$fixDF$X[1]))
@@ -205,42 +207,24 @@ fixedcoef_plot = melt(fixedcoef_plot,id.vars='name')
 fixedcoef_plot$name = factor(fixedcoef_plot$name,levels=paste(LOsumryorder[-1],"-",LOsumryorder[1],sep=''))
 fixedcoef_plot$variable=as.character(fixedcoef_plot$variable)
 fixedcoef_plot$variable[fixedcoef_plot$variable %in% c("lower","upper")]="boundary"
+@
 
-fname=paste(plotprename,'_lme_coef.pdf',sep='')
-pdf(paste0("../",fname),width=4,height=4)
+<<lmeCoef, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "95\\% confidence intervals of the fixed effects coefficients",fig.lp = "mar:">>=
 print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:lme_coef}95\\%% confidence intervals of the fixed effects coefficients}
-\\end{marginfigure}',sub('\\.pdf','',fname)))
-
 @
 
 Nevertheless, the assumption is probably incorrect, as we could check the residuals in
-Figure \ref{fig:lme_qqnorm}.
+Figure \ref{fig:lmeQQNorm}.
 
-<<echo=FALSE,results='asis'>>=
-
-fname=paste(plotprename,'_lme_qqnorm.pdf',sep='')
-pdf(paste0("../",fname),width=6,height=4)
+<<lmeQQNorm, echo=FALSE, fig.env = "figure", out.width = "0.98\\linewidth", fig.align = "center", fig.cap = "QQ-plot of the residuals by the generalized mixed effects model",fig.lp = "fig:">>=
 print(qqnorm(f,~resid(., type = "p") | Objective, abline=c(0,1)))
-{dev.off();invisible()}
-cat(sprintf('\\begin{center}
-\\begin{wrapfigure}{o}{0.8\\columnwidth}
-\\begin{centering}
-\\includegraphics[width=0.98\\linewidth]{%s}
-\\par\\end{centering}
-\\caption{\\label{fig:lme_qqnorm}QQ-plot of the residuals by the generalized mixed effects model}
-\\end{wrapfigure}\\par\\end{center}',sub('\\.pdf','',fname)))
-
 @
 
 \clearpage
 \newpage{}
 \subsection{Question Sets}
 
-Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:QuestionSet_summary} shows the summary statistics of the percentage correct score by question for each question set. Percentage correct scores for questions in the same question set should have small variability.
+Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:questionSetBoxplot} shows the summary statistics of the percentage correct score by question for each question set. Percentage correct scores for questions in the same question set should have small variability.
 %As is shown, Question Set \Sexpr{colnames(sumry2$SetCorrectPct)[which.max(sumry2$SetCorrectPct[1,])]} has the highest mean correct percentage and question set \Sexpr{colnames(sumry2$SetCorrectPct)[which.min(sumry2$SetCorrectPct[1,])]} has the lowest mean.
 
 
@@ -264,19 +248,12 @@ Qsetsumry=ddply(output1,'Qset',summarise,LO=LO[1],'#'=length(CrtPct),Mean=mean(C
 Qsetsumry$Std.dev[is.na(Qsetsumry$Std.dev)]=0
 Qsetsumry=Qsetsumry[order(Qsetsumry$Std.dev,decreasing=TRUE),]
 print(xtable(Qsetsumry,caption='Summary statistics of the percentage correct score by question for each question sets. The table is sorted from the largest standard deviation to the smallest.',label='tab:QuestionSet_summary',align="lcc|ccc|ccc"),floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
-
-fnameQ=paste(plotprename,'_QuestionSet_boxplot.pdf',sep='')
-pdf(paste0("../",fnameQ),width=6,height=5)
-output1$Qset=factor(output1$Qset,levels=Qsetsumry$Qset)
-print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) + labs(x="Question Set",y="Percentage Correct") )
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}
-\\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:QuestionSet_summary}Side-by-side boxplots of the question correct percentage score for each question set}
-\\end{marginfigure}',sub('\\.pdf','',fnameQ)))
-
 @
 
+<<questionSetBoxplot, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.align = "center", fig.cap = "Side-by-side boxplots of the question correct percentage score for each question set",fig.lp = "fig:">>=
+output1$Qset=factor(output1$Qset,levels=Qsetsumry$Qset)
+print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) + labs(x="Question Set",y="Percentage Correct"))
+@
 
 \clearpage
 \newpage{}
