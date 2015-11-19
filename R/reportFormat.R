@@ -24,10 +24,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #'
-makeReport =
-  #function(keyFile=NULL, dataFile=NULL, loFile=NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, reportType=menu(c("secTopicShort", "secTopicLong", "crossSecTopicShort", "crossSecTopicLong", "secUnit", "crossSecUnit")), outFile=NULL){
-
-  function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
+makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
     
     if (is.null(reportType)){
       reportMenu <- menu(choices=c("One topic for one section - short version (\"secTopicShort\")", "One topic for one section - long version (\"secTopicLong\")", "One topic comparing multiple sections - short version (\"crossSecTopicShort\")", "One topic comparing multiple sections - long version (\"crossSecTopicLong\")", "One unit (group of topics) for one section (\"secUnit\")", "One unit (group of topics) comparing multiple sections (\"crossSecUnit\")"), title=paste("\nPlease enter integer (1-6) corresponding to desired report type below.", "\n\n", trimws("Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).", which="both"), sep=""))
@@ -71,11 +68,12 @@ makeReport =
     chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
     chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
     
-    for (i in 1:length(chapter_outcomes)){
-      chapter_outcomes[i] =
-        paste(str_trim(unlist(strsplit(chapter_outcomes[i],
-                                       "[.]"))[2]),".",sep="")
-    }
+    #for (i in 1:length(chapter_outcomes)){
+      #chapter_outcomes[i] =
+        #paste(str_trim(unlist(strsplit(chapter_outcomes[i],
+        #                              "[.]"))[2]),".",sep="")
+        #paste(str_trim(unlist(strsplit(chapter_outcomes[i], "[.]"))),".",sep="")
+    #}
     
     # Cross-section report
     if (length(Score_filename)>1){

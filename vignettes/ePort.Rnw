@@ -49,7 +49,7 @@ concordance=TRUE
 % @
 % %@% TO ELIMINATE THE "+" IN CONSECUTIVE SCRIPT LINES
 
-\title{Vignette for the ePort package:\\ Academic report generation for statistics instructors}
+\title{ePort Vignette:\\ Academic report generation for statistics instructors}
 \author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
 \date{\pkg{ePort} version \Sexpr{packageDescription("ePort")[["Version"]]} , \Sexpr{Sys.Date()} }
 \maketitle
