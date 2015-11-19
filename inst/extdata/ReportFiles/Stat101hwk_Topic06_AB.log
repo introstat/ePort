@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 NOV 2015 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 NOV 2015 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,15 +984,15 @@ LaTeX Info: Redefining \nameref on input line 78.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <12> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 90.
 
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuhistScore-1
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzhistScore-1
 .pdf, id=387, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuhistSc
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzhistSc
 ore-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuhistSco
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzhistSco
 re-1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpuhistScore-1.pdf used on input line 104.
+/T/Rtmp4zN5gzhistScore-1.pdf used on input line 104.
 (pdftex.def)             Requested size: 141.11938pt x 141.1156pt.
 LaTeX Font Info:    Try loading font information for OT1+pplx on input line 105
 .
@@ -1028,27 +1028,27 @@ Underfull \vbox (badness 10000) detected at line 121
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuhistScore-
+ </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzhistScore-
 1.pdf>] [2
 
 ]
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuLearningObj
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzLearningObj
 Summary-1.pdf, id=411, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuLearni
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzLearni
 ngObjSummary-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuLearnin
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzLearnin
 gObjSummary-1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpuLearningObjSummary-1.pdf used on input line 176.
+/T/Rtmp4zN5gzLearningObjSummary-1.pdf used on input line 159.
 (pdftex.def)             Requested size: 141.11938pt x 141.1156pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 []\T1/pplj/m/n/10 Figure 2: []Side-by-side box-plots
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 \T1/pplj/m/n/10 of the cor-rect per-cent-ages by
  []
 
@@ -1056,66 +1056,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--176
 LaTeX Warning: Marginpar on page 3 moved.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []\T1/pplj/m/n/10 Table 2: Sum-mary statis-tics of the stu-dent per-cent-age co
 r-rect
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 \T1/pplj/m/n/10 scores on the topic learn-ing out-comes. The ta-ble is sorted f
 rom
  []
 
 
-Underfull \vbox (badness 10000) detected at line 199
+Underfull \vbox (badness 10000) detected at line 182
  []
 
 
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpucrtpctHist-
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzcrtpctHist-
 1.pdf, id=415, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpucrtpct
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzcrtpct
 Hist-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpucrtpctH
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzcrtpctH
 ist-1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpucrtpctHist-1.pdf used on input line 226.
+/T/Rtmp4zN5gzcrtpctHist-1.pdf used on input line 209.
 (pdftex.def)             Requested size: 142.56079pt x 142.5591pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 []\T1/pplj/m/n/10 Figure 3: []Histogram of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 \T1/pplj/m/n/10 scaled scores by learn-ing out-
  []
 
 
-Underfull \vbox (badness 10000) detected at line 249
+Underfull \vbox (badness 10000) detected at line 232
  []
 
-[3 </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuLearning
+[3 </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzLearning
 ObjSummary-1.pdf> </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtm
-pDpnnpucrtpctHist-1.pdf>]
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeCoef-1.p
+p4zN5gzcrtpctHist-1.pdf>]
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeCoef-1.p
 df, id=439, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeCoe
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeCoe
 f-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeCoef
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeCoef
 -1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpulmeCoef-1.pdf used on input line 260.
+/T/Rtmp4zN5gzlmeCoef-1.pdf used on input line 243.
 (pdftex.def)             Requested size: 142.56079pt x 142.5591pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
+Underfull \hbox (badness 10000) in paragraph at lines 243--243
 []\T1/pplj/m/n/10 Figure 4: []95% con-fi-dence in-ter-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
+Underfull \hbox (badness 10000) in paragraph at lines 243--243
 \T1/pplj/m/n/10 vals of the fixed ef-fects co-ef-fi-
  []
 
@@ -1123,198 +1123,198 @@ Underfull \hbox (badness 10000) in paragraph at lines 260--260
 LaTeX Warning: Marginpar on page 4 moved.
 
 
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeQQNorm-1
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeQQNorm-1
 .pdf, id=441, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeQQN
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeQQN
 orm-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeQQNo
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeQQNo
 rm-1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpulmeQQNorm-1.pdf used on input line 272.
+/T/Rtmp4zN5gzlmeQQNorm-1.pdf used on input line 255.
 (pdftex.def)             Requested size: 305.75867pt x 305.75948pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--277
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
 []\T1/pplj/m/n/10 Figure 5: []QQ-plot of the resid-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--277
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
 \T1/pplj/m/n/10 u-als by the gen-er-al-ized mixed
  []
 
-[4 </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeCoef-
-1.pdf> </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpulmeQ
+[4 </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeCoef-
+1.pdf> </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzlmeQ
 QNorm-1.pdf>]
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 286.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 269.
 
 
 LaTeX Warning: Reference `mar:questionSetBoxplot' on page 5 undefined on input 
-line 286.
+line 269.
 
 
-Underfull \vbox (badness 10000) detected at line 315
+Underfull \vbox (badness 10000) detected at line 298
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--319
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
 []\T1/pplj/m/n/10 Table 4: Sum-mary statis-tics of the per-cent-age cor-rect sc
 ore by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--319
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
 \T1/pplj/m/n/10 ques-tion for each ques-tion sets. The ta-ble is sorted from th
 e
  []
 
 
-</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuquestionSet
+</private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzquestionSet
 Boxplot-1.pdf, id=460, 505.89pt x 505.89pt>
-File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuquesti
+File: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzquesti
 onSetBoxplot-1.pdf Graphic file (type pdf)
 
-<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuquestio
+<use /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzquestio
 nSetBoxplot-1.pdf>
 Package pdftex.def Info: /private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn
-/T/RtmpDpnnpuquestionSetBoxplot-1.pdf used on input line 327.
+/T/Rtmp4zN5gzquestionSetBoxplot-1.pdf used on input line 310.
 (pdftex.def)             Requested size: 142.56079pt x 142.5591pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--331
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
 []\T1/pplj/m/n/10 Figure 6: []Side-by-side box-plots
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--331
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
 \T1/pplj/m/n/10 of the ques-tion cor-rect per-cent-
  []
 
 [5
 
- </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/RtmpDpnnpuquestionSe
+ </private/var/folders/vn/lhzbs8ds6xbg965nnfcj6ftm0000gn/T/Rtmp4zN5gzquestionSe
 tBoxplot-1.pdf>]
-Overfull \hbox (171.07976pt too wide) in alignment at lines 347--370
+Overfull \hbox (171.07976pt too wide) in alignment at lines 330--353
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 370
+Underfull \vbox (badness 10000) detected at line 353
  []
 
 
-Overfull \hbox (171.07976pt too wide) in alignment at lines 370--390
+Overfull \hbox (171.07976pt too wide) in alignment at lines 353--373
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.07976pt too wide) in alignment at lines 390--410
+Overfull \hbox (171.07976pt too wide) in alignment at lines 373--393
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.07976pt too wide) in alignment at lines 410--430
+Overfull \hbox (171.07976pt too wide) in alignment at lines 393--413
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [6
 
 ]
-Overfull \hbox (171.07976pt too wide) in alignment at lines 430--450
+Overfull \hbox (171.07976pt too wide) in alignment at lines 413--433
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.07976pt too wide) in alignment at lines 450--464
+Overfull \hbox (171.07976pt too wide) in alignment at lines 433--447
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [7] [8]
-Overfull \hbox (49.00006pt too wide) in alignment at lines 474--497
+Overfull \hbox (49.00006pt too wide) in alignment at lines 457--480
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 497
+Underfull \vbox (badness 10000) detected at line 480
  []
 
 
-Overfull \hbox (49.00006pt too wide) in alignment at lines 497--517
+Overfull \hbox (49.00006pt too wide) in alignment at lines 480--500
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--531
+Underfull \hbox (badness 10000) in paragraph at lines 514--514
 []\T1/pplj/m/n/10 Table 6: Sorted learn-ing out-comes sets and to-tal cor-rect 
 per-cent-
  []
 
 
-Overfull \hbox (49.00006pt too wide) in alignment at lines 517--533
+Overfull \hbox (49.00006pt too wide) in alignment at lines 500--516
  [] [] [] [] [] [] [] [] [] 
  []
 
 [9
 
 ]
-Overfull \hbox (34.00006pt too wide) in alignment at lines 536--559
+Overfull \hbox (34.00006pt too wide) in alignment at lines 519--542
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 559
+Underfull \vbox (badness 10000) detected at line 542
  []
 
 
-Overfull \hbox (34.00006pt too wide) in alignment at lines 559--579
+Overfull \hbox (34.00006pt too wide) in alignment at lines 542--562
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--592
+Underfull \hbox (badness 10000) in paragraph at lines 575--575
 []\T1/pplj/m/n/10 Table 7: Rank of the stu-dents by the to-tal and learn-ing ou
 t-come
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--592
+Underfull \hbox (badness 10000) in paragraph at lines 575--575
 \T1/pplj/m/n/10 scores. The per-cent-ages are the pro-por-tion of stu-dents in 
 this
  []
 
 
-Overfull \hbox (34.00006pt too wide) in alignment at lines 579--594
+Overfull \hbox (34.00006pt too wide) in alignment at lines 562--577
  [] [] [] [] [] [] [] [] [] 
  []
 
 [10]
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 597.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 580.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 597.
+(Font)              scaled to size 8.50006pt on input line 580.
 
 
 Package wrapfig Warning: wrapfigure used inside a conflicting environment on in
-put line 598.
+put line 581.
 
 <Topic06_AB_tile_student_rank.pdf, id=593, 578.16pt x 867.24pt>
 File: Topic06_AB_tile_student_rank.pdf Graphic file (type pdf)
 
 <use Topic06_AB_tile_student_rank.pdf>
-Package pdftex.def Info: Topic06_AB_tile_student_rank.pdf used on input line 60
-0.
+Package pdftex.def Info: Topic06_AB_tile_student_rank.pdf used on input line 58
+3.
 (pdftex.def)             Requested size: 293.43668pt x 440.15605pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--602
+Underfull \hbox (badness 10000) in paragraph at lines 585--585
 []\T1/pplj/m/n/10 Figure 7: [][]Heat map of the stu-dent ranks. Blue rep-re-sen
 ts the top
  []
 
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 60
-3.
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 58
+6.
 
 [11] [12 <./Topic06_AB_tile_student_rank.pdf>]
 
@@ -1324,14 +1324,14 @@ LaTeX Warning: Marginpar on page 13 moved.
 File: Topic06_AB_1_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_1_answer.pdf>
-Package pdftex.def Info: Topic06_AB_1_answer.pdf used on input line 635.
+Package pdftex.def Info: Topic06_AB_1_answer.pdf used on input line 618.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_1_score.pdf, id=612, 505.89pt x 505.89pt>
 File: Topic06_AB_1_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_1_score.pdf>
-Package pdftex.def Info: Topic06_AB_1_score.pdf used on input line 635.
+Package pdftex.def Info: Topic06_AB_1_score.pdf used on input line 618.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [13
 
@@ -1343,14 +1343,14 @@ LaTeX Warning: Marginpar on page 14 moved.
 File: Topic06_AB_2_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_2_answer.pdf>
-Package pdftex.def Info: Topic06_AB_2_answer.pdf used on input line 686.
+Package pdftex.def Info: Topic06_AB_2_answer.pdf used on input line 669.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_2_score.pdf, id=630, 505.89pt x 505.89pt>
 File: Topic06_AB_2_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_2_score.pdf>
-Package pdftex.def Info: Topic06_AB_2_score.pdf used on input line 686.
+Package pdftex.def Info: Topic06_AB_2_score.pdf used on input line 669.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [14 <./Topic06_AB_2_answer.pdf> <./Topic06_AB_2_score.pdf>]
 
@@ -1360,14 +1360,14 @@ LaTeX Warning: Marginpar on page 15 moved.
 File: Topic06_AB_3_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_3_answer.pdf>
-Package pdftex.def Info: Topic06_AB_3_answer.pdf used on input line 737.
+Package pdftex.def Info: Topic06_AB_3_answer.pdf used on input line 720.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_3_score.pdf, id=648, 505.89pt x 505.89pt>
 File: Topic06_AB_3_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_3_score.pdf>
-Package pdftex.def Info: Topic06_AB_3_score.pdf used on input line 737.
+Package pdftex.def Info: Topic06_AB_3_score.pdf used on input line 720.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [15 <./Topic06_AB_3_answer.pdf> <./Topic06_AB_3_score.pdf>]
 
@@ -1377,14 +1377,14 @@ LaTeX Warning: Marginpar on page 16 moved.
 File: Topic06_AB_4_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_4_answer.pdf>
-Package pdftex.def Info: Topic06_AB_4_answer.pdf used on input line 788.
+Package pdftex.def Info: Topic06_AB_4_answer.pdf used on input line 771.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_4_score.pdf, id=665, 505.89pt x 505.89pt>
 File: Topic06_AB_4_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_4_score.pdf>
-Package pdftex.def Info: Topic06_AB_4_score.pdf used on input line 788.
+Package pdftex.def Info: Topic06_AB_4_score.pdf used on input line 771.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [16 <./Topic06_AB_4_answer.pdf> <./Topic06_AB_4_score.pdf>]
 
@@ -1394,14 +1394,14 @@ LaTeX Warning: Marginpar on page 17 moved.
 File: Topic06_AB_5_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_5_answer.pdf>
-Package pdftex.def Info: Topic06_AB_5_answer.pdf used on input line 839.
+Package pdftex.def Info: Topic06_AB_5_answer.pdf used on input line 822.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_5_score.pdf, id=682, 505.89pt x 505.89pt>
 File: Topic06_AB_5_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_5_score.pdf>
-Package pdftex.def Info: Topic06_AB_5_score.pdf used on input line 839.
+Package pdftex.def Info: Topic06_AB_5_score.pdf used on input line 822.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [17 <./Topic06_AB_5_answer.pdf> <./Topic06_AB_5_score.pdf>]
 
@@ -1411,14 +1411,14 @@ LaTeX Warning: Marginpar on page 18 moved.
 File: Topic06_AB_6_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_6_answer.pdf>
-Package pdftex.def Info: Topic06_AB_6_answer.pdf used on input line 890.
+Package pdftex.def Info: Topic06_AB_6_answer.pdf used on input line 873.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_6_score.pdf, id=699, 505.89pt x 505.89pt>
 File: Topic06_AB_6_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_6_score.pdf>
-Package pdftex.def Info: Topic06_AB_6_score.pdf used on input line 890.
+Package pdftex.def Info: Topic06_AB_6_score.pdf used on input line 873.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [18 <./Topic06_AB_6_answer.pdf> <./Topic06_AB_6_score.pdf>]
 
@@ -1428,14 +1428,14 @@ LaTeX Warning: Marginpar on page 19 moved.
 File: Topic06_AB_7_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_7_answer.pdf>
-Package pdftex.def Info: Topic06_AB_7_answer.pdf used on input line 942.
+Package pdftex.def Info: Topic06_AB_7_answer.pdf used on input line 925.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_7_score.pdf, id=716, 505.89pt x 505.89pt>
 File: Topic06_AB_7_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_7_score.pdf>
-Package pdftex.def Info: Topic06_AB_7_score.pdf used on input line 942.
+Package pdftex.def Info: Topic06_AB_7_score.pdf used on input line 925.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [19 <./Topic06_AB_7_answer.pdf> <./Topic06_AB_7_score.pdf>]
 
@@ -1445,14 +1445,14 @@ LaTeX Warning: Marginpar on page 20 moved.
 File: Topic06_AB_8_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_8_answer.pdf>
-Package pdftex.def Info: Topic06_AB_8_answer.pdf used on input line 994.
+Package pdftex.def Info: Topic06_AB_8_answer.pdf used on input line 977.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_8_score.pdf, id=734, 505.89pt x 505.89pt>
 File: Topic06_AB_8_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_8_score.pdf>
-Package pdftex.def Info: Topic06_AB_8_score.pdf used on input line 994.
+Package pdftex.def Info: Topic06_AB_8_score.pdf used on input line 977.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [20 <./Topic06_AB_8_answer.pdf> <./Topic06_AB_8_score.pdf>]
 
@@ -1462,14 +1462,14 @@ LaTeX Warning: Marginpar on page 21 moved.
 File: Topic06_AB_9_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_9_answer.pdf>
-Package pdftex.def Info: Topic06_AB_9_answer.pdf used on input line 1048.
+Package pdftex.def Info: Topic06_AB_9_answer.pdf used on input line 1031.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_9_score.pdf, id=751, 505.89pt x 505.89pt>
 File: Topic06_AB_9_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_9_score.pdf>
-Package pdftex.def Info: Topic06_AB_9_score.pdf used on input line 1048.
+Package pdftex.def Info: Topic06_AB_9_score.pdf used on input line 1031.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [21 <./Topic06_AB_9_answer.pdf> <./Topic06_AB_9_score.pdf>]
 
@@ -1479,14 +1479,14 @@ LaTeX Warning: Marginpar on page 22 moved.
 File: Topic06_AB_10_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_10_answer.pdf>
-Package pdftex.def Info: Topic06_AB_10_answer.pdf used on input line 1111.
+Package pdftex.def Info: Topic06_AB_10_answer.pdf used on input line 1094.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_10_score.pdf, id=769, 505.89pt x 505.89pt>
 File: Topic06_AB_10_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_10_score.pdf>
-Package pdftex.def Info: Topic06_AB_10_score.pdf used on input line 1111.
+Package pdftex.def Info: Topic06_AB_10_score.pdf used on input line 1094.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [22 <./Topic06_AB_10_answer.pdf> <./Topic06_AB_10_score.pdf>]
 
@@ -1496,14 +1496,14 @@ LaTeX Warning: Marginpar on page 23 moved.
 File: Topic06_AB_11_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_11_answer.pdf>
-Package pdftex.def Info: Topic06_AB_11_answer.pdf used on input line 1171.
+Package pdftex.def Info: Topic06_AB_11_answer.pdf used on input line 1154.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_11_score.pdf, id=786, 505.89pt x 505.89pt>
 File: Topic06_AB_11_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_11_score.pdf>
-Package pdftex.def Info: Topic06_AB_11_score.pdf used on input line 1171.
+Package pdftex.def Info: Topic06_AB_11_score.pdf used on input line 1154.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [23 <./Topic06_AB_11_answer.pdf> <./Topic06_AB_11_score.pdf>]
 
@@ -1513,14 +1513,14 @@ LaTeX Warning: Marginpar on page 24 moved.
 File: Topic06_AB_12_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_12_answer.pdf>
-Package pdftex.def Info: Topic06_AB_12_answer.pdf used on input line 1231.
+Package pdftex.def Info: Topic06_AB_12_answer.pdf used on input line 1214.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_12_score.pdf, id=803, 505.89pt x 505.89pt>
 File: Topic06_AB_12_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_12_score.pdf>
-Package pdftex.def Info: Topic06_AB_12_score.pdf used on input line 1231.
+Package pdftex.def Info: Topic06_AB_12_score.pdf used on input line 1214.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [24 <./Topic06_AB_12_answer.pdf> <./Topic06_AB_12_score.pdf>]
 
@@ -1530,14 +1530,14 @@ LaTeX Warning: Marginpar on page 25 moved.
 File: Topic06_AB_13_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_13_answer.pdf>
-Package pdftex.def Info: Topic06_AB_13_answer.pdf used on input line 1290.
+Package pdftex.def Info: Topic06_AB_13_answer.pdf used on input line 1273.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_13_score.pdf, id=820, 505.89pt x 505.89pt>
 File: Topic06_AB_13_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_13_score.pdf>
-Package pdftex.def Info: Topic06_AB_13_score.pdf used on input line 1290.
+Package pdftex.def Info: Topic06_AB_13_score.pdf used on input line 1273.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [25 <./Topic06_AB_13_answer.pdf> <./Topic06_AB_13_score.pdf>]
 
@@ -1547,14 +1547,14 @@ LaTeX Warning: Marginpar on page 26 moved.
 File: Topic06_AB_14_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_14_answer.pdf>
-Package pdftex.def Info: Topic06_AB_14_answer.pdf used on input line 1349.
+Package pdftex.def Info: Topic06_AB_14_answer.pdf used on input line 1332.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_14_score.pdf, id=838, 505.89pt x 505.89pt>
 File: Topic06_AB_14_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_14_score.pdf>
-Package pdftex.def Info: Topic06_AB_14_score.pdf used on input line 1349.
+Package pdftex.def Info: Topic06_AB_14_score.pdf used on input line 1332.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [26 <./Topic06_AB_14_answer.pdf> <./Topic06_AB_14_score.pdf>]
 
@@ -1564,14 +1564,14 @@ LaTeX Warning: Marginpar on page 27 moved.
 File: Topic06_AB_15_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_15_answer.pdf>
-Package pdftex.def Info: Topic06_AB_15_answer.pdf used on input line 1409.
+Package pdftex.def Info: Topic06_AB_15_answer.pdf used on input line 1392.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_15_score.pdf, id=855, 505.89pt x 505.89pt>
 File: Topic06_AB_15_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_15_score.pdf>
-Package pdftex.def Info: Topic06_AB_15_score.pdf used on input line 1409.
+Package pdftex.def Info: Topic06_AB_15_score.pdf used on input line 1392.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [27 <./Topic06_AB_15_answer.pdf> <./Topic06_AB_15_score.pdf>]
 
@@ -1581,14 +1581,14 @@ LaTeX Warning: Marginpar on page 28 moved.
 File: Topic06_AB_16_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_16_answer.pdf>
-Package pdftex.def Info: Topic06_AB_16_answer.pdf used on input line 1473.
+Package pdftex.def Info: Topic06_AB_16_answer.pdf used on input line 1456.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_16_score.pdf, id=872, 505.89pt x 505.89pt>
 File: Topic06_AB_16_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_16_score.pdf>
-Package pdftex.def Info: Topic06_AB_16_score.pdf used on input line 1473.
+Package pdftex.def Info: Topic06_AB_16_score.pdf used on input line 1456.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [28 <./Topic06_AB_16_answer.pdf> <./Topic06_AB_16_score.pdf>]
 
@@ -1598,14 +1598,14 @@ LaTeX Warning: Marginpar on page 29 moved.
 File: Topic06_AB_17_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_17_answer.pdf>
-Package pdftex.def Info: Topic06_AB_17_answer.pdf used on input line 1525.
+Package pdftex.def Info: Topic06_AB_17_answer.pdf used on input line 1508.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_17_score.pdf, id=889, 505.89pt x 505.89pt>
 File: Topic06_AB_17_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_17_score.pdf>
-Package pdftex.def Info: Topic06_AB_17_score.pdf used on input line 1525.
+Package pdftex.def Info: Topic06_AB_17_score.pdf used on input line 1508.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [29 <./Topic06_AB_17_answer.pdf> <./Topic06_AB_17_score.pdf>]
 
@@ -1615,14 +1615,14 @@ LaTeX Warning: Marginpar on page 30 moved.
 File: Topic06_AB_18_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_18_answer.pdf>
-Package pdftex.def Info: Topic06_AB_18_answer.pdf used on input line 1572.
+Package pdftex.def Info: Topic06_AB_18_answer.pdf used on input line 1555.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_18_score.pdf, id=907, 505.89pt x 505.89pt>
 File: Topic06_AB_18_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_18_score.pdf>
-Package pdftex.def Info: Topic06_AB_18_score.pdf used on input line 1572.
+Package pdftex.def Info: Topic06_AB_18_score.pdf used on input line 1555.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [30 <./Topic06_AB_18_answer.pdf> <./Topic06_AB_18_score.pdf>]
 
@@ -1632,14 +1632,14 @@ LaTeX Warning: Marginpar on page 31 moved.
 File: Topic06_AB_19_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_19_answer.pdf>
-Package pdftex.def Info: Topic06_AB_19_answer.pdf used on input line 1627.
+Package pdftex.def Info: Topic06_AB_19_answer.pdf used on input line 1610.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_19_score.pdf, id=924, 505.89pt x 505.89pt>
 File: Topic06_AB_19_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_19_score.pdf>
-Package pdftex.def Info: Topic06_AB_19_score.pdf used on input line 1627.
+Package pdftex.def Info: Topic06_AB_19_score.pdf used on input line 1610.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [31 <./Topic06_AB_19_answer.pdf> <./Topic06_AB_19_score.pdf>]
 
@@ -1649,14 +1649,14 @@ LaTeX Warning: Marginpar on page 32 moved.
 File: Topic06_AB_20_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_20_answer.pdf>
-Package pdftex.def Info: Topic06_AB_20_answer.pdf used on input line 1680.
+Package pdftex.def Info: Topic06_AB_20_answer.pdf used on input line 1663.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_20_score.pdf, id=942, 505.89pt x 505.89pt>
 File: Topic06_AB_20_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_20_score.pdf>
-Package pdftex.def Info: Topic06_AB_20_score.pdf used on input line 1680.
+Package pdftex.def Info: Topic06_AB_20_score.pdf used on input line 1663.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [32 <./Topic06_AB_20_answer.pdf> <./Topic06_AB_20_score.pdf>]
 
@@ -1671,7 +1671,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image002
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image002.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image002.png used on input line 1716.
+ions_files/image002.png used on input line 1699.
 (pdftex.def)             Requested size: 141.11938pt x 201.97974pt.
 
 
@@ -1687,14 +1687,14 @@ LaTeX Warning: Marginpar on page 33 moved.
 File: Topic06_AB_21_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_21_answer.pdf>
-Package pdftex.def Info: Topic06_AB_21_answer.pdf used on input line 1728.
+Package pdftex.def Info: Topic06_AB_21_answer.pdf used on input line 1711.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_21_score.pdf, id=961, 505.89pt x 505.89pt>
 File: Topic06_AB_21_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_21_score.pdf>
-Package pdftex.def Info: Topic06_AB_21_score.pdf used on input line 1728.
+Package pdftex.def Info: Topic06_AB_21_score.pdf used on input line 1711.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [33 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image002
 .png> <./Topic06_AB_21_answer.pdf> <./Topic06_AB_21_score.pdf>]
@@ -1710,7 +1710,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image004
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image004.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image004.png used on input line 1762.
+ions_files/image004.png used on input line 1745.
 (pdftex.def)             Requested size: 141.11938pt x 191.79391pt.
 
 
@@ -1726,14 +1726,14 @@ LaTeX Warning: Marginpar on page 34 moved.
 File: Topic06_AB_22_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_22_answer.pdf>
-Package pdftex.def Info: Topic06_AB_22_answer.pdf used on input line 1774.
+Package pdftex.def Info: Topic06_AB_22_answer.pdf used on input line 1757.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_22_score.pdf, id=980, 505.89pt x 505.89pt>
 File: Topic06_AB_22_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_22_score.pdf>
-Package pdftex.def Info: Topic06_AB_22_score.pdf used on input line 1774.
+Package pdftex.def Info: Topic06_AB_22_score.pdf used on input line 1757.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [34 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image004
 .png> <./Topic06_AB_22_answer.pdf> <./Topic06_AB_22_score.pdf>]
@@ -1749,7 +1749,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image006
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image006.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image006.png used on input line 1812.
+ions_files/image006.png used on input line 1795.
 (pdftex.def)             Requested size: 141.11938pt x 187.24763pt.
 
 
@@ -1765,14 +1765,14 @@ LaTeX Warning: Marginpar on page 35 moved.
 File: Topic06_AB_23_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_23_answer.pdf>
-Package pdftex.def Info: Topic06_AB_23_answer.pdf used on input line 1824.
+Package pdftex.def Info: Topic06_AB_23_answer.pdf used on input line 1807.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_23_score.pdf, id=999, 505.89pt x 505.89pt>
 File: Topic06_AB_23_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_23_score.pdf>
-Package pdftex.def Info: Topic06_AB_23_score.pdf used on input line 1824.
+Package pdftex.def Info: Topic06_AB_23_score.pdf used on input line 1807.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [35 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image006
 .png> <./Topic06_AB_23_answer.pdf> <./Topic06_AB_23_score.pdf>]
@@ -1788,7 +1788,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image008
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image008.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image008.png used on input line 1858.
+ions_files/image008.png used on input line 1841.
 (pdftex.def)             Requested size: 141.11938pt x 188.93132pt.
 
 
@@ -1804,14 +1804,14 @@ LaTeX Warning: Marginpar on page 36 moved.
 File: Topic06_AB_24_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_24_answer.pdf>
-Package pdftex.def Info: Topic06_AB_24_answer.pdf used on input line 1870.
+Package pdftex.def Info: Topic06_AB_24_answer.pdf used on input line 1853.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_24_score.pdf, id=1018, 505.89pt x 505.89pt>
 File: Topic06_AB_24_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_24_score.pdf>
-Package pdftex.def Info: Topic06_AB_24_score.pdf used on input line 1870.
+Package pdftex.def Info: Topic06_AB_24_score.pdf used on input line 1853.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [36 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image008
 .png> <./Topic06_AB_24_answer.pdf> <./Topic06_AB_24_score.pdf>]
@@ -1827,7 +1827,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image010
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image010.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image010.png used on input line 1907.
+ions_files/image010.png used on input line 1890.
 (pdftex.def)             Requested size: 141.11938pt x 193.32124pt.
 
 
@@ -1843,14 +1843,14 @@ LaTeX Warning: Marginpar on page 37 moved.
 File: Topic06_AB_25_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_25_answer.pdf>
-Package pdftex.def Info: Topic06_AB_25_answer.pdf used on input line 1919.
+Package pdftex.def Info: Topic06_AB_25_answer.pdf used on input line 1902.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_25_score.pdf, id=1037, 505.89pt x 505.89pt>
 File: Topic06_AB_25_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_25_score.pdf>
-Package pdftex.def Info: Topic06_AB_25_score.pdf used on input line 1919.
+Package pdftex.def Info: Topic06_AB_25_score.pdf used on input line 1902.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [37 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image010
 .png> <./Topic06_AB_25_answer.pdf> <./Topic06_AB_25_score.pdf>]
@@ -1866,7 +1866,7 @@ File: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image012
 <use /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image012.
 png>
 Package pdftex.def Info: /Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Quest
-ions_files/image012.png used on input line 1952.
+ions_files/image012.png used on input line 1935.
 (pdftex.def)             Requested size: 141.11938pt x 186.39285pt.
 
 
@@ -1882,14 +1882,14 @@ LaTeX Warning: Marginpar on page 38 moved.
 File: Topic06_AB_26_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_26_answer.pdf>
-Package pdftex.def Info: Topic06_AB_26_answer.pdf used on input line 1964.
+Package pdftex.def Info: Topic06_AB_26_answer.pdf used on input line 1947.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_26_score.pdf, id=1058, 505.89pt x 505.89pt>
 File: Topic06_AB_26_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_26_score.pdf>
-Package pdftex.def Info: Topic06_AB_26_score.pdf used on input line 1964.
+Package pdftex.def Info: Topic06_AB_26_score.pdf used on input line 1947.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [38 </Users/lindz/ePort/inst/extdata/KeyFiles/Topic06.Questions_files/image012
 .png> <./Topic06_AB_26_answer.pdf> <./Topic06_AB_26_score.pdf>]
@@ -1900,14 +1900,14 @@ LaTeX Warning: Marginpar on page 39 moved.
 File: Topic06_AB_27_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_27_answer.pdf>
-Package pdftex.def Info: Topic06_AB_27_answer.pdf used on input line 2010.
+Package pdftex.def Info: Topic06_AB_27_answer.pdf used on input line 1993.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_27_score.pdf, id=1076, 505.89pt x 505.89pt>
 File: Topic06_AB_27_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_27_score.pdf>
-Package pdftex.def Info: Topic06_AB_27_score.pdf used on input line 2010.
+Package pdftex.def Info: Topic06_AB_27_score.pdf used on input line 1993.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [39 <./Topic06_AB_27_answer.pdf> <./Topic06_AB_27_score.pdf>]
 
@@ -1917,14 +1917,14 @@ LaTeX Warning: Marginpar on page 40 moved.
 File: Topic06_AB_28_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_28_answer.pdf>
-Package pdftex.def Info: Topic06_AB_28_answer.pdf used on input line 2064.
+Package pdftex.def Info: Topic06_AB_28_answer.pdf used on input line 2047.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_28_score.pdf, id=1093, 505.89pt x 505.89pt>
 File: Topic06_AB_28_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_28_score.pdf>
-Package pdftex.def Info: Topic06_AB_28_score.pdf used on input line 2064.
+Package pdftex.def Info: Topic06_AB_28_score.pdf used on input line 2047.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [40 <./Topic06_AB_28_answer.pdf> <./Topic06_AB_28_score.pdf>]
 
@@ -1934,14 +1934,14 @@ LaTeX Warning: Marginpar on page 41 moved.
 File: Topic06_AB_29_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_29_answer.pdf>
-Package pdftex.def Info: Topic06_AB_29_answer.pdf used on input line 2118.
+Package pdftex.def Info: Topic06_AB_29_answer.pdf used on input line 2101.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_29_score.pdf, id=1110, 505.89pt x 505.89pt>
 File: Topic06_AB_29_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_29_score.pdf>
-Package pdftex.def Info: Topic06_AB_29_score.pdf used on input line 2118.
+Package pdftex.def Info: Topic06_AB_29_score.pdf used on input line 2101.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [41 <./Topic06_AB_29_answer.pdf> <./Topic06_AB_29_score.pdf>]
 
@@ -1951,14 +1951,14 @@ LaTeX Warning: Marginpar on page 42 moved.
 File: Topic06_AB_30_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_30_answer.pdf>
-Package pdftex.def Info: Topic06_AB_30_answer.pdf used on input line 2171.
+Package pdftex.def Info: Topic06_AB_30_answer.pdf used on input line 2154.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_30_score.pdf, id=1127, 505.89pt x 505.89pt>
 File: Topic06_AB_30_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_30_score.pdf>
-Package pdftex.def Info: Topic06_AB_30_score.pdf used on input line 2171.
+Package pdftex.def Info: Topic06_AB_30_score.pdf used on input line 2154.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [42 <./Topic06_AB_30_answer.pdf> <./Topic06_AB_30_score.pdf>]
 
@@ -1968,14 +1968,14 @@ LaTeX Warning: Marginpar on page 43 moved.
 File: Topic06_AB_31_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_31_answer.pdf>
-Package pdftex.def Info: Topic06_AB_31_answer.pdf used on input line 2226.
+Package pdftex.def Info: Topic06_AB_31_answer.pdf used on input line 2209.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_31_score.pdf, id=1144, 505.89pt x 505.89pt>
 File: Topic06_AB_31_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_31_score.pdf>
-Package pdftex.def Info: Topic06_AB_31_score.pdf used on input line 2226.
+Package pdftex.def Info: Topic06_AB_31_score.pdf used on input line 2209.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [43 <./Topic06_AB_31_answer.pdf> <./Topic06_AB_31_score.pdf>]
 
@@ -1985,14 +1985,14 @@ LaTeX Warning: Marginpar on page 44 moved.
 File: Topic06_AB_32_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_32_answer.pdf>
-Package pdftex.def Info: Topic06_AB_32_answer.pdf used on input line 2281.
+Package pdftex.def Info: Topic06_AB_32_answer.pdf used on input line 2264.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_32_score.pdf, id=1162, 505.89pt x 505.89pt>
 File: Topic06_AB_32_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_32_score.pdf>
-Package pdftex.def Info: Topic06_AB_32_score.pdf used on input line 2281.
+Package pdftex.def Info: Topic06_AB_32_score.pdf used on input line 2264.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [44 <./Topic06_AB_32_answer.pdf> <./Topic06_AB_32_score.pdf>]
 
@@ -2002,14 +2002,14 @@ LaTeX Warning: Marginpar on page 45 moved.
 File: Topic06_AB_33_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_33_answer.pdf>
-Package pdftex.def Info: Topic06_AB_33_answer.pdf used on input line 2333.
+Package pdftex.def Info: Topic06_AB_33_answer.pdf used on input line 2316.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_33_score.pdf, id=1180, 505.89pt x 505.89pt>
 File: Topic06_AB_33_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_33_score.pdf>
-Package pdftex.def Info: Topic06_AB_33_score.pdf used on input line 2333.
+Package pdftex.def Info: Topic06_AB_33_score.pdf used on input line 2316.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [45 <./Topic06_AB_33_answer.pdf> <./Topic06_AB_33_score.pdf>]
 
@@ -2019,14 +2019,14 @@ LaTeX Warning: Marginpar on page 46 moved.
 File: Topic06_AB_34_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_34_answer.pdf>
-Package pdftex.def Info: Topic06_AB_34_answer.pdf used on input line 2383.
+Package pdftex.def Info: Topic06_AB_34_answer.pdf used on input line 2366.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_34_score.pdf, id=1197, 505.89pt x 505.89pt>
 File: Topic06_AB_34_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_34_score.pdf>
-Package pdftex.def Info: Topic06_AB_34_score.pdf used on input line 2383.
+Package pdftex.def Info: Topic06_AB_34_score.pdf used on input line 2366.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [46 <./Topic06_AB_34_answer.pdf> <./Topic06_AB_34_score.pdf>]
 
@@ -2036,14 +2036,14 @@ LaTeX Warning: Marginpar on page 47 moved.
 File: Topic06_AB_35_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_35_answer.pdf>
-Package pdftex.def Info: Topic06_AB_35_answer.pdf used on input line 2438.
+Package pdftex.def Info: Topic06_AB_35_answer.pdf used on input line 2421.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_35_score.pdf, id=1214, 505.89pt x 505.89pt>
 File: Topic06_AB_35_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_35_score.pdf>
-Package pdftex.def Info: Topic06_AB_35_score.pdf used on input line 2438.
+Package pdftex.def Info: Topic06_AB_35_score.pdf used on input line 2421.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [47 <./Topic06_AB_35_answer.pdf> <./Topic06_AB_35_score.pdf>]
 
@@ -2053,14 +2053,14 @@ LaTeX Warning: Marginpar on page 48 moved.
 File: Topic06_AB_36_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_36_answer.pdf>
-Package pdftex.def Info: Topic06_AB_36_answer.pdf used on input line 2495.
+Package pdftex.def Info: Topic06_AB_36_answer.pdf used on input line 2478.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_36_score.pdf, id=1231, 505.89pt x 505.89pt>
 File: Topic06_AB_36_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_36_score.pdf>
-Package pdftex.def Info: Topic06_AB_36_score.pdf used on input line 2495.
+Package pdftex.def Info: Topic06_AB_36_score.pdf used on input line 2478.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [48 <./Topic06_AB_36_answer.pdf> <./Topic06_AB_36_score.pdf>]
 
@@ -2070,14 +2070,14 @@ LaTeX Warning: Marginpar on page 49 moved.
 File: Topic06_AB_37_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_37_answer.pdf>
-Package pdftex.def Info: Topic06_AB_37_answer.pdf used on input line 2546.
+Package pdftex.def Info: Topic06_AB_37_answer.pdf used on input line 2529.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_37_score.pdf, id=1248, 505.89pt x 505.89pt>
 File: Topic06_AB_37_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_37_score.pdf>
-Package pdftex.def Info: Topic06_AB_37_score.pdf used on input line 2546.
+Package pdftex.def Info: Topic06_AB_37_score.pdf used on input line 2529.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [49 <./Topic06_AB_37_answer.pdf> <./Topic06_AB_37_score.pdf>]
 
@@ -2087,14 +2087,14 @@ LaTeX Warning: Marginpar on page 50 moved.
 File: Topic06_AB_38_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_38_answer.pdf>
-Package pdftex.def Info: Topic06_AB_38_answer.pdf used on input line 2598.
+Package pdftex.def Info: Topic06_AB_38_answer.pdf used on input line 2581.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_38_score.pdf, id=1266, 505.89pt x 505.89pt>
 File: Topic06_AB_38_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_38_score.pdf>
-Package pdftex.def Info: Topic06_AB_38_score.pdf used on input line 2598.
+Package pdftex.def Info: Topic06_AB_38_score.pdf used on input line 2581.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [50 <./Topic06_AB_38_answer.pdf> <./Topic06_AB_38_score.pdf>]
 
@@ -2104,14 +2104,14 @@ LaTeX Warning: Marginpar on page 51 moved.
 File: Topic06_AB_39_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_39_answer.pdf>
-Package pdftex.def Info: Topic06_AB_39_answer.pdf used on input line 2648.
+Package pdftex.def Info: Topic06_AB_39_answer.pdf used on input line 2631.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_39_score.pdf, id=1283, 505.89pt x 505.89pt>
 File: Topic06_AB_39_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_39_score.pdf>
-Package pdftex.def Info: Topic06_AB_39_score.pdf used on input line 2648.
+Package pdftex.def Info: Topic06_AB_39_score.pdf used on input line 2631.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [51 <./Topic06_AB_39_answer.pdf> <./Topic06_AB_39_score.pdf>]
 
@@ -2121,14 +2121,14 @@ LaTeX Warning: Marginpar on page 52 moved.
 File: Topic06_AB_40_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_40_answer.pdf>
-Package pdftex.def Info: Topic06_AB_40_answer.pdf used on input line 2700.
+Package pdftex.def Info: Topic06_AB_40_answer.pdf used on input line 2683.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_40_score.pdf, id=1300, 505.89pt x 505.89pt>
 File: Topic06_AB_40_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_40_score.pdf>
-Package pdftex.def Info: Topic06_AB_40_score.pdf used on input line 2700.
+Package pdftex.def Info: Topic06_AB_40_score.pdf used on input line 2683.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [52 <./Topic06_AB_40_answer.pdf> <./Topic06_AB_40_score.pdf>]
 
@@ -2138,14 +2138,14 @@ LaTeX Warning: Marginpar on page 53 moved.
 File: Topic06_AB_41_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_41_answer.pdf>
-Package pdftex.def Info: Topic06_AB_41_answer.pdf used on input line 2751.
+Package pdftex.def Info: Topic06_AB_41_answer.pdf used on input line 2734.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_41_score.pdf, id=1318, 505.89pt x 505.89pt>
 File: Topic06_AB_41_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_41_score.pdf>
-Package pdftex.def Info: Topic06_AB_41_score.pdf used on input line 2751.
+Package pdftex.def Info: Topic06_AB_41_score.pdf used on input line 2734.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [53 <./Topic06_AB_41_answer.pdf> <./Topic06_AB_41_score.pdf>]
 
@@ -2155,14 +2155,14 @@ LaTeX Warning: Marginpar on page 54 moved.
 File: Topic06_AB_42_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_42_answer.pdf>
-Package pdftex.def Info: Topic06_AB_42_answer.pdf used on input line 2802.
+Package pdftex.def Info: Topic06_AB_42_answer.pdf used on input line 2785.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_42_score.pdf, id=1335, 505.89pt x 505.89pt>
 File: Topic06_AB_42_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_42_score.pdf>
-Package pdftex.def Info: Topic06_AB_42_score.pdf used on input line 2802.
+Package pdftex.def Info: Topic06_AB_42_score.pdf used on input line 2785.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [54 <./Topic06_AB_42_answer.pdf> <./Topic06_AB_42_score.pdf>]
 
@@ -2172,14 +2172,14 @@ LaTeX Warning: Marginpar on page 55 moved.
 File: Topic06_AB_43_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_43_answer.pdf>
-Package pdftex.def Info: Topic06_AB_43_answer.pdf used on input line 2854.
+Package pdftex.def Info: Topic06_AB_43_answer.pdf used on input line 2837.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_43_score.pdf, id=1352, 505.89pt x 505.89pt>
 File: Topic06_AB_43_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_43_score.pdf>
-Package pdftex.def Info: Topic06_AB_43_score.pdf used on input line 2854.
+Package pdftex.def Info: Topic06_AB_43_score.pdf used on input line 2837.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [55 <./Topic06_AB_43_answer.pdf> <./Topic06_AB_43_score.pdf>]
 
@@ -2189,14 +2189,14 @@ LaTeX Warning: Marginpar on page 56 moved.
 File: Topic06_AB_44_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_44_answer.pdf>
-Package pdftex.def Info: Topic06_AB_44_answer.pdf used on input line 2906.
+Package pdftex.def Info: Topic06_AB_44_answer.pdf used on input line 2889.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_44_score.pdf, id=1370, 505.89pt x 505.89pt>
 File: Topic06_AB_44_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_44_score.pdf>
-Package pdftex.def Info: Topic06_AB_44_score.pdf used on input line 2906.
+Package pdftex.def Info: Topic06_AB_44_score.pdf used on input line 2889.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [56 <./Topic06_AB_44_answer.pdf> <./Topic06_AB_44_score.pdf>]
 
@@ -2206,14 +2206,14 @@ LaTeX Warning: Marginpar on page 57 moved.
 File: Topic06_AB_45_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_45_answer.pdf>
-Package pdftex.def Info: Topic06_AB_45_answer.pdf used on input line 2961.
+Package pdftex.def Info: Topic06_AB_45_answer.pdf used on input line 2944.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_45_score.pdf, id=1387, 505.89pt x 505.89pt>
 File: Topic06_AB_45_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_45_score.pdf>
-Package pdftex.def Info: Topic06_AB_45_score.pdf used on input line 2961.
+Package pdftex.def Info: Topic06_AB_45_score.pdf used on input line 2944.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [57 <./Topic06_AB_45_answer.pdf> <./Topic06_AB_45_score.pdf>]
 
@@ -2223,14 +2223,14 @@ LaTeX Warning: Marginpar on page 58 moved.
 File: Topic06_AB_46_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_46_answer.pdf>
-Package pdftex.def Info: Topic06_AB_46_answer.pdf used on input line 3016.
+Package pdftex.def Info: Topic06_AB_46_answer.pdf used on input line 2999.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_46_score.pdf, id=1404, 505.89pt x 505.89pt>
 File: Topic06_AB_46_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_46_score.pdf>
-Package pdftex.def Info: Topic06_AB_46_score.pdf used on input line 3016.
+Package pdftex.def Info: Topic06_AB_46_score.pdf used on input line 2999.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [58 <./Topic06_AB_46_answer.pdf> <./Topic06_AB_46_score.pdf>]
 
@@ -2240,14 +2240,14 @@ LaTeX Warning: Marginpar on page 59 moved.
 File: Topic06_AB_47_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_47_answer.pdf>
-Package pdftex.def Info: Topic06_AB_47_answer.pdf used on input line 3071.
+Package pdftex.def Info: Topic06_AB_47_answer.pdf used on input line 3054.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_47_score.pdf, id=1421, 505.89pt x 505.89pt>
 File: Topic06_AB_47_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_47_score.pdf>
-Package pdftex.def Info: Topic06_AB_47_score.pdf used on input line 3071.
+Package pdftex.def Info: Topic06_AB_47_score.pdf used on input line 3054.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [59 <./Topic06_AB_47_answer.pdf> <./Topic06_AB_47_score.pdf>]
 
@@ -2257,14 +2257,14 @@ LaTeX Warning: Marginpar on page 60 moved.
 File: Topic06_AB_48_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_48_answer.pdf>
-Package pdftex.def Info: Topic06_AB_48_answer.pdf used on input line 3126.
+Package pdftex.def Info: Topic06_AB_48_answer.pdf used on input line 3109.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_48_score.pdf, id=1438, 505.89pt x 505.89pt>
 File: Topic06_AB_48_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_48_score.pdf>
-Package pdftex.def Info: Topic06_AB_48_score.pdf used on input line 3126.
+Package pdftex.def Info: Topic06_AB_48_score.pdf used on input line 3109.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [60 <./Topic06_AB_48_answer.pdf> <./Topic06_AB_48_score.pdf>]
 
@@ -2274,14 +2274,14 @@ LaTeX Warning: Marginpar on page 61 moved.
 File: Topic06_AB_49_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_49_answer.pdf>
-Package pdftex.def Info: Topic06_AB_49_answer.pdf used on input line 3180.
+Package pdftex.def Info: Topic06_AB_49_answer.pdf used on input line 3163.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_49_score.pdf, id=1456, 505.89pt x 505.89pt>
 File: Topic06_AB_49_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_49_score.pdf>
-Package pdftex.def Info: Topic06_AB_49_score.pdf used on input line 3180.
+Package pdftex.def Info: Topic06_AB_49_score.pdf used on input line 3163.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [61 <./Topic06_AB_49_answer.pdf> <./Topic06_AB_49_score.pdf>]
 
@@ -2291,14 +2291,14 @@ LaTeX Warning: Marginpar on page 62 moved.
 File: Topic06_AB_50_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_50_answer.pdf>
-Package pdftex.def Info: Topic06_AB_50_answer.pdf used on input line 3237.
+Package pdftex.def Info: Topic06_AB_50_answer.pdf used on input line 3220.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_50_score.pdf, id=1474, 505.89pt x 505.89pt>
 File: Topic06_AB_50_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_50_score.pdf>
-Package pdftex.def Info: Topic06_AB_50_score.pdf used on input line 3237.
+Package pdftex.def Info: Topic06_AB_50_score.pdf used on input line 3220.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [62 <./Topic06_AB_50_answer.pdf> <./Topic06_AB_50_score.pdf>]
 
@@ -2308,14 +2308,14 @@ LaTeX Warning: Marginpar on page 63 moved.
 File: Topic06_AB_51_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_51_answer.pdf>
-Package pdftex.def Info: Topic06_AB_51_answer.pdf used on input line 3291.
+Package pdftex.def Info: Topic06_AB_51_answer.pdf used on input line 3274.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_51_score.pdf, id=1491, 505.89pt x 505.89pt>
 File: Topic06_AB_51_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_51_score.pdf>
-Package pdftex.def Info: Topic06_AB_51_score.pdf used on input line 3291.
+Package pdftex.def Info: Topic06_AB_51_score.pdf used on input line 3274.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [63 <./Topic06_AB_51_answer.pdf> <./Topic06_AB_51_score.pdf>]
 
@@ -2325,14 +2325,14 @@ LaTeX Warning: Marginpar on page 64 moved.
 File: Topic06_AB_52_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_52_answer.pdf>
-Package pdftex.def Info: Topic06_AB_52_answer.pdf used on input line 3346.
+Package pdftex.def Info: Topic06_AB_52_answer.pdf used on input line 3329.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_52_score.pdf, id=1508, 505.89pt x 505.89pt>
 File: Topic06_AB_52_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_52_score.pdf>
-Package pdftex.def Info: Topic06_AB_52_score.pdf used on input line 3346.
+Package pdftex.def Info: Topic06_AB_52_score.pdf used on input line 3329.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [64 <./Topic06_AB_52_answer.pdf> <./Topic06_AB_52_score.pdf>]
 
@@ -2342,14 +2342,14 @@ LaTeX Warning: Marginpar on page 65 moved.
 File: Topic06_AB_53_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_53_answer.pdf>
-Package pdftex.def Info: Topic06_AB_53_answer.pdf used on input line 3402.
+Package pdftex.def Info: Topic06_AB_53_answer.pdf used on input line 3385.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_53_score.pdf, id=1525, 505.89pt x 505.89pt>
 File: Topic06_AB_53_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_53_score.pdf>
-Package pdftex.def Info: Topic06_AB_53_score.pdf used on input line 3402.
+Package pdftex.def Info: Topic06_AB_53_score.pdf used on input line 3385.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [65 <./Topic06_AB_53_answer.pdf> <./Topic06_AB_53_score.pdf>]
 
@@ -2359,14 +2359,14 @@ LaTeX Warning: Marginpar on page 66 moved.
 File: Topic06_AB_54_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_54_answer.pdf>
-Package pdftex.def Info: Topic06_AB_54_answer.pdf used on input line 3458.
+Package pdftex.def Info: Topic06_AB_54_answer.pdf used on input line 3441.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_54_score.pdf, id=1542, 505.89pt x 505.89pt>
 File: Topic06_AB_54_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_54_score.pdf>
-Package pdftex.def Info: Topic06_AB_54_score.pdf used on input line 3458.
+Package pdftex.def Info: Topic06_AB_54_score.pdf used on input line 3441.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [66 <./Topic06_AB_54_answer.pdf> <./Topic06_AB_54_score.pdf>]
 
@@ -2376,14 +2376,14 @@ LaTeX Warning: Marginpar on page 67 moved.
 File: Topic06_AB_55_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_55_answer.pdf>
-Package pdftex.def Info: Topic06_AB_55_answer.pdf used on input line 3514.
+Package pdftex.def Info: Topic06_AB_55_answer.pdf used on input line 3497.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_55_score.pdf, id=1559, 505.89pt x 505.89pt>
 File: Topic06_AB_55_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_55_score.pdf>
-Package pdftex.def Info: Topic06_AB_55_score.pdf used on input line 3514.
+Package pdftex.def Info: Topic06_AB_55_score.pdf used on input line 3497.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [67 <./Topic06_AB_55_answer.pdf> <./Topic06_AB_55_score.pdf>]
 
@@ -2393,14 +2393,14 @@ LaTeX Warning: Marginpar on page 68 moved.
 File: Topic06_AB_56_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_56_answer.pdf>
-Package pdftex.def Info: Topic06_AB_56_answer.pdf used on input line 3569.
+Package pdftex.def Info: Topic06_AB_56_answer.pdf used on input line 3552.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_56_score.pdf, id=1577, 505.89pt x 505.89pt>
 File: Topic06_AB_56_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_56_score.pdf>
-Package pdftex.def Info: Topic06_AB_56_score.pdf used on input line 3569.
+Package pdftex.def Info: Topic06_AB_56_score.pdf used on input line 3552.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [68 <./Topic06_AB_56_answer.pdf> <./Topic06_AB_56_score.pdf>]
 
@@ -2410,14 +2410,14 @@ LaTeX Warning: Marginpar on page 69 moved.
 File: Topic06_AB_57_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_57_answer.pdf>
-Package pdftex.def Info: Topic06_AB_57_answer.pdf used on input line 3624.
+Package pdftex.def Info: Topic06_AB_57_answer.pdf used on input line 3607.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_57_score.pdf, id=1595, 505.89pt x 505.89pt>
 File: Topic06_AB_57_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_57_score.pdf>
-Package pdftex.def Info: Topic06_AB_57_score.pdf used on input line 3624.
+Package pdftex.def Info: Topic06_AB_57_score.pdf used on input line 3607.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [69 <./Topic06_AB_57_answer.pdf> <./Topic06_AB_57_score.pdf>]
 
@@ -2427,14 +2427,14 @@ LaTeX Warning: Marginpar on page 70 moved.
 File: Topic06_AB_58_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_58_answer.pdf>
-Package pdftex.def Info: Topic06_AB_58_answer.pdf used on input line 3676.
+Package pdftex.def Info: Topic06_AB_58_answer.pdf used on input line 3659.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_58_score.pdf, id=1612, 505.89pt x 505.89pt>
 File: Topic06_AB_58_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_58_score.pdf>
-Package pdftex.def Info: Topic06_AB_58_score.pdf used on input line 3676.
+Package pdftex.def Info: Topic06_AB_58_score.pdf used on input line 3659.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [70 <./Topic06_AB_58_answer.pdf> <./Topic06_AB_58_score.pdf>]
 
@@ -2444,14 +2444,14 @@ LaTeX Warning: Marginpar on page 71 moved.
 File: Topic06_AB_59_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_59_answer.pdf>
-Package pdftex.def Info: Topic06_AB_59_answer.pdf used on input line 3732.
+Package pdftex.def Info: Topic06_AB_59_answer.pdf used on input line 3715.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_59_score.pdf, id=1629, 505.89pt x 505.89pt>
 File: Topic06_AB_59_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_59_score.pdf>
-Package pdftex.def Info: Topic06_AB_59_score.pdf used on input line 3732.
+Package pdftex.def Info: Topic06_AB_59_score.pdf used on input line 3715.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [71 <./Topic06_AB_59_answer.pdf> <./Topic06_AB_59_score.pdf>]
 
@@ -2461,14 +2461,14 @@ LaTeX Warning: Marginpar on page 72 moved.
 File: Topic06_AB_60_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_60_answer.pdf>
-Package pdftex.def Info: Topic06_AB_60_answer.pdf used on input line 3786.
+Package pdftex.def Info: Topic06_AB_60_answer.pdf used on input line 3769.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_60_score.pdf, id=1646, 505.89pt x 505.89pt>
 File: Topic06_AB_60_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_60_score.pdf>
-Package pdftex.def Info: Topic06_AB_60_score.pdf used on input line 3786.
+Package pdftex.def Info: Topic06_AB_60_score.pdf used on input line 3769.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [72 <./Topic06_AB_60_answer.pdf> <./Topic06_AB_60_score.pdf>]
 
@@ -2478,14 +2478,14 @@ LaTeX Warning: Marginpar on page 73 moved.
 File: Topic06_AB_61_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_61_answer.pdf>
-Package pdftex.def Info: Topic06_AB_61_answer.pdf used on input line 3843.
+Package pdftex.def Info: Topic06_AB_61_answer.pdf used on input line 3826.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_61_score.pdf, id=1663, 505.89pt x 505.89pt>
 File: Topic06_AB_61_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_61_score.pdf>
-Package pdftex.def Info: Topic06_AB_61_score.pdf used on input line 3843.
+Package pdftex.def Info: Topic06_AB_61_score.pdf used on input line 3826.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [73 <./Topic06_AB_61_answer.pdf> <./Topic06_AB_61_score.pdf>]
 
@@ -2495,14 +2495,14 @@ LaTeX Warning: Marginpar on page 74 moved.
 File: Topic06_AB_62_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_62_answer.pdf>
-Package pdftex.def Info: Topic06_AB_62_answer.pdf used on input line 3898.
+Package pdftex.def Info: Topic06_AB_62_answer.pdf used on input line 3881.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_62_score.pdf, id=1681, 505.89pt x 505.89pt>
 File: Topic06_AB_62_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_62_score.pdf>
-Package pdftex.def Info: Topic06_AB_62_score.pdf used on input line 3898.
+Package pdftex.def Info: Topic06_AB_62_score.pdf used on input line 3881.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [74 <./Topic06_AB_62_answer.pdf> <./Topic06_AB_62_score.pdf>]
 
@@ -2512,14 +2512,14 @@ LaTeX Warning: Marginpar on page 75 moved.
 File: Topic06_AB_63_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_63_answer.pdf>
-Package pdftex.def Info: Topic06_AB_63_answer.pdf used on input line 3953.
+Package pdftex.def Info: Topic06_AB_63_answer.pdf used on input line 3936.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_63_score.pdf, id=1698, 505.89pt x 505.89pt>
 File: Topic06_AB_63_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_63_score.pdf>
-Package pdftex.def Info: Topic06_AB_63_score.pdf used on input line 3953.
+Package pdftex.def Info: Topic06_AB_63_score.pdf used on input line 3936.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [75 <./Topic06_AB_63_answer.pdf> <./Topic06_AB_63_score.pdf>]
 
@@ -2529,14 +2529,14 @@ LaTeX Warning: Marginpar on page 76 moved.
 File: Topic06_AB_64_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_64_answer.pdf>
-Package pdftex.def Info: Topic06_AB_64_answer.pdf used on input line 4008.
+Package pdftex.def Info: Topic06_AB_64_answer.pdf used on input line 3991.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_64_score.pdf, id=1716, 505.89pt x 505.89pt>
 File: Topic06_AB_64_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_64_score.pdf>
-Package pdftex.def Info: Topic06_AB_64_score.pdf used on input line 4008.
+Package pdftex.def Info: Topic06_AB_64_score.pdf used on input line 3991.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [76 <./Topic06_AB_64_answer.pdf> <./Topic06_AB_64_score.pdf>]
 
@@ -2546,14 +2546,14 @@ LaTeX Warning: Marginpar on page 77 moved.
 File: Topic06_AB_65_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_65_answer.pdf>
-Package pdftex.def Info: Topic06_AB_65_answer.pdf used on input line 4059.
+Package pdftex.def Info: Topic06_AB_65_answer.pdf used on input line 4042.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_65_score.pdf, id=1733, 505.89pt x 505.89pt>
 File: Topic06_AB_65_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_65_score.pdf>
-Package pdftex.def Info: Topic06_AB_65_score.pdf used on input line 4059.
+Package pdftex.def Info: Topic06_AB_65_score.pdf used on input line 4042.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [77 <./Topic06_AB_65_answer.pdf> <./Topic06_AB_65_score.pdf>]
 
@@ -2563,14 +2563,14 @@ LaTeX Warning: Marginpar on page 78 moved.
 File: Topic06_AB_66_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_66_answer.pdf>
-Package pdftex.def Info: Topic06_AB_66_answer.pdf used on input line 4109.
+Package pdftex.def Info: Topic06_AB_66_answer.pdf used on input line 4092.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_66_score.pdf, id=1750, 505.89pt x 505.89pt>
 File: Topic06_AB_66_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_66_score.pdf>
-Package pdftex.def Info: Topic06_AB_66_score.pdf used on input line 4109.
+Package pdftex.def Info: Topic06_AB_66_score.pdf used on input line 4092.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [78 <./Topic06_AB_66_answer.pdf> <./Topic06_AB_66_score.pdf>]
 
@@ -2580,14 +2580,14 @@ LaTeX Warning: Marginpar on page 79 moved.
 File: Topic06_AB_67_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_67_answer.pdf>
-Package pdftex.def Info: Topic06_AB_67_answer.pdf used on input line 4161.
+Package pdftex.def Info: Topic06_AB_67_answer.pdf used on input line 4144.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_67_score.pdf, id=1767, 505.89pt x 505.89pt>
 File: Topic06_AB_67_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_67_score.pdf>
-Package pdftex.def Info: Topic06_AB_67_score.pdf used on input line 4161.
+Package pdftex.def Info: Topic06_AB_67_score.pdf used on input line 4144.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [79 <./Topic06_AB_67_answer.pdf> <./Topic06_AB_67_score.pdf>]
 
@@ -2597,14 +2597,14 @@ LaTeX Warning: Marginpar on page 80 moved.
 File: Topic06_AB_68_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_68_answer.pdf>
-Package pdftex.def Info: Topic06_AB_68_answer.pdf used on input line 4211.
+Package pdftex.def Info: Topic06_AB_68_answer.pdf used on input line 4194.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_68_score.pdf, id=1785, 505.89pt x 505.89pt>
 File: Topic06_AB_68_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_68_score.pdf>
-Package pdftex.def Info: Topic06_AB_68_score.pdf used on input line 4211.
+Package pdftex.def Info: Topic06_AB_68_score.pdf used on input line 4194.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [80 <./Topic06_AB_68_answer.pdf> <./Topic06_AB_68_score.pdf>]
 
@@ -2614,14 +2614,14 @@ LaTeX Warning: Marginpar on page 81 moved.
 File: Topic06_AB_69_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_69_answer.pdf>
-Package pdftex.def Info: Topic06_AB_69_answer.pdf used on input line 4261.
+Package pdftex.def Info: Topic06_AB_69_answer.pdf used on input line 4244.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_69_score.pdf, id=1802, 505.89pt x 505.89pt>
 File: Topic06_AB_69_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_69_score.pdf>
-Package pdftex.def Info: Topic06_AB_69_score.pdf used on input line 4261.
+Package pdftex.def Info: Topic06_AB_69_score.pdf used on input line 4244.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [81 <./Topic06_AB_69_answer.pdf> <./Topic06_AB_69_score.pdf>]
 
@@ -2631,14 +2631,14 @@ LaTeX Warning: Marginpar on page 82 moved.
 File: Topic06_AB_70_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_70_answer.pdf>
-Package pdftex.def Info: Topic06_AB_70_answer.pdf used on input line 4313.
+Package pdftex.def Info: Topic06_AB_70_answer.pdf used on input line 4296.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_70_score.pdf, id=1819, 505.89pt x 505.89pt>
 File: Topic06_AB_70_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_70_score.pdf>
-Package pdftex.def Info: Topic06_AB_70_score.pdf used on input line 4313.
+Package pdftex.def Info: Topic06_AB_70_score.pdf used on input line 4296.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [82 <./Topic06_AB_70_answer.pdf> <./Topic06_AB_70_score.pdf>]
 
@@ -2648,14 +2648,14 @@ LaTeX Warning: Marginpar on page 83 moved.
 File: Topic06_AB_71_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_71_answer.pdf>
-Package pdftex.def Info: Topic06_AB_71_answer.pdf used on input line 4364.
+Package pdftex.def Info: Topic06_AB_71_answer.pdf used on input line 4347.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_71_score.pdf, id=1836, 505.89pt x 505.89pt>
 File: Topic06_AB_71_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_71_score.pdf>
-Package pdftex.def Info: Topic06_AB_71_score.pdf used on input line 4364.
+Package pdftex.def Info: Topic06_AB_71_score.pdf used on input line 4347.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [83 <./Topic06_AB_71_answer.pdf> <./Topic06_AB_71_score.pdf>]
 
@@ -2665,14 +2665,14 @@ LaTeX Warning: Marginpar on page 84 moved.
 File: Topic06_AB_72_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_72_answer.pdf>
-Package pdftex.def Info: Topic06_AB_72_answer.pdf used on input line 4416.
+Package pdftex.def Info: Topic06_AB_72_answer.pdf used on input line 4399.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_72_score.pdf, id=1854, 505.89pt x 505.89pt>
 File: Topic06_AB_72_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_72_score.pdf>
-Package pdftex.def Info: Topic06_AB_72_score.pdf used on input line 4416.
+Package pdftex.def Info: Topic06_AB_72_score.pdf used on input line 4399.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [84 <./Topic06_AB_72_answer.pdf> <./Topic06_AB_72_score.pdf>]
 
@@ -2682,14 +2682,14 @@ LaTeX Warning: Marginpar on page 85 moved.
 File: Topic06_AB_73_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_73_answer.pdf>
-Package pdftex.def Info: Topic06_AB_73_answer.pdf used on input line 4465.
+Package pdftex.def Info: Topic06_AB_73_answer.pdf used on input line 4448.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_73_score.pdf, id=1871, 505.89pt x 505.89pt>
 File: Topic06_AB_73_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_73_score.pdf>
-Package pdftex.def Info: Topic06_AB_73_score.pdf used on input line 4465.
+Package pdftex.def Info: Topic06_AB_73_score.pdf used on input line 4448.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [85 <./Topic06_AB_73_answer.pdf> <./Topic06_AB_73_score.pdf>]
 
@@ -2699,14 +2699,14 @@ LaTeX Warning: Marginpar on page 86 moved.
 File: Topic06_AB_74_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_74_answer.pdf>
-Package pdftex.def Info: Topic06_AB_74_answer.pdf used on input line 4517.
+Package pdftex.def Info: Topic06_AB_74_answer.pdf used on input line 4500.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_74_score.pdf, id=1889, 505.89pt x 505.89pt>
 File: Topic06_AB_74_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_74_score.pdf>
-Package pdftex.def Info: Topic06_AB_74_score.pdf used on input line 4517.
+Package pdftex.def Info: Topic06_AB_74_score.pdf used on input line 4500.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [86 <./Topic06_AB_74_answer.pdf> <./Topic06_AB_74_score.pdf>]
 
@@ -2716,14 +2716,14 @@ LaTeX Warning: Marginpar on page 87 moved.
 File: Topic06_AB_75_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_75_answer.pdf>
-Package pdftex.def Info: Topic06_AB_75_answer.pdf used on input line 4568.
+Package pdftex.def Info: Topic06_AB_75_answer.pdf used on input line 4551.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_75_score.pdf, id=1906, 505.89pt x 505.89pt>
 File: Topic06_AB_75_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_75_score.pdf>
-Package pdftex.def Info: Topic06_AB_75_score.pdf used on input line 4568.
+Package pdftex.def Info: Topic06_AB_75_score.pdf used on input line 4551.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [87 <./Topic06_AB_75_answer.pdf> <./Topic06_AB_75_score.pdf>]
 
@@ -2733,14 +2733,14 @@ LaTeX Warning: Marginpar on page 88 moved.
 File: Topic06_AB_76_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_76_answer.pdf>
-Package pdftex.def Info: Topic06_AB_76_answer.pdf used on input line 4618.
+Package pdftex.def Info: Topic06_AB_76_answer.pdf used on input line 4601.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_76_score.pdf, id=1923, 505.89pt x 505.89pt>
 File: Topic06_AB_76_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_76_score.pdf>
-Package pdftex.def Info: Topic06_AB_76_score.pdf used on input line 4618.
+Package pdftex.def Info: Topic06_AB_76_score.pdf used on input line 4601.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [88 <./Topic06_AB_76_answer.pdf> <./Topic06_AB_76_score.pdf>]
 
@@ -2750,14 +2750,14 @@ LaTeX Warning: Marginpar on page 89 moved.
 File: Topic06_AB_77_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_77_answer.pdf>
-Package pdftex.def Info: Topic06_AB_77_answer.pdf used on input line 4669.
+Package pdftex.def Info: Topic06_AB_77_answer.pdf used on input line 4652.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_77_score.pdf, id=1940, 505.89pt x 505.89pt>
 File: Topic06_AB_77_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_77_score.pdf>
-Package pdftex.def Info: Topic06_AB_77_score.pdf used on input line 4669.
+Package pdftex.def Info: Topic06_AB_77_score.pdf used on input line 4652.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [89 <./Topic06_AB_77_answer.pdf> <./Topic06_AB_77_score.pdf>]
 
@@ -2767,14 +2767,14 @@ LaTeX Warning: Marginpar on page 90 moved.
 File: Topic06_AB_78_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_78_answer.pdf>
-Package pdftex.def Info: Topic06_AB_78_answer.pdf used on input line 4718.
+Package pdftex.def Info: Topic06_AB_78_answer.pdf used on input line 4701.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_78_score.pdf, id=1957, 505.89pt x 505.89pt>
 File: Topic06_AB_78_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_78_score.pdf>
-Package pdftex.def Info: Topic06_AB_78_score.pdf used on input line 4718.
+Package pdftex.def Info: Topic06_AB_78_score.pdf used on input line 4701.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [90 <./Topic06_AB_78_answer.pdf> <./Topic06_AB_78_score.pdf>]
 
@@ -2784,14 +2784,14 @@ LaTeX Warning: Marginpar on page 91 moved.
 File: Topic06_AB_79_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_79_answer.pdf>
-Package pdftex.def Info: Topic06_AB_79_answer.pdf used on input line 4770.
+Package pdftex.def Info: Topic06_AB_79_answer.pdf used on input line 4753.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_79_score.pdf, id=1974, 505.89pt x 505.89pt>
 File: Topic06_AB_79_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_79_score.pdf>
-Package pdftex.def Info: Topic06_AB_79_score.pdf used on input line 4770.
+Package pdftex.def Info: Topic06_AB_79_score.pdf used on input line 4753.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [91 <./Topic06_AB_79_answer.pdf> <./Topic06_AB_79_score.pdf>]
 
@@ -2801,14 +2801,14 @@ LaTeX Warning: Marginpar on page 92 moved.
 File: Topic06_AB_80_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_80_answer.pdf>
-Package pdftex.def Info: Topic06_AB_80_answer.pdf used on input line 4820.
+Package pdftex.def Info: Topic06_AB_80_answer.pdf used on input line 4803.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_80_score.pdf, id=1993, 505.89pt x 505.89pt>
 File: Topic06_AB_80_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_80_score.pdf>
-Package pdftex.def Info: Topic06_AB_80_score.pdf used on input line 4820.
+Package pdftex.def Info: Topic06_AB_80_score.pdf used on input line 4803.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [92 <./Topic06_AB_80_answer.pdf> <./Topic06_AB_80_score.pdf>]
 
@@ -2818,14 +2818,14 @@ LaTeX Warning: Marginpar on page 93 moved.
 File: Topic06_AB_81_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_81_answer.pdf>
-Package pdftex.def Info: Topic06_AB_81_answer.pdf used on input line 4871.
+Package pdftex.def Info: Topic06_AB_81_answer.pdf used on input line 4854.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_81_score.pdf, id=2010, 505.89pt x 505.89pt>
 File: Topic06_AB_81_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_81_score.pdf>
-Package pdftex.def Info: Topic06_AB_81_score.pdf used on input line 4871.
+Package pdftex.def Info: Topic06_AB_81_score.pdf used on input line 4854.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [93 <./Topic06_AB_81_answer.pdf> <./Topic06_AB_81_score.pdf>]
 
@@ -2835,14 +2835,14 @@ LaTeX Warning: Marginpar on page 94 moved.
 File: Topic06_AB_82_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_82_answer.pdf>
-Package pdftex.def Info: Topic06_AB_82_answer.pdf used on input line 4922.
+Package pdftex.def Info: Topic06_AB_82_answer.pdf used on input line 4905.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_82_score.pdf, id=2027, 505.89pt x 505.89pt>
 File: Topic06_AB_82_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_82_score.pdf>
-Package pdftex.def Info: Topic06_AB_82_score.pdf used on input line 4922.
+Package pdftex.def Info: Topic06_AB_82_score.pdf used on input line 4905.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [94 <./Topic06_AB_82_answer.pdf> <./Topic06_AB_82_score.pdf>]
 
@@ -2852,14 +2852,14 @@ LaTeX Warning: Marginpar on page 95 moved.
 File: Topic06_AB_83_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_83_answer.pdf>
-Package pdftex.def Info: Topic06_AB_83_answer.pdf used on input line 4972.
+Package pdftex.def Info: Topic06_AB_83_answer.pdf used on input line 4955.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_83_score.pdf, id=2044, 505.89pt x 505.89pt>
 File: Topic06_AB_83_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_83_score.pdf>
-Package pdftex.def Info: Topic06_AB_83_score.pdf used on input line 4972.
+Package pdftex.def Info: Topic06_AB_83_score.pdf used on input line 4955.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [95 <./Topic06_AB_83_answer.pdf> <./Topic06_AB_83_score.pdf>]
 
@@ -2869,14 +2869,14 @@ LaTeX Warning: Marginpar on page 96 moved.
 File: Topic06_AB_84_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_84_answer.pdf>
-Package pdftex.def Info: Topic06_AB_84_answer.pdf used on input line 5022.
+Package pdftex.def Info: Topic06_AB_84_answer.pdf used on input line 5005.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_84_score.pdf, id=2061, 505.89pt x 505.89pt>
 File: Topic06_AB_84_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_84_score.pdf>
-Package pdftex.def Info: Topic06_AB_84_score.pdf used on input line 5022.
+Package pdftex.def Info: Topic06_AB_84_score.pdf used on input line 5005.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [96 <./Topic06_AB_84_answer.pdf> <./Topic06_AB_84_score.pdf>]
 
@@ -2886,14 +2886,14 @@ LaTeX Warning: Marginpar on page 97 moved.
 File: Topic06_AB_85_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_85_answer.pdf>
-Package pdftex.def Info: Topic06_AB_85_answer.pdf used on input line 5072.
+Package pdftex.def Info: Topic06_AB_85_answer.pdf used on input line 5055.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_85_score.pdf, id=2078, 505.89pt x 505.89pt>
 File: Topic06_AB_85_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_85_score.pdf>
-Package pdftex.def Info: Topic06_AB_85_score.pdf used on input line 5072.
+Package pdftex.def Info: Topic06_AB_85_score.pdf used on input line 5055.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [97 <./Topic06_AB_85_answer.pdf> <./Topic06_AB_85_score.pdf>]
 
@@ -2903,14 +2903,14 @@ LaTeX Warning: Marginpar on page 98 moved.
 File: Topic06_AB_86_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_86_answer.pdf>
-Package pdftex.def Info: Topic06_AB_86_answer.pdf used on input line 5122.
+Package pdftex.def Info: Topic06_AB_86_answer.pdf used on input line 5105.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_86_score.pdf, id=2096, 505.89pt x 505.89pt>
 File: Topic06_AB_86_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_86_score.pdf>
-Package pdftex.def Info: Topic06_AB_86_score.pdf used on input line 5122.
+Package pdftex.def Info: Topic06_AB_86_score.pdf used on input line 5105.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [98 <./Topic06_AB_86_answer.pdf> <./Topic06_AB_86_score.pdf>]
 
@@ -2920,14 +2920,14 @@ LaTeX Warning: Marginpar on page 99 moved.
 File: Topic06_AB_87_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_87_answer.pdf>
-Package pdftex.def Info: Topic06_AB_87_answer.pdf used on input line 5173.
+Package pdftex.def Info: Topic06_AB_87_answer.pdf used on input line 5156.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_87_score.pdf, id=2114, 505.89pt x 505.89pt>
 File: Topic06_AB_87_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_87_score.pdf>
-Package pdftex.def Info: Topic06_AB_87_score.pdf used on input line 5173.
+Package pdftex.def Info: Topic06_AB_87_score.pdf used on input line 5156.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [99 <./Topic06_AB_87_answer.pdf> <./Topic06_AB_87_score.pdf>]
 
@@ -2937,14 +2937,14 @@ LaTeX Warning: Marginpar on page 100 moved.
 File: Topic06_AB_88_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_88_answer.pdf>
-Package pdftex.def Info: Topic06_AB_88_answer.pdf used on input line 5224.
+Package pdftex.def Info: Topic06_AB_88_answer.pdf used on input line 5207.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_88_score.pdf, id=2131, 505.89pt x 505.89pt>
 File: Topic06_AB_88_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_88_score.pdf>
-Package pdftex.def Info: Topic06_AB_88_score.pdf used on input line 5224.
+Package pdftex.def Info: Topic06_AB_88_score.pdf used on input line 5207.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [100 <./Topic06_AB_88_answer.pdf> <./Topic06_AB_88_score.pdf>]
 
@@ -2954,14 +2954,14 @@ LaTeX Warning: Marginpar on page 101 moved.
 File: Topic06_AB_89_answer.pdf Graphic file (type pdf)
 
 <use Topic06_AB_89_answer.pdf>
-Package pdftex.def Info: Topic06_AB_89_answer.pdf used on input line 5275.
+Package pdftex.def Info: Topic06_AB_89_answer.pdf used on input line 5258.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
 
 <Topic06_AB_89_score.pdf, id=2148, 505.89pt x 505.89pt>
 File: Topic06_AB_89_score.pdf Graphic file (type pdf)
 
 <use Topic06_AB_89_score.pdf>
-Package pdftex.def Info: Topic06_AB_89_score.pdf used on input line 5275.
+Package pdftex.def Info: Topic06_AB_89_score.pdf used on input line 5258.
 (pdftex.def)             Requested size: 140.39905pt x 140.3977pt.
  [101 <./Topic06_AB_89_answer.pdf> <./Topic06_AB_89_score.pdf>]
 
@@ -2969,19 +2969,19 @@ Package bibentry Warning: You have used \nobibliography*
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5303.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5303.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5286.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5286.
 (./Stat101hwk_Topic06_AB.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5303.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5286.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5286.
 
 Package rerunfilecheck Info: File `Stat101hwk_Topic06_AB.out' has not changed.
-(rerunfilecheck)             Checksum: 278A50B858F26B908CB3E1048FF338FF;7673.
+(rerunfilecheck)             Checksum: E34C18099FE9481E61460A122929825C;7679.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5303.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5286.
  ) 
 Here is how much of TeX's memory you used:
  10771 strings out of 493117
@@ -3000,7 +3000,7 @@ mf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on Stat101hwk_Topic06_AB.pdf (101 pages, 1615597 bytes).
+Output written on Stat101hwk_Topic06_AB.pdf (101 pages, 1616050 bytes).
 PDF statistics:
  2241 PDF objects out of 2487 (max. 8388607)
  1729 compressed objects within 18 object streams

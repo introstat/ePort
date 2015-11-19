@@ -95,17 +95,19 @@ print(xtable(su,caption='Summary statistics of the scores', label='tab:summary')
 
 \clearpage
 \newpage{}
-\section{Learning Outcomes}
-
-\bigskip{}
-
-The learning outcomes for this topic are:
+\section{Topic Learning Outcomes}
 
 \bigskip{}
 
 <<echo=FALSE,results='asis'>>=
-cat(chapter_outcomes,sep="\n\n \\bigskip{} \n\n")
-cat("\\\\ \n ~~ \n")
+#cat(chapter_outcomes,sep="\n\n \\bigskip{} \n\n")
+#cat("\\noindent",chapter_outcomes,sep="\\bigskip{} \n\n")
+#cat("\\\\ \n ~~ \n")
+
+for (i in 1:length(chapter_outcomes)){
+      cat("\\noindent", chapter_outcomes[i], "\n\n")
+      cat("\\vspace{4mm}")
+}
 @
 
 \newpage{}
