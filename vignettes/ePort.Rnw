@@ -241,7 +241,8 @@ Note: If running many reports, it is more efficient to exit now and hard-code th
 Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. However, upon seeing the menu option, we can also escape out of the command, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below:
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath, reportType = "secTopicShort")
+makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
+reportType = "secTopicShort")
 @
 
 The advantage to specifying by hard-coding the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}).
@@ -256,7 +257,8 @@ And a .txt file that contains the list of students who have scored below 80 on t
 The short report summarization we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath,dataFile=dataPath,loFile=loPath,reportType="secTopicLong",outFile=outPath)
+makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
+reportType="secTopicLong")
 @
 
 We can find our output report in the \texttt{ReportFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06ABlong.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
@@ -269,7 +271,8 @@ If a course has multiple sections, and we wish to create an individual report fo
 We can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below:
 
 <<eval=FALSE>>=
-dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
+dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
+system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 @
 
 Then, we can run the 
@@ -278,7 +281,6 @@ Then, we can run the
 for (i in dataListPath) rewriteData(i)
 for (i in dataListPath){
   makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,outFile=outPath)
-  #makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,reportType="secTopicLong",outFile=outPath)
 }
 @
 

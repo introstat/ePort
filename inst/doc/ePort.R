@@ -123,35 +123,37 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 18: ePort.Rnw:243-244 (eval = FALSE)
+### code chunk number 18: ePort.Rnw:243-245 (eval = FALSE)
 ###################################################
-## makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath, reportType = "secTopicShort")
+## makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
+## reportType = "secTopicShort")
 
 
 ###################################################
-### code chunk number 19: ePort.Rnw:258-259 (eval = FALSE)
+### code chunk number 19: ePort.Rnw:259-261 (eval = FALSE)
 ###################################################
-## makeReport(keyFile=keyPath,dataFile=dataPath,loFile=loPath,reportType="secTopicLong",outFile=outPath)
+## makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
+## reportType="secTopicLong")
 
 
 ###################################################
-### code chunk number 20: ePort.Rnw:271-272 (eval = FALSE)
+### code chunk number 20: ePort.Rnw:273-275 (eval = FALSE)
 ###################################################
-## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
+## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
+## system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 
 
 ###################################################
-### code chunk number 21: ePort.Rnw:277-282 (eval = FALSE)
+### code chunk number 21: ePort.Rnw:280-284 (eval = FALSE)
 ###################################################
 ## for (i in dataListPath) rewriteData(i)
 ## for (i in dataListPath){
 ##   makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,outFile=outPath)
-##   #makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,reportType="secTopicLong",outFile=outPath)
 ## }
 
 
 ###################################################
-### code chunk number 22: ePort.Rnw:287-298 (eval = FALSE)
+### code chunk number 22: ePort.Rnw:289-300 (eval = FALSE)
 ###################################################
 ## dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
 ## #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
