@@ -100,10 +100,6 @@ print(xtable(su,caption='Summary statistics of the scores', label='tab:summary')
 \bigskip{}
 
 <<echo=FALSE,results='asis'>>=
-#cat(chapter_outcomes,sep="\n\n \\bigskip{} \n\n")
-#cat("\\noindent",chapter_outcomes,sep="\\bigskip{} \n\n")
-#cat("\\\\ \n ~~ \n")
-
 for (i in 1:length(chapter_outcomes)){
       cat("\\noindent", chapter_outcomes[i], "\n\n")
       cat("\\vspace{4mm}")
@@ -317,7 +313,7 @@ cat(sprintf('\\begin{center}
 \newpage{}
 \section{Summary of Questions}
 
-%The correct answer is ',gsub('\\$','\\\\$',gsub('\\%','\\\\%',tmpanswer)),'. Code removed from Question output.
+
 <<echo=FALSE,results='asis'>>=
 
 CompareSummary=matrix(nrow=nQuestion,ncol=7)
