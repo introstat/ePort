@@ -67,9 +67,9 @@ library(ePort)
 ## 
 ## rewriteData(dataPath)
 ## 
-## loPath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
+## loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
 ## 
-## outPath = system.file("inst/extdata/ReportFiles", package="ePort")
+## outPath = system.file("inst/extdata/OutputFiles", package="ePort")
 ## 
 ## makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
 
@@ -107,13 +107,13 @@ library(ePort)
 ###################################################
 ### code chunk number 15: ePort.Rnw:209-210 (eval = FALSE)
 ###################################################
-## loPath = system.file("inst/extdata/OutcomeFiles/Topic06.Outcomes.txt", package="ePort")
+## loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
 
 
 ###################################################
 ### code chunk number 16: ePort.Rnw:215-216 (eval = FALSE)
 ###################################################
-## outPath = system.file("inst/extdata/ReportFiles", package="ePort")
+## outPath = system.file("inst/extdata/OutputFiles", package="ePort")
 
 
 ###################################################
@@ -137,30 +137,43 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 20: ePort.Rnw:273-275 (eval = FALSE)
+### code chunk number 20: ePort.Rnw:270-273 (eval = FALSE)
+###################################################
+## dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
+## dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+## makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicShort")
+
+
+###################################################
+### code chunk number 21: ePort.Rnw:280-281 (eval = FALSE)
+###################################################
+## makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicLong")
+
+
+###################################################
+### code chunk number 22: ePort.Rnw:291-293 (eval = FALSE)
 ###################################################
 ## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
 ## system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 
 
 ###################################################
-### code chunk number 21: ePort.Rnw:280-284 (eval = FALSE)
+### code chunk number 23: ePort.Rnw:298-302 (eval = FALSE)
 ###################################################
-## for (i in dataListPath) rewriteData(i)
 ## for (i in dataListPath){
-##   makeReport(keyFile=keyPath,dataFile=i,loFile=loPath,outFile=outPath)
+##   rewriteData(i)
+##   makeReport(keyFile=keyPath, dataFile=i, loFile=loPath, outFile=outPath, reportType="secTopicShort")
 ## }
 
 
 ###################################################
-### code chunk number 22: ePort.Rnw:289-300 (eval = FALSE)
+### code chunk number 24: ePort.Rnw:307-317 (eval = FALSE)
 ###################################################
 ## dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
 ## #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
 ## #http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
 ## 
-## 
-## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
+## #dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 ## #topic = gsub('.Questions.txt','',gsub('Topic','',basename(key)))
 ## #namelist = list.files(path=dataPath,full.names=TRUE)
 ## #namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]

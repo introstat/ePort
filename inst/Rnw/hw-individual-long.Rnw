@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
+\usepackage{enumitem}
 
 %\usepackage[letterpaper]{geometry}
 %\geometry{verbose,tmargin=4cm,bmargin=4.5cm,lmargin=3.2cm,rmargin=3.5cm}
@@ -99,12 +100,14 @@ print(xtable(su,caption='Summary statistics of the scores', label='tab:summary')
 
 \bigskip{}
 
-<<echo=FALSE,results='asis'>>=
-for (i in 1:length(chapter_outcomes)){
-      cat("\\noindent", chapter_outcomes[i], "\n\n")
-      cat("\\vspace{4mm}")
-}
+\begin{fullwidth}
+\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]
+  \item
+<<results="asis", echo=FALSE>>=
+  cat(chapter_outcomes, sep="\n\\item ")
 @
+\end{enumerate}
+\end{fullwidth}
 
 \newpage{}
 

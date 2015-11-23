@@ -37,7 +37,7 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
       reportType = system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort")
     }
     if (reportType=="secTopicLong"){
-      reportType = system.file("inst/Rnw/hw-individual.Rnw", package="ePort")
+      reportType = system.file("inst/Rnw/hw-individual-long.Rnw", package="ePort")
     }
     
     # Find the file name
@@ -68,20 +68,41 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
     chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
     chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
     
-    #for (i in 1:length(chapter_outcomes)){
-      #chapter_outcomes[i] =
-        #paste(str_trim(unlist(strsplit(chapter_outcomes[i],
-        #                              "[.]"))[2]),".",sep="")
-        #paste(str_trim(unlist(strsplit(chapter_outcomes[i], "[.]"))),".",sep="")
-    #}
-    
-    # Cross-section report
-    if (length(Score_filename)>1){
-      instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
-      knit(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",gsub("Rnw$","tex",gsub("hw-","",basename(reportType)))))
-      return()
+    for (i in 1:length(chapter_outcomes)){
+      chapter_outcomes[i] = paste(str_trim(unlist(strsplit(chapter_outcomes[i], "[.]"))[2]),".",sep="")
     }
 
+    # Cross-section report
+    
+    #if (length(Score_filename)>1){
+      if (reportType=="crossSecTopicShort"){
+        reportType = system.file("inst/Rnw/hw-section-short.Rnw", package="ePort")
+        instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
+        if (keepFiles){
+          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"))
+        }else{
+          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"),clean=T)
+        }
+        if (!keepTex){
+          on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"))) 
+        }
+        return()
+      }
+      if (reportType=="crossSecTopicLong"){
+        reportType = system.file("inst/Rnw/hw-section-long.Rnw", package="ePort")
+        instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
+        if (keepFiles){
+          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"))
+        }else{
+          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"),clean=T)
+        }
+        if (!keepTex){
+          on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"))) 
+        }
+        return()
+      }
+    #}
+    
     if (rewrite) rewriteData(Score_filename)
     
     # Read the data

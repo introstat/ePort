@@ -32,7 +32,7 @@ library(lme4)
 #library(MASS)
 
 plotprename=paste0('Topic',topic)
-chpt=substr(basename(namelist)[1],1,regexpr("\\.",basename(namelist)[1])-1)
+chpt=substr(basename(dataFile)[1],1,regexpr("\\.",basename(dataFile)[1])-1)
 
 highmean=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[1,]==max(instructor_scores$sumrytotal[1,])],sep=", ")
 
@@ -52,7 +52,7 @@ HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set
 \centerline{\bf }
 
 \section{Overview}
-The homework results that will be compared are \Sexpr{paste(basename(namelist),collapse=', ')}. Those files record the scores of students who are taught by different instructors. The homework questions examine the understanding of \Sexpr{chpt}.
+The homework results that will be compared are \Sexpr{paste(basename(dataFile),collapse=', ')}. Those files record the scores of students who are taught by different instructors. The homework questions examine the understanding of \Sexpr{chpt}.
 
 Full credit for this homework assignment is \Sexpr{HWFullPt}. The histograms of total scores by section are shown in Figure \ref{mar:hist}. The summary statistics of the scores are given by Table \ref{tab:summary} and Figure \ref{fig:boxplot-score}. The table is sorted by the mean score of each section. Section \Sexpr{paste(highmean,collapse=',')} \Sexpr{ifelse(length(highmean)==1,"has","have")} the highest mean score, and section \Sexpr{paste(highmedian,collapse=",")} \Sexpr{ifelse(all(highmean==highmedian),"also","")}  \Sexpr{ifelse(length(highmedian)==1,"has","have")} the highest median. Section \Sexpr{paste(highstd,collapse=',')} \Sexpr{ifelse(length(highstd)==1,"has","have")} the largest standard deviation of the scores, while section \Sexpr{paste(lowstd,collapse=',')} \Sexpr{ifelse(length(lowstd)==1,"has","have")} the smallest.
 
@@ -157,7 +157,7 @@ we consider the generalized linear mixed model:
 g(E[Y_{ijk}|u_{jk}])= \mu+\tau_{i}+s_{j}+\tau s_{ij}+u_{jk}
 \]
 where $i=1,...,$\Sexpr{length(unique(answerkey$simplekey$Objective.Set))} learning outcomes; 
-$j=1,...,$\Sexpr{length(namelist)} sections; $k=1,...,n_j$ students.
+$j=1,...,$\Sexpr{length(dataFile)} sections; $k=1,...,n_j$ students.
 $Y_{ijk}$ is the score (scaled in $[0,1]$) of the $k$th student of 
 section $j$ in the $i$th learning outcome. $\tau_i$ and $s_{j}$ are the 
 fixed effects of learning outcome $i$ and section $j$. 
@@ -201,7 +201,7 @@ obj_pmtrx = multipleComparison(obj_est,obj_estcov,levels(b$LearningObj),nrow(Lea
 
 print(xtable(obj_pmtrx,caption='P-values of the multiple comparison between learning outcomes', label='tab:pvalues_obj',digits=4), floating=FALSE, tabular.environment = "longtable")
 
-sec_r=length(namelist)
+sec_r=length(dataFile)
 sec_est=est[1:(sec_r-1)+obj_r-1]
 sec_estcov=estcov[1:(sec_r-1)+obj_r-1,1:(sec_r-1)+obj_r-1]
 sec_pmtrx=multipleComparison(sec_est,sec_estcov,rownames(a),nrow(Learning_Objectives))
@@ -262,7 +262,9 @@ d=d[,c(1,2,ncol(d)-(1:0),3:(ncol(d)-2))]
 
 @
 
-Table \ref{tab:Qset-sd} presents the standard deviation of the question correct rates by question set and section. Question set \Sexpr{rownames(d[d[,3]>1,4:9])[which.min(rowMeans(d[d[,3]>1,4:9]))]} has the smallest standard deviation, while \Sexpr{rownames(d[,4:9])[which.max(rowMeans(d[,4:9]))]} has the largest standard deviation.
+Table \ref{tab:Qset-sd} presents the standard deviation of the question correct rates by question set and section.
+%%%% ONLY COMMENTED OUT FOR TESTING!!!!!!!!!!!!!!!!!!! %%%%%%%%%%%%
+%Question set \Sexpr{rownames(d[d[,3]>1,4:9])[which.min(rowMeans(d[d[,3]>1,4:9]))]} has the smallest standard deviation, while \Sexpr{rownames(d[,4:9])[which.max(rowMeans(d[,4:9]))]} has the largest standard deviation.
 
 <<echo=FALSE,results='asis'>>=
 print(xtable(d,caption='Standard deviations of the percentages correct by section. The second column indicates the corresponding learning outcomes. The third column gives the number of questions in each question set.', label='tab:Qset-sd',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)

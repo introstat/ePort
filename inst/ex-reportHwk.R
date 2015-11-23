@@ -21,11 +21,11 @@ loPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework 
 ## 1. Individual report ##
 for (i in namelist) rewriteData(i)
 for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual-short.Rnw")
-for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual.Rnw")
+for (i in namelist) makeReport(keyPath=keyFile,dataFile=i,rewrite=FALSE,loFile=loPath,reportType="inst/Rnw/hw-individual-long.Rnw")
 
 ## 2. Cross-section report ##
-makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section-short.Rnw")
-makeReport(keyPath=keyFile,namelist,loFile=loPath,reportType="inst/Rnw/hw-section.Rnw")
+makeReport(keyFile=keyPath,namelist,loFile=loPath,reportType="inst/Rnw/hw-section-short.Rnw")
+makeReport(keyFile=keyPath,namelist,loFile=loPath,reportType="inst/Rnw/hw-section.Rnw")
 
 ## 3. Cross-topic report ##
 tabfiles = setDir(dataPath)

@@ -8,6 +8,16 @@
 \usepackage[space]{grffile}
 
 \makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\Rcode}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rcommand}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\textit{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\newcommand{\Rmethod}[1]{{\textit{#1}}}
+\newcommand{\Rclass}[1]{{\textit{#1}}}
+
 \makeatother
 
 \begin{document}
@@ -20,7 +30,7 @@ library(plyr)
 library(reshape2)
 
 plotprename=paste0('Topic',topic)
-chpt=substr(basename(namelist)[1],1,regexpr("\\.",basename(namelist)[1])-1)
+chpt=substr(basename(dataFile)[1],1,regexpr("\\.",basename(dataFile)[1])-1)
 
 highmean=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[1,]==max(instructor_scores$sumrytotal[1,])],sep=", ")
 
@@ -32,8 +42,6 @@ lowstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal
 
 HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set),'QSFullPt']))
 @
-
-
 
 \centerline{\Large\bf Introductory Statistics Homework Short Report for Topic \Sexpr{topic}}
 \centerline{\bf Comparison among Sections}
@@ -68,7 +76,7 @@ cat(sprintf('
 
 @
 
-The homework results that will be compared are \Sexpr{paste(basename(namelist),collapse=', ')}.
+The homework results that will be compared are \Sexpr{paste(basename(dataFile),collapse=', ')}.
 
 Figure \ref{fig:boxplot-score} shows the side-by-side boxplots
 for the overall scores by section.
