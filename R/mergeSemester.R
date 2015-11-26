@@ -53,7 +53,7 @@ mergeData = function(files){
   nfile=nrow(files)
   dat=list()
   score=data.frame()
-  pb = txtProgressBar(min = 0, max = nfile, style = 3, label="Read the data ...")
+  pb = txtProgressBar(min = 0, max = nfile, style = 3, label="Processing the data ...")
   for (i in 1:nfile) {
     dat[[i]]=data.frame(readScore(files[i,"file"],keepAttempts=FALSE)$score[,c(1,2,4)],Topic=files[i,"topic"],Section=files[i,"section"],stringsAsFactors=FALSE)
     score=rbind(score,dat[[i]])
@@ -83,7 +83,9 @@ mergeData = function(files){
     }
   }
   rownames(mergemtrx)=rownames(CorrectPct)=mergemtrx$Username
+  # Original line
   MissingTimes=apply(mergemtrx[,-(1:2)],1,function(avec){sum(is.na(avec))})
+  #MissingTimes=sum(is.na(mergemtrx[,-(1:2)]))
   CorrectPct=data.frame(CorrectPct,AvgCrtPct=rowMeans(CorrectPct[,-(1:2)],na.rm=TRUE),check.names=FALSE)
   ord=order(7-as.integer(as.factor(CorrectPct$Section)),CorrectPct$AvgCrtPct,ncol(mergemtrx)-2-MissingTimes,decreasing=TRUE)
   mergemtrx=mergemtrx[ord,]
