@@ -281,6 +281,19 @@ We received a brief comparative summary between the sections of Topic 06 in the 
 makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicLong")
 @
 
+\subsection{One unit (group of topics) for one section}
+
+<<eval=FALSE>>=
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
+dataTable = setDir(dataFolder)
+mergedData = mergeData(dataTable)
+# Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
+for (sctn in unique(tabfiles$section)) {
+  merged = subsetData(mgdata,tabfiles,choice=sctn)
+  knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw",output=paste0('Stat101hwk_Unit1_Section',sctn,'.tex'))
+}
+@
+
 \section{Running reports sequentially}
 \label{sec:sequential}
 

@@ -54,7 +54,9 @@ makeReport(keyFile=keyPath,namelist,loFile=loPath,reportType="inst/Rnw/hw-sectio
 
 ## 3. Cross-topic report ##
 tabfiles = setDir(dataPath)
-tabfiles = tabfiles[tabfiles$section!='201' & tabfiles$topic \%in\% paste0('Topic0',1:5),]
+# Originally only included Topics 01-05
+#tabfiles = tabfiles[tabfiles$section!='201' & tabfiles$topic \%in\% paste0('Topic0',1:5),]
+tabfiles = tabfiles[tabfiles$section!='201',] # new syntax
 mgdata = mergeData(tabfiles)
 for (sctn in unique(tabfiles$section)) {
   merged = subsetData(mgdata,tabfiles,choice=sctn)
