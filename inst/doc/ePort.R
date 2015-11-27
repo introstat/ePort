@@ -151,14 +151,38 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 22: ePort.Rnw:291-293 (eval = FALSE)
+### code chunk number 22: ePort.Rnw:286-298 (eval = FALSE)
+###################################################
+## dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
+## dataList = list.files(path=dataFolder,full.names=TRUE)
+## for (file in dataList){
+##   rewrite(file)
+## }
+## dataTable = setDir(dataFolder)
+## mergedData = mergeData(dataTable)
+## # Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
+## for (sctn in unique(tabfiles$section)) {
+##   merged = subsetData(mgdata,tabfiles,choice=sctn)
+##   knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw",output=paste0('Stat101hwk_Unit1_Section',sctn,'.tex'))
+## }
+
+
+###################################################
+### code chunk number 23: ePort.Rnw:303-305 (eval = FALSE)
+###################################################
+## merged = subsetData(mgdata,tabfiles)
+## knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
+
+
+###################################################
+### code chunk number 24: ePort.Rnw:315-317 (eval = FALSE)
 ###################################################
 ## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
 ## system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 
 
 ###################################################
-### code chunk number 23: ePort.Rnw:298-302 (eval = FALSE)
+### code chunk number 25: ePort.Rnw:322-326 (eval = FALSE)
 ###################################################
 ## for (i in dataListPath){
 ##   rewriteData(i)
@@ -167,7 +191,7 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 24: ePort.Rnw:307-317 (eval = FALSE)
+### code chunk number 26: ePort.Rnw:331-341 (eval = FALSE)
 ###################################################
 ## dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
 ## #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)

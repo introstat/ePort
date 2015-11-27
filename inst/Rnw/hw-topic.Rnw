@@ -54,7 +54,7 @@ if (nfile<10) {
 fname=paste0(plotprename,'histbystu.pdf')
 pdf(paste0("../",fname),width=4, height=18)
 print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
-{dev.off();invisible()}
+dev.off();invisible()
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
 } else {
@@ -64,7 +64,7 @@ fname=paste0(plotprename,'histbystu',j,'.pdf')
 pdf(paste0("../",fname),width=4, height=18)
 partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
 print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
-{dev.off();invisible()}
+dev.off();invisible()
 }
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',paste0(plotprename,'histbystu1')))
@@ -149,41 +149,58 @@ cat(sprintf('\\begin{center}
 \clearpage
 
 <<echo=FALSE,results="asis">>=
-p90= max(which(merged$dat$CorrectPct$AvgCrtPct>=90))
-p80= max(which(merged$dat$CorrectPct$AvgCrtPct>=80))
-p70= max(which(merged$dat$CorrectPct$AvgCrtPct>=70))
-p60= max(which(merged$dat$CorrectPct$AvgCrtPct>=60))
+p60 = p70 = p80 = p90 = 0
+if (max(merged$dat$CorrectPct$AvgCrtPct)>=90){
+   p90= max(which(merged$dat$CorrectPct$AvgCrtPct>=90)) 
+}
+if (max(merged$dat$CorrectPct$AvgCrtPct)>=80){
+   p80= max(which(merged$dat$CorrectPct$AvgCrtPct>=80)) 
+}
+if (max(merged$dat$CorrectPct$AvgCrtPct)>=70){
+   p70= max(which(merged$dat$CorrectPct$AvgCrtPct>=70)) 
+}
+if (max(merged$dat$CorrectPct$AvgCrtPct)>=60){
+   p60= max(which(merged$dat$CorrectPct$AvgCrtPct>=60)) 
+}
 #tmp=cbind(Student=rownames(merged),merged)
 #tmp=rbind(tmp[1:p90,],NA,tmp[(p90+1):p80,],NA,tmp[(p80+1):p70,],NA,tmp[(p70+1):p60,],NA,tmp[(p60+1):nrow(tmp),])
 #print(xtable(tmp,caption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged)*100, 2)), as.character(round(sum(merged$AvgCrtPct<60,na.rm=TRUE)/nrow(merged)*100, 2))), label='tab:data'), floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
 
 tmp=merged$dat$CorrectPct[,-(1:2)]
-tmp90=tmp[1:p90,,drop=FALSE]
-tmp80=tmp[(p90+1):p80,,drop=FALSE]
-tmp70=tmp[(p80+1):p70,,drop=FALSE]
-tmp60=tmp[(p70+1):p60,,drop=FALSE]
-tmp50=tmp[(p60+1):nrow(tmp),,drop=FALSE]
-if (nrow(tmp)==p90) {
-  tmp=tmp90
-} else if (nrow(tmp)==p80) {
-  tmp=rbind(tmp90,NA,tmp80)
-  rownames(tmp)[p90+1]=""
-} else if (nrow(tmp)==p70) {
-  tmp=rbind(tmp90,NA,tmp80,NA,tmp70)
-  rownames(tmp)[p90+1]=""
-  rownames(tmp)[p80+2]=" "
-} else if (nrow(tmp)==p60) {
-  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60)
-  rownames(tmp)[p90+1]=""
-  rownames(tmp)[p80+2]=" "
-  rownames(tmp)[p70+3]="  "
-} else {
-  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60,NA,tmp50)
-  rownames(tmp)[p90+1]=""
-  rownames(tmp)[p80+2]=" "
-  rownames(tmp)[p70+3]="  "
-  rownames(tmp)[p60+4]="   "
+if (p90!=0){
+  tmp90=tmp[1:p90,,drop=FALSE]  
 }
+if (p80!=0){
+  tmp80=tmp[(p90+1):p80,,drop=FALSE]  
+}
+if (p70!=0){
+  tmp70=tmp[(p80+1):p70,,drop=FALSE]  
+}
+if (p60!=0){
+  tmp60=tmp[(p70+1):p60,,drop=FALSE]
+}
+tmp50=tmp[(p60+1):nrow(tmp),,drop=FALSE]
+#if (nrow(tmp)==p90) {
+#  tmp=tmp90
+#} else if (nrow(tmp)==p80) {
+#  tmp=rbind(tmp90,NA,tmp80)
+#  rownames(tmp)[p90+1]=""
+#} else if (nrow(tmp)==p70) {
+#  tmp=rbind(tmp90,NA,tmp80,NA,tmp70)
+#  rownames(tmp)[p90+1]=""
+#  rownames(tmp)[p80+2]=" "
+#} else if (nrow(tmp)==p60) {
+#  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60)
+#  rownames(tmp)[p90+1]=""
+#  rownames(tmp)[p80+2]=" "
+#  rownames(tmp)[p70+3]="  "
+#} else {
+#  tmp=rbind(tmp90,NA,tmp80,NA,tmp70,NA,tmp60,NA,tmp50)
+#  rownames(tmp)[p90+1]=""
+#  rownames(tmp)[p80+2]=" "
+#  rownames(tmp)[p70+3]="  "
+#  rownames(tmp)[p60+4]="   "
+#}
 AllStudentScore=wideTableLatex(tmp,tablecaption=sprintf('Percentage scores of all homeworks for the students. %s\\%% of the students have the average correct percentage greater than 90\\%%, and %s\\%% of the students have their average correct percentage below 60\\%%.', as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct>=90,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2)), as.character(round(sum(merged$dat$CorrectPct$AvgCrtPct<60,na.rm=TRUE)/nrow(merged$dat$CorrectPct)*100, 2))),label='tab:data',cols=7)
 
 
@@ -199,10 +216,7 @@ tmplag=apply(tmp,2,function(x){
   return(y)
 })
 rownames(tmplag)=rownames(tmp)
-print(xtable(tmplag,caption='Students whose scores were under 20\\% of the class.',
-             label='tab:lag'), floating=FALSE, tabular.environment = "longtable",
-      sanitize.text.function=identity)
-
+print(xtable(tmplag,caption='Students whose scores were under 20\\% of the class.', label='tab:lag'), floating=FALSE, tabular.environment = "longtable", sanitize.text.function=identity)
 
 ## Trend
 #trend1=1:6

@@ -146,7 +146,7 @@ Currently, the \pkg{ePort} package offers six report types, depending on what th
 \end{framed}
 This information can also be obtained by running \texttt{help(makeReport)}, and will be demonstrated in the next two sections immediately below.
 
-\subsection{One topic for one section - Short version}
+\subsection{One topic for one section - short version}
 
 We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet.
 
@@ -252,7 +252,7 @@ Whether we specify the type of report we wish to generate by hard-coding or sele
 %%% Add more here
 And a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.
 
-\subsection{One topic for one section - Long version}
+\subsection{One topic for one section - long version}
 
 The short report we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
@@ -263,7 +263,7 @@ reportType="secTopicLong")
 
 We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06AB.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
 
-\subsection{One topic comparing multiple sections - Short version}
+\subsection{One topic comparing multiple sections - short version}
 
 Now that we have successfully generated reports for both sections of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these two sections. In this case, we use the same \texttt{makeReport()} function as before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that lists the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic:
 
@@ -273,7 +273,7 @@ dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
 makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicShort")
 @
 
-\subsection{One topic comparing multiple sections - Long version}
+\subsection{One topic comparing multiple sections - long version}
 
 We received a brief comparative summary between the sections of Topic 06 in the previous section. If we would like to see a more detailed version of this report that includes comparative information for each question in the topic of interest, then we can simply run the previous line of code, only now specifying the \texttt{reportType} parameter to indicate that we wish to generate a long report that compares sections for a given topic:
 
@@ -285,6 +285,10 @@ makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,repor
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
+dataList = list.files(path=dataFolder,full.names=TRUE)
+for (file in dataList){
+  rewrite(file)
+}
 dataTable = setDir(dataFolder)
 mergedData = mergeData(dataTable)
 # Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
@@ -292,6 +296,13 @@ for (sctn in unique(tabfiles$section)) {
   merged = subsetData(mgdata,tabfiles,choice=sctn)
   knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw",output=paste0('Stat101hwk_Unit1_Section',sctn,'.tex'))
 }
+@
+
+\subsection{One unit (group of topics) comparing multiple sections}
+
+<<eval=FALSE>>=
+merged = subsetData(mgdata,tabfiles)
+knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
 @
 
 \section{Running reports sequentially}

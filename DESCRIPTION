@@ -15,7 +15,8 @@ Imports:
     stringr (>= 1.0.0),
     xtable (>= 1.7-4),
     ggplot2 (>= 1.0.1),
-    lme4 (>= 1.1-9)
+    lme4 (>= 1.1-9),
+    fpc (>= 2.1-10)
 Suggests:
     shiny (>= 0.12.2)
 License: GPL (>= 2.0)
