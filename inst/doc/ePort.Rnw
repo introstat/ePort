@@ -305,6 +305,22 @@ merged = subsetData(mgdata,tabfiles)
 knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
 @
 
+\section{Additional tools}
+\subsection{Splitting files}
+
+%% splitFile does not always run correctly (eg. splitFile(file,11,"ID"))
+%% What is RsQ?
+
+In some cases, one homework assignment may span across two topics. In order to generate separate reports for each of the two topics, we will first need to split the data file. For our example, we will split the Topic 03 data files for both sections AB and CD. !!!!!!!!!!!!
+
+<<eval=FALSE>>=
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
+dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+for(file in dataList){
+  splitFile(file, 9, "ID")
+}
+@
+
 \section{Running reports sequentially}
 \label{sec:sequential}
 
@@ -329,7 +345,7 @@ for (i in dataListPath){
 We can also, however, simply 
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
+dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
 #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
 #http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
 

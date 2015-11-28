@@ -34,6 +34,9 @@ getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=T
   }
   nameList = nameList[!duplicated(nameList[,1],fromLast=TRUE),]
   section = if (secblind) {'ID'} else {nameList$section}
+  if (is.null(semester)){
+    semester = ""
+  }
   nameList$Code = sprintf("%s%s%04d",section,semester,sample(1:nrow(nameList)))
   nameList = nameList[,-2]
   if (save) write.csv(nameList,file=paste0(dpath,'/nameCode.csv'),row.names=FALSE)

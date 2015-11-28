@@ -305,6 +305,58 @@ merged = subsetData(mgdata,tabfiles)
 knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
 @
 
+\section{Additional tools}
+
+%% Should use ex-mergeSections.R example?
+
+\subsection{Splitting files}
+
+%% splitFile does not always run correctly (eg. splitFile(file,11,"ID"))
+%% What is RsQ?
+
+In some cases, one homework assignment may span across two topics. In order to generate separate reports for each of the two topics, we will first need to split the data file. For our example, we will split the Topic 03 data files for both sections AB and CD. !!!!!!!!!!!!
+
+<<eval=FALSE>>=
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
+dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+for(file in dataList){
+  rewriteData(file)
+  splitFile(file, 9, "ID")
+}
+@
+
+\subsection{Merging files}
+
+%%% Which files should I use?
+
+<<eval=FALSE>>=
+dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Data Files/Ch9-Ch11"
+namelist = list.files(path=dataPath,full.names=TRUE)
+for (i in namelist) rewriteData(i) # May not need this rewriting step!
+for(i in c('AB','CD','EF','GH','JK','LM')){
+  tmp = namelist[grep(i,basename(namelist))]
+  combineFiles(tmp[2],tmp[1],paste("Topic11",i,"csv",sep='.'))
+}
+@
+
+\subsection{Deidentifying files}
+
+It should be noted that data files and the corresponding reports they generate contain student names. At times, it may be necessary to anonymize student names in a data file, so that it and any reports that can be generated from it do not contain confidential information. Deidentifying student names can be quickly accomplished by transferring all data files that you wish to deidentify into a common folder that is otherwise empty. It is important to ensure that no other files are in the common folder.
+
+In this vignette, such an example folder is already set up for you. The data files for both sections of Topic 03 are located in the \texttt{DataFiles/Topic03_Deidentified} folder of the \texttt{extdata} folder.
+
+using the \texttt{getNameList} and \texttt{encodeName} functions.
+
+
+
+%% Add message in getNameList if nameCode.csv is in file 
+
+<<eval=FALSE>>=
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package="ePort")
+getNameList(dataFolder, section=NULL, semester=NULL, secblind=TRUE, save=TRUE)
+encodeName(dataFolder, dict=paste(dataFolder,"nameCode.csv",sep='/'))
+@
+
 \section{Running reports sequentially}
 \label{sec:sequential}
 
@@ -329,7 +381,7 @@ for (i in dataListPath){
 We can also, however, simply 
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
+dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
 #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
 #http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
 

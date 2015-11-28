@@ -175,14 +175,24 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 24: ePort.Rnw:315-317 (eval = FALSE)
+### code chunk number 24: ePort.Rnw:316-321 (eval = FALSE)
+###################################################
+## dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
+## dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+## for(file in dataList){
+##   splitFile(file, 9, "ID")
+## }
+
+
+###################################################
+### code chunk number 25: ePort.Rnw:331-333 (eval = FALSE)
 ###################################################
 ## dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
 ## system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
 
 
 ###################################################
-### code chunk number 25: ePort.Rnw:322-326 (eval = FALSE)
+### code chunk number 26: ePort.Rnw:338-342 (eval = FALSE)
 ###################################################
 ## for (i in dataListPath){
 ##   rewriteData(i)
@@ -191,9 +201,9 @@ library(ePort)
 
 
 ###################################################
-### code chunk number 26: ePort.Rnw:331-341 (eval = FALSE)
+### code chunk number 27: ePort.Rnw:347-357 (eval = FALSE)
 ###################################################
-## dataFolder = system.file("inst/extdata/DataFiles/Topic06/", package="ePort")
+## dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
 ## #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
 ## #http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
 ## 
