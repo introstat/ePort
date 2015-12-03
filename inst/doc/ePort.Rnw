@@ -64,7 +64,9 @@ rm(list=ls())
 library(knitr)
 @ 
 
-\section{Summary}
+\section{Introduction}
+
+\subsection{Summary}
 
 The \pkg{ePort} package provides tools for course instructors to generate electronic reports regarding student performance. Instructors can produce reports immediately after homework assignment deadlines, and use them to better understand student performance throughout the teaching semester. The goal is to allow instructors to assess and improve upon their teaching approaches in a fast response cycle.
 
@@ -77,10 +79,6 @@ Reports can also be generated for one topic across multiple sections, with outpu
 In addition, reports can be generated for one unit (group of topics), either within one section or between multiple sections. This allows coordinators to assess student performance across all the learning outcomes of the combined topics that form the unit, and to quantify the consistency of how students perform across sections.
 
 In general, both short and long versions of reports can be generated. Short versions of reports provide brief summarizations of student performance without regard to individual problems, whereas long versions of reports provide detailed summarizations of student performance for each individual problem in the assignment. Hence, long reports can also be used to confirm the suitability of assigned problems. For instance, in some courses, problems that assess the same learning outcome and are intended to be of equal difficulty levels are grouped into a problem set, and each student is assigned a random subset from this set of problems. However, sometimes there may be an unexpected discrepancy in student performance between problems in a given problem set, indicating an unintended discrepancy in the clearness or difficulty level of the problems to which students are randomly assigned. This package will allow users to efficiently find and fix such issues. 
-
-\bigskip
-
-\section{Introduction}
 
 \subsection{Installation}
 
@@ -113,7 +111,17 @@ help(mergeSection)
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
 
-\subsection{Example data}
+\section{File formats and background}
+
+1 Put information about title key
+2 Put example LO
+3 Put example topics
+
+\section{Overview of ePort}
+
+\fbox{\includegraphics{ePortLayout.jpg}}
+
+\section{Example data}
 
 A directory that contains example data is automatically installed with the ePort package. The name of this directory is \texttt{extdata}. Understanding the location, layout, and content of the \texttt{extdata} directory will be necessary to continue with the examples provided in the vignette.
 
@@ -257,8 +265,7 @@ And a .txt file that contains the list of students who have scored below 80 on t
 The short report we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
-reportType="secTopicLong")
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = outPath, reportType = "secTopicLong")
 @
 
 We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06AB.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
@@ -268,9 +275,9 @@ We can find our output report in the \texttt{OutputFiles} subdirectory of the \t
 Now that we have successfully generated reports for both sections of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these two sections. In this case, we use the same \texttt{makeReport()} function as before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that lists the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic:
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
-dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
-makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicShort")
+dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
+dataList = list.files(path = dataFolder, full.names = TRUE)[1:2]
+makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicShort")
 @
 
 \subsection{One topic comparing multiple sections - long version}
@@ -278,34 +285,37 @@ makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,repor
 We received a brief comparative summary between the sections of Topic 06 in the previous section. If we would like to see a more detailed version of this report that includes comparative information for each question in the topic of interest, then we can simply run the previous line of code, only now specifying the \texttt{reportType} parameter to indicate that we wish to generate a long report that compares sections for a given topic:
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath,dataFile=dataList,loFile=loPath,outFile=outPath,reportType="crossSecTopicLong")
+makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicLong")
 @
 
 \subsection{One unit (group of topics) for one section}
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
-dataList = list.files(path=dataFolder,full.names=TRUE)
+dataList = list.files(path = dataFolder, full.names = TRUE)
 for (file in dataList){
-  rewrite(file)
+  rewriteData(file)
 }
 dataTable = setDir(dataFolder)
 mergedData = mergeData(dataTable)
 # Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
-for (sctn in unique(tabfiles$section)) {
-  merged = subsetData(mgdata,tabfiles,choice=sctn)
-  knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw",output=paste0('Stat101hwk_Unit1_Section',sctn,'.tex'))
+for (sctn in unique(dataTable$section)) {
+  merged = subsetData(mergedData, dataTable, choice = sctn)
+  knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw", output = paste0('Stat101hwk_Unit1_Section',sctn, '.tex'))
 }
 @
 
 \subsection{One unit (group of topics) comparing multiple sections}
 
 <<eval=FALSE>>=
-merged = subsetData(mgdata,tabfiles)
-knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw",output='Stat101hwk_Unit1_allSections.tex')
+merged = subsetData(mergedData, dataTable)
+knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output = 'Stat101hwk_Unit1_allSections.tex')
 @
 
 \section{Additional tools}
+
+%% Should use ex-mergeSections.R example?
+
 \subsection{Splitting files}
 
 %% splitFile does not always run correctly (eg. splitFile(file,11,"ID"))
@@ -317,8 +327,40 @@ In some cases, one homework assignment may span across two topics. In order to g
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
 dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
 for(file in dataList){
+  rewriteData(file)
   splitFile(file, 9, "ID")
 }
+@
+
+\subsection{Merging files}
+
+%%% Which files should I use?
+
+<<eval=FALSE>>=
+dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Data Files/Ch9-Ch11"
+namelist = list.files(path=dataPath,full.names=TRUE)
+for (i in namelist) rewriteData(i) # May not need this rewriting step!
+for(i in c('AB','CD','EF','GH','JK','LM')){
+  tmp = namelist[grep(i,basename(namelist))]
+  combineFiles(tmp[2],tmp[1],paste("Topic11",i,"csv",sep='.'))
+}
+@
+
+\subsection{Deidentifying files}
+
+It should be noted that data files and the corresponding reports they generate contain student names. At times, it may be necessary to anonymize student names in a given data file, so that it (and any reports that can be generated from it) do not contain confidential information. You can most easily deidentify student names by transferring all data files that you wish to deidentify into a common folder that is otherwise empty. It is important to ensure that no extraneous files are in this common folder.
+
+In this vignette, such an example folder has already been set up for you. The data files for sections AB and CD of Topic 03 are located in the \texttt{DataFiles/Topic03\_Deidentified} folder of the \texttt{extdata} folder. If you examine the content of these files, then you will notice that the column called \texttt{Username} contains the names of students. Of course, these are not real student names, but instead are fictitious student names generated for example purposes. 
+
+As is demonstrated below, we first save the pathway to the directory that contains nothing but the files we wish to deidentify. Then, we call the \texttt{getNameList} function of \texttt{ePort}. We choose the \texttt{save = TRUE} option so that a dictionary file \texttt{nameCode.csv} will be generated. This dictionary file contains a list of the original student names and their corresponding deidentified codes. Lastly, we call the \texttt{encodeName} function, which will use the dictionary file we just created to translate the original data files into deidentified data files. If you complete this process, you will notice that the original data files have been overwritten.
+
+%% add option to not overwrite files?
+%% Add message in getNameList if nameCode.csv is in file 
+
+<<eval=FALSE>>=
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package="ePort")
+getNameList(dataFolder, section=NULL, semester=NULL, secblind=TRUE, save=TRUE)
+encodeName(dataFolder, dict=paste(dataFolder, "nameCode.csv", sep='/'))
 @
 
 \section{Running reports sequentially}
@@ -360,7 +402,11 @@ dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
 \section{Report Options}
 \label{sec:repOptions}
 
-
+% keep images
+% keep tex
+% keep files
+% list of low-scoring students
+%
 
 \section{Conclusions}
 
