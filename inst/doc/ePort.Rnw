@@ -1,6 +1,7 @@
 \documentclass{article}
 \setlength{\parindent}{0pt} % Remove indent at new paragraphs
 \setcounter{secnumdepth}{0}  % Remove section numbering at certain depth
+\usepackage{tabu}
 \usepackage[round,sort]{natbib}
 \usepackage{fixltx2e}
 \usepackage{graphicx}	% For external pictures
@@ -14,7 +15,9 @@
 \usepackage{fancyhdr} % For customization of header/footer
 \usepackage{adjustbox}
 \usepackage{framed}
+\usepackage{enumitem}
 \numberwithin{equation}{section} % Equation numbers relative to sections
+
 
 % ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -111,13 +114,95 @@ help(mergeSection)
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
 
-\section{File formats and background}
+\section{Online homework database}
+
+Amy Froelich, one of the authors of the \texttt{ePort} package, developed an online homework database that has been applied for years in a large multi-section introductory statistics course. The resulting student data from this database has been applied to the \texttt{ePort} package, and has been useful in discovering common patterns and/or problems in student learning in this course. In this section of the vignette, we will describe the configuration of this particular database, keeping in mind that a course supervisor who is intersted in applying the \texttt{ePort} package to their course can do so by constructing their own online homework database in a similar format to the one described below.
+
+* How will others obtain this particular database?????????
 
 1 Put information about title key
 2 Put example LO
 3 Put example topics
 
-\section{Overview of ePort}
+\subsection{Overview of database}
+
+The online homework database consists of 184 learning outcomes, which are grouped into 26 topics. In total, the database contains 2000 questions. A given student does not receive all 2000 questions over the course of the semester. Instead, similar questions are grouped together to form 330 question sets.
+
+\subsubsection{Topics}
+
+The topics in the database cover a broad range of material that includes curriculum from Advanced Placement Statistics and popular introductory statistics textbooks. The topics are not rigidly structured around a specific textbook, and are not self-contained. Hence, course supervisors can tailor their course by selecting a subset of and/or reordering topics from the database. The full list of topic numbers and descriptions are provided below.
+
+\begin{tabular} { | l | l | }
+\hline \textbf{Topic Number} & \textbf{Description} \\
+\hline
+01 & Data \\
+\hline
+02  & Descriptive Statistics for a Single Categorical Variable \\
+\hline
+03 & Descriptive Statistics for a Single Quantitative Variable \\
+\hline
+04 & Descriptive Statistics for a Contingency Table \\
+\hline
+05 & Descriptive Statistics for a Single Quantitative Variable between Groups \\
+\hline
+06 & Normal Distribution \\
+\hline
+07 & Descriptive Statistics for a Scatterplot \\
+\hline
+08 & Descriptive Linear Regression \\
+\hline
+09 & Samples and Surveys \\
+\hline
+10 & Experiments \\
+\hline
+11 & Randomness and Probability \\
+\hline
+12 & Introduction to Probability and Events \\
+\hline
+13 & Introduction to Random Variables \\
+\hline
+14 & Binomial and Poisson Distributions \\
+\hline
+15 & Sampling Distribution for the Sample Proportion \\
+\hline
+16 & Confidence Intervals for the Population Proportion \\
+\hline
+17 & Hypothesis Tests for the Population Proportion \\
+\hline
+18 & Sampling Distribution for the Sample Mean \\
+\hline
+19 & Confidence Intervals for the Population Mean \\
+\hline
+20 & Hypothesis Tests for the Population Mean \\
+\hline
+21 & Inference for the Difference in Two Population Proportions \\
+\hline
+22 & Inference for the Difference in Two Population Means \\
+\hline
+23 & Inference for the Mean Difference (Paired Samples) \\
+\hline
+24 & Goodness of Fit Tests \\
+\hline
+25 & Inference for Contingency Tables \\
+\hline
+26 & Inference for Simple Linear Regression \\
+\hline
+\end{tabular}
+
+\subsubsection{Learning Outcomes}
+
+Each topic contains learning outcomes, a list of statements that describe what a student is expected to understand after learning the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided below.
+
+\begin{enumerate}[label=\Alph*.]
+\item Use standardizing to determine how many standard deviations an observation is away from the mean value.
+\item Use z-scores to compare observations for different quantitative variables.
+\item Explain how standardizing affects the shape, center, and variability of the distribution of a quantitative variable.
+\item Determine which quantitative variables could be modeled using the normal distribution by interpreting graphical representations of the variable.
+\item Apply the 68-95-99.7 Rule to any quantitative variable with a normal distribution.
+\item Find percentile or area values for any given observation from a normal distribution.
+\item Find the value of an observation when given a percentile or area value from the normal distribution.
+\end{enumerate}
+
 
 \fbox{\includegraphics{ePortLayout.jpg}}
 
