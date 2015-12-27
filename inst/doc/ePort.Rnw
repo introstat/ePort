@@ -16,6 +16,7 @@
 \usepackage{adjustbox}
 \usepackage{framed}
 \usepackage{enumitem}
+\usepackage{caption}
 \numberwithin{equation}{section} % Equation numbers relative to sections
 
 
@@ -120,20 +121,20 @@ Amy Froelich, one of the authors of the \texttt{ePort} package, developed an onl
 
 * How will others obtain this particular database?????????
 
-1 Put information about title key
-2 Put example LO
-3 Put example topics
 
-\subsection{Overview of database}
+\subsection{Database structure}
 
 The online homework database consists of 184 learning outcomes, which are grouped into 26 topics. In total, the database contains 2000 questions. A given student does not receive all 2000 questions over the course of the semester. Instead, similar questions are grouped together to form 330 question sets.
 
 \subsubsection{Topics}
 
-The topics in the database cover a broad range of material that includes curriculum from Advanced Placement Statistics and popular introductory statistics textbooks. The topics are not rigidly structured around a specific textbook, and are not self-contained. Hence, course supervisors can tailor their course by selecting a subset of and/or reordering topics from the database. The full list of topic numbers and descriptions are provided below.
+The topics in the database cover a broad range of material that includes curriculum from Advanced Placement Statistics and popular introductory statistics textbooks. The topics are not rigidly structured around a specific textbook, and are not self-contained. Hence, course supervisors can tailor their course by selecting a subset of and/or reordering topics from the database. The full list of topic numbers and descriptions are provided below in Table \ref{tab:topics}.
 
+\begin{center}
+\captionof{table}{Topic numbers and descriptions}
+\label{tab:topics}
 \begin{tabular} { | l | l | }
-\hline \textbf{Topic Number} & \textbf{Description} \\
+\hline \textbf{Number} & \textbf{Description} \\
 \hline
 01 & Data \\
 \hline
@@ -188,12 +189,18 @@ The topics in the database cover a broad range of material that includes curricu
 26 & Inference for Simple Linear Regression \\
 \hline
 \end{tabular}
+\end{center}
 
-\subsubsection{Learning Outcomes}
+\subsubsection{Learning outcomes}
 
-Each topic contains learning outcomes, a list of statements that describe what a student is expected to understand after learning the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided below.
+Each topic contains learning outcomes, which are a list of statements that describe what a student is expected to understand after learning the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided in List \hyperref[sec:hello]{1} below.
 
+\newpage
+\centerline{List 1: Learning outcomes for Topic 03}
+\vspace{-2mm}
+\begin{framed}
 \begin{enumerate}[label=\Alph*.]
+\label{sec:hello}
 \item Use standardizing to determine how many standard deviations an observation is away from the mean value.
 \item Use z-scores to compare observations for different quantitative variables.
 \item Explain how standardizing affects the shape, center, and variability of the distribution of a quantitative variable.
@@ -202,9 +209,51 @@ Each topic contains learning outcomes, a list of statements that describe what a
 \item Find percentile or area values for any given observation from a normal distribution.
 \item Find the value of an observation when given a percentile or area value from the normal distribution.
 \end{enumerate}
+\end{framed}
 
+\subsubsection{Questions}
 
+The majority of the questions in the database include real data examples that cover diverse application areas, excepting business. The questions are time-tested in that they have continuously been edited and improved using evaluation after being administered to students. The majority of these questions also include feedback, whether correct/incorrect feedback or answer-specific feedback. There are seven types of questions, which are enumerated in Table \ref{tab:questionTypes}.
+
+\captionof{table}{Seven types of questions in the database}
+\label{tab:questionTypes}
+
+\begin{center}
+\begin{tabular} { | l | l | l |}
+\hline \textbf{Abbreviation} & \textbf{Type} & \textbf{Possible Points} \\
+\hline
+TF & True/False & 1 \\
+\hline
+MC & Multiple Choice & 1 \\
+\hline
+MU & Multiple Answer & 1 \\
+\hline
+MA & Matching & Number of Matches \\
+\hline
+FB & Fill in the Blank & Number of Blanks \\
+\hline
+JS & Jumbled Sentence & Number of Blanks \\
+\hline
+CA & Calculation & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Question sets}
+
+A question set consists of a set of questions that all have the same format, and all cover the same component of a learning outcome. Question sets allow for different students to be presented with different subsets of similar questions. The number of questions from a given question set that are to be presented to each student is specified, and the questions are selected at random. There is at least one question set per learning outcome, and there is no connection between question sets.
+
+\subsection{Overview of report generation}
+
+An diagram of the report generation process can be seen in Figure \ref{fig:overviewFigure}.
+
+\begin{center}
 \fbox{\includegraphics{ePortLayout.jpg}}
+\captionof{figure}{Overview of report generation. Blue boxes represent external software that must be used along with \texttt{ePort}. Green boxes represent the three file types that must be input into \texttt{ePort} in order to generate reports. Red boxes represent functions within \texttt{ePort} that are used to produce the reports.}
+\label{fig:overviewFigure}
+\end{center}
+
+The software Respondus can work because of question titles.
 
 \section{Example data}
 
