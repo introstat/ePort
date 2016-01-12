@@ -30,6 +30,7 @@
 % ---------------------------------------------------------------------------------------------------------------------------------------
 
 % \VignetteIndexEntry{ePort: Student performance report generation for statistics instructors}
+%\VignetteEngine{knitr::knitr}
 %\VignettePackage{ePort}
 %\documentclass{amsart}
 \newcommand{\code}[1]{{\texttt{#1}}}
@@ -49,7 +50,7 @@ options(width=40)
 @
 
 
-<<label=R options,echo=FALSE>>=
+<<echo=FALSE>>=
 options(width = 60)
 options(SweaveHooks = list(fig = function() par(mar=c(3,3,1,0.5),mgp = c(2,1,0))))
 @
@@ -95,14 +96,14 @@ In general, both short and long versions of reports can be generated. Short vers
 
 \R is a open source software project for statistical computing, and can be freely downloaded from the Comprehensive R Archive Network (CRAN) website. The link to contributed documentation on the CRAN website offers practical resources for an introduction to \R, in several languages. After downloading and installing \R, the installation of additional packages is straightforward. To install the \pkg{ePort} package from \R, use the command:
 
-<<results=hide, eval=FALSE>>=
+<<eval=FALSE>>=
 install.packages("ePort")
 @
 
 \noindent
 The \pkg{ePort} package should now be successfully installed. Next, to render it accessible to the current \R session, simply type:
 
-<<results=hide>>=
+<<eval=FALSE>>=
 library(ePort)
 @
 
@@ -425,7 +426,7 @@ We start by demonstrating how to generate the electronic report for one section 
 
 In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. ????????????? Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), ??????????????????????????????????? and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
 
-The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. It is recommended that you do \textbf{not} run this code block all at once yet, the first time through the vignette. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condense location:
+The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condense location:
 
 <<eval=FALSE>>=
 key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
@@ -503,9 +504,9 @@ Upon running this code, you will receive the following message and menu asking f
 
 \begin{framed}
 \vspace{1mm}
-Please enter integer (1-6) corresponding to desired report type below.
+Please enter integer (1-6) corresponding to desired report type below.\\
 
-Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).
+Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).\\
 
 1: One topic for one section - short version (``secTopicShort")\\
 2: One topic for one section - long version (``secTopicLong")\\
@@ -526,7 +527,7 @@ The advantage to specifying by hard-coding the \texttt{reportType} parameter is 
 
 \subsubsection{Output}
 
-Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101hwkTopic06ABshort.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}). \\
+Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101\_hwkTopic06\_AB\-short.pdf}) for \texttt{Topic 06} and \texttt{Section AB}. At this point, it may be helpful for you to open the short report you just generated. \\
 
 This short report contains a table that provides an overview of student performance. as seen in Figure \ref{fig:outputShort}.
 
