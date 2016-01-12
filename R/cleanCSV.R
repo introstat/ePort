@@ -19,7 +19,7 @@ rewriteData = function(filenm){
   
   test = unlist(gregexpr(',\"',csv))
   if (length(test) <= 3*length(csv)) {
-    message(paste(basename(filenm), "is not in an expected format."))
+    message(paste("Note:", basename(filenm), "was already successfully converted to usable format."))
     return()
   }
   

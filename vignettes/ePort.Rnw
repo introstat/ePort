@@ -18,7 +18,14 @@
 \usepackage{enumitem}
 \usepackage{caption}
 \numberwithin{equation}{section} % Equation numbers relative to sections
+\usepackage[dvipsnames]{xcolor}
 
+%\usepackage[usenames]{colors}
+%\definecolor{darkred}{rgb}{0.545,0,0}
+%\definecolor{midnightblue}{rgb}{0.098,0.098,0.439}
+%\DefineVerbatimEnvironment{Sinput}{Verbatim}{fontshape=sl,formatcom={\color{midnightblue}}}
+%\DefineVerbatimEnvironment{Soutput}{Verbatim}{formatcom={\color{darkred}}}
+%\DefineVerbatimEnvironment{Scode}{Verbatim}{fontshape=sl,formatcom={\color{blue}}}
 
 % ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -124,7 +131,7 @@ Amy Froelich, one of the authors of the \texttt{ePort} package, developed an onl
 
 \subsection{Database structure}
 
-The online homework database consists of 184 learning outcomes, which are grouped into 26 topics. In total, the database contains 2000 questions. A given student does not receive all 2000 questions over the course of the semester. Instead, similar questions are grouped together to form 330 question sets.
+The online homework database consists of 184 learning outcomes, which are grouped into 26 topics. In total, the database contains 2000 questions. A given student does not receive all 2000 questions over the course of the semester. Instead, similar questions are grouped together to form 330 question sets, and a given student will receive a certain number (usually one) from each of these 330 question sets.
 
 \subsubsection{Topics}
 
@@ -193,14 +200,14 @@ The topics in the database cover a broad range of material that includes curricu
 
 \subsubsection{Learning outcomes}
 
-Each topic contains learning outcomes, which are a list of statements that describe what a student is expected to understand after learning the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided in List \hyperref[sec:hello]{1} below.
+Each topic contains learning outcomes, which are a list of statements that describe what a student is expected to understand after learning the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided in List \hyperref[sec:lo]{1} below.
 
 \newpage
 \centerline{List 1: Learning outcomes for Topic 03}
 \vspace{-2mm}
 \begin{framed}
 \begin{enumerate}[label=\Alph*.]
-\label{sec:hello}
+\label{sec:lo}
 \item Use standardizing to determine how many standard deviations an observation is away from the mean value.
 \item Use z-scores to compare observations for different quantitative variables.
 \item Explain how standardizing affects the shape, center, and variability of the distribution of a quantitative variable.
@@ -211,9 +218,9 @@ Each topic contains learning outcomes, which are a list of statements that descr
 \end{enumerate}
 \end{framed}
 
-\subsubsection{Questions}
+\subsubsection{Question types}
 
-The majority of the questions in the database include real data examples that cover diverse application areas, excepting business. The questions are time-tested in that they have continuously been edited and improved using evaluation after being administered to students. The majority of these questions also include feedback, whether correct/incorrect feedback or answer-specific feedback. There are seven types of questions, which are enumerated in Table \ref{tab:questionTypes}.
+The majority of the questions in the database include real data examples that cover diverse application areas, excepting business. The questions are time-tested in that they have continuously been edited and improved upon with the use of evaluation after administration to students. The majority of these questions also include feedback, which can be correct/incorrect feedback or answer-specific feedback. There are seven types of questions, which are enumerated in Table \ref{tab:questionTypes}.
 
 \captionof{table}{Seven types of questions in the database}
 \label{tab:questionTypes}
@@ -239,25 +246,146 @@ CA & Calculation & 1 \\
 \end{tabular}
 \end{center}
 
+Below, an example problem and solution is provided for each of the seven question types in the database.\\
+
+%\centerline{\textbf{Example TF:}}
+\begin{framed}
+\textbf{Example TF:}\\
+
+Does regular exercise lead to higher VO$_2$ max? VO$_2$ max is the maximum amount of oxygen in millimeters, one can use in one minute per kilogram of body mass. A random sample of 20 college age women was selected. Each student was asked whether or not they exercised regularly (at least 30 minutes of aerobic exercise 3 times a week). The VO$_2$ max for each student was also taken. This is an observational study.\\
+
+a. True\\
+b. False\\
+
+Correct answer: a
+\end{framed}
+
+\begin{framed}
+\textbf{Example MC:}\\
+
+The z-score for a particular observation is z = -3.1. This means the observation is:\\
+
+a. 3.1 standard deviations above the mean\\
+b. 3.1 standard deviations below the mean\\
+c. 3.1 units above the mean\\
+d. 3.1 units below the mean\\
+
+Correct answer: b
+\end{framed}
+
+\begin{framed}
+\textbf{Example MU:}\\
+
+Which of the following characteristics of pie is/are quantitative variables? Choose ALL that apply.\\
+
+a. Calorie count\\
+b. Number of cups of flour used\\
+c. Type of pie (pecan, blueberry, etc)\\
+d. Brand of sugar used\\
+
+Correct answers: a and b
+\end{framed}
+
+\begin{framed}
+\textbf{Example MA:}\\
+
+An ultramarathon is a foot race that is longer than 26.2 miles. Doctors have found that people who run an ultramarathon are at increased risk for developing respiratory infections after the race. Doctors beleive that taking vitamin C the 10 days before and the 10 days after the race would reduce the incidence of respiratory infections in the ultramarathon runners. To test their hypothesis, 20 runners were randomly assigned into two groups of 10 runners each. One group was given the same dose of vitamin C, in pill form, for 10 days before and 10 days are the race and the other group was given a sugar pill. Ten days after the race, the two groups were studied to determine how many of the runners in each group developed a respiratory infection. Match the ordered terms (1-4) to the correct description (a-d).\\
+
+1. Experimental units\\
+2. Response variable\\
+3. Factor\\
+4. Treatments\\
+
+a. 20 ultramarathon runners\\
+b. The use of vitamin C by ultramarathon runners\\
+c. Whether or not the runner developed a respiratory infection\\
+d. Vitamin C, Sugar pill\\
+
+Correct answer: a, c, b, d
+\end{framed}
+
+\begin{framed}
+\textbf{Example FB:}\\
+
+Fill in the blank with the correct number: Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. According to the Empirical Rule or 68-95-99.7 Rule, \underline{\hspace{2cm}} percent of female humpback whales will have a length between 13.2 meters and 14.2 meters.\\
+
+Correct matches: 68, 68\%
+\end{framed}
+
+\begin{framed}
+\textbf{Example JS:}\\
+
+All other things being equal, a \underline{\hspace{2cm}} confidence interval for a population proportion will be wider than a \underline{\hspace{2cm}} confidence interval for the same population proportion.\\
+
+Correct answer: 95\%, 90\%
+\end{framed}
+
+\begin{framed}
+\textbf{Example CA:}\\
+
+The regression line for predicting the value of a variable $y$ from the value of a variable $x$ is as follows:\\
+
+$y = 1.25 + 0.5x$\\
+
+Use this equation to predict the value of $y$ when the value of $x$ is 188. Round your final answer to 2 decimal places.\\
+
+Correct answer: 95.25
+\end{framed}
+
+
+
 \subsubsection{Question sets}
 
 A question set consists of a set of questions that all have the same format, and all cover the same component of a learning outcome. Question sets allow for different students to be presented with different subsets of similar questions. The number of questions from a given question set that are to be presented to each student is specified, and the questions are selected at random. There is at least one question set per learning outcome, and there is no connection between question sets.
 
-\subsection{Overview of report generation}
+\subsection{Report generation outline}
 
-An diagram of the report generation process can be seen in Figure \ref{fig:overviewFigure}.
+A diagram of the report generation process can be seen in Figure \ref{fig:overviewFigure}. Blue boxes represent external software (\texttt{Respondus} and \texttt{Blackboard}) that must be used along with \texttt{ePort}. Green boxes represent the three file types that must be provided as input in order for \texttt{ePort} to generate reports. Red boxes represent functions within \texttt{ePort} that are then used to produce the reports.
 
 \begin{center}
-\fbox{\includegraphics{ePortLayout.jpg}}
-\captionof{figure}{Overview of report generation. Blue boxes represent external software that must be used along with \texttt{ePort}. Green boxes represent the three file types that must be input into \texttt{ePort} in order to generate reports. Red boxes represent functions within \texttt{ePort} that are used to produce the reports.}
+\captionof{figure}{Overview of report generation}
 \label{fig:overviewFigure}
+\fbox{\includegraphics{ePortLayout.jpg}}
 \end{center}
 
-The software Respondus can work because of question titles.
+\subsubsection{External software - Respondus}
+
+External software that must be used for \texttt{ePort} to generate the reports are represented in the blue boxes of Figure \ref{fig:overviewFigure}. As this figure shows, the database questions are constructed in the software \texttt{Respondus}. More information about \texttt{Respondus} can be found on their \href{https://www.respondus.com/}{website}.\\
+
+It is important to code question titles in \texttt{Respondus} in a format that will allow all database questions to be identified and searched later in the \texttt{ePort} assessment model by topic, learning outcome, question type, and question set. An example of a coded question title is shown below:\\
+
+\begin{framed}
+Example question title: \textbf{\textcolor{Red}{T16}.\textcolor{YellowOrange}{A}.\textcolor{YellowGreen}{A}.\textcolor{Green}{04-1}.\textcolor{blue}{1}.\textcolor{RedViolet}{MC}.\textcolor{VioletRed}{1}}\\
+
+\textbf{\textcolor{Red}{T16}:} Topic 16\\
+\textbf{\textcolor{YellowOrange}{A}:} Learning Outcome A for Topic 16\\
+\textbf{\textcolor{YellowGreen}{A}:} Question Set A for Topic 16\\
+\textbf{\textcolor{Green}{04-1}:} Question Set A for Topic 16 has 4 questions, and 1 is randomly assigned to each student\\
+\textbf{\textcolor{blue}{1}:} All questions in Question Set A for Topic 16 are worth 1 point\\
+\textbf{\textcolor{RedViolet}{MC}:} All questions in Question Set A for Topic 16 are in multiple choice format\\
+\textbf{\textcolor{VioletRed}{1}:} Question label of this particular question from Question Set A for Topic 16\\
+\vspace{-3mm}
+\end{framed}
+
+\subsubsection{External software - Blackboard}
+
+As seen in Figure \ref{fig:overviewFigure}, once the database has been constructed in \texttt{Respondus}, we can upload it to \texttt{Blackboard}. More information about \texttt{Blackboard} can be found on their \href{http://www.blackboard.com/}{website}.\\
+
+Typically, assignments on \texttt{Blackboard} can be made available to students on the first day the topic is introduced in lecture, and closed a set number of days after the topic is concluded in lecture. Each student can access their assignment over the course of as many sittings as needed, saving their work each time, but the can only submit their assignment once before the deadline. Once the deadline of the assignment has passed, students have access to answers and feedback for their set of questions. 
+
+\subsubsection{Input files}
+
+The three necessary input files for \texttt{ePort} to generate reports are represented in green in Figure \ref{fig:overviewFigure}. A file that enumerates the learning outcomes is required; an example of this type of file has already been displayed in List \hyperref[sec:lo]{1}. An answer key file is also required, and can be generated from the database in \texttt{Respondus}. The third required file consists of the answers that students submit when they complete their assignments on Blackboard.
+
+\subsubsection{Parsing input files}
+
+The functions needed to transform input files to final report files are represented in red in Figure \ref{fig:overviewFigure}. There are simple cleaning procedures that must be applied to the student response data files from Blackboard. One task that must then get done here is matching student answers from the cleaned student response data file to possible answer choices in the answer key from Respondus. This step simultaneously requires that the question set a particular student received at random is successfully matched to the corresponding question titles in the answer key from Respondus.\\
+
+The final reports consist of data summaries, graphics, and analyses regarding how students performed on the assignments. As will later be explained in more detail, some report types have more verbose versions, which include individual summaries for each question of the topic. This means that it is not only the text, but also any graphs and equations from the questions that must be parsed in the answer key file. Doing so allows for the verbose report types to republish all components of a given question as was presented to students, such as relevant graphics, equations, and text, alongside the analysis of student performance for that question.
 
 \section{Example data}
 
-A directory that contains example data is automatically installed with the ePort package. The name of this directory is \texttt{extdata}. Understanding the location, layout, and content of the \texttt{extdata} directory will be necessary to continue with the examples provided in the vignette.
+A directory that contains example data is automatically installed with the ePort package. The name of this directory is \texttt{extdata}. Understanding the location, layout, and content of the \texttt{extdata} directory will be necessary to continue with the examples provided in the vignette. \\
 
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the R console:
 
@@ -272,7 +400,8 @@ To view this file, simply open it in a Web Brower (Mozilla Firefox, Google Chrom
 
 \section{Generating Reports}
 
-\subsection{Types of reports - Overview}
+%\subsection{Types of reports - Overview}
+% written in latex/knitr
 
 Currently, the \pkg{ePort} package offers six report types, depending on what the user is trying to compare and analyze about student performance. The same function \texttt{makeReport()} is used to generate each of these six report types; however, the input parameter \texttt{reportType} to the function will be different depending on which of the six report types the user wishes to run. Since it is most efficient for the user to hard-code in the \texttt{reportType} parameter, below is a reference for the parameter options (in quotes) for each of the six report types: 
 \begin{framed}
@@ -290,11 +419,13 @@ This information can also be obtained by running \texttt{help(makeReport)}, and 
 
 \subsection{One topic for one section - short version}
 
-We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet.
+\subsubsection{Code}
 
-In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}) and we will use the \texttt{Topic06.Questions.htm} file. Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file.
+We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet. \\
 
-The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is as follows:
+In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. ????????????? Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), ??????????????????????????????????? and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
+
+The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. It is recommended that you do \textbf{not} run this code block all at once yet, the first time through the vignette. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condense location:
 
 <<eval=FALSE>>=
 key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
@@ -314,7 +445,9 @@ outPath = system.file("inst/extdata/OutputFiles", package="ePort")
 makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
 @
 
-We now briefly explain each step of the process. First, we must save the absolute pathway of this answer key. Here, we save it to a string variable called \texttt{key\_htm}.
+Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. 
+
+The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{key\_htm}.
 
 <<eval=FALSE>>=
 key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
@@ -326,7 +459,7 @@ Second, we must parse and clean this .htm answer key file, and convert it to pla
 refineKey(key_htm)
 @
 
-By default, the \texttt{refineKey()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and clean .txt file we just created, \texttt{Topic06.Questions.txt}.
+By default, the \texttt{refineKey()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and cleaned .txt file we just created, \texttt{Topic06.Questions.txt}. \\
 
 Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keypath}.
 
@@ -340,11 +473,13 @@ Now that we have the absolute path of our cleaned .txt answer key, our fourth st
 dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort")
 @
 
-After this, our fifth step is to prime the data file to be compatible with our next steps of generating the reports. We do this by running the \texttt{rewriteData()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
+After this, our fifth step is to prime the data file to be compatible with steps later down the pipeline of generating the reports. We do this by running the \texttt{rewriteData()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
 
 <<eval=FALSE>>=
 rewriteData(dataPath)
 @
+
+Upon running the above code snippet, you do not obtain a new file. Instead, the original file is overwritten. For this reason, you might inadvertantly run the function \texttt{rewriteData()} on a certain data file more than once, not remembering whether or not you have indeed converted it. This should not be a problem to run the function any number of times; you would simply receive a message that reads something like: ``Note: Topic06.AB.csv was already successfully converted to usable format."\\
 
 Our sixth step is to save the absolute path of our learning outcome file. Below, we save this to a variable called \texttt{loPath}.
 
@@ -387,14 +522,28 @@ makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
 reportType = "secTopicShort")
 @
 
-The advantage to specifying by hard-coding the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}).
+The advantage to specifying by hard-coding the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}). \\
 
-Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101hwkTopic06ABshort.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
+\subsubsection{Output}
+
+Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101hwkTopic06ABshort.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}). \\
+
+This short report contains a table that provides an overview of student performance. as seen in Figure \ref{fig:outputShort}.
+
+
+\begin{center}
+\captionof{figure}{Overview of report generation}
+\label{fig:outputShort}
+\fbox{\includegraphics{outputShort.png}}
+\end{center}
+
 
 %%% Add more here
 And a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.
 
 \subsection{One topic for one section - long version}
+
+\subsubsection{Code}
 
 The short report we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
@@ -403,6 +552,8 @@ makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = ou
 @
 
 We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06AB.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
+
+\subsubsection{Output}
 
 \subsection{One topic comparing multiple sections - short version}
 
@@ -482,9 +633,9 @@ for(i in c('AB','CD','EF','GH','JK','LM')){
 
 \subsection{Deidentifying files}
 
-It should be noted that data files and the corresponding reports they generate contain student names. At times, it may be necessary to anonymize student names in a given data file, so that it (and any reports that can be generated from it) do not contain confidential information. You can most easily deidentify student names by transferring all data files that you wish to deidentify into a common folder that is otherwise empty. It is important to ensure that no extraneous files are in this common folder.
+It should be noted that data files and the corresponding reports they generate contain student names. At times, it may be necessary to anonymize student names in a given data file, so that it (and any reports that can be generated from it) do not contain confidential information. You can most easily deidentify student names by transferring all data files that you wish to deidentify into a common folder that is otherwise empty. It is important to ensure that no extraneous files are in this common folder. \\
 
-In this vignette, such an example folder has already been set up for you. The data files for sections AB and CD of Topic 03 are located in the \texttt{DataFiles/Topic03\_Deidentified} folder of the \texttt{extdata} folder. If you examine the content of these files, then you will notice that the column called \texttt{Username} contains the names of students. Of course, these are not real student names, but instead are fictitious student names generated for example purposes. 
+In this vignette, such an example folder has already been set up for you. The data files for sections AB and CD of Topic 03 are located in the \texttt{DataFiles/Topic03\_Deidentified} folder of the \texttt{extdata} folder. If you examine the content of these files, then you will notice that the column called \texttt{Username} contains the names of students. Of course, these are not real student names, but instead are fictitious student names generated for example purposes. \\
 
 As is demonstrated below, we first save the pathway to the directory that contains nothing but the files we wish to deidentify. Then, we call the \texttt{getNameList} function of \texttt{ePort}. We choose the \texttt{save = TRUE} option so that a dictionary file \texttt{nameCode.csv} will be generated. This dictionary file contains a list of the original student names and their corresponding deidentified codes. Lastly, we call the \texttt{encodeName} function, which will use the dictionary file we just created to translate the original data files into deidentified data files. If you complete this process, you will notice that the original data files have been overwritten.
 
@@ -500,7 +651,7 @@ encodeName(dataFolder, dict=paste(dataFolder, "nameCode.csv", sep='/'))
 \section{Running reports sequentially}
 \label{sec:sequential}
 
-If a course has multiple sections, and we wish to create an individual report for each of the many sections, then one inconvenient way to accomplish this would be to run the example code above, separately for each section at a time, with new data files each time. However, a more convenient way to accomplish the task would be to run all the reports at once. We are still using the same key and learning outcome files, although we would now need two data files (one with the answers from students in \texttt{Section AB} and one with the answers from students in \texttt{Section CD}).
+If a course has multiple sections, and we wish to create an individual report for each of the many sections, then one inconvenient way to accomplish this would be to run the example code above, separately for each section at a time, with new data files each time. However, a more convenient way to accomplish the task would be to run all the reports at once. We are still using the same key and learning outcome files, although we would now need two data files (one with the answers from students in \texttt{Section AB} and one with the answers from students in \texttt{Section CD}). \\
 
 We can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below:
 
