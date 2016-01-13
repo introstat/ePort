@@ -346,7 +346,7 @@ A diagram of the report generation process can be seen in Figure \ref{fig:overvi
 \begin{center}
 \captionof{figure}{Overview of report generation}
 \label{fig:overviewFigure}
-\fbox{\includegraphics{ePortLayout.jpg}}
+\fbox{\includegraphics[width=\textwidth]{ePortLayout.jpg}}
 \end{center}
 
 \subsubsection{External software - Respondus}
@@ -358,13 +358,13 @@ It is important to code question titles in \texttt{Respondus} in a format that w
 \begin{framed}
 Example question title: \textbf{\textcolor{Red}{T16}.\textcolor{YellowOrange}{A}.\textcolor{YellowGreen}{A}.\textcolor{Green}{04-1}.\textcolor{blue}{1}.\textcolor{RedViolet}{MC}.\textcolor{VioletRed}{1}}\\
 
-\textbf{\textcolor{Red}{T16}:} Topic 16\\
-\textbf{\textcolor{YellowOrange}{A}:} Learning Outcome A for Topic 16\\
-\textbf{\textcolor{YellowGreen}{A}:} Question Set A for Topic 16\\
-\textbf{\textcolor{Green}{04-1}:} Question Set A for Topic 16 has 4 questions, and 1 is randomly assigned to each student\\
-\textbf{\textcolor{blue}{1}:} All questions in Question Set A for Topic 16 are worth 1 point\\
-\textbf{\textcolor{RedViolet}{MC}:} All questions in Question Set A for Topic 16 are in multiple choice format\\
-\textbf{\textcolor{VioletRed}{1}:} Question label of this particular question from Question Set A for Topic 16\\
+\textbf{\textcolor{Red}{T16}}: Topic 16\\
+\textbf{\textcolor{YellowOrange}{A}}: Learning Outcome A for Topic 16\\
+\textbf{\textcolor{YellowGreen}{A}}: Question Set A for Topic 16\\
+\textbf{\textcolor{Green}{04-1}}: Question Set A for Topic 16 has 4 questions, and 1 is randomly assigned to each student\\
+\textbf{\textcolor{blue}{1}}: All questions in Question Set A for Topic 16 are worth 1 point\\
+\textbf{\textcolor{RedViolet}{MC}}: All questions in Question Set A for Topic 16 are in multiple choice format\\
+\textbf{\textcolor{VioletRed}{1}}: Question label of this particular question from Question Set A for Topic 16\\
 \vspace{-3mm}
 \end{framed}
 
