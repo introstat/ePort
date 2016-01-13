@@ -529,18 +529,31 @@ The advantage to specifying by hard-coding the \texttt{reportType} parameter is 
 
 Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101\_hwkTopic06\_AB\-short.pdf}) for \texttt{Topic 06} and \texttt{Section AB}. At this point, it may be helpful for you to open the short report you just generated. \\
 
-This short report contains a table that provides an overview of student performance. as seen in Figure \ref{fig:outputShort}.
-
+This short report contains tabular and plotting overviews of student performance, and we briefly present three of these resources below. A tabular summary of student scores is provided in the report, as seen in Figure \ref{fig:output1}.
 
 \begin{center}
-\captionof{figure}{Overview of report generation}
-\label{fig:outputShort}
-\fbox{\includegraphics{outputShort.png}}
+\captionof{figure}{Summary statistics of student scores}
+\label{fig:output1}
+\fbox{\includegraphics[width=0.65\textwidth]{output1.png}}
 \end{center}
 
+Additionally, the report provides a fluctuation diagram that allows users to quickly determine how students performed across learning outcomes. Figure \ref{fig:output2} plots square objects, each of which contains an area that corresponds to the count of students who obtained that score for that learning outcome. The mean score across all students for a given learning outcome is represented with a blue horiziontal line.
 
-%%% Add more here
-And a .txt file that contains the list of students who have scored below 80 on this assignment {Topic06ABstudentsbelow80.txt}.
+\begin{center}
+\captionof{figure}{Fluctuation diagram of percentage correct by learning outcome.}
+\label{fig:output2}
+\fbox{\includegraphics[width=0.75\textwidth]{output2.png}}
+\end{center}
+
+The report also includes a list of student names and their corresponding scores, for all cases of students who received a score below 80\% on the assignment, as is demonstrated in Figure \ref{fig:output3}.
+
+\begin{center}
+\captionof{figure}{The 50 students whose percentages are less than 80\%.}
+\label{fig:output3}
+\fbox{\includegraphics[width=\textwidth]{output3.png}}
+\end{center}
+
+This report also outputs a .txt file that lists the e-mails of all students who scored below 80\% on this assignment. The list is repeated, once in a comma-separated format, and once in a semicolon-separated format. These list formats are intended to provide instructors with a streamlined method to contact students, if needed, to inform them of their low-scoring performance and possibly to recommend seeking additional support and resources to improve their performance in future assignments. You can open the example .txt file we created in this vignette; it should be located in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory as (\texttt{Topic06\_AB\_students\_below80.txt}).
 
 \subsection{One topic for one section - long version}
 
@@ -552,9 +565,17 @@ The short report we created for one section one topic (\texttt{Stat101hwkTopic06
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = outPath, reportType = "secTopicLong")
 @
 
-We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06AB.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
+We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report, called (\texttt{Stat101hwkTopic06AB.pdf}).
 
 \subsubsection{Output}
+
+Below is Figure \ref{fig:output4}.
+
+\begin{center}
+\captionof{figure}{The 50 students whose percentages are less than 80\%.}
+\label{fig:output4}
+\fbox{\includegraphics[width=\textwidth]{output4.png}}
+\end{center}
 
 \subsection{One topic comparing multiple sections - short version}
 

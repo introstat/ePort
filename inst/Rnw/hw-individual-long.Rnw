@@ -299,8 +299,9 @@ tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
 fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
 pdf(paste0("../",fname),width=8,height=12)
 print(qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
-        xlab('Learning Objective')+
-        scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank'))
+        xlab('Learning Objective')+ 
+        theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +
+        scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank') + theme(legend.text = element_text(size=12)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
 \\begin{wrapfigure}{o}{0.95\\columnwidth}
