@@ -18,6 +18,7 @@
 #' @example inst/ex-deidentify.R
 #' 
 getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=TRUE){
+  if(file.exists((paste(dataFolder,"/nameCode.csv",sep="")))) stop("Please erase the nameCode.csv file located in your dataFolder path")
   filenames = list.files(dpath,full.names=TRUE)
   filenames = filenames[grep('.csv$',filenames)]
   if (is.null(section)) {

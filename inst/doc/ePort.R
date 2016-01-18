@@ -111,12 +111,13 @@ library(knitr)
 #  }
 
 ## ----eval=FALSE-------------------------------------------
-#  dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Data Files/Ch9-Ch11"
-#  namelist = list.files(path=dataPath,full.names=TRUE)
-#  for (i in namelist) rewriteData(i) # May not need this rewriting step!
-#  for(i in c('AB','CD','EF','GH','JK','LM')){
-#    tmp = namelist[grep(i,basename(namelist))]
-#    combineFiles(tmp[2],tmp[1],paste("Topic11",i,"csv",sep='.'))
+#  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Merge", package="ePort")
+#  dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
+#  topicNum = "Topic11"
+#  for (i in dataList) rewriteData(i)
+#  for(i in c('AB', 'CD')){
+#    tmp = dataList[grep(i, basename(dataList))]
+#    combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]),"/",paste(topicNum, i, "csv", sep='.'),sep=""))
 #  }
 
 ## ----eval=FALSE-------------------------------------------

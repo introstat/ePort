@@ -68,7 +68,7 @@ options(SweaveHooks = list(fig = function() par(mar=c(3,3,1,0.5),mgp = c(2,1,0))
 \maketitle
 
 \tableofcontents
-\setcounter{footnote}{1} \footnotetext{This \LaTeX\ vignette document is created using the \R function \code{Sweave} on the \R package \pkg{ePort}. It is automatically downloaded with the package and can be accessed with the \R command \code{vignette("ePort")}.}  \newpage
+\setcounter{footnote}{1} \footnotetext{This \LaTeX\ vignette document is created using the \R function \code{Sweave} on the \R package \pkg{ePort}. It is automatically downloaded with the package and can be accessed with the \R command \code{vignette("ePort")}. The vignette is written by Lindsay Rutter.}  \newpage
 \setlength{\parskip}{10pt} % Inter-paragraph spacing
 
 <<echo=FALSE>>=
@@ -108,6 +108,7 @@ library(ePort)
 @
 
 \subsection{Help files}
+\label{sec:helpSection}
 
 To access help pages with example syntax and documentation for the available functions of the \pkg{ePort} package, please type:
 
@@ -124,6 +125,7 @@ help(mergeSection)
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \R session.
 
 \section{Online homework database}
+\label{sec:OnlineHomework}
 
 Amy Froelich, one of the authors of the \texttt{ePort} package, developed an online homework database that has been applied for years in a large multi-section introductory statistics course. The resulting student data from this database has been applied to the \texttt{ePort} package, and has been useful in discovering common patterns and/or problems in student learning in this course. In this section of the vignette, we will describe the configuration of this particular database, keeping in mind that a course supervisor who is intersted in applying the \texttt{ePort} package to their course can do so by constructing their own online homework database in a similar format to the one described below.
 
@@ -344,12 +346,14 @@ A question set consists of a set of questions that all have the same format, and
 A diagram of the report generation process can be seen in Figure \ref{fig:overviewFigure}. Blue boxes represent external software (\texttt{Respondus} and \texttt{Blackboard}) that must be used along with \texttt{ePort}. Green boxes represent the three file types that must be provided as input in order for \texttt{ePort} to generate reports. Red boxes represent functions within \texttt{ePort} that are then used to produce the reports.
 
 \begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{ePortLayout.jpg}}
 \captionof{figure}{Overview of report generation}
 \label{fig:overviewFigure}
-\fbox{\includegraphics[width=\textwidth]{ePortLayout.jpg}}
 \end{center}
 
 \subsubsection{External software - Respondus}
+\label{sec:ResSection}
 
 External software that must be used for \texttt{ePort} to generate the reports are represented in the blue boxes of Figure \ref{fig:overviewFigure}. As this figure shows, the database questions are constructed in the software \texttt{Respondus}. More information about \texttt{Respondus} can be found on their \href{https://www.respondus.com/}{website}.\\
 
@@ -420,13 +424,22 @@ This information can also be obtained by running \texttt{help(makeReport)}, and 
 
 \subsection{One topic for one section - short version}
 
+An instructor may be motivated to generate a short report for one topic and one section if they are seeking answers to the following types of questions:
+
+\begin{enumerate}
+\item Overall, how did this section of students do on this homework assignment?
+\item Which students from this section scored poorly overall on this homework assignment?
+\item Are there any learning outcomes for this topic that this section of students found easy or difficult?
+\item Are there any question sets for this topic that this section of students found easy or difficult?
+\end{enumerate}
+
 \subsubsection{Code}
 
 We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet. \\
 
 In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. ????????????? Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), ??????????????????????????????????? and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
 
-The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condense location:
+The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condensed location:
 
 <<eval=FALSE>>=
 key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
@@ -529,49 +542,108 @@ The advantage to specifying by hard-coding the \texttt{reportType} parameter is 
 
 Whether we specify the type of report we wish to generate by hard-coding or selecting from the menu, we should have successfully generated the report. We can find our report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we have our short report (\texttt{Stat101\_hwkTopic06\_AB\-short.pdf}) for \texttt{Topic 06} and \texttt{Section AB}. At this point, it may be helpful for you to open the short report you just generated. \\
 
-This short report contains tabular and plotting overviews of student performance, and we briefly present three of these resources below. A tabular summary of student scores is provided in the report, as seen in Figure \ref{fig:output1}.
+This short report contains tabular and plotting overviews of student performance overall, by learning outcome, and by question set. We present a few examples of the types of output that can be found in this report. However, be sure to also view all of the output in the short report you just generated. A tabular summary of student scores is provided in the report, as seen in Figure \ref{fig:output1a}. The report also contains a similar overview of student performance in the form of a histogram, which is not included in this vignette.
 
 \begin{center}
-\captionof{figure}{Summary statistics of student scores}
-\label{fig:output1}
-\fbox{\includegraphics[width=0.65\textwidth]{output1b.png}}
+\captionsetup{width=0.65\textwidth}
+\fbox{\includegraphics[width=0.65\textwidth]{output1a.png}}
+\captionof{figure}{Summary statistics of student scores. The mean score on the assignment was low (only 25\%), and even the top-scoring student did not perform so well (48\%).}
+\label{fig:output1a}
 \end{center}
 
-Additionally, the report provides a fluctuation diagram that allows users to quickly determine how students performed across learning outcomes. Figure \ref{fig:output2} plots square objects, each of which contains an area that corresponds to the count of students who obtained that score for that learning outcome. The mean score across all students for a given learning outcome is represented with a blue horiziontal line.
+In addition to understanding how students from this section performed overall for this topic, instructors and course coordinators may wish to determine how students performed across the different learning outcomes. Indeed, the report provides a fluctuation diagram for this purporse. Figure \ref{fig:output1b} plots square objects, each of which contains an area that corresponds to the count of students who obtained that score for that learning outcome. Learning outcomes are ordered on the horizontal axis by mean score, with the highest mean score positioned on the left side of the axis. The mean score for each learning outcome is represented with a blue horiziontal line.
 
 \begin{center}
-\captionof{figure}{Fluctuation diagram of percentage correct by learning outcome.}
-\label{fig:output2}
-\fbox{\includegraphics[width=0.75\textwidth]{output2.png}}
+\fbox{\includegraphics[width=0.75\textwidth]{output1b.png}}
+\captionsetup{width=0.75\textwidth}
+\captionof{figure}{Fluctuation diagram of percentage correct by learning outcome. For this section, learning outcome D had the highest score, and learning outcome E had the lowest score. However, for each learning outcome, there remained a large proportion of the total of 50 students who scored poorly, and even did not earn any points at all (0\%).}
+\label{fig:output1b}
 \end{center}
 
-The report also includes a list of student names and their corresponding scores, for all cases of students who received a score below 80\% on the assignment, as is demonstrated in Figure \ref{fig:output3}.
+Additionally, instructors and course coordinators may wish to obtain an overview of how students from this section performed across the different learning sets within the learning outcomes. The report does generate such a tool, which is shown here in Figure \ref{fig:output1c}. 
 
 \begin{center}
+\captionsetup{width=0.65\textwidth}
+\fbox{\includegraphics[width=0.65\textwidth]{output1c.png}}
+\captionof{figure}{Summary statistics of the question sets. Rows are sorted by mean scores, which are marked red if less than 80 percent. We see that, in this section, students scored a mean of less than 80 percent in all question sets; however, some questions sets were more challenging than others.}
+\label{fig:output1c}
+\end{center}
+
+An instructor may wish to know which students from this section are performing poorly overall on this assignment. To assist this, the report also includes a list of student names and their corresponding scores, for all cases of students who received a score below 80\% on the assignment, as is demonstrated in Figure \ref{fig:output1d}.
+
+\begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{output1d.png}}
 \captionof{figure}{The 50 students whose percentages are less than 80\%.}
-\label{fig:output3}
-\fbox{\includegraphics[width=\textwidth]{output3b.png}}
+\label{fig:output1d}
 \end{center}
 
-This report also outputs a .txt file that lists the e-mails of all students who scored below 80\% on this assignment. The list is repeated, once in a comma-separated format, and once in a semicolon-separated format. These list formats are intended to provide instructors with a streamlined method to contact students, if needed, to inform them of their low-scoring performance and possibly to recommend seeking additional support and resources to improve their performance in future assignments. You can open the example .txt file we created in this vignette; it should be located in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory as (\texttt{Topic06\_AB\_students\_below80.txt}).
+Along the same lines, the report automatically generates a .txt file that lists the e-mails of all students who scored below 80\% on this assignment. The list is repeated, once in a comma-separated format, and once in a semicolon-separated format. These list formats are intended to provide instructors with a streamlined method to contact students, if needed, to inform them of their low-scoring performance and possibly to recommend seeking additional support and resources to improve their performance in future assignments. You can open the example .txt file we created in this vignette; it should be located in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory as (\texttt{Topic06\_AB\_students\_below80.txt}).
 
 \subsection{One topic for one section - long version}
 
+An instructor may be motivated to generate a long report for one topic and one section if they are seeking answers to the following types of questions:
+
+\begin{enumerate}
+\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult? 
+\item Which students from this section scored poorly on each learning outcome for this homework assignment?
+\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\end{enumerate}
+
 \subsubsection{Code}
 
-The short report we created for one section one topic (\texttt{Stat101hwkTopic06ABshort.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
+The short report we created for one section one topic (\texttt{Stat101hwk\_Topic06\_AB-short.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
 <<eval=FALSE>>=
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = outPath, reportType = "secTopicLong")
 @
 
-We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report (\texttt{Stat101hwkTopic06AB.pdf}) of one topic (\texttt{Topic 06}) for one section (\texttt{Section AB}).
+We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report, called \texttt{Stat101hwk\_Topic06\_AB\-long.pdf}.
 
 \subsubsection{Output}
 
+The short report featured tools that identified students from the section who performed poorly overall. The long report provides a more detailed output that informs instructors on how each student did not only overall, but also for each learning outcome. This is shown below in Figure \ref{fig:output2a}.
+
+\begin{center}
+\captionsetup{width=0.75\textwidth}
+\fbox{\includegraphics[width=0.75\textwidth]{output2a.png}}
+\captionof{figure}{Heat map of the student ranks. Blue represents the top ranks, while yellow represents the bottom ranks. We see that the student (w.introstat25) who performed the best in the section overall, also performed above average compared to the class for most learning outcomes, except for learning outcome C. Moreover, some students (for instance, w.introstat68) performed inconsistently across learning outcomes.}
+\label{fig:output2a}
+\end{center}
+
+Oftentimes, one of the aims in an online homework assignment is to ensure that any two students in the course are not likely to receive the exact same set of problems on any given assignment, thereby encouraging students to complete their own work. However, it is important to ensure that all possible combinations of problem subsets that a student could receive are equally difficult. Hence, it is necessary to confirm that all problems that can be randomly selected from each given learning set are equally difficult. The long report does indicate this information to users, as is seen below in Figure \ref{fig:output2b}. Please note that this image is abridged for demonstration purposes; if you were to view the same image in the long report you just generated, then you would see that indeed it is a comprehensive table that consecutely lists the pertinent information for all 89 questions in this assignment. 
+
+\begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{output2b.png}}
+\captionof{figure}{Comparison of student performance in this section on each question of Topic 06, grouped by learning set. If any pair of questions in a given learning set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, with mean scores that ranged from 30.00\% to 52.94\%. Three of these problems (IDs: 2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set. In contrast, question set I contained two problems, with mean scores that ranged from 63.33\% to 65.00\%. Hence, neither of these two problems were flagged as demonstrating a concerningly large difference of at least 15\% in difficulty level from within the same question set.}
+\label{fig:output2b}
+\end{center}
+
+As per the figure above, an instructor can quickly determine if there are problems for which students tend to show poor performance, and if there question sets for which students tend to show disparate performance between the individual questions. In either situation, an instructor may wish to examine these problems more closely, and determine how students are answering these problems incorrectly. For this reason, the long report also includes a summary of student responses for each individual problem in the assignment, allowing instructors to determine the most common mistakes students in this section are making for these difficult problems.\\
+
+If you open the long report we generated ({Stat101hwk\_Topic06\_AB-long.pdf}), then you can view the summary for each of the 89 problems in this assignment. Each problem summary is printed on a separate page, beginning on Page 12 and ending on Page 100 of the report. As we saw in Figure \ref{fig:output2b}, the first problem in the assignment had a mean score of 40\%. We can ascertain what types of errors students from this section made on this problem by viewing the summary for the first problem (on Page 12 of the report), which provided below in Figure \ref{fig:output2c}. 
+
+\begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{output2c.png}}
+\captionof{figure}{A detailed summary of student performance for the first question in the assignment. We see that 10 of the 50 students in this section received this problem at random out of a learning set that contains four similar problems. Only 4 of these 10 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C. No student incorrectly responded with answer choice D, and one student did not respond.}
+\label{fig:output2c}
+\end{center}
+
 \subsection{One topic comparing multiple sections - short version}
 
-Now that we have successfully generated reports for both sections of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these two sections. In this case, we use the same \texttt{makeReport()} function as before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that lists the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic:
+An instructor may be motivated to generate a short report for one topic across multiple sections if they are seeking answers to the following types of questions:
+
+\begin{enumerate}
+\item For this topic, is there consistency across the sections in terms of overall performance, and in terms of performance by learning outcome and question set?
+\item Combining students from all sections, are there any disparities in student performance between questions from the same question set?
+\item Combining students from all sections, are there any learning outcomes or question sets for which students consistently tend to perform poorly?
+\end{enumerate}
+
+\subsubsection{Code}
+
+Now that we have successfully generated reports for both sections of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these two sections (AB and CD). In this case, we use the same \texttt{makeReport()} function as before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that lists the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic:
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
@@ -579,7 +651,32 @@ dataList = list.files(path = dataFolder, full.names = TRUE)[1:2]
 makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicShort")
 @
 
+Please ensure that the variable \texttt{dataList} contains the full pathway to the two data files (Topic06.AB.csv and Topic06.CD.csv). If your variable contains additional pathways, then you have more than just the two necessary input data files in your DataFiles/Topic06 folder. In this case, you will need to move these extraneous files elsewhere or hardcode the two full pathways into the \texttt{dataList} variable. 
+
+\subsubsection{Output}
+
+You should be able to examine the report we just generated (Stat101hwk\_Topic06\_crossSection\-short.pdf) in our example \texttt{OutputFiles} folder. One of the most immediate information that a course coordinator may wish to glean is whether or not there are discrepancies in student performance for a given topic across multiple sections. This could be especially true if there are different instructors and/or different teaching methods being employed across the different sections. In the report we produced, we can indeed quickly compare how the students performed overall for Topic 06 for both sections AB and CD, in a plot that has been copied here in Figure \ref{fig:output3a}.
+
+\begin{center}
+\captionsetup{width=0.5\textwidth}
+\fbox{\includegraphics[width=0.5\textwidth]{output3a.png}}
+\captionof{figure}{Boxplot of student performance in sections AB and CD for Topic 06. The minimum, IQR, and maximum are similar between the two sections. However, section CD has a larger median than section AB, which has some low-scoring outliers.}
+\label{fig:output3a}
+\end{center}
+
+
 \subsection{One topic comparing multiple sections - long version}
+
+An instructor may be motivated to generate a long report for one topic across multiple sections if they are seeking answers to the following types of questions:
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
+\begin{enumerate}
+\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
+\item Which students from this section scored poorly on each learning outcome for this homework assignment?
+\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\end{enumerate}
+
+\subsubsection{Code}
 
 We received a brief comparative summary between the sections of Topic 06 in the previous section. If we would like to see a more detailed version of this report that includes comparative information for each question in the topic of interest, then we can simply run the previous line of code, only now specifying the \texttt{reportType} parameter to indicate that we wish to generate a long report that compares sections for a given topic:
 
@@ -587,7 +684,58 @@ We received a brief comparative summary between the sections of Topic 06 in the 
 makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicLong")
 @
 
+\subsubsection{Output}
+
+The code above should have generated the long edition of the report (Stat101hwk\_Topic06\_crossSection\-long.pdf). While the short report allowed us to compare how students performed overall between sections AB and CD in Topic 06, the long report will allow us to make more detailed comparisons between the sections at the level of learning outcomes and question sets. For instance, the long report includes comparative information at the level of learning outcomes, as is illustrated in Figure \ref{fig:output4a}.
+
+\begin{center}
+\captionsetup{width=0.8\textwidth}
+\fbox{\includegraphics[width=0.8\textwidth]{output4a.png}}
+\captionof{figure}{Each pair of boxplots compares the student performace between sections AB and CD for each learning outcome. For each learning outcomes, the two sections were fairly comparable in their performances, although section CD outperformed in learning outcome D, and section AB outperformed for learning outcome B. Both sections separately showed superior performance in learning outcome D than they did for all other learning outcomes.}
+\label{fig:output4a}
+\end{center}
+
+The long edition of the report breaks it down further into comparing student performances between the sections for each question set. This is demonstrated below in Figure \ref{fig:output4b}.
+
+\begin{center}
+\captionsetup{width=0.45\textwidth}
+\fbox{\includegraphics[width=0.45\textwidth]{output4b.png}}
+\captionof{figure}{Mean percentage scores for each question set by section. The question sets are sorted by decreasing overall mean scores. Both question sets with the highest mean scores are from learning outcome D. We discover that learning outcome A had two question sets (A and B) with high mean scores, but two question sets (C and D) with low mean scores.}
+\label{fig:output4b}
+\end{center}
+
+The long edition of the report also offers information that does not explicitly compare the sections of interest, but instead, combines data from all the sections of interest to generate more power in any analysis that we could instead do separately using just the data from one section. For instance, we previously demonstrated certain tools that are available in the individual section reports that can allow instructors to confirm that all students will receive equally-challenging randomly-selected subsets of problems for their assignments; this was shown in Figure \ref{fig:output2b}. A course coordinator could again explore this same motivation, only now using the data combined from students across both sections, as is displayed in Figure \ref{fig:output4c}. Please note that this image is abridged for demonstration purposes; if you were to view the same image in the long report you just generated, then you would see that indeed it is a comprehensive table that consecutely lists the pertinent information for all 89 questions in this assignment.
+
+\begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{output4c.png}}
+\captionof{figure}{Comparison of student performance combined from sections AB and CD on each question of Topic 06, grouped by learning set. If any pair of questions in a given learning set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, and when we only used student performance information from the 50 students in section AB, three IDs (2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set (see Figure \ref{fig:output2b}). However, now that we have used student performance information from all 100 students in both setions AB and CD, only two IDs (2 and 3) remain flagged. In contrast, question set I contained two problems, and neither of these problems were flagged when we only used student performance information from the 50 students in section AB. This remains the case now that we have used student performance information from all 100 students in both setions AB and CD.}
+\label{fig:output4c}
+\end{center}
+
+As per the figure above, an instructor can quickly determine if there are problems for which students tend to perform poorly, and if there question sets for which students tend to show inconsistent performance between the individual questions. In either situation, an instructor may wish to examine these problems more closely, and determine how students are answering these problems incorrectly. For this reason, the long report also includes a summary of student responses for each individual problem in the assignment, allowing instructors to determine the most common mistakes students in this section are making for these difficult problems.\\
+
+If you open the long report we generated (Stat101hwk\_Topic06\_crossSection\-long.pdf), then you can view the summary for each of the 89 problems in this assignment. Each problem summary is printed on a separate page, beginning on Page 12 and ending on Page 100 of the report. As we saw in Figure \ref{fig:output4c}, the first problem in the assignment had an overall mean score of 46\% across both sections. We can ascertain what types of errors students made on this problem, regardless of section, by viewing the summary for the first problem (on Page 12 of the report), which provided below in Figure \ref{fig:output4d}. Of course, now that we are collecting student responses from the 26 students who received this problem in sections AB and CD, our figure will provide us with more power about the distribution of student responses for this problem than when only considered the 10 students in section AB, as was done in Figure \ref{fig:output2c}.
+
+\begin{center}
+\captionsetup{width=\textwidth}
+\fbox{\includegraphics[width=\textwidth]{output4d.png}}
+\captionof{figure}{A detailed summary of student performance for the first question in the assignment. Only 12 of 26 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C, and then answer choice D. One student did not respond. This is a similar distribution to what we saw in Figure \ref{fig:output2c}, when we had less power by only looked at the 10 students from section AB.}
+\label{fig:output4d}
+\end{center}
+
 \subsection{One unit (group of topics) for one section}
+
+An instructor may be motivated to generate a long report for one topic across multiple sections if they are seeking answers to the following types of questions:
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
+\begin{enumerate}
+\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
+\item Which students from this section scored poorly on each learning outcome for this homework assignment?
+\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\end{enumerate}
+
+\subsubsection{Code}
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
@@ -604,12 +752,79 @@ for (sctn in unique(dataTable$section)) {
 }
 @
 
+\subsubsection{Output}
+
+An instructor might want to know how their section of students is performing throughout the course duration, and in partiular, if there are any topics for which their students perform well or poorly. The report we just generated (Stat101hwk\_Unit1\_SectionAB.pdf) provides tools that could inform such instructors. For instance, we can obtain a quick summary of how students performed for this section AB for both Topic 03 and Topic 06, as is provided in Figure \ref{fig:output5a}.
+
+\begin{center}
+\captionsetup{width=0.6\textwidth}
+\fbox{\includegraphics[width=0.6\textwidth]{output5a.png}}
+\captionof{figure}{Overall summary of student performance for Topic 03 and Topic 06. Students from this section showed a higher mean and median for Topic 06, but a larger standard deviation for Topic 03.}
+\label{fig:output5a}
+\end{center}
+
+We can also compare this section of student performances between these two topics, not only at an overall level, but also at the individual student level, see Figure \ref{fig:output5b}.
+
+\begin{center}
+\captionsetup{width=0.5\textwidth}
+\fbox{\includegraphics[width=0.5\textwidth]{output5b.png}}
+\captionof{figure}{Boxplots with parallel coordinate plot overlaid. Each boxplot represents the five-number summary of scores in each topic, and each parallel coordinate line represents scores of an individual student. We see that many of the students who did not perform as well in Topic 06 were outliers for high scores for Topic 03.}
+\label{fig:output5b}
+\end{center}
+
+While the figure above can allow us to see if there are trends in how individual students scored between the topics, if we find patterns of interest, we may wish to determine the identity of individual students. This is provided below in Figure \ref{fig:output5c}.
+
+\begin{center}
+\captionsetup{width=0.65\textwidth}
+\fbox{\includegraphics[width=0.65\textwidth]{output5c.png}}
+\captionof{figure}{Heat map of the scores for both topics of interest for students in the section. Some students (such as w.introstat64) performed poorly in both topics. Other students (such as w.introstat40, w.introstat49, and w.introstat70) performed much better in Topic 03 than they did in Topic 06.}
+\label{fig:output5c}
+\end{center}
+
 \subsection{One unit (group of topics) comparing multiple sections}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
+\begin{enumerate}
+\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
+\item Which students from this section scored poorly on each learning outcome for this homework assignment?
+\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\end{enumerate}
+
+\subsubsection{Code}
 
 <<eval=FALSE>>=
 merged = subsetData(mergedData, dataTable)
 knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output = 'Stat101hwk_Unit1_allSections.tex')
 @
+
+\subsubsection{Output}
+
+From the report we just generated (Stat101hwk\_Unit1\_allSections.pdf), we can simultaneously examine how students performed across different sections and different topics. As is the case with previous reports, we are provided some basic summaries, as provided in Figure \ref{fig:output6a}.
+
+\begin{center}
+\captionsetup{width=0.3\textwidth}
+\fbox{\includegraphics[width=0.3\textwidth]{output6a.png}}
+\captionof{figure}{Mean scores for students in both sections and topics. For both topics, section CD had a higher mean.}
+\label{fig:output6a}
+\end{center}
+
+In this report, we can also compare score distributions for each combination of section and topic, see Figure \ref{fig:output6b}.
+
+\begin{center}
+\captionsetup{width=0.8\textwidth}
+\fbox{\includegraphics[width=0.8\textwidth]{output6b.png}}
+\captionof{figure}{Histogram of student scores for sections AB and CD and topics 03 and 06. Both sections had large-scoring outliers in Topic 03.}
+\label{fig:output6b}
+\end{center}
+
+One other feature of this report is a tabulation of missing homework for both sections and both topics (see Figure \ref{fig:output6c}). If there are patterns found for this, course coordinators may wish to determine what is causing students to tend to miss homework assignments for a certain section or certain topic.
+
+\begin{center}
+\captionsetup{width=0.6\textwidth}
+\fbox{\includegraphics[width=0.6\textwidth]{output6c.png}}
+\captionof{figure}{Missing homework summary for both sections and both topics of interest. In both sections, the fifty students submitted homework assignments for both Topic 03 and 06.}
+\label{fig:output6c}
+\end{center}
 
 \section{Additional tools}
 
@@ -617,10 +832,11 @@ knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output = 'Stat101hwk_Un
 
 \subsection{Splitting files}
 
-%% splitFile does not always run correctly (eg. splitFile(file,11,"ID"))
-%% What is RsQ?
+In some cases, one homework assignment may span across two topics. In order to generate separate reports for each of the two topics, we will first need to split the data file. In our example, we will split the Topic 03 data files for both sections AB and CD. We have a special folder in our example data to complete this process; if you examine the folder called \texttt{Topic03\_Split}, which is located in our example \texttt{DataFiles} folder, then you will see that it contains the two files, Topic03.AB.csv and Topic03.CD.csv.\\
 
-In some cases, one homework assignment may span across two topics. In order to generate separate reports for each of the two topics, we will first need to split the data file. For our example, we will split the Topic 03 data files for both sections AB and CD. !!!!!!!!!!!!
+If you open either of these files, then you will notice there is a `Question ID' column and a `Question' column (which contains Question RsQ). The Question ID refers to the question order that each student completed; in this example assignment, there are 31 Question IDs. Hence, each student received 31 problems, and should have Question IDs for each of these problems consecutively increasing from Question ID 1 to Question ID 31. In contrast, the Question RsQ refers to the absolute ID from \hyperref[sec:ResSection]{Respondus}. In this assignment, in total, there were 86 problems in Respondus, from which each student received their randomly-selected subset of 31 problems. Hence, the Question RsQ should range from 1 to 86. \\
+
+Because of this, if an instructor wants to split the data files, there are two parameters they can use to designate the cut location. If you run a \hyperref[sec:helpSection]{help} function on the \texttt{ePort} function \texttt{splitFile()}, then you see that these cut types are called `RsQ' and `ID'. Let us say that we need to split these data files into one file that only contains the first 9 ID Questions and another file that only contains the last 22 ID Questions. In that case, we can choose a cut type of `ID' with a value of 9, or a cut type of `RsQ' with a value of 27. We show this process below using the cut type of `ID'.
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
@@ -631,19 +847,26 @@ for(file in dataList){
 }
 @
 
+Upon running the above code, if you return to the \texttt{Topic03\_Split} folder, then you will see that four new files have been created, \texttt{Topic03.AB.part1.csv}, \texttt{Topic03.AB.part2.csv}, \texttt{Topic03.CD.part1.csv}, and \texttt{Topic03.CD.part2.csv}. You can verify that the `part1' files contain the first 9 Question IDs, while the `part2' files contain the last 22 Question IDs.
+
 \subsection{Merging files}
 
-%%% Which files should I use?
+In some cases, one topic might encompass two homework assignments. In order to generate a report for the overall topic, we will first need to combine the two data files. Such a scenario exists in the \hyperref[sec:OnlineHomework]{online database}, in which chapter 9 and 12 homework assignments together form Topic 11. \\
+
+In our example, we will combine the Chapter 9 and 12 homework assignments to form the Topic 11 data file for both sections AB and CD. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic03\_Merge}. Upon entering this folder, you should see that it contains four files, Ch12.AB.csv, Ch12.CD.csv, Ch9.AB.csv, and Ch9.CD.csv. Notice in the code below that we save the Topic number to a string variable called \texttt{topicNum}. \\
 
 <<eval=FALSE>>=
-dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Fall 2014/Data Files/Ch9-Ch11"
-namelist = list.files(path=dataPath,full.names=TRUE)
-for (i in namelist) rewriteData(i) # May not need this rewriting step!
-for(i in c('AB','CD','EF','GH','JK','LM')){
-  tmp = namelist[grep(i,basename(namelist))]
-  combineFiles(tmp[2],tmp[1],paste("Topic11",i,"csv",sep='.'))
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Merge", package="ePort")
+dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
+topicNum = "Topic11"
+for (i in dataList) rewriteData(i)
+for(i in c('AB', 'CD')){
+  tmp = dataList[grep(i, basename(dataList))]
+  combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]),"/",paste(topicNum, i, "csv", sep='.'),sep=""))
 }
 @
+
+Running this code should produce two new files (Topic11.AB.csv and Topic11.CD.csv) into the \texttt{Topic03\_Merge} folder. If we explore these files, we see that they have a maximum Question ID value of 15 and a maximum RsQ value of 32. This can verify that this is correct if we explore the original files for the Chapter 9 and 12 homework assignments. The Chapter 9 homework data file had a maximum Question ID value of 10 and a maximum RsQ value of 23, while the Chaper 12 homework data file had a maximum Question ID value of 5, and a maximum RsQ value of 9. Hence, the total number of Question ID and RsQ values in the combined files appear to have been added correctly given the total number of Question ID and RsQ values from the individual files.
 
 \subsection{Deidentifying files}
 
@@ -706,6 +929,14 @@ dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
 % keep files
 % list of low-scoring students
 %
+
+
+As this document may be used for course coordinators to evaulate a large amount of data (if inputting many sections and topics), there are additional tools that may be used. 
+
+- analyze effects of sections and topics on students performance, we consider the generalized linear mixed model, with the response (homework score), and the predictors (section and topic)
+- A mixed effects model is considered since we have multiple measurements on each student, while the students may have different ability to study. The fixed effects are topic (t), section (s), and their interaction (ts). The random effect is student (u).
+- clustering analysis
+  - During a semester of 16 weeks, students may not keep the same pace in studying. Some students are smart and working very hard all the time. Some students start full of energy, and gradually lose their passions. Some students do not take the course seriously until they are challenged by some difficult content. We are interested in finding some featured behaviors along with time, by clustering the students into groups. The result of hierarchical clustering on the scaled scores is shown in Figure 5.
 
 \section{Conclusions}
 

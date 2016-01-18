@@ -251,6 +251,10 @@ print(ggplot(sumVarVal, aes(variable, value)) + geom_point(aes(size = Count), pc
 
 @
 
+% TEMPORARY
+\pagebreak
+% TEMPORARY
+
 \vspace{5mm}
 
 \begin{fullwidth}

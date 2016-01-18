@@ -66,7 +66,7 @@ b$section=factor(b$Section,levels=rev(levels(b$Section)))
 
 fname=paste0(plotprename,'_boxplot_score.pdf')
 pdf(paste0("../",fname),width=9,height=6)
-print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text=element_text(size=27),axis.title=element_text(size=27)) )
 {dev.off();invisible()}
 cat(sprintf('
 \\begin{marginfigure}

@@ -371,12 +371,11 @@ for (j in 1:nQuestion) {
     abbrscore=as.factor(as.character(abbrscore[!is.na(abbrscore)]))
     ord=table(abbrscore,useNA='no')
     pdf(paste0("../",fname1))
-    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip()+theme(axis.text = element_text(size = rel(2))))
+    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+ theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)) + xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip())
     dev.off()
 
-
     pdf(paste0("../",fname2))
-    print(qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+theme(axis.text = element_text(size = rel(2))))
+    print(qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size=25)))
     dev.off()
 
     cat(sprintf('\\begin{center} \\includegraphics[width=.45\\linewidth]{%s} \\includegraphics[width=.45\\linewidth]{%s} \\end{center}',sub('\\.pdf','',fname1), sub('\\.pdf','',fname2)), '\n\n')

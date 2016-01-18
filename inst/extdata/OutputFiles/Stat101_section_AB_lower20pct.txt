@@ -1,0 +1,8 @@
+With semicolon:
+
+w.introstat24@iastate.edu; w.introstat27@iastate.edu; w.introstat64@iastate.edu
+
+
+With comma:
+
+w.introstat24@iastate.edu, w.introstat27@iastate.edu, w.introstat64@iastate.edu
