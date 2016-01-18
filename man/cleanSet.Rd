@@ -13,7 +13,7 @@ cleanSet(HWsheet, key)
 }
 \value{
 List of two data frames of scores for the question
-sets and learning objectives respectively.
+sets and learning outcomes respectively.
 }
 \description{
 Get the Question Set and Objective Set Scores

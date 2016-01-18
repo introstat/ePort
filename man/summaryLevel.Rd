@@ -20,7 +20,7 @@ the output from function \code{cleanScore}.}
 a list of two or three objects (when \code{CSS} is not NULL).
 The first two objects are the summaries by question,
 and by question set. The optional third output is the
-summary by learning objective.
+summary by learning outcome.
 }
 \description{
 Gives the correct percentage, count, mean, standard deviation,

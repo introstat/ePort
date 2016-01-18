@@ -40,7 +40,7 @@ namelist = list.files(path=dataPath,full.names=TRUE)
 namelist = namelist[grep(paste('Topic',topic,'\\\\.',sep=''),basename(namelist))]
 namelist
 
-## learning objectives ##
+## learning outcomes ##
 loPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
 
 ## 1. Individual report ##

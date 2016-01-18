@@ -18,7 +18,7 @@ the output from function \code{cleanScore}.}
 }
 \value{
 a data frame with total scores, scores for question sets,
-learning objectives (if \code{CSS} is not NULL), and questions.
+learning outcomes (if \code{CSS} is not NULL), and questions.
 }
 \description{
 Merge the scores at different levels (total, learning

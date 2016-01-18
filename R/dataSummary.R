@@ -10,7 +10,7 @@
 #' @param CSS a list. Second object of the output from function
 #' \code{cleanSet}: ObjectiveSet. Could be NULL.
 #' @return a data frame with total scores, scores for question sets,
-#' learning objectives (if \code{CSS} is not NULL), and questions.
+#' learning outcomes (if \code{CSS} is not NULL), and questions.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 
@@ -42,7 +42,7 @@ summaryScore = function(QS, QSS, CSS=NULL) {
 #' @return a list of two or three objects (when \code{CSS} is not NULL).
 #' The first two objects are the summaries by question,
 #' and by question set. The optional third output is the
-#' summary by learning objective.
+#' summary by learning outcome.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 

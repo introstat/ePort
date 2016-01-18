@@ -18,7 +18,7 @@ shinyUI(fluidPage(
                          '.csv'))
     )),
     column(3, wellPanel(
-      h4("Learning Objectives"),
+      h4("Learning Outcomes"),
       fileInput('lo', 'Choose txt file',
                 accept=c('text/csv', 
                          'text/plain', 

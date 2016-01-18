@@ -7,7 +7,8 @@
 makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
   reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
   keepImage = FALSE, topic = NULL, section = NULL, path = NULL,
-  type = NULL, rewrite = FALSE, skip = NULL, outFile = NULL)
+  type = NULL, unit = NULL, rewrite = FALSE, skip = NULL,
+  outFile = NULL)
 }
 \arguments{
 \item{keyFile}{file name with path for the answer key}
@@ -63,7 +64,7 @@ namelist = list.files(path=dataPath,full.names=TRUE)
 namelist = namelist[grep(paste('Topic',topic,'\\\\.',sep=''),basename(namelist))]
 namelist
 
-## learning objectives ##
+## learning outcomes ##
 loPath = "C:/Users/amyf/Dropbox/Stat 101 Coordinating Materials/Online Homework Assessment Data/Outcomes/Topic03.Outcomes.txt" 
 
 ## 1. Individual report ##

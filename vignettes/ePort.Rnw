@@ -129,9 +129,6 @@ The above command will return the help file for the function. Notice that this h
 
 Amy Froelich, one of the authors of the \texttt{ePort} package, developed an online homework database that has been applied for years in a large multi-section introductory statistics course. The resulting student data from this database has been applied to the \texttt{ePort} package, and has been useful in discovering common patterns and/or problems in student learning in this course. In this section of the vignette, we will describe the configuration of this particular database, keeping in mind that a course supervisor who is intersted in applying the \texttt{ePort} package to their course can do so by constructing their own online homework database in a similar format to the one described below.
 
-* How will others obtain this particular database?????????
-
-
 \subsection{Database structure}
 
 The online homework database consists of 184 learning outcomes, which are grouped into 26 topics. In total, the database contains 2000 questions. A given student does not receive all 2000 questions over the course of the semester. Instead, similar questions are grouped together to form 330 question sets, and a given student will receive a certain number (usually one) from each of these 330 question sets.
@@ -335,8 +332,6 @@ Use this equation to predict the value of $y$ when the value of $x$ is 188. Roun
 Correct answer: 95.25
 \end{framed}
 
-
-
 \subsubsection{Question sets}
 
 A question set consists of a set of questions that all have the same format, and all cover the same component of a learning outcome. Question sets allow for different students to be presented with different subsets of similar questions. The number of questions from a given question set that are to be presented to each student is specified, and the questions are selected at random. There is at least one question set per learning outcome, and there is no connection between question sets.
@@ -395,7 +390,7 @@ A directory that contains example data is automatically installed with the ePort
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the R console:
 
 <<eval=FALSE>>=
-system.file("inst/extdata/", package="ePort")
+system.file("inst/extdata/", package = "ePort")
 @
 
 * Add in picture with layout of the example data file  
@@ -404,9 +399,6 @@ system.file("inst/extdata/", package="ePort")
 To view this file, simply open it in a Web Brower (Mozilla Firefox, Google Chrome, Microsoft Internet Explorer, Apple Safari).  
 
 \section{Generating Reports}
-
-%\subsection{Types of reports - Overview}
-% written in latex/knitr
 
 Currently, the \pkg{ePort} package offers six report types, depending on what the user is trying to compare and analyze about student performance. The same function \texttt{makeReport()} is used to generate each of these six report types; however, the input parameter \texttt{reportType} to the function will be different depending on which of the six report types the user wishes to run. Since it is most efficient for the user to hard-code in the \texttt{reportType} parameter, below is a reference for the parameter options (in quotes) for each of the six report types: 
 \begin{framed}
@@ -434,57 +426,63 @@ An instructor may be motivated to generate a short report for one topic and one 
 \end{enumerate}
 
 \subsubsection{Code}
+\label{sec:codeOnce}
 
 We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet. \\
 
-In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. ????????????? Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), ??????????????????????????????????? and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
+In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files: an answer key file, a data file, and a learning outcome file. There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
 
-The block of code we will use to generate our \texttt{Topic 06} \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condensed location:
+The block of code we will use to generate our report for \texttt{Topic 06} and \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure, and is something you can refer back to once you have completed the vignette at least once, should you want the code in one condensed location:
 
 <<eval=FALSE>>=
-key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
+keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+"ePort")
 
-refineKey(key_htm)
+refineKey(keyHTM)
 
-keyPath = gsub("htm$","txt",key_htm)
+keyPath = gsub("htm$", "txt", keyHTM)
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort")
+dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+"ePort")
 
 rewriteData(dataPath)
 
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
+loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 
-outPath = system.file("inst/extdata/OutputFiles", package="ePort")
+outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 
-makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath)
 @
 
 Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. 
 
-The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{key\_htm}.
+The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{keyHTM}.
 
 <<eval=FALSE>>=
-key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
+keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+"ePort")
 @
 
 Second, we must parse and clean this .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refineKey()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file:
 
 <<eval=FALSE>>=
-refineKey(key_htm)
+refineKey(keyHTM)
 @
 
 By default, the \texttt{refineKey()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and cleaned .txt file we just created, \texttt{Topic06.Questions.txt}. \\
 
-Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keypath}.
+Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keyPath}.
 
 <<eval=FALSE>>=
-keyPath = gsub("htm$","txt",key_htm)
+keyPath = gsub("htm$", "txt", keyHTM)
 @
 
 Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{dataPath}.
 
 <<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort")
+dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+"ePort")
 @
 
 After this, our fifth step is to prime the data file to be compatible with steps later down the pipeline of generating the reports. We do this by running the \texttt{rewriteData()} function of ePort on the data file. This function changes certain non-meaningful character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please run a help command on the function. Below, we rewrite the data file:
@@ -498,25 +496,26 @@ Upon running the above code snippet, you do not obtain a new file. Instead, the 
 Our sixth step is to save the absolute path of our learning outcome file. Below, we save this to a variable called \texttt{loPath}.
 
 <<eval=FALSE>>=
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
+loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 @
 
 After that, the seventh step is to specify our desired output directory. This is the absolute path of where the reports should be saved. Below, we create a variable called \texttt{outPath} to specify that we want to output our report to the \texttt{OutputFiles} subdirectory.
 
 <<eval=FALSE>>=
-outPath = system.file("inst/extdata/OutputFiles", package="ePort")
+outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 @
 
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file) and specified our output directory, our last step is to generate the report using the \texttt{makeReport()} function.
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath)
 @
 
 Upon running this code, you will receive the following message and menu asking for your input:
 
 \begin{framed}
-\vspace{1mm}
+\vspace{2mm}
 Please enter integer (1-6) corresponding to desired report type below.\\
 
 Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).\\
@@ -532,8 +531,8 @@ Note: If running many reports, it is more efficient to exit now and hard-code th
 Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. However, upon seeing the menu option, we can also escape out of the command, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below:
 
 <<eval=FALSE>>=
-makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
-reportType = "secTopicShort")
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath, reportType = "secTopicShort")
 @
 
 The advantage to specifying by hard-coding the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}). \\
@@ -560,7 +559,7 @@ In addition to understanding how students from this section performed overall fo
 \label{fig:output1b}
 \end{center}
 
-Additionally, instructors and course coordinators may wish to obtain an overview of how students from this section performed across the different learning sets within the learning outcomes. The report does generate such a tool, which is shown here in Figure \ref{fig:output1c}. 
+Additionally, instructors and course coordinators may wish to obtain an overview of how students from this section performed across the different question sets within the learning outcomes. The report does generate such a tool, which is shown here in Figure \ref{fig:output1c}. 
 
 \begin{center}
 \captionsetup{width=0.65\textwidth}
@@ -595,7 +594,8 @@ An instructor may be motivated to generate a long report for one topic and one s
 The short report we created for one section one topic (\texttt{Stat101hwk\_Topic06\_AB-short.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic, all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the option of ``secTopicLong".
 
 <<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = outPath, reportType = "secTopicLong")
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath, reportType = "secTopicLong")
 @
 
 We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report, called \texttt{Stat101hwk\_Topic06\_AB\-long.pdf}.
@@ -611,12 +611,12 @@ The short report featured tools that identified students from the section who pe
 \label{fig:output2a}
 \end{center}
 
-Oftentimes, one of the aims in an online homework assignment is to ensure that any two students in the course are not likely to receive the exact same set of problems on any given assignment, thereby encouraging students to complete their own work. However, it is important to ensure that all possible combinations of problem subsets that a student could receive are equally difficult. Hence, it is necessary to confirm that all problems that can be randomly selected from each given learning set are equally difficult. The long report does indicate this information to users, as is seen below in Figure \ref{fig:output2b}. Please note that this image is abridged for demonstration purposes; if you were to view the same image in the long report you just generated, then you would see that indeed it is a comprehensive table that consecutely lists the pertinent information for all 89 questions in this assignment. 
+Oftentimes, one of the aims in an online homework assignment is to ensure that any two students in the course are not likely to receive the exact same set of problems on any given assignment, thereby encouraging students to complete their own work. However, it is important to ensure that all possible combinations of problem subsets that a student could receive are equally difficult. Hence, it is necessary to confirm that all problems that can be randomly selected from each given question set are equally difficult. The long report does indicate this information to users, as is seen below in Figure \ref{fig:output2b}. Please note that this image is abridged for demonstration purposes; if you were to view the same image in the long report you just generated, then you would see that indeed it is a comprehensive table that consecutely lists the pertinent information for all 89 questions in this assignment. 
 
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{output2b.png}}
-\captionof{figure}{Comparison of student performance in this section on each question of Topic 06, grouped by learning set. If any pair of questions in a given learning set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, with mean scores that ranged from 30.00\% to 52.94\%. Three of these problems (IDs: 2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set. In contrast, question set I contained two problems, with mean scores that ranged from 63.33\% to 65.00\%. Hence, neither of these two problems were flagged as demonstrating a concerningly large difference of at least 15\% in difficulty level from within the same question set.}
+\captionof{figure}{Comparison of student performance in this section on each question of Topic 06, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, with mean scores that ranged from 30.00\% to 52.94\%. Three of these problems (IDs: 2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set. In contrast, question set I contained two problems, with mean scores that ranged from 63.33\% to 65.00\%. Hence, neither of these two problems were flagged as demonstrating a concerningly large difference of at least 15\% in difficulty level from within the same question set.}
 \label{fig:output2b}
 \end{center}
 
@@ -627,7 +627,7 @@ If you open the long report we generated ({Stat101hwk\_Topic06\_AB-long.pdf}), t
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{output2c.png}}
-\captionof{figure}{A detailed summary of student performance for the first question in the assignment. We see that 10 of the 50 students in this section received this problem at random out of a learning set that contains four similar problems. Only 4 of these 10 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C. No student incorrectly responded with answer choice D, and one student did not respond.}
+\captionof{figure}{A detailed summary of student performance for the first question in the assignment. We see that 10 of the 50 students in this section received this problem at random out of a question set that contains four similar problems. Only 4 of these 10 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C. No student incorrectly responded with answer choice D, and one student did not respond.}
 \label{fig:output2c}
 \end{center}
 
@@ -648,7 +648,8 @@ Now that we have successfully generated reports for both sections of \texttt{Top
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
 dataList = list.files(path = dataFolder, full.names = TRUE)[1:2]
-makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicShort")
+makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
+outPath, reportType = "crossSecTopicShort")
 @
 
 Please ensure that the variable \texttt{dataList} contains the full pathway to the two data files (Topic06.AB.csv and Topic06.CD.csv). If your variable contains additional pathways, then you have more than just the two necessary input data files in your DataFiles/Topic06 folder. In this case, you will need to move these extraneous files elsewhere or hardcode the two full pathways into the \texttt{dataList} variable. 
@@ -681,7 +682,8 @@ An instructor may be motivated to generate a long report for one topic across mu
 We received a brief comparative summary between the sections of Topic 06 in the previous section. If we would like to see a more detailed version of this report that includes comparative information for each question in the topic of interest, then we can simply run the previous line of code, only now specifying the \texttt{reportType} parameter to indicate that we wish to generate a long report that compares sections for a given topic:
 
 <<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicLong")
+makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
+outPath, reportType = "crossSecTopicLong")
 @
 
 \subsubsection{Output}
@@ -709,18 +711,18 @@ The long edition of the report also offers information that does not explicitly 
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{output4c.png}}
-\captionof{figure}{Comparison of student performance combined from sections AB and CD on each question of Topic 06, grouped by learning set. If any pair of questions in a given learning set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, and when we only used student performance information from the 50 students in section AB, three IDs (2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set (see Figure \ref{fig:output2b}). However, now that we have used student performance information from all 100 students in both setions AB and CD, only two IDs (2 and 3) remain flagged. In contrast, question set I contained two problems, and neither of these problems were flagged when we only used student performance information from the 50 students in section AB. This remains the case now that we have used student performance information from all 100 students in both setions AB and CD.}
+\captionof{figure}{Comparison of student performance combined from sections AB and CD on each question of Topic 06, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set A contained four problems, and when we only used student performance information from the 50 students in section AB, three IDs (2, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another problem in the same question set (see Figure \ref{fig:output2b}). However, now that we have used student performance information from all 100 students in both setions AB and CD, only two IDs (2 and 3) remain flagged. In contrast, question set I contained two problems, and neither of these problems were flagged when we only used student performance information from the 50 students in section AB. This remains the case now that we have used student performance information from all 100 students in both setions AB and CD.}
 \label{fig:output4c}
 \end{center}
 
 As per the figure above, an instructor can quickly determine if there are problems for which students tend to perform poorly, and if there question sets for which students tend to show inconsistent performance between the individual questions. In either situation, an instructor may wish to examine these problems more closely, and determine how students are answering these problems incorrectly. For this reason, the long report also includes a summary of student responses for each individual problem in the assignment, allowing instructors to determine the most common mistakes students in this section are making for these difficult problems.\\
 
-If you open the long report we generated (Stat101hwk\_Topic06\_crossSection\-long.pdf), then you can view the summary for each of the 89 problems in this assignment. Each problem summary is printed on a separate page, beginning on Page 12 and ending on Page 100 of the report. As we saw in Figure \ref{fig:output4c}, the first problem in the assignment had an overall mean score of 46\% across both sections. We can ascertain what types of errors students made on this problem, regardless of section, by viewing the summary for the first problem (on Page 12 of the report), which provided below in Figure \ref{fig:output4d}. Of course, now that we are collecting student responses from the 26 students who received this problem in sections AB and CD, our figure will provide us with more power about the distribution of student responses for this problem than when only considered the 10 students in section AB, as was done in Figure \ref{fig:output2c}.
+If you open the long report we generated (Stat101hwk\_Topic06\_crossSection\-long.pdf), then you can view the summary for each of the 89 problems in this assignment. Each problem summary is printed on a separate page, beginning on Page 12 and ending on Page 100 of the report. As we saw in Figure \ref{fig:output4c}, the first problem in the assignment had an overall mean score of 46\% across both sections. We can ascertain what types of errors students made on this problem, regardless of section, by viewing the summary for the first problem (on Page 12 of the report), which provided below in Figure \ref{fig:output4d}. Of course, now that we are collecting student responses from the 26 students who received this problem in sections AB and CD, we are provided with more power about the distribution of student responses for this problem than when only considered the 10 students in section AB, as was done in Figure \ref{fig:output2c}.
 
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{output4d.png}}
-\captionof{figure}{A detailed summary of student performance for the first question in the assignment. Only 12 of 26 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C, and then answer choice D. One student did not respond. This is a similar distribution to what we saw in Figure \ref{fig:output2c}, when we had less power by only looked at the 10 students from section AB.}
+\captionof{figure}{A detailed summary of student performance for the first question in the assignment. Only 12 of 26 students correctly selected answer choice A. The most frequently incorrect response from students was answer choice B, followed by answer choice C, and then answer choice D. One student did not respond. This is a similar distribution to what we saw in Figure \ref{fig:output2c}, when we had less power by only looking at the 10 students from section AB.}
 \label{fig:output4d}
 \end{center}
 
@@ -740,15 +742,18 @@ An instructor may be motivated to generate a long report for one topic across mu
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
 dataList = list.files(path = dataFolder, full.names = TRUE)
+unit = 1
+
 for (file in dataList){
   rewriteData(file)
 }
+
 dataTable = setDir(dataFolder)
 mergedData = mergeData(dataTable)
-# Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
-for (sctn in unique(dataTable$section)) {
-  merged = subsetData(mergedData, dataTable, choice = sctn)
-  knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw", output = paste0('Stat101hwk_Unit1_Section',sctn, '.tex'))
+
+for (section in unique(dataTable$section)) {
+  merged = subsetData(mergedData, dataTable, choice = section)
+  makeReport(outFile = outPath, unit = 1, section = section, reportType = "secUnit")
 }
 @
 
@@ -768,7 +773,7 @@ We can also compare this section of student performances between these two topic
 \begin{center}
 \captionsetup{width=0.5\textwidth}
 \fbox{\includegraphics[width=0.5\textwidth]{output5b.png}}
-\captionof{figure}{Boxplots with parallel coordinate plot overlaid. Each boxplot represents the five-number summary of scores in each topic, and each parallel coordinate line represents scores of an individual student. We see that many of the students who did not perform as well in Topic 06 were outliers for high scores for Topic 03.}
+\captionof{figure}{Boxplots with parallel coordinate plot overlaid. Each boxplot represents scores in each topic, and each parallel coordinate line represents scores of an individual student. We see that many of the students who did not perform as well in Topic 06 were outliers for high scores for Topic 03.}
 \label{fig:output5b}
 \end{center}
 
@@ -795,7 +800,8 @@ While the figure above can allow us to see if there are trends in how individual
 <<eval=FALSE>>=
 merged = subsetData(mergedData, dataTable)
 ############################ add this to makeReport()!!!!!!!!!!!!!!!##########
-knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output = 'Stat101hwk_Unit1_allSections.tex')
+knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output =
+'Stat101hwk_Unit1_allSections.tex')
 @
 
 \subsubsection{Output}
@@ -805,7 +811,7 @@ From the report we just generated (Stat101hwk\_Unit1\_allSections.pdf), we can s
 \begin{center}
 \captionsetup{width=0.3\textwidth}
 \fbox{\includegraphics[width=0.3\textwidth]{output6a.png}}
-\captionof{figure}{Mean scores for students in both sections and topics. For both topics, section CD had a higher mean.}
+\captionof{figure}{Mean scores for both sections and topics. Section CD had the higher mean for both topics.}
 \label{fig:output6a}
 \end{center}
 
@@ -814,41 +820,39 @@ In this report, we can also compare score distributions for each combination of 
 \begin{center}
 \captionsetup{width=0.8\textwidth}
 \fbox{\includegraphics[width=0.8\textwidth]{output6b.png}}
-\captionof{figure}{Histogram of student scores for sections AB and CD and topics 03 and 06. Both sections had large-scoring outliers in Topic 03.}
+\captionof{figure}{Histogram of student scores for sections AB and CD and Topics 03 and 06. Both sections had large-scoring outliers in Topic 03.}
 \label{fig:output6b}
 \end{center}
 
 One other feature of this report is a tabulation of missing homework for both sections and both topics (see Figure \ref{fig:output6c}). If there are patterns found for this, course coordinators may wish to determine what is causing students to tend to miss homework assignments for a certain section or certain topic.
 
 \begin{center}
-\captionsetup{width=0.6\textwidth}
-\fbox{\includegraphics[width=0.6\textwidth]{output6c.png}}
+\captionsetup{width=0.55\textwidth}
+\fbox{\includegraphics[width=0.55\textwidth]{output6c.png}}
 \captionof{figure}{Missing homework summary for both sections and both topics of interest. In both sections, the fifty students submitted homework assignments for both Topic 03 and 06.}
 \label{fig:output6c}
 \end{center}
 
 \section{Additional tools}
 
-%% Should use ex-mergeSections.R example?
-
 \subsection{Splitting files}
 
 In some cases, one homework assignment may span across two topics. In order to generate separate reports for each of the two topics, we will first need to split the data file. In our example, we will split the Topic 03 data files for both sections AB and CD. We have a special folder in our example data to complete this process; if you examine the folder called \texttt{Topic03\_Split}, which is located in our example \texttt{DataFiles} folder, then you will see that it contains the two files, Topic03.AB.csv and Topic03.CD.csv.\\
 
-If you open either of these files, then you will notice there is a `Question ID' column and a `Question' column (which contains Question RsQ). The Question ID refers to the question order that each student completed; in this example assignment, there are 31 Question IDs. Hence, each student received 31 problems, and should have Question IDs for each of these problems consecutively increasing from Question ID 1 to Question ID 31. In contrast, the Question RsQ refers to the absolute ID from \hyperref[sec:ResSection]{Respondus}. In this assignment, in total, there were 86 problems in Respondus, from which each student received their randomly-selected subset of 31 problems. Hence, the Question RsQ should range from 1 to 86. \\
+If you open either of these files, then you will notice there is a ``Question ID" column and a ``Question" column (which contains Question RsQ). The Question ID refers to the question order that each student completed; in this example assignment, there are 31 Question IDs. Hence, each student received 31 problems, and should have Question IDs for each of these problems consecutively increasing from Question ID 1 to Question ID 31. In contrast, the Question RsQ refers to the absolute ID from \hyperref[sec:ResSection]{Respondus}. In this assignment, in total, there were 86 problems in Respondus, from which each student received their randomly-selected subset of 31 problems. Hence, the Question RsQ should range from 1 to 86. \\
 
-Because of this, if an instructor wants to split the data files, there are two parameters they can use to designate the cut location. If you run a \hyperref[sec:helpSection]{help()} function on the \texttt{ePort} function \texttt{splitFile()}, then you see that these cut types are called `RsQ' and `ID'. Let us say that we need to split these data files into one file that only contains the first 9 ID Questions and another file that only contains the last 22 ID Questions. In that case, we can choose a cut type of `ID' with a value of 9, or a cut type of `RsQ' with a value of 27. We show this process below using the cut type of `ID'.
+Because of this, if an instructor wants to split the data files, there are two parameters they can use to designate the cut location. If you run a \hyperref[sec:helpSection]{help()} function on the \texttt{ePort} function \texttt{splitFile()}, then you see that these cut types are called ``RsQ" and ``ID". Let us say that we need to split these data files into one file that only contains the first 9 ID Questions and another file that only contains the last 22 ID Questions. In that case, we can choose a cut type of ``ID" with a value of 9, or a cut type of ``RsQ" with a value of 27. We show this process below using the cut type of ``ID".
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
-dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+dataList = list.files(path = dataFolder,full.names = TRUE)[1:2]
 for(file in dataList){
   rewriteData(file)
   splitFile(file, 9, "ID")
 }
 @
 
-Upon running the above code, if you return to the \texttt{Topic03\_Split} folder, then you will see that four new files have been created, \texttt{Topic03.AB.part1.csv}, \texttt{Topic03.AB.part2.csv}, \texttt{Topic03.CD.part1.csv}, and \texttt{Topic03.CD.part2.csv}. You can verify that the `part1' files contain the first 9 Question IDs, while the `part2' files contain the last 22 Question IDs.
+Upon running the above code, if you return to the \texttt{Topic03\_Split} folder, then you will see that four new files have been created, \texttt{Topic03.AB.part1.csv}, \texttt{Topic03.AB.part2.csv}, \texttt{Topic03.CD.part1.csv}, and \texttt{Topic03.CD.part2.csv}. You can verify that the ``part1" files contain the first 9 Question IDs, while the ``part2" files contain the last 22 Question IDs.
 
 \subsection{Merging files}
 
@@ -860,10 +864,12 @@ In our example, we will combine the Chapter 9 and 12 homework assignments to for
 dataFolder = system.file("inst/extdata/DataFiles/Topic03_Merge", package="ePort")
 dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
 topicNum = "Topic11"
+
 for (i in dataList) rewriteData(i)
 for(i in c('AB', 'CD')){
   tmp = dataList[grep(i, basename(dataList))]
-  combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]),"/",paste(topicNum, i, "csv", sep='.'),sep=""))
+  combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]), "/", paste(topicNum, i, "csv",
+  sep = '.'), sep = ""))
 }
 @
 
@@ -873,29 +879,97 @@ Running this code should produce two new files (Topic11.AB.csv and Topic11.CD.cs
 
 It should be noted that data files and the corresponding reports they generate contain student names. At times, it may be necessary to anonymize student names in a given data file, so that it (and any reports that can be generated from it) do not contain confidential information. You can most easily deidentify student names by transferring all data files that you wish to deidentify into a common folder that is otherwise empty. It is important to ensure that no extraneous files are in this common folder. \\
 
-In this vignette, such an example folder has already been set up for you. The data files for sections AB and CD of Topic 03 are located in the \texttt{DataFiles/Topic03\_Deidentified} folder of the \texttt{extdata} folder. If you examine the content of these files, then you will notice that the column called \texttt{Username} contains the names of students. Of course, these are not real student names, but instead are fictitious student names generated for example purposes. \\
+In this vignette, such an example folder has already been set up for you. The data files for sections AB and CD of Topic 03 are located in the \texttt{DataFiles/Topic03\_Deidentified} folder of the \texttt{extdata} folder. If you examine the content of these files, then you will notice that the first three columns look something like as shown in Table \ref{tab:beforeDeidentify}. In particular, there is a column called ``Username" that contains the names of students (in the form of something like ``w.introstat64"). Of course, these are not real student names, but instead are placeholder student names generated for example purposes. \\
 
-As is demonstrated below, we first save the pathway to the directory that contains nothing but the files we wish to deidentify. Then, we call the \texttt{getNameList()} function of \texttt{ePort}. We choose the \texttt{save = TRUE} option so that a dictionary file \texttt{nameCode.csv} will be generated. This dictionary file contains a list of the original student names and their corresponding deidentified codes. Lastly, we call the \texttt{encodeName()} function, which will use the dictionary file we just created to translate the original data files into deidentified data files. If you complete this process, you will notice that the original data files have been overwritten.
+\captionof{table}{Data files before deidentification}
+\label{tab:beforeDeidentify}
+\begin{center}
+\begin{tabular} { | l | l | l |}
+\hline \textbf{Username} & \textbf{Last Name} & \textbf{First Name} \\
+\hline
+w.introstat21 & Stat21 & Intro \\
+\hline
+w.introstat21 & Stat21 & Intro \\
+\hline
+w.introstat21 & Stat21 & Intro \\
+\hline
+w.introstat22 & Stat22 & Intro \\
+\hline
+w.introstat22 & Stat22 & Intro \\
+\hline
+w.introstat22 & Stat22 & Intro \\
+\hline
+w.introstat23 & Stat23 & Intro \\
+\hline
+w.introstat23 & Stat23 & Intro \\
+\hline
+w.introstat23 & Stat23 & Intro \\
+\hline
+\end{tabular}
+\end{center}
 
-%% add option to not overwrite files?
-%% Add message in getNameList if nameCode.csv is in file 
+As is demonstrated below, we first save the pathway to the directory that contains nothing but the files we wish to deidentify. Then, we call the \texttt{getNameList()} function of \texttt{ePort}. We choose the \texttt{save = TRUE} option so that a dictionary file \texttt{nameCode.csv} will be generated. This dictionary file contains a list of the original student names and their corresponding deidentified codes. Lastly, we call the \texttt{encodeName()} function, which will use the dictionary file we just created to translate the original data files into deidentified data files.
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package="ePort")
-getNameList(dataFolder, section=NULL, semester=NULL, secblind=TRUE, save=TRUE)
-encodeName(dataFolder, dict=paste(dataFolder, "nameCode.csv", sep='/'))
+dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package =
+"ePort")
+getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save =
+TRUE)
+encodeName(dataFolder, dict = paste(dataFolder, "nameCode.csv", sep = '/'))
 @
+
+If you complete this process, you will notice that the original data files have been overwritten to have anonymized student names. Specifically, the column called ``Username" now contains deidentified names of students (in the form of something like ``ID0034"). Now, the first three columns look something like in Table \ref{tab:afterDeidentify}:
+
+\captionof{table}{Data files after deidentification}
+\label{tab:afterDeidentify}
+\begin{center}
+\begin{tabular} { | l | l | l |}
+\hline \textbf{Username} & \textbf{Last Name} & \textbf{First Name} \\
+\hline
+ID0045 & NA & NA \\
+\hline
+ID0045 & NA & NA \\
+\hline
+ID0045 & NA & NA \\
+\hline
+ID0090 & NA & NA \\
+\hline
+ID0090 & NA & NA \\
+\hline
+ID0090 & NA & NA \\
+\hline
+ID0053 & NA & NA \\
+\hline
+ID0053 & NA & NA \\
+\hline
+ID0053 & NA & NA \\
+\hline
+\end{tabular}
+\end{center}
 
 \section{Running reports sequentially}
 \label{sec:sequential}
 
-If a course has multiple sections, and we wish to create an individual report for each of the many sections, then one inconvenient way to accomplish this would be to run the example code above, separately for each section at a time, with new data files each time. However, a more convenient way to accomplish the task would be to run all the reports at once. We are still using the same key and learning outcome files, although we would now need two data files (one with the answers from students in \texttt{Section AB} and one with the answers from students in \texttt{Section CD}). \\
-
-We can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below:
+If we wish to create an individual report for a given topic for each of many sections, then one inconvenient way to accomplish this would be to run the code separately for each section at a time. Since the reports we wish to generate are all from the same topic, then we would be using the same key and learning outcome files. We can demonstrate this approach by working off similar code to what we used at the beginning of the vignette when we covered \hyperref[sec:codeOnce]{the short version of one topic for one section}, where we already defined the key and learning outcome files. Our demonstration of this inefficient method below will use two data files (one with the answers from students in \texttt{Section AB} and one with the answers from students in \texttt{Section CD}).
 
 <<eval=FALSE>>=
-dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
-system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
+dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+"ePort")
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath, reportType = "secTopicShort")
+
+dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package = 
+"ePort")
+makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+outPath, reportType = "secTopicShort")
+@
+
+While this gets the job done, and generates the individual reports for both sections, this method could become burdensome if we are running the report for many (more than two) sections. A more convenient way to accomplish the task would be to run all the reports at once. To do this, we can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below:
+
+<<eval=FALSE>>=
+dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package
+= "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package =
+"ePort"))
 @
 
 Next, as demonstrated below, we can generate a report for both sections listed in our \texttt{dataListPath} object using a for loop. Our two data files of interest in the for loop (\texttt{Topic06.AB.csv} and \texttt{Topic06.CD.csv}) are from the same Topic, and so they share the same key file and learning outcome file. Hence, we do not have to run the \texttt{refineKey()} function on the key file for this Topic, as we have already completed this step earlier. However, our two data files of interest do not share the same data file. We have already executed the \texttt{rewriteData()} function for the \texttt{Topic06.AB.csv} data file, but we have not yet done so for the \texttt{Topic06.CD.csv} file. Hence, we must include the \texttt{rewriteData()} function in our for loop to ensure that both data files have this priming step completed. 
@@ -903,23 +977,9 @@ Next, as demonstrated below, we can generate a report for both sections listed i
 <<eval=FALSE>>=
 for (i in dataListPath){
   rewriteData(i)
-  makeReport(keyFile=keyPath, dataFile=i, loFile=loPath, outFile=outPath, reportType="secTopicShort")
+  makeReport(keyFile = keyPath, dataFile = i, loFile = loPath, outFile = outPath,
+  reportType = "secTopicShort")
 }
-@
-
-We can also, however, simply 
-
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
-#namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
-#http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
-
-#dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
-#topic = gsub('.Questions.txt','',gsub('Topic','',basename(key)))
-#namelist = list.files(path=dataPath,full.names=TRUE)
-#namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
-#namelist
-
 @
 
 \section{Report Options}

@@ -164,7 +164,7 @@ cleanScore = function(HWsheet, key, skip=NULL){
 #' @param HWsheet The output of function \code{cleanScore} $HWsheet
 #' @param key The output of function \code{convertKey}
 #' @return List of two data frames of scores for the question
-#' sets and learning objectives respectively.
+#' sets and learning outcomes respectively.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' 

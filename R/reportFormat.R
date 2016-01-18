@@ -24,7 +24,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #'
-makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
+makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, unit = NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
     
     if (is.null(reportType)){
       reportMenu <- menu(choices=c("One topic for one section - short version (\"secTopicShort\")", "One topic for one section - long version (\"secTopicLong\")", "One topic comparing multiple sections - short version (\"crossSecTopicShort\")", "One topic comparing multiple sections - long version (\"crossSecTopicLong\")", "One unit (group of topics) for one section (\"secUnit\")", "One unit (group of topics) comparing multiple sections (\"crossSecUnit\")"), title=paste("\nPlease enter integer (1-6) corresponding to desired report type below.", "\n\n", trimws("Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).", which="both"), sep=""))
@@ -40,6 +40,21 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
       reportType = system.file("inst/Rnw/hw-individual-long.Rnw", package="ePort")
     }
     
+  # Cross-topic report
+  if (reportType=="secUnit"){
+    reportType = system.file("inst/Rnw/hw-topic.Rnw", package="ePort")
+    #instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
+    if (keepFiles){
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "_", section, ".tex"))
+    }else{
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "_", section, ".tex"),clean=T)
+    }
+    if (!keepTex){
+      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit,"_", sect, ".tex"))) 
+    }
+    return()
+  }
+  
     # Find the file name
     if (is.null(dataFile)) {
       Score_filename = paste(path,type,topic,'.',section,'.csv',sep='')
@@ -63,7 +78,7 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
         paste0(answerkey[[2]]$Topic,answerkey[[2]]$Objective.Set)
     }
     
-    # Learning objective file
+    # Learning outcome file
     chpt_outcome_file = loFile
     chapter=as.character(read.delim(chpt_outcome_file[1],header=FALSE)[,1])
     chapter_outcomes=chapter[grep('^[A-Z]\\. ',chapter)]
@@ -73,8 +88,6 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
     }
 
     # Cross-section report
-    
-    #if (length(Score_filename)>1){
       if (reportType=="crossSecTopicShort"){
         reportType = system.file("inst/Rnw/hw-section-short.Rnw", package="ePort")
         instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
@@ -101,7 +114,8 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
         }
         return()
       }
-    #}
+    
+    
     
     if (rewrite) rewriteData(Score_filename)
     

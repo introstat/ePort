@@ -86,7 +86,7 @@ will be marked red.
 
 <<echo=FALSE,results='asis'>>=
 cat("\\marginnote{\n\n \\bigskip{} \n\n \\bigskip{} \n\n} ")
-cat(c("\\marginnote{Learning objectives in this topic:",
+cat(c("\\marginnote{Learning outcomes in this topic:",
       chapter_outcomes,"}"),sep="\n\n \\bigskip{} \n\n")
 
 tmptab = instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE]

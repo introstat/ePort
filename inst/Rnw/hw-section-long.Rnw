@@ -134,7 +134,7 @@ print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section
 
 fname=paste0(plotprename,'_Sidebyside_Boxplots_LearningObj.pdf')
 pdf(paste0("../",fname),width=12,height=6)
-print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Objective", y="Percentage Correct") + theme(axis.text=element_text(size=24), axis.title =element_text(size=24), legend.text = element_text(size=24), legend.title = element_text(size=24)) )
+print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text=element_text(size=24), axis.title =element_text(size=24), legend.text = element_text(size=24), legend.title = element_text(size=24)) )
 {dev.off();invisible()}
 
 cat(sprintf('\\begin{center}

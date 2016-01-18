@@ -26,63 +26,72 @@ library(knitr)
 #  help(mergeSection)
 
 ## ----eval=FALSE-------------------------------------------
-#  system.file("inst/extdata/", package="ePort")
+#  system.file("inst/extdata/", package = "ePort")
 
 ## ----eval=FALSE-------------------------------------------
-#  key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
+#  keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+#  "ePort")
 #  
-#  refineKey(key_htm)
+#  refineKey(keyHTM)
 #  
-#  keyPath = gsub("htm$","txt",key_htm)
+#  keyPath = gsub("htm$", "txt", keyHTM)
 #  
-#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort")
+#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+#  "ePort")
 #  
 #  rewriteData(dataPath)
 #  
-#  loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
+#  loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 #  
-#  outPath = system.file("inst/extdata/OutputFiles", package="ePort")
+#  outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 #  
-#  makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath)
 
 ## ----eval=FALSE-------------------------------------------
-#  key_htm = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package="ePort")
+#  keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+#  "ePort")
 
 ## ----eval=FALSE-------------------------------------------
-#  refineKey(key_htm)
+#  refineKey(keyHTM)
 
 ## ----eval=FALSE-------------------------------------------
-#  keyPath = gsub("htm$","txt",key_htm)
+#  keyPath = gsub("htm$", "txt", keyHTM)
 
 ## ----eval=FALSE-------------------------------------------
-#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort")
+#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+#  "ePort")
 
 ## ----eval=FALSE-------------------------------------------
 #  rewriteData(dataPath)
 
 ## ----eval=FALSE-------------------------------------------
-#  loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package="ePort")
+#  loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 
 ## ----eval=FALSE-------------------------------------------
-#  outPath = system.file("inst/extdata/OutputFiles", package="ePort")
+#  outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 
 ## ----eval=FALSE-------------------------------------------
-#  makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath)
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath)
 
 ## ----eval=FALSE-------------------------------------------
-#  makeReport(keyFile=keyPath, dataFile=dataPath, loFile=loPath, outFile=outPath,
-#  reportType = "secTopicShort")
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath, reportType = "secTopicShort")
 
 ## ----eval=FALSE-------------------------------------------
-#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile = outPath, reportType = "secTopicLong")
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath, reportType = "secTopicLong")
 
 ## ----eval=FALSE-------------------------------------------
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
 #  dataList = list.files(path = dataFolder, full.names = TRUE)[1:2]
-#  makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicShort")
+#  makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
+#  outPath, reportType = "crossSecTopicShort")
 
 ## ----eval=FALSE-------------------------------------------
-#  makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile = outPath, reportType = "crossSecTopicLong")
+#  makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
+#  outPath, reportType = "crossSecTopicLong")
 
 ## ----eval=FALSE-------------------------------------------
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
@@ -95,16 +104,19 @@ library(knitr)
 #  # Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
 #  for (sctn in unique(dataTable$section)) {
 #    merged = subsetData(mergedData, dataTable, choice = sctn)
-#    knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw", output = paste0('Stat101hwk_Unit1_Section',sctn, '.tex'))
+#    knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw", output =
+#    paste0('Stat101hwk_Unit1_Section', sctn, '.tex'))
 #  }
 
 ## ----eval=FALSE-------------------------------------------
 #  merged = subsetData(mergedData, dataTable)
-#  knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output = 'Stat101hwk_Unit1_allSections.tex')
+#  ############################ add this to makeReport()!!!!!!!!!!!!!!!##########
+#  knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output =
+#  'Stat101hwk_Unit1_allSections.tex')
 
 ## ----eval=FALSE-------------------------------------------
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")
-#  dataList = list.files(path=dataFolder,full.names=TRUE)[1:2]
+#  dataList = list.files(path = dataFolder,full.names = TRUE)[1:2]
 #  for(file in dataList){
 #    rewriteData(file)
 #    splitFile(file, 9, "ID")
@@ -114,36 +126,41 @@ library(knitr)
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Merge", package="ePort")
 #  dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
 #  topicNum = "Topic11"
+#  
 #  for (i in dataList) rewriteData(i)
 #  for(i in c('AB', 'CD')){
 #    tmp = dataList[grep(i, basename(dataList))]
-#    combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]),"/",paste(topicNum, i, "csv", sep='.'),sep=""))
+#    combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]), "/", paste(topicNum, i, "csv",
+#    sep = '.'), sep = ""))
 #  }
 
 ## ----eval=FALSE-------------------------------------------
-#  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package="ePort")
-#  getNameList(dataFolder, section=NULL, semester=NULL, secblind=TRUE, save=TRUE)
-#  encodeName(dataFolder, dict=paste(dataFolder, "nameCode.csv", sep='/'))
+#  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Deidentified", package =
+#  "ePort")
+#  getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save =
+#  TRUE)
+#  encodeName(dataFolder, dict = paste(dataFolder, "nameCode.csv", sep = '/'))
 
 ## ----eval=FALSE-------------------------------------------
-#  dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"),
-#  system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
+#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+#  "ePort")
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath, reportType = "secTopicShort")
+#  
+#  dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package =
+#  "ePort")
+#  makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
+#  outPath, reportType = "secTopicShort")
+
+## ----eval=FALSE-------------------------------------------
+#  dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package
+#  = "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package =
+#  "ePort"))
 
 ## ----eval=FALSE-------------------------------------------
 #  for (i in dataListPath){
 #    rewriteData(i)
-#    makeReport(keyFile=keyPath, dataFile=i, loFile=loPath, outFile=outPath, reportType="secTopicShort")
+#    makeReport(keyFile = keyPath, dataFile = i, loFile = loPath, outFile = outPath,
+#    reportType = "secTopicShort")
 #  }
-
-## ----eval=FALSE-------------------------------------------
-#  dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
-#  #namelist = list.files(path=dataFolder, pattern = "^[^.]*\.[^.]*\.[^.]*$", full.names=FALSE)
-#  #http://stackoverflow.com/questions/9949176/match-string-with-exactly-2-of-a-given-character-e-g-2-literal-periods
-#  
-#  #dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package="ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.CD.csv", package="ePort"))
-#  #topic = gsub('.Questions.txt','',gsub('Topic','',basename(key)))
-#  #namelist = list.files(path=dataPath,full.names=TRUE)
-#  #namelist = namelist[grep(paste('Topic',topic,'\\.',sep=''),basename(namelist))]
-#  #namelist
-#  
 

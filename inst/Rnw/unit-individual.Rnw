@@ -89,11 +89,11 @@ print(xtable(su,caption='Summary statistics of the scores', label='tab:summary')
 
 \clearpage
 \newpage{}
-\section{Learning Objectives}
+\section{Learning Outcomes}
 
 \bigskip{}
 
-The learning objectives in this unit are as follows.
+The learning outcomes in this unit are as follows.
 
 \bigskip{}
 
@@ -111,8 +111,8 @@ cat("\\end{small}")
 
 \newpage{}
 
-Tables \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} shows the summary of percentage scores by learning objective sets. 
-Among all the learning objectives, 
+Tables \ref{tab:LearningObj_summary} and Figure \ref{mar:LearningObj_summary} shows the summary of percentage scores by learning outcome sets. 
+Among all the learning outcomes, 
 \Sexpr{colnames(sumry2$ConceptCorrectPct)[which.max(sumry2$ConceptCorrectPct[1,])]}
 has the highest correct percentage, while 
 \Sexpr{colnames(sumry2$ConceptCorrectPct)[which.min(sumry2$ConceptCorrectPct[1,])]}
@@ -131,14 +131,14 @@ output1$value = output1$value*100
 
 fnameO=paste(plotprename,'_LearningObj_boxplot.pdf',sep='')
 pdf(paste0("../",fnameO),width=6,height=5)
-print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Objective", y="Percentage Correct"))
+print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Outcome", y="Percentage Correct"))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning objective.}
+\\caption{\\label{mar:LearningObj_summary}Side-by-side boxplots of the correct percentages by learning outcome.}
 \\end{marginfigure}',sub('\\.pdf','',fnameO)))
 
-print(xtable(LOsumry,caption='Summary statistics of the learning objectives. They are computed by the mean percentages correct of the questions in the learning objective. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'), 
+print(xtable(LOsumry,caption='Summary statistics of the learning outcomes. They are computed by the mean percentages correct of the questions in the learning outcome. The table is sorted from the highest mean to the lowest.',label='tab:LearningObj_summary'), 
 floating=FALSE, tabular.environment = "longtable")
 @
 
@@ -163,14 +163,14 @@ f=glmmPQL(data=Learning_Objectives,fixed=score~Objective,random=~1|student,famil
 @
 
 
-To analyze the students' performance on different learning objectives, we consider the generalized mixed effects model:
+To analyze the students' performance on different learning outcomes, we consider the generalized mixed effects model:
 \[
 g(E[Y_{ij}|u_{j}])= \tau_{i}+u_{j}
 \]
-where $i=1,...,$\Sexpr{Student_SetScore$ObjectiveSet$nConceptSet} learning objectives; 
+where $i=1,...,$\Sexpr{Student_SetScore$ObjectiveSet$nConceptSet} learning outcomes; 
 $j=1,...,$\Sexpr{rows} students. $Y_{ij}$ is the score (scaled in $[0,1]$) of 
-the $j$th student in the $i$th learning objective. $\tau_i$ is the fixed effect, 
-which represents the actual level of the learning objective $i$. 
+the $j$th student in the $i$th learning outcome. $\tau_i$ is the fixed effect, 
+which represents the actual level of the learning outcome $i$. 
 $u_j$ is the random effect from the students with 
 $u_{j} \sim N(0,\sigma_{u}^{2})$.
 
@@ -188,7 +188,7 @@ print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwi
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.99\\linewidth]{%s}
-\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning objective}
+\\caption{\\label{mar:crtpct_hist}Histogram of the scaled scores by learning outcome}
 \\end{marginfigure}',sub('\\.pdf','',fname)))
 
 fixedcoef = f$coefficients$fixed
@@ -202,7 +202,7 @@ print(xtable(fixedcoef_print,caption='95\\% confidence intervals of the fixed ef
 worseobj = rev(LOsumryorder[fixedcoef_print$upper<0])
 @
 
-It shows that \Sexpr{LOsumryorder[1]} is the best understood learning objective.
+It shows that \Sexpr{LOsumryorder[1]} is the best understood learning outcome.
 \Sexpr{ifelse(length(worseobj)==0,"However, no objectives are",
 ifelse(length(worseobj)==1,sprintf("Objective %s is",worseobj),
 sprintf("Objectives %s are",paste(worseobj,collapse=","))))} 
@@ -315,15 +315,15 @@ floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE)
 \clearpage
 \newpage{}
 \section{Students}
-The percentages correct by learning objective and total for each student, sorted by the highest to lowest total are displayed in Table \ref{tab:LearningObj_data}. And the ranks in percentage are given in Table \ref{tab:LearningObj_rank}. Figure \ref{fig:LearningObj_rank} shows the percent rank of the students.
+The percentages correct by learning outcome and total for each student, sorted by the highest to lowest total are displayed in Table \ref{tab:LearningObj_data}. And the ranks in percentage are given in Table \ref{tab:LearningObj_rank}. Figure \ref{fig:LearningObj_rank} shows the percent rank of the students.
 
 <<echo=FALSE,results='asis'>>=
 CSScore=cbind(Total, CSScore)
 CSScorewithSpace=rbind(CSScore[CSScore[,1]>=60,,drop=FALSE],NA,CSScore[CSScore[,1]<60,,drop=FALSE])
-SplitCSSore=wideTableLatex(CSScorewithSpace,tablecaption='Sorted learning objective sets and total correct percentages',label='tab:LearningObj_data',cols=10)
+SplitCSSore=wideTableLatex(CSScorewithSpace,tablecaption='Sorted learning outcome sets and total correct percentages',label='tab:LearningObj_data',cols=10)
 
 CSRank = round(100 - apply(CSScore,2,rank,ties.method='max')/nrow(CSScore)*100,2)
-PrintCSRank=wideTableLatex(CSRank,tablecaption='Rank of the students by the total and learning objective scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
+PrintCSRank=wideTableLatex(CSRank,tablecaption='Rank of the students by the total and learning outcome scores. The percentages are the proportion of students in this section who got a higher score in the corresponding column.',label='tab:LearningObj_rank',cols=10)
 
 CSRank = data.frame(CSRank, Student=rownames(CSRank))
 tmptile=melt(CSRank,id.vars='Student')
@@ -333,7 +333,7 @@ tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
 fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
 pdf(paste0("../",fname),width=8,height=12)
 print(qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
-        xlab('Learning Objective')+
+        xlab('Learning Outcome')+
         scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank'))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
