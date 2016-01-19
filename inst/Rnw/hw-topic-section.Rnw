@@ -20,6 +20,16 @@ library(plyr)
 library(xtable)
 library(lme4)
 library(fpc)
+@
+
+<<setup, echo=FALSE>>=
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
 
 plotprename='Stat101_allSections_'
 nfile = nrow(merged$file)
@@ -80,7 +90,7 @@ sumdat=ddply(dat,c('Section','Hwk'),summarize,
              `100%`=max(CrtPct,na.rm=TRUE))
 
 fname=paste0(plotprename,'lineplot.pdf')
-pdf(paste0('../',fname),width=4,height=18)
+pdf(paste0(outFile,"/",fname),width=4,height=18)
 print(qplot(Hwk,`50%`,data=sumdat,geom='line',group=Section,fill=Section,
       facets=Section~.,xlab='Topic',ylab='Correct Percentage') +
         geom_line(aes(x=Hwk,y=CrtPct,group=Username),data=dat,alpha=0.1) +
@@ -131,10 +141,10 @@ print(xtable(if (ntopic<9) {avg} else {t(avg)},caption='Average correct percenta
 
 fname=paste0(plotprename,'histbystu.pdf')
 if (ntopic < 7) {
-  pdf(paste0('../',fname),width=3*ntopic, height=2*nsection)
+  pdf(paste0(outFile,"/",fname),width=3*ntopic, height=2*nsection)
   print(qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 )
 } else {
-  pdf(paste0('../',fname),width=1.5*nsection, height=ntopic)
+  pdf(paste0(outFile,"/",fname),width=1.5*nsection, height=ntopic)
   print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101)
 }
 {dev.off();invisible()}
@@ -273,7 +283,7 @@ the fitted values with the response. Figure \ref{fig:est_sec}
 shows the estimated correct probability.
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 fname=paste0(plotprename,'fitted.pdf')
-pdf(paste0('../',fname),width=5,height=4)
+pdf(paste0(outFile,"/",fname),width=5,height=4)
 print(qplot(Score,Predict,data=score,color=Section,geom='point',alpha=I(0.4),
             ylab='Predicted correct probability') + 
         geom_abline(intercept=0, slope=1, color='grey'))
@@ -302,7 +312,7 @@ summary(f)
 
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 fname=paste0(plotprename,'est_section.pdf')
-pdf(paste0('../',fname),width=7,height=4)
+pdf(paste0(outFile,"/",fname),width=7,height=4)
 print(qplot(Topic,Predict,data=predprob,group=Section,
       geom='line',size=I(1.2),ylab='Estimated correct probability')+
         geom_ribbon(aes(ymin=lower,ymax=upper,fill=Section),alpha=0.3)+
@@ -400,7 +410,7 @@ clhc6=clhc6[-((1:(nrow(clhc6)/18))*18),]
 bestcut_hclust = which.min(diff(unique(clhc6$height)))+1
 
 fname=paste0(plotprename,'hclust.pdf')
-pdf(paste0('../',fname),width=4,height=4)
+pdf(paste0(outFile,"/",fname),width=4,height=4)
 print(qplot(value,height,data=clhc6,group=student,color=Section,geom='path',
       ylab='Clustering Height',xlab='Student'))
 {dev.off();invisible()}
@@ -461,7 +471,7 @@ A and B can be grouped together.
 
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 fname=paste0(plotprename,'screeplot.pdf')
-pdf(paste0('../',fname),width=4,height=6)
+pdf(paste0(outFile,"/",fname),width=4,height=6)
 print(qplot(cluster,value,data=dfboot2,geom='point',alpha=I(0.1)) + 
   facet_grid(criteria~., scales = "free_y") + geom_line(data=clusterCriteriaorig))
 {dev.off();invisible()}
@@ -506,7 +516,7 @@ bestcut_mean=ddply(bestcut_dat2,c('Cluster','variable'),summarise,center=mean(va
 ##########
 asw = data.frame(cluster=2:9,criterion=bestcut_pamk$crit[-1])
 fname=paste0(plotprename,'clustasw.pdf')
-pdf(paste0('../',fname),width=5,height=4)
+pdf(paste0(outFile,"/",fname),width=5,height=4)
 print(qplot(cluster,criterion,data=asw,geom=c('point','line'),ylab='criterion value'))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
@@ -522,7 +532,7 @@ bestcut_table_pct = prop.table(bestcut_table,2)*100
 print(xtable(bestcut_table_pct,caption='Contingency table in Column\\% between sections and clusters.', label='tab:cluster_pct',digits=2), floating=FALSE, tabular.environment = "longtable")
 
 fname=paste0(plotprename,'bestclust.pdf')
-pdf(paste0('../',fname),width=7,height=4)
+pdf(paste0(outFile,"/",fname),width=7,height=4)
 print(qplot(variable,value,data=bestcut_dat2,group=Student,
             color=Cluster,geom='line',alpha=I(0.05),
             xlab='Topic',ylab='Scaled score') +
@@ -548,7 +558,7 @@ plotData$Cluster = c(0, cumsum(plotData$marginVar1)[1:bestcut -1]) + plotData$ma
 colnames(plotData)[2]='Section'
 
 fname=paste0(plotprename,'clust_mosaic.pdf')
-pdf(paste0('../',fname),width=5,height=4)
+pdf(paste0(outFile,"/",fname),width=5,height=4)
 print(ggplot(plotData, aes(Cluster, Proportion)) +
   geom_bar(stat = "identity", aes(width = marginVar1, fill = Section), col = "Black") +
   geom_text(aes(label = as.character(Var1), x = Cluster, y = 1.05)) )

@@ -13,16 +13,30 @@
 \begin{document}
 
 <<include=FALSE>>=
-#opts_chunk$set(cache=TRUE)
-
 library(ggplot2)
 library(xtable)
 library(reshape2)
+@
+
+<<include=FALSE>>=
+suppressPackageStartupMessages(library(knitr, quietly=TRUE))
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+<<setup, echo=FALSE>>=
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
 
 plotprename=paste0('Stat101_Section',merged$format,"_")
 nfile = nrow(merged$file)
 topics = as.integer(gsub("[A-Za-z]","",merged$file$topic))
-
 @
 
 \centerline{\Large\bf Statistics 101 Analysis for Section \Sexpr{merged$format}}
@@ -53,7 +67,7 @@ dat$CrtPct=as.numeric(as.character(dat$CrtPct))
 
 if (nfile<10) {
 fname=paste0(plotprename,'histbystu.pdf')
-pdf(paste0("../",fname),width=4, height=18)
+pdf(paste0(outFile,"/",fname),width=4, height=18)
 print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
 dev.off();invisible()
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -62,7 +76,7 @@ cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 para = nfile %/% 7 + (nfile %% 7 > 0)
 for (j in 1:para) {
 fname=paste0(plotprename,'histbystu',j,'.pdf')
-pdf(paste0("../",fname),width=4, height=18)
+pdf(paste0(outFile,"/",fname),width=4, height=18)
 partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
 print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
 dev.off();invisible()
@@ -89,7 +103,7 @@ print(xtable(su,caption=sprintf('Summary statistics for correct percentage. %s h
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 
 fname=paste0(plotprename,'boxplotbystu.pdf')
-pdf(paste0('../',fname),width=9,height=6)
+pdf(paste0(outFile,"/",fname),width=9,height=6)
 print(qplot(Hwk,CrtPct,data=dat,geom='boxplot')+
       geom_line(aes(group=Username),alpha=0.2)+
       geom_boxplot(aes(fill=Hwk))+
@@ -133,7 +147,7 @@ tmptile=melt(tmp,id.vars=1:2)
 colnames(tmptile)[c(1,3,4)]=c('Student','Topic','Percentage')
 tmptile$Student=factor(tmptile$Student,levels=rev(tmp$Username))
 fname=paste0(plotprename,'tile_student_topic.pdf')
-pdf(paste0("../",fname),width=8,height=12)
+pdf(paste0(outFile,"/",fname),width=8,height=12)
 print(qplot(Topic,Student,data=tmptile,geom='tile',fill=Percentage)+ theme(axis.text=element_text(size=20), axis.title=element_text(size=20), legend.text=element_text(size=20), legend.title = element_text(size=20)) + 
   scale_fill_continuous(low='red',high='white',name='Correct\nPercentage\n'))
 {dev.off();invisible()}
@@ -274,7 +288,7 @@ tmp2=merged$dat$MissingTimes[,2,drop=FALSE]
 tmp1[rownames(tmp2),1]=tmp2[,1]
 
 fname=paste0(plotprename,'missinghwk.pdf')
-pdf(paste0('../',fname), width=4, height=3)
+pdf(paste0(outFile,"/",fname), width=4, height=3)
 print(qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks'))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
