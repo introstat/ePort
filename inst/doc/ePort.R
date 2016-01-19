@@ -96,23 +96,23 @@ library(knitr)
 ## ----eval=FALSE-------------------------------------------
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic03_06", package="ePort")
 #  dataList = list.files(path = dataFolder, full.names = TRUE)
+#  unit = 1
+#  
 #  for (file in dataList){
 #    rewriteData(file)
 #  }
+#  
 #  dataTable = setDir(dataFolder)
 #  mergedData = mergeData(dataTable)
-#  # Add this to makeReport if we are using this file!!!!!!!!!!!!!!!!!!!
-#  for (sctn in unique(dataTable$section)) {
-#    merged = subsetData(mergedData, dataTable, choice = sctn)
-#    knit("/Users/lindz/ePort/inst/Rnw/hw-topic.Rnw", output =
-#    paste0('Stat101hwk_Unit1_Section', sctn, '.tex'))
+#  
+#  for (section in unique(dataTable$section)) {
+#    merged = subsetData(mergedData, dataTable, choice = section)
+#    makeReport(outFile = outPath, unit = 1, section = section, reportType = "secUnit")
 #  }
 
 ## ----eval=FALSE-------------------------------------------
 #  merged = subsetData(mergedData, dataTable)
-#  ############################ add this to makeReport()!!!!!!!!!!!!!!!##########
-#  knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output =
-#  'Stat101hwk_Unit1_allSections.tex')
+#  makeReport(outFile = outPath, unit = 1, reportType = "crossSecUnit")
 
 ## ----eval=FALSE-------------------------------------------
 #  dataFolder = system.file("inst/extdata/DataFiles/Topic03_Split", package="ePort")

@@ -419,10 +419,10 @@ This information can also be obtained by running \texttt{help(makeReport)}, and 
 An instructor may be motivated to generate a short report for one topic and one section if they are seeking answers to the following types of questions:
 
 \begin{enumerate}
-\item Overall, how did this section of students do on this homework assignment?
-\item Which students from this section scored poorly overall on this homework assignment?
-\item Are there any learning outcomes for this topic that this section of students found easy or difficult?
-\item Are there any question sets for this topic that this section of students found easy or difficult?
+\item \textit{Overall, how did this section of students do on this homework assignment?}
+\item \textit{Which students from this section scored poorly overall on this homework assignment?}
+\item \textit{Are there any learning outcomes for this topic that this section of students found easy or difficult?}
+\item \textit{Are there any question sets for this topic that this section of students found easy or difficult?}
 \end{enumerate}
 
 \subsubsection{Code}
@@ -455,9 +455,7 @@ makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
 outPath)
 @
 
-Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. 
-
-The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{keyHTM}.
+Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{keyHTM}.
 
 <<eval=FALSE>>=
 keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
@@ -584,9 +582,9 @@ Along the same lines, the report automatically generates a .txt file that lists 
 An instructor may be motivated to generate a long report for one topic and one section if they are seeking answers to the following types of questions:
 
 \begin{enumerate}
-\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult? 
-\item Which students from this section scored poorly on each learning outcome for this homework assignment?
-\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\item \textit{Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?}
+\item \textit{Which students from this section scored poorly on each learning outcome for this homework assignment?}
+\item \textit{For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?}
 \end{enumerate}
 
 \subsubsection{Code}
@@ -636,9 +634,9 @@ If you open the long report we generated ({Stat101hwk\_Topic06\_AB-long.pdf}), t
 An instructor may be motivated to generate a short report for one topic across multiple sections if they are seeking answers to the following types of questions:
 
 \begin{enumerate}
-\item For this topic, is there consistency across the sections in terms of overall performance, and in terms of performance by learning outcome and question set?
-\item Combining students from all sections, are there any disparities in student performance between questions from the same question set?
-\item Combining students from all sections, are there any learning outcomes or question sets for which students consistently tend to perform poorly?
+\item \textit{For this topic, is there consistency across the sections in terms of overall performance?}
+\item \textit{Combining students from all sections, are there any disparities in student performance between questions from the same question set of this topic?}
+\item \textit{Combining students from all sections, are there any problematic questions in this topic, in which students typically perform poorly?}
 \end{enumerate}
 
 \subsubsection{Code}
@@ -665,16 +663,17 @@ You should be able to examine the report we just generated (Stat101hwk\_Topic06\
 \label{fig:output3a}
 \end{center}
 
+The report also provides tables that, after combining student responses from all sections, display questions that have a low overall performance score. It additionally includes tables that highlight question sets that seem to have disparate performance scores between the questions from which is it composed.
 
 \subsection{One topic comparing multiple sections - long version}
 
 An instructor may be motivated to generate a long report for one topic across multiple sections if they are seeking answers to the following types of questions:
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
 \begin{enumerate}
-\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
-\item Which students from this section scored poorly on each learning outcome for this homework assignment?
-\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\item \textit{For this topic, is there consistency across the sections in terms of overall performance, and in terms of performance by learning outcome and question set?}
+\item \textit{Combining students from all sections, for this topic, are there any disparities in student performance between questions from the same question set?}
+\item \textit{Combining students from all sections, for this topic, are there any learning outcomes or question sets for which students consistently tend to perform poorly?}
+\item \textit{Combining students from all sections, for this topic, for each question in the assignment (particularly the difficult ones), what was the distribution of student responses?}
 \end{enumerate}
 
 \subsubsection{Code}
@@ -730,11 +729,10 @@ If you open the long report we generated (Stat101hwk\_Topic06\_crossSection\-lon
 
 An instructor may be motivated to generate a long report for one topic across multiple sections if they are seeking answers to the following types of questions:
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
 \begin{enumerate}
-\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
-\item Which students from this section scored poorly on each learning outcome for this homework assignment?
-\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\item \textit{Did the students from this section overall perform comparably between the topics of interest?}
+\item \textit{Are there are any patterns in how individual students from this section performed between the topics of interest?}
+\item \textit{How often are the students from this section missing assignments? Are there any topics for which students from this section in particular miss assignments?}
 \end{enumerate}
 
 \subsubsection{Code}
@@ -786,22 +784,23 @@ While the figure above can allow us to see if there are trends in how individual
 \label{fig:output5c}
 \end{center}
 
+The report also provides tables that provide information about missed assignments for this section of students. An instructor could use this tool to determine if there are certain topics for which students from the section of interest tend to fail to submit the assignment.
+
 \subsection{One unit (group of topics) comparing multiple sections}
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FILL THIS IN !!!!!!!!!!!!!!!!!!!!!!!!!
+An instructor may be motivated to generate a report for multiple topics and multiple sections if they are seeking answers to the following types of questions:
+
 \begin{enumerate}
-\item Based on how students from this section performed on this topic, are there any noticeable problems with questions in certain question sets not being equally difficult?
-\item Which students from this section scored poorly on each learning outcome for this homework assignment?
-\item For each question in the assignment (particularly the difficult ones), what was the distribution of student responses?
+\item \textit{Are there certain sections that either perform better or worse consistently across topics?}
+\item \textit{What are the most difficult and easiest topics in the course?}
+\item \textit{Are there any patterns in missed assignments by section or topic?}
 \end{enumerate}
 
 \subsubsection{Code}
 
 <<eval=FALSE>>=
 merged = subsetData(mergedData, dataTable)
-############################ add this to makeReport()!!!!!!!!!!!!!!!##########
-knit("/Users/lindz/ePort/inst/Rnw/hw-topic-section.Rnw", output =
-'Stat101hwk_Unit1_allSections.tex')
+makeReport(outFile = outPath, unit = 1, reportType = "crossSecUnit")
 @
 
 \subsubsection{Output}
@@ -982,27 +981,28 @@ for (i in dataListPath){
 }
 @
 
-\section{Report Options}
+\section{Report Defaults}
 \label{sec:repOptions}
 
-% keep images
-% keep tex
-% keep files
-% change course name
-% change low-scoring cutoff
+When creating reports with the \texttt{ePort} package, the number of files in the output directory could grow exponentially for users, especially if they are working with multiple topics and multiple sections. For this reason, the default of the methods is to save the least amount of files and images to the output directory. By running a \hyperref[sec:helpSection]{help()} function on the \texttt{ePort} function \texttt{makeReport()}, you can see that there are several default boolean parameters as follows:\\
 
-As this document may be used for course coordinators to evaulate a large amount of data (if inputting many sections and topics), there are additional tools that may be used. 
+\begin{itemize}
+\item \textbf{keepFiles}: keep files (.aux, .log, etc) used to generate .tex file, default is FALSE
+\item \textbf{keepTex}: keep .tex file, default is FALSE
+\item \textbf{keepImage}: keep individual image files used to generate .tex file, default is FALSE
+\end{itemize}
+
+These can be changed in cases in which a user may wish to choose a verbose option. If the user specifies \texttt{keepFiles = TRUE} in the \texttt{makeReport()} function, then they will output all the files that are generated when running \texttt{knitr} on the \LaTeX\  files that produce the reports. This could be useful if, for instance, the corresponding log files can be used to troubleshoot a technical problem. If the user defines \texttt{keepTex = TRUE} in the \texttt{makeReport()} function, then they will also output not only the final report in its .pdf format, but also the associated .tex file. This could also be used to troubleshoot any technical problems or tailor the reports at this intermediary step. Finally, if the user defines \texttt{keepImage = TRUE} in the \texttt{makeReport()} function, then they will output each of the figures in the reports into its own .pdf file. This could allow users to save that particular plot.\\
 
 \section{Future Avenues}
 
-- analyze effects of sections and topics on students performance, we consider the generalized linear mixed model, with the response (homework score), and the predictors (section and topic)
-- A mixed effects model is considered since we have multiple measurements on each student, while the students may have different ability to study. The fixed effects are topic (t), section (s), and their interaction (ts). The random effect is student (u).
-- clustering analysis
-  - During a semester of 16 weeks, students may not keep the same pace in studying. Some students are smart and working very hard all the time. Some students start full of energy, and gradually lose their passions. Some students do not take the course seriously until they are challenged by some difficult content. We are interested in finding some featured behaviors along with time, by clustering the students into groups. The result of hierarchical clustering on the scaled scores is shown in Figure 5.
+There are several improvements that can be made in future versions of the \texttt{ePort} package. This could include plotting and layout updates in the reports, as well as improvements in the user interface in terms of flexibility and efficiency in generating reports. Any user feedback would be taken seriously for these types of improvements, as they may be underlooked in the first version.\\
+
+There are also aims to expand upon not just the descriptive statistics of student performance, but also in modelling this performance. The beginning of these goals have already been actualized in the unit-level reports. There are generalized linear mixed models that can be applied using assignment score as the response variable and section and topic as the predictor variables. We can also look at mixed effect models, using topic and section as fixed effects and having their interaction included as a term in the model. The random effect in this case would be the student. Finally, clustering analysis can also be used on the data of student performance: There could be interesting and informative patterns regarding how students acquire the course knowledge throughout the duration of the semester. Some students could be naturally strong in statistics combined with being hard working throughout the semester. Other students could start the semester full of energy only to gradually lose steam. Still other students could underestimate an introductory course, do poorly initially, and then need to take the course more seriously once it becomes evident that the course requires more effort. It would be an interesting approach then to employ clustering methods to discover such behaviors along the semester.
 
 \section{Conclusions}
 
-The \pkg{ePort} package offers various plotting tools that can assist those studying genealogical lineages in the data exploration phases. As each plot comes with its advantages and disadvantages, we recommend for users to explore several of the available visualization tools.\\
+The \pkg{ePort} package offers various tools that instructors can use to determine for which topics and - more specifically - learning outcomes students tend to excel and struggle. Coordinators can also use the reports to monitor any problems in individual students. If different teaching methods are used, the reports can also assist instructors in determining if certain interventions can promote learning.\\
 
 This vignette briefly introduced some of the capabilities of the \pkg{ePort} package. Inevitably, new approaches will necessitate new features in subsequent versions and might reveal unforeseen bugs. Please send comments, suggestions, questions, and bug reports to \texttt{amyf@iastate.edu}.
 

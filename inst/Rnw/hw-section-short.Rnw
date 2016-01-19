@@ -43,6 +43,17 @@ lowstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal
 HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set),'QSFullPt']))
 @
 
+<<setup, echo=FALSE>>=
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
+@
+
+
 \centerline{\Large\bf Introductory Statistics Homework Short Report for Topic \Sexpr{topic}}
 \centerline{\bf Comparison among Sections}
 \centerline{\bf }
@@ -65,7 +76,7 @@ b$Section=factor(b$Section,levels=rownames(a)[rownames(a)%in% colnames(instructo
 b$section=factor(b$Section,levels=rev(levels(b$Section)))
 
 fname=paste0(plotprename,'_boxplot_score.pdf')
-pdf(paste0("../",fname),width=9,height=6)
+pdf(paste0(outFile,"/",fname),width=9,height=6)
 print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text=element_text(size=27),axis.title=element_text(size=27)) )
 {dev.off();invisible()}
 cat(sprintf('

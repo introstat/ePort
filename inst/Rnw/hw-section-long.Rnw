@@ -30,6 +30,16 @@ library(plyr)
 library(reshape2)
 library(lme4)
 #library(MASS)
+@
+
+<<setup, echo=FALSE>>=
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
 
 plotprename=paste0('Topic',topic)
 chpt=substr(basename(dataFile)[1],1,regexpr("\\.",basename(dataFile)[1])-1)
@@ -68,7 +78,7 @@ a=a[order(a[,1],decreasing=TRUE),]
 fname=paste0(plotprename,'_overallscore.pdf')
 sectionscore=instructor_scores$score[,1:2]
 sectionscore$Section=factor(sectionscore$Section,levels=rownames(a))
-pdf(paste0("../",fname),width=4,height=18)
+pdf(paste0(outFile,"/",fname),width=4,height=18)
 print(qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -79,7 +89,7 @@ print(xtable(a,caption='Summary of overall scores by section. Sections are order
 
 
 fname=paste0(plotprename,'_boxplot_score.pdf')
-pdf(paste0("../",fname),width=9,height=6)
+pdf(paste0(outFile,"/",fname),width=9,height=6)
 print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
 {dev.off();invisible()}
 #cat(sprintf('\\begin{figure}[!hpbt]\\centering \\includegraphics[width=0.9\\linewidth]{%s}
@@ -123,7 +133,7 @@ b$LearningObj=factor(as.character(b$LearningObj),levels=names(sort(rowMeans(inst
 b$QuestionSet=factor(as.character(b$QuestionSet),levels=names(sort(rowMeans(instructor_scores$QsetAvgPct),dec=TRUE)))
 b$Section=factor(b$Section,levels=rownames(a)[rownames(a)%in% colnames(instructor_scores$QsetAvgScore)])
 b$section=factor(b$Section,levels=rev(levels(b$Section)))
-pdf(paste0("../",fname),width=4,height=18)
+pdf(paste0(outFile,"/",fname),width=4,height=18)
 print(qplot(section,Percent,data=b,geom='point',facets=LearningObj~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15)) + coord_flip() )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -133,7 +143,7 @@ cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE],caption='Average percentages correct for each learning outcome by section. The learning outcomes are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable")
 
 fname=paste0(plotprename,'_Sidebyside_Boxplots_LearningObj.pdf')
-pdf(paste0("../",fname),width=12,height=6)
+pdf(paste0(outFile,"/",fname),width=12,height=6)
 print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text=element_text(size=24), axis.title =element_text(size=24), legend.text = element_text(size=24), legend.title = element_text(size=24)) )
 {dev.off();invisible()}
 
@@ -226,7 +236,7 @@ The average percentages correct for question sets are shown in Table \ref{tab:Qs
 <<echo=FALSE,results='asis'>>=
 
 fname=paste0(plotprename,'_Scatterplot_QSetpct.pdf')
-pdf(paste0("../",fname),width=4,height=19)
+pdf(paste0(outFile,"/",fname),width=4,height=19)
 print(qplot(section,Percent,data=b,geom='point',facets=QuestionSet~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ coord_flip() )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -383,11 +393,11 @@ for (j in 1:nQuestion) {
 	  abbrscore=as.factor(as.character(abbrscore[!is.na(abbrscore)]))
   	ord=table(abbrscore,useNA='no')
     
-    pdf(paste0("../",fname1))
+    pdf(paste0(outFile,"/",fname1))
     print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip() + theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)))
     dev.off()
 
-    pdf(paste0("../",fname2))
+    pdf(paste0(outFile,"/",fname2))
     print(qplot(factor(subset(instructor_scores$Qscore[,j], !is.na(instructor_scores$Qscore[,j]))), main=colnames(instructor_scores$Qscore)[j],xlab='Score') + theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)))
     dev.off()
 

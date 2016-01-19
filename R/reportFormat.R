@@ -50,10 +50,24 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
       knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "_", section, ".tex"),clean=T)
     }
     if (!keepTex){
-      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit,"_", sect, ".tex"))) 
+      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit,"_", section, ".tex"))) 
     }
     return()
   }
+  
+  if (reportType=="crossSecUnit"){
+    reportType = system.file("inst/Rnw/hw-topic-section.Rnw", package="ePort")
+    if (keepFiles){
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"))
+    }else{
+      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"),clean=T)
+    }
+    if (!keepTex){
+      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"))) 
+    }
+    return()
+  }
+  
   
     # Find the file name
     if (is.null(dataFile)) {
