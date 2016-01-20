@@ -1,0 +1,459 @@
+\documentclass[12pt,nohyper]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\Rcode}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rcommand}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\textit{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\newcommand{\Rmethod}[1]{{\textit{#1}}}
+\newcommand{\Rclass}[1]{{\textit{#1}}}
+
+\makeatother
+
+\begin{document}
+
+<<include=FALSE>>=
+
+library(ggplot2)
+library(xtable)
+library(plyr)
+library(reshape2)
+library(lme4)
+#library(MASS)
+@
+
+<<setup, echo=FALSE>>=
+# Specify directory for figure output
+if (!keepImage){
+  temppath <- normalizePath(tempdir(), winslash = '/')
+  opts_chunk$set(fig.path = temppath) 
+}else{
+  opts_chunk$set(fig.path = paste0(outFile,"/"))
+}
+
+plotprename=paste0('Topic',topic)
+chpt=substr(basename(dataFile)[1],1,regexpr("\\.",basename(dataFile)[1])-1)
+
+highmean=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[1,]==max(instructor_scores$sumrytotal[1,])],sep=", ")
+
+highmedian=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[4,]==max(instructor_scores$sumrytotal[4,])],sep=", ")
+
+highstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[2,]==max(instructor_scores$sumrytotal[2,])],sep=", ")
+
+lowstd=paste(colnames(instructor_scores$sumrytotal)[instructor_scores$sumrytotal[2,]==min(instructor_scores$sumrytotal[2,])],sep=", ")
+
+HWFullPt = sum((answerkey$simplekey[!duplicated(answerkey$simplekey$Question.Set),'QSFullPt']))
+@
+
+
+
+\centerline{\Large\bf Introductory Statistics Homework Analysis}
+\centerline{\bf Comparison among Sections}
+\centerline{\bf }
+
+\section{Overview}
+The homework results that will be compared are \Sexpr{paste(basename(dataFile),collapse=', ')}. Those files record the scores of students who are taught by different instructors. The homework questions examine the understanding of \Sexpr{chpt}.
+
+Full credit for this homework assignment is \Sexpr{HWFullPt}. The histograms of total scores by section are shown in Figure \ref{mar:hist}. The summary statistics of the scores are given by Table \ref{tab:summary} and Figure \ref{fig:boxplot-score}. The table is sorted by the mean score of each section. Section \Sexpr{paste(highmean,collapse=',')} \Sexpr{ifelse(length(highmean)==1,"has","have")} the highest mean score, and section \Sexpr{paste(highmedian,collapse=",")} \Sexpr{ifelse(all(highmean==highmedian),"also","")}  \Sexpr{ifelse(length(highmedian)==1,"has","have")} the highest median. Section \Sexpr{paste(highstd,collapse=',')} \Sexpr{ifelse(length(highstd)==1,"has","have")} the largest standard deviation of the scores, while section \Sexpr{paste(lowstd,collapse=',')} \Sexpr{ifelse(length(lowstd)==1,"has","have")} the smallest.
+
+
+<<echo=FALSE,results='asis',fig.show='hide'>>=
+
+a=t(instructor_scores$sumrytotal)
+a=cbind(a[,1:2],NA,NA,a[,3:7])
+colnames(a)[3:4]= " "
+a=a[order(a[,1],decreasing=TRUE),]
+
+
+fname=paste0(plotprename,'_overallscore.pdf')
+sectionscore=instructor_scores$score[,1:2]
+sectionscore$Section=factor(sectionscore$Section,levels=rownames(a))
+pdf(paste0(outFile,"/",fname),width=4,height=18)
+print(qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:hist}Histograms of overall scores by section. The support of the scores is [0,%s].}\\end{marginfigure}', sub('\\.pdf','',fname), HWFullPt))
+
+
+print(xtable(a,caption='Summary of overall scores by section. Sections are ordered from the highest mean score to the lowest.', label='tab:summary'),floating=FALSE, tabular.environment = "longtable")
+
+
+fname=paste0(plotprename,'_boxplot_score.pdf')
+pdf(paste0(outFile,"/",fname),width=9,height=6)
+print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+{dev.off();invisible()}
+#cat(sprintf('\\begin{figure}[!hpbt]\\centering \\includegraphics[width=0.9\\linewidth]{%s}
+#\\end{figure}',sub('\\.pdf','',fname)))
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.8\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.8\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:boxplot-score}Boxplot for the overall scores by section. The highest median comes from Section %s.}
+\\end{wrapfigure}\\par\\end{center}', sub('\\.pdf','',fname), paste(highmedian,collapse=',')))
+
+@
+
+
+\clearpage
+\newpage{}
+\section{Learning Outcomes}
+
+\bigskip{}
+
+The learning outcomes in this topic are:
+
+\bigskip{}
+<<echo=FALSE,results='asis'>>=
+cat(chapter_outcomes,sep="\n\n \\bigskip{} \n\n")
+cat("\\\\ \n ~~ \n")
+@
+
+\clearpage
+\newpage{}
+
+Figure \ref{mar:LOpct} displays the percentage correct of each question by section. The graph is facetted by learning outcome. In addition, sections are ordered by their overall mean scores and learning outcomes are ordered by their average percentage correct scores.
+
+Table \ref{tab:Oset} and Figure \ref{sbsb-os} give the average percentages correct for each learning outcome. The learning outcome \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.max(apply(instructor_scores$CsetAvgPct,1,mean))]} has the highest correct percentage, and  \Sexpr{rownames(instructor_scores$CsetAvgPct)[which.min(apply(instructor_scores$CsetAvgPct,1,mean))]} has the lowest average correct percent.
+
+<<echo=FALSE,results='asis'>>=
+fname=paste0(plotprename,'_Scatterplot_LOpct.pdf')
+b=instructor_scores$QPct
+b$LearningObj=factor(as.character(b$LearningObj),levels=names(sort(rowMeans(instructor_scores$CsetAvgPct),dec=TRUE)))
+b$QuestionSet=factor(as.character(b$QuestionSet),levels=names(sort(rowMeans(instructor_scores$QsetAvgPct),dec=TRUE)))
+b$Section=factor(b$Section,levels=rownames(a)[rownames(a)%in% colnames(instructor_scores$QsetAvgScore)])
+b$section=factor(b$Section,levels=rev(levels(b$Section)))
+pdf(paste0(outFile,"/",fname),width=4,height=18)
+print(qplot(section,Percent,data=b,geom='point',facets=LearningObj~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15)) + coord_flip() )
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:LOpct}Scatterplot of correct percentage by learning outcome. The sections are sorted by their overall mean scores, and the learning outcomes are ordered by the mean correct percentage.}\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+
+print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE],caption='Average percentages correct for each learning outcome by section. The learning outcomes are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable")
+
+fname=paste0(plotprename,'_Sidebyside_Boxplots_LearningObj.pdf')
+pdf(paste0(outFile,"/",fname),width=12,height=6)
+print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text=element_text(size=24), axis.title =element_text(size=24), legend.text = element_text(size=24), legend.title = element_text(size=24)) )
+{dev.off();invisible()}
+
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.98\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{sbsb-os}Side-by-side boxplots for learning outcomes by section. The learning outcome on the left has the highest average correct percentage, while the one on the right has the lowest.}
+\\end{wrapfigure}
+\\par\\end{center}',sub('\\.pdf','',fname)))
+
+@
+
+\clearpage
+\newpage{}
+
+To analyze the students' performance by section and learning outcomes, 
+we consider the generalized linear mixed model:
+\[
+g(E[Y_{ijk}|u_{jk}])= \mu+\tau_{i}+s_{j}+\tau s_{ij}+u_{jk}
+\]
+where $i=1,...,$\Sexpr{length(unique(answerkey$simplekey$Objective.Set))} learning outcomes; 
+$j=1,...,$\Sexpr{length(dataFile)} sections; $k=1,...,n_j$ students.
+$Y_{ijk}$ is the score (scaled in $[0,1]$) of the $k$th student of 
+section $j$ in the $i$th learning outcome. $\tau_i$ and $s_{j}$ are the 
+fixed effects of learning outcome $i$ and section $j$. 
+$\tau s_{ij}$ is the interaction between the two factors.
+$u_{jk}$ is the random effect from the students with 
+$u_{jk} \sim N(0,\sigma_{u}^{2})$.
+
+By default the software R sets $\tau_{1}=0$, $s_{1}=0$ and 
+$\tau s_{ij}=0, \forall i,j = 1 $ as the identifiability constraints.
+
+Table \ref{tab:pvalues_obj} and \ref{tab:pvalues_sec} present the p-values 
+of multiple comparison in the learning outcomes and the sections. 
+The result of the model is as follows.
+
+<<echo=FALSE,results='asis',warning=FALSE>>=
+datpct = instructor_scores$score[,-2]
+ObjFullPt = unique(answerkey$simplekey[,c('Objective.Set','CSFullPt')])
+rownames(ObjFullPt) = ObjFullPt$Objective.Set
+ObjFullPt = ObjFullPt[colnames(datpct)[-(1:2)],2,drop=FALSE]
+datpct[,-(1:2)] = data.frame(t(apply(datpct[,-(1:2)],1,function(x){x/ObjFullPt$CSFullPt})))
+Learning_Objectives = melt(datpct,id.vars=c('Section','student'))
+colnames(Learning_Objectives)[3:4] = c('Objective','Score')
+Learning_Objectives$Section = factor(Learning_Objectives$Section, levels=rownames(a))
+Learning_Objectives$Objective = factor(Learning_Objectives$Objective, levels=levels(b$LearningObj))
+Learning_Objectives$FullPoints = ObjFullPt[Learning_Objectives$Objective,1]
+
+# f1=glmmPQL(data=Learning_Objectives,fixed=Score~Objective*Section,random=~1+Section|student,family=binomial(link="logit"),weights=FullPoints)
+# f2=glmmPQL(data=Learning_Objectives,fixed=Score~Objective+Section,random=~1|student,family=quasibinomial(link="logit"))
+# f3 = glmer(Score~Objective+Section+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
+# f4 = glmer(Score~Objective*Section+(1+Section|student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+ f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+
+f=f5
+est=fixef(f)[-1]
+estcov=as.matrix(vcov(f)[-1,-1])
+
+obj_r=length(levels(b$LearningObj))
+obj_est=est[1:(obj_r-1)]
+obj_estcov=estcov[1:(obj_r-1),1:(obj_r-1)]
+obj_pmtrx = multipleComparison(obj_est,obj_estcov,levels(b$LearningObj),nrow(Learning_Objectives))
+
+print(xtable(obj_pmtrx,caption='P-values of the multiple comparison between learning outcomes', label='tab:pvalues_obj',digits=4), floating=FALSE, tabular.environment = "longtable")
+
+sec_r=length(dataFile)
+sec_est=est[1:(sec_r-1)+obj_r-1]
+sec_estcov=estcov[1:(sec_r-1)+obj_r-1,1:(sec_r-1)+obj_r-1]
+sec_pmtrx=multipleComparison(sec_est,sec_estcov,rownames(a),nrow(Learning_Objectives))
+
+print(xtable(sec_pmtrx,caption='P-values of the multiple comparison between sections', label='tab:pvalues_sec',digits=4), floating=FALSE, tabular.environment = "longtable")
+
+@
+
+<<echo=FALSE,results="markup",warning=FALSE>>=
+summary(f)
+@
+
+
+\clearpage
+\newpage{}
+
+\section{Question Sets}
+The question set is a set of questions which are randomly delivered to the students. The questions in each question set cover the same learning outcome and should be equally difficult. 
+
+The average percentages correct for question sets are shown in Table \ref{tab:Qset-mean} and Figure \ref{mar:Qsetpct}. Among all the \Sexpr{nrow(instructor_scores$QsetAvgPct)} question sets, question set \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.max(apply(instructor_scores$QsetAvgPct,1,mean))]} has the highest correct percentage. \Sexpr{rownames(instructor_scores$QsetAvgPct)[which.min(apply(instructor_scores$QsetAvgPct,1,mean))]} is the hardest question set which has the lowest average score.
+
+<<echo=FALSE,results='asis'>>=
+
+fname=paste0(plotprename,'_Scatterplot_QSetpct.pdf')
+pdf(paste0(outFile,"/",fname),width=4,height=19)
+print(qplot(section,Percent,data=b,geom='point',facets=QuestionSet~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ coord_flip() )
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:Qsetpct}Scatterplot of Correct Percentage by Question Set.}\\end{marginfigure}',sub('\\.pdf','',fname)))
+
+QC = unique(answerkey$simplekey[,c('Question.Set','Objective.Set')])
+rownames(QC) = QC$'Question.Set'
+tmp1 = data.frame(instructor_scores$QsetAvgPct,check.names=FALSE)
+QsetCrtPct = instructor_scores$QsetCrtPct[[1]]
+for (i in 2:length(instructor_scores$QsetCrtPct)){
+  QsetCrtPct = rbind(QsetCrtPct,instructor_scores$QsetCrtPct[[2]])
+}
+tmp1$Overall = round(colMeans(QsetCrtPct)*100,2)
+tmp1$Qset = QC[rownames(tmp1),1]
+tmp1$LO = QC[rownames(tmp1),2]
+tmp1$"#Qn"=unname(table(answerkey[[2]]$Question.Set))
+print(xtable(tmp1[levels(b$QuestionSet),c('Qset','LO','#Qn','Overall',levels(b$Section))],caption='Average percentages correct for each question set by section. The question sets are sorted by the section means. The second column indicates the corresponding learning outcomes.', label='tab:Qset-mean',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+
+## std.dev
+d=instructor_scores$QPct[,c(1,3,4,5)]
+d$Section=factor(d$Section,levels=levels(b$Section))
+d$QuestionSet=factor(d$QuestionSet,levels=levels(b$QuestionSet))
+dtmp=ddply(d,.(Section,QuestionSet,LearningObj),summarise,std=sd(Percent*100,na.rm=TRUE),n=length(Percent))
+dtmp$std[is.na(dtmp$std)]=0
+dtmp2=ddply(d,.(QuestionSet,LearningObj),summarise,std=sd(Percent*100,na.rm=TRUE))
+rownames(dtmp2)=dtmp2$QuestionSet
+d=dcast(dtmp[,1:4],QuestionSet+LearningObj~Section,value.var='std')
+rownames(d)=d$QuestionSet
+d$"#Qn"=dcast(dtmp,QuestionSet~Section,value.var='n')[,2]
+d$Overall=dtmp2[rownames(d),3]
+colnames(d)[1:2]=c('Qset',"LO")
+d=d[,c(1,2,ncol(d)-(1:0),3:(ncol(d)-2))]
+
+@
+
+Table \ref{tab:Qset-sd} presents the standard deviation of the question correct rates by question set and section.
+%%%% ONLY COMMENTED OUT FOR TESTING!!!!!!!!!!!!!!!!!!! %%%%%%%%%%%%
+%Question set \Sexpr{rownames(d[d[,3]>1,4:9])[which.min(rowMeans(d[d[,3]>1,4:9]))]} has the smallest standard deviation, while \Sexpr{rownames(d[,4:9])[which.max(rowMeans(d[,4:9]))]} has the largest standard deviation.
+
+<<echo=FALSE,results='asis'>>=
+print(xtable(d,caption='Standard deviations of the percentages correct by section. The second column indicates the corresponding learning outcomes. The third column gives the number of questions in each question set.', label='tab:Qset-sd',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+
+@
+
+
+\clearpage
+\newpage{}
+\subsection{Questions}
+
+Table \ref{tab:summary_question} compares the performance on each question. 
+
+<<echo=FALSE,results='asis'>>=
+
+output1=cbind(1:nrow(answerkey[[2]]),answerkey[[2]][,3:9])
+colnames(output1) = c('ID','LO','Qset','Name','Type','FullPt','QinSet','N')
+output1$CrtPct = colMeans(instructor_scores$Qscore,na.rm=TRUE)
+output1$Count = sapply(instructor_scores$Qscore,function(x)sum(!is.na(x)))
+output1$"NA's" = sapply(instructor_scores$Qscore,function(x)sum(is.na(x)))
+output1$Mean = output1$CrtPct
+output1$CrtPct = output1$Mean/output1$FullPt*100
+output1$Std = sapply(instructor_scores$Qscore,sd,na.rm=TRUE)
+rownames(output1)=NULL
+output1$Flag = flag(output1$Qset, output1$CrtPct, thres = 15)
+output1$ID = paste('\\hyperlink{',answerkey[[2]]$Question,'.2}{',output1$ID,'}',sep='')
+
+NArow=c(0,which(diff(as.integer(as.factor(output1$Qset)))==1))
+for (i in 2:length(NArow)){
+  output1=rbind(output1[1:(NArow[i]+i-2),], NA, output1[(NArow[i]+i-1):nrow(output1),])
+}
+
+print(xtable(output1,caption='Summary statistics of each question',label='tab:summary_question',align="lcccl|cccc|ccccc|l"), floating=FALSE, tabular.environment = "longtable", include.rownames=FALSE,sanitize.text.function=identity)
+
+@
+
+Below is the key for the question types.
+\begin{center}
+\begin{tabular}{c|l}
+\hline
+MC/MU & Multiple Choice \\
+\hline
+MA & Matching \\
+\hline
+TF & True/False \\
+\hline
+FB & Fill in the Blank \\
+\hline
+CA & Calculation \\
+\hline
+JS & Jumbled Sentence \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\clearpage
+\newpage{}
+\section{Summary of Questions}
+The description for each question is as follows:
+
+<<echo=FALSE,results='asis'>>=
+
+nQuestion = nrow(answerkey$simplekey)
+CountbyQuestion = colSums(!is.na(instructor_scores$Qscore))
+rows = nrow(instructor_scores$Qscore)
+CompareSummary=matrix(nrow=nQuestion,ncol=7)
+
+for (j in 1:nQuestion) {
+  keysheet=answerkey$answerkey[answerkey$answerkey$Question==names(CountbyQuestion)[j],]
+  if (sum(posAnswer <- keysheet$Point>0) > 1) {
+      tmpanswer=paste(paste(1:sum(posAnswer),')',keysheet$Answer[posAnswer],sep=''),collapse=', ')
+  } else {tmpanswer = keysheet$Answer[posAnswer]}
+  
+  tmpquestion = answerkey$question[[j]]
+  if (is.null(img <- attr(tmpquestion,"img"))){
+    cat('\\marginnote{\n\n',
+      paste(gsub('\\%','\\\\%',tmpquestion),collapse='\n\n\n\n'),
+      '\n\n}')
+  } else {
+    cat('\\marginnote{\n\n',
+      paste(preimg <- gsub('\\%','\\\\%',tmpquestion[1:(img[1]-1)]),collapse='\n\n\n\n'),
+      sprintf('\n\n}\n\n\n\n\\vspace{%dcm}',vspace<-sum(ceiling(nchar(preimg)/120))+3))
+    if (length(img)==1 || all(diff(img)==1)) {
+      cat(tmpquestion[img])
+    } else {
+      sandwichnote = dplyr::setdiff(min(img):max(img),img)
+      tmpquestion[sandwichnote] = paste0('\\marginnote{\n\n',gsub('\\%','\\\\%',tmpquestion[sandwichnote]),'\n\n}')
+      cat(tmpquestion[min(img):max(img)])
+    }
+    if (max(img) < length(tmpquestion)) cat('\\marginnote{\n\n',
+      paste(gsub('\\%','\\\\%',tmpquestion[(img[length(img)]+1):length(tmpquestion)]),collapse='\n\n\n\n'),
+      '\n\n}')
+  }
+  
+  outscript = paste(ifelse(is.null(img),"",sprintf("\\vspace{-%dcm}",vspace)),'\\pdfbookmark[2]{',answerkey[[2]][j,1],'}{',answerkey[[2]][j,1],'} (',j,') Question "',names(CountbyQuestion)[j],'" is given on the right. This question was selected from the question set with a frequency of ',round(keysheet$X..in.Set[1]/keysheet$FromQues[1], 2), '. The question was administered to ', CountbyQuestion[j],' out of the total of ', rows, ' students. The average score was ',round(mean(instructor_scores$Qscore[,j],na.rm=TRUE), 2),' out of ',keysheet$QFullPt[1],'.\n\n (Back to the question summary Table \\ref{tab:summary_question}.)',sep="")
+
+  cat(outscript)
+  
+  if (CountbyQuestion[j]!=0) {
+    cat('\n\n')
+
+    ##### The Graph #####
+
+    fname1=paste(plotprename,'_',j,'_answer.pdf',sep='')
+    fname2=paste(plotprename,'_',j,'_score.pdf',sep='')
+    if (any(nchar(as.character(instructor_scores$Qanswer[,j]))>12)){
+      abbrscore=shortenAnswers(instructor_scores$Qanswer[,j])$abbrv
+		  glssry=shortenAnswers(instructor_scores$Qanswer[,j])$glossary
+      glssry[,1] = gsub('\\_','\\\\_',glssry[,1])
+      glssry[,2] = gsub('\\_','\\\\_',glssry[,2])
+	  }else{
+	    abbrscore=instructor_scores$Qanswer[,j]
+		  glssry=NULL
+	  }
+	  abbrscore=as.factor(as.character(abbrscore[!is.na(abbrscore)]))
+  	ord=table(abbrscore,useNA='no')
+    
+    pdf(paste0(outFile,"/",fname1))
+    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip() + theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)))
+    dev.off()
+
+    pdf(paste0(outFile,"/",fname2))
+    print(qplot(factor(subset(instructor_scores$Qscore[,j], !is.na(instructor_scores$Qscore[,j]))), main=colnames(instructor_scores$Qscore)[j],xlab='Score') + theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)))
+    dev.off()
+
+    cat(sprintf('\\begin{center} \\includegraphics[width=.45\\linewidth]{%s} \\includegraphics[width=.45\\linewidth]{%s} \\end{center}',sub('\\.pdf','',fname1), sub('\\.pdf','',fname2)), '\n\n')
+    
+    if (!is.null(glssry)){
+      if (sum(glssry[,2]=='NA')) glssry=glssry[-which(glssry[,2]=='NA'),]
+      cat(paste('Glossary for question',names(CountbyQuestion)[j],'.'))
+      cat('\n\n')
+      if (!is.null(nrow(glssry))) {
+        glsryscript=paste('(',1:nrow(glssry),') "',glssry[,1],'": ',glssry[,2],sep='')
+        cat(paste(glsryscript,collapse='; '))
+  		  cat('\n\n')
+      }
+    }
+
+    ##### Summary Table #####
+
+    su=c(Mean=mean(instructor_scores$Qscore[,j], na.rm=TRUE),
+         Std.dev=sd(instructor_scores$Qscore[,j], na.rm=TRUE), 
+         Min=min(instructor_scores$Qscore[,j], na.rm=TRUE),
+         Median=median(instructor_scores$Qscore[,j], na.rm=TRUE), 
+         Max=max(instructor_scores$Qscore[,j], na.rm=TRUE))
+    smrytable=data.frame(su)
+    colnames(smrytable)='Value'
+    smrytable$Summary = names(su)
+    smrytable = smrytable[,2:1]
+    
+    ord = data.frame(as.matrix(ord[order(ord,decreasing=TRUE)]))
+    colnames(ord)='Count'
+    ord$Answer = rownames(ord)
+    ord = ord[,c(2,1)]
+    
+	  cat('\\begin{center}')
+    print(xtable(ord),floating=FALSE,include.rownames=FALSE)
+    cat('~~~~~~~~')
+    print(xtable(smrytable),floating=FALSE,include.rownames=FALSE)
+    cat('\\end{center}')
+	
+    CompareSummary[j,1:5]=su
+	  CompareSummary[j,6]=sum(is.na(instructor_scores$Qscore[,j]))
+	  CompareSummary[j,7]=CountbyQuestion[j]	
+  } else {
+    cat('No one answered this question.\n\n')
+  }
+  cat("\\newpage")
+}
+
+colnames(CompareSummary)=c("Mean.","Std","Min","Median","Max.","NA's","Count")
+rownames(CompareSummary)=names(CountbyQuestion)
+
+@
+
+\clearpage
+\newpage{}
+\section{Acknowledgement}
+This report is generated by Xiaoyue Cheng, Dianne Cook, Lindsay Rutter, and Amy Froelich, using R-3.1.1 with package knitr, xtable and ggplot2.
+
+\end{document}

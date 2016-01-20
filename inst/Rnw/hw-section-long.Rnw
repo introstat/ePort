@@ -6,6 +6,8 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
+\usepackage{enumitem}
+
 
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
@@ -66,42 +68,26 @@ The homework results that will be compared are \Sexpr{paste(basename(dataFile),c
 
 Full credit for this homework assignment is \Sexpr{HWFullPt}. The histograms of total scores by section are shown in Figure \ref{mar:hist}. The summary statistics of the scores are given by Table \ref{tab:summary} and Figure \ref{fig:boxplot-score}. The table is sorted by the mean score of each section. Section \Sexpr{paste(highmean,collapse=',')} \Sexpr{ifelse(length(highmean)==1,"has","have")} the highest mean score, and section \Sexpr{paste(highmedian,collapse=",")} \Sexpr{ifelse(all(highmean==highmedian),"also","")}  \Sexpr{ifelse(length(highmedian)==1,"has","have")} the highest median. Section \Sexpr{paste(highstd,collapse=',')} \Sexpr{ifelse(length(highstd)==1,"has","have")} the largest standard deviation of the scores, while section \Sexpr{paste(lowstd,collapse=',')} \Sexpr{ifelse(length(lowstd)==1,"has","have")} the smallest.
 
-
 <<echo=FALSE,results='asis',fig.show='hide'>>=
-
 a=t(instructor_scores$sumrytotal)
 a=cbind(a[,1:2],NA,NA,a[,3:7])
 colnames(a)[3:4]= " "
 a=a[order(a[,1],decreasing=TRUE),]
-
-
-fname=paste0(plotprename,'_overallscore.pdf')
 sectionscore=instructor_scores$score[,1:2]
 sectionscore$Section=factor(sectionscore$Section,levels=rownames(a))
-pdf(paste0(outFile,"/",fname),width=4,height=18)
-print(qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
-{dev.off();invisible()}
-cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
-\\caption{\\label{mar:hist}Histograms of overall scores by section. The support of the scores is [0,%s].}\\end{marginfigure}', sub('\\.pdf','',fname), HWFullPt))
+@
+
+<<hist, echo=FALSE, fig.env = "marginfigure", out.width = "0.95\\linewidth", fig.cap = "Histograms of overall scores by section.", fig.lp = "mar:">>=
+print(qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+@
 
 
+<<echo=FALSE,results='asis'>>=
 print(xtable(a,caption='Summary of overall scores by section. Sections are ordered from the highest mean score to the lowest.', label='tab:summary'),floating=FALSE, tabular.environment = "longtable")
+@
 
-
-fname=paste0(plotprename,'_boxplot_score.pdf')
-pdf(paste0(outFile,"/",fname),width=9,height=6)
-print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
-{dev.off();invisible()}
-#cat(sprintf('\\begin{figure}[!hpbt]\\centering \\includegraphics[width=0.9\\linewidth]{%s}
-#\\end{figure}',sub('\\.pdf','',fname)))
-cat(sprintf('\\begin{center}
-\\begin{wrapfigure}{o}{0.8\\columnwidth}
-\\begin{centering}
-\\includegraphics[width=0.8\\linewidth]{%s}
-\\par\\end{centering}
-\\caption{\\label{fig:boxplot-score}Boxplot for the overall scores by section. The highest median comes from Section %s.}
-\\end{wrapfigure}\\par\\end{center}', sub('\\.pdf','',fname), paste(highmedian,collapse=',')))
-
+<<boxplot-score, echo=FALSE, fig.env = "figure", out.width = "0.5\\linewidth", fig.cap = "Boxplot for the overall scores by section.", fig.lp = "fig:">>=
+print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
 @
 
 
@@ -114,10 +100,15 @@ cat(sprintf('\\begin{center}
 The learning outcomes in this topic are:
 
 \bigskip{}
-<<echo=FALSE,results='asis'>>=
-cat(chapter_outcomes,sep="\n\n \\bigskip{} \n\n")
-cat("\\\\ \n ~~ \n")
+
+\begin{fullwidth}
+\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]
+  \item
+<<results="asis", echo=FALSE>>=
+  cat(chapter_outcomes, sep="\n\\item ")
 @
+\end{enumerate}
+\end{fullwidth}
 
 \clearpage
 \newpage{}
