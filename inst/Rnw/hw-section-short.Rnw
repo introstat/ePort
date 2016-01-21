@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
+\usepackage{enumitem}
 
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
@@ -90,11 +91,18 @@ Table \ref{tab:Oset} gives the average percentages correct for
 each learning outcome by section. Any percentages below 80
 will be marked red.
 
-<<echo=FALSE,results='asis'>>=
-cat("\\marginnote{\n\n \\bigskip{} \n\n \\bigskip{} \n\n} ")
-cat(c("\\marginnote{Learning outcomes in this topic:",
-      chapter_outcomes,"}"),sep="\n\n \\bigskip{} \n\n")
+\marginpar{
+\vspace{4mm}
+\footnotesize
+\begin{enumerate}[label=\Alph*.,itemsep=-\parsep,leftmargin=*]
+  \item
+<<results="asis", echo=FALSE>>=
+  cat(chapter_outcomes, sep="\n\\item ")
+@
+\end{enumerate}
+}
 
+<<echo=FALSE,results='asis'>>=
 tmptab = instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section),drop=FALSE]
 tmptab[tmptab<80] = paste0('\\color{red}{',tmptab[tmptab<80],'}')
 print(xtable(tmptab,caption='Average percentages correct for each learning outcome by section. Learning outcomes are sorted by the average percentages correct of all sections, from the highest to the lowest.', label='tab:Oset'), floating=FALSE, tabular.environment = "longtable",sanitize.text.function=identity)

@@ -160,20 +160,15 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
         knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
       }
       if (!keepImage && !keepTex){
-        print("got to here!!!!!")
         outImage = c(outImage, paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
         on.exit(unlink(outImage))
-        #on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType))))))
       }
       if (!keepImage && keepTex){
-        print("got to !keepImage!!!!!")
         on.exit(unlink(outImage))
       }
       if (keepImage && !keepTex){
-        print("got to !keepTex!!!!!")
         on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType))))))      }
     }
-
 }
 
 
