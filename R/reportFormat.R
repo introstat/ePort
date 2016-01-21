@@ -61,19 +61,19 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
     reportType = system.file("inst/Rnw/hw-topic-section.Rnw", package="ePort")
     #Score_filename = dataFile
     if (keepFiles){
-      knit2pdf(reportType,paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"))
+      knit2pdf(reportType,paste0(outFile,"/", className, "hwk_","Unit", unit, "_crossSection.tex"))
     }else{
-      knit2pdf(reportType,paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"),clean=T)
+      knit2pdf(reportType,paste0(outFile,"/", className, "hwk_","Unit", unit, "_crossSection.tex"),clean=T)
     }
     if (!keepImage && !keepTex){
-      outImage = c(outImage, paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"))
+      outImage = c(outImage, paste0(outFile,"/", className, "hwk_","Unit", unit, "_crossSection.tex"))
       on.exit(unlink(outImage))
     }
     if (!keepImage && keepTex){
       on.exit(unlink(outImage))
     }        
     if (keepImage && !keepTex){
-      on.exit(unlink(paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex")))
+      on.exit(unlink(paste0(outFile,"/", className, "hwk_","Unit", unit, "_crossSection.tex")))
     }
     return()
   }

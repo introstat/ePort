@@ -44,8 +44,8 @@ theme101 = theme(legend.position = "none",
                  axis.text.y=element_text(size=15))
 @
 
-\centerline{\Large\bf Statistics 101 Analysis}
-\centerline{\bf Homework Comparison by Topics and Sections}
+\centerline{\Large\bf \Sexpr{className} Homework Report for Unit \Sexpr{unit}}
+\centerline{\bf Comparison among Sections}
 \centerline{\bf }
 
 

@@ -55,7 +55,7 @@ if (!keepImage){
 @
 
 
-\centerline{\Large\bf Introductory Statistics Homework Short Report for Topic \Sexpr{topic}}
+\centerline{\Large\bf \Sexpr{className} Homework Short Report for Topic \Sexpr{topic}}
 \centerline{\bf Comparison among Sections}
 \centerline{\bf }
 

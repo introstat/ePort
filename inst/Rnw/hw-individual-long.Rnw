@@ -64,8 +64,10 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf \Sexpr{className} Homework Analysis}
-
+%\centerline{\Large\bf \Sexpr{className} Homework Analysis}
+\centerline{\Large\bf \Sexpr{className} Homework Long Report
+for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_","
+",plotprename))}}
 
 \section{Overview}
 The file name with student responses and scores is \Sexpr{basename(Score_filename)}. \Sexpr{rows} students submitted the homework assignment.

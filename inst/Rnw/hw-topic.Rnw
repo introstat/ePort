@@ -35,13 +35,12 @@ if (!keepImage){
 }
 outImage = c()
 
-plotprename=paste0('Stat101_Section',merged$format,"_")
+plotprename=paste0('Section',merged$format,"_")
 nfile = nrow(merged$file)
 topics = as.integer(gsub("[A-Za-z]","",merged$file$topic))
 @
 
-\centerline{\Large\bf Statistics 101 Analysis for Section \Sexpr{merged$format}}
-\centerline{\bf Homework Comparison across Topics \Sexpr{min(topics)} -- \Sexpr{max(topics)}}
+\centerline{\Large\bf \Sexpr{className} Homework Report for Section \Sexpr{merged$format} and Unit \Sexpr{unit}}
 \centerline{\bf }
 
 
