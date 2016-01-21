@@ -131,7 +131,11 @@ if (total80 < 4){
 } else {
   if (bigNR !=0){
     for (i in 1:(4-bigNR)){
-      Total = rbind(Total,c(" "," "))
+      temprow <- matrix(c(rep.int(NA,length(data))),nrow=1,ncol=length(Total))
+      newrow <- data.frame(temprow)
+      colnames(newrow) <- colnames(Total)
+      Total <- rbind(Total,newrow)
+      #Total = rbind(Total,c(" "," "))
     }
     Total[,2] = as.numeric(Total[,2])
   }
