@@ -21,6 +21,7 @@
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @importFrom knitr knit
 #' @importFrom stringr str_trim
+#' @importFrom Matrix diag
 #' @export
 #' @example inst/ex-reportHwk.R
 #'

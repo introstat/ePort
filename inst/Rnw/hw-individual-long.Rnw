@@ -317,7 +317,6 @@ cat(sprintf('\\begin{center}
 \newpage{}
 \section{Summary of Questions}
 
-
 <<echo=FALSE,results='asis'>>=
 
 CompareSummary=matrix(nrow=nQuestion,ncol=7)

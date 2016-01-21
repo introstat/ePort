@@ -68,7 +68,7 @@ dat$CrtPct=as.numeric(as.character(dat$CrtPct))
 if (nfile<10) {
 fname=paste0(plotprename,'histbystu.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
-print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
+print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
 dev.off();invisible()
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
@@ -78,7 +78,7 @@ for (j in 1:para) {
 fname=paste0(plotprename,'histbystu',j,'.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
 partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
-print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
+print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
 dev.off();invisible()
 }
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -139,6 +139,7 @@ if (nfile>14) {
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\end{marginfigure}',paste0(plotprename,'histbystu3')))
 }
+
 
 tmp=merged$dat$CorrectPct[,-ncol(merged$dat$CorrectPct)]
 tmptile=melt(tmp,id.vars=1:2)
@@ -261,6 +262,8 @@ print(xtable(tmplag,caption='Students whose scores were under 20\\% of the class
 #\\caption{\\label{fig:pcp}Parallel coordinates plot of the correct percentages by homeworks. The students are grouped by the shape of their score seires. Basically there are four groups: increasing all the time; firstly falling down then going back; firstly going up then dropping; consistently decreasing.}
 #\\end{figure}\\par\\end{center}', sub('\\.pdf','',fname)))            
 
+
+
 ## Missing Data
 tmp1=table(merged$dat$MissingTimes[,2])
 tmp2=rep(NA,length(tmp1))
@@ -277,19 +280,22 @@ Table \ref{tab:missing} lists the students who missed at least one homework.
 %\Sexpr{paste(rev(tmp2),collapse=" ")}
 
 <<echo=FALSE,results="asis">>=
+
 tmp1=merged$dat$CorrectPct[,1,drop=FALSE]
 tmp1[,1]=0
 tmp2=merged$dat$MissingTimes[,2,drop=FALSE]
 tmp1[rownames(tmp2),1]=tmp2[,1]
-@
 
-<<missing, echo=FALSE, fig.env = "marginfigure", out.width = "\\linewidth", fig.cap = "Histogram of the missing homeworks.", fig.lp = "mar:">>=
-print(qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks') + theme(axis.text=element_text(size=25), axis.title=element_text(size=25)))
-@
+fname=paste0(plotprename,'missinghwk.pdf')
+pdf(paste0(outFile,"/",fname), width=4, height=3)
+print(qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks'))
+{dev.off();invisible()}
+cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
+\\caption{\\label{mar:missing}Histogram of the missing homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
 
-<<echo=FALSE,results="asis">>=
 print(xtable(tmp2,caption='Students with missing homeworks.',digits=0,label='tab:missing'), 
 floating=FALSE, tabular.environment = "longtable")
+
 @
 
 \clearpage

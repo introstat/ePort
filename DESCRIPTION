@@ -16,7 +16,8 @@ Imports:
     xtable (>= 1.7-4),
     ggplot2 (>= 1.0.1),
     lme4 (>= 1.1-9),
-    fpc (>= 2.1-10)
+    fpc (>= 2.1-10),
+    Matrix (>= 1.2-2)
 Suggests:
     shiny (>= 0.12.2)
 License: GPL (>= 2.0)

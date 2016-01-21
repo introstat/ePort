@@ -20,6 +20,7 @@ library(plyr)
 library(xtable)
 library(lme4)
 library(fpc)
+library(Matrix)
 @
 
 <<setup, echo=FALSE>>=
@@ -167,6 +168,7 @@ score = dat
 colnames(score)[-2] = c('Student','Topic','Score')
 score$Score = score$Score/100
 score$FullPoints = 0
+
 for (i in 1:ntopic){
   for (j in 1:nsection){
     score$FullPoints[score$Section==rownames(merged$dat$FullScore)[j] &
@@ -197,7 +199,7 @@ Topic = predprob$Topic
 Section = predprob$Section
 m = model.matrix(~Topic+Section+Topic:Section)
 pred = (m %*% est) [,1]
-predsd = sqrt(diag(m %*% estcov %*% t(m)))
+predsd = sqrt(diag(m %*% estcov %*% t(m))) #### PROBLEM? #####
 predprob$Predict = exp(pred) / (1+exp(pred))
 predprob$lower = exp(pred-qnorm(0.975)*predsd) / (1+exp(pred-qnorm(0.975)*predsd))
 predprob$upper = exp(pred+qnorm(0.975)*predsd) / (1+exp(pred+qnorm(0.975)*predsd))
@@ -281,6 +283,7 @@ as the identifiability constraints.
 The result of the model is as below. Figure \ref{mar:fitted} compares 
 the fitted values with the response. Figure \ref{fig:est_sec} 
 shows the estimated correct probability.
+
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 fname=paste0(plotprename,'fitted.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
