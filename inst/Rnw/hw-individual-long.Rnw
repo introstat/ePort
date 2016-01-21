@@ -52,10 +52,11 @@ suppressPackageStartupMessages(library(MASS, quietly=TRUE))
 # Specify directory for figure output
 if (!keepImage){
   temppath <- normalizePath(tempdir(), winslash = '/')
-  opts_chunk$set(fig.path = temppath) 
+  opts_chunk$set(fig.path = temppath)
 }else{
   opts_chunk$set(fig.path = paste0(outFile,"/"))
 }
+outImage = c()
 
 a=sum(answerkey$simplekey$X..in.Set[!duplicated(answerkey$simplekey$Question.Set)])
 nQuestion = nrow(answerkey$simplekey)
@@ -297,7 +298,8 @@ colnames(tmptile)[2:3]=c('LO','Percentage')
 tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
 
 fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
-pdf(paste0("../",fname),width=8,height=12)
+pdf(paste0(outFile,"/",fname),width=8,height=12)
+outImage = c(outImage, paste0(outFile,"/",fname))
 print(qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
         xlab('Learning Outcome')+ 
         theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +
@@ -369,11 +371,13 @@ for (j in 1:nQuestion) {
     }
     abbrscore=as.factor(as.character(abbrscore[!is.na(abbrscore)]))
     ord=table(abbrscore,useNA='no')
-    pdf(paste0("../",fname1))
+    pdf(paste0(outFile,"/",fname1))
+    outImage = c(outImage, paste0(outFile,"/",fname1))
     print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+ theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)) + xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip())
     dev.off()
 
-    pdf(paste0("../",fname2))
+    pdf(paste0(outFile,"/",fname2))
+    outImage = c(outImage, paste0(outFile,"/",fname2))
     print(qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size=25)))
     dev.off()
 
