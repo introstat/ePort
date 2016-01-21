@@ -64,7 +64,7 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Introductory Statistics Homework Analysis}
+\centerline{\Large\bf \Sexpr{className} Homework Analysis}
 
 
 \section{Overview}
@@ -78,7 +78,7 @@ The histogram and summary statistics for the scores are given by Figure \ref{mar
 
 <<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores.",fig.lp = "mar:">>=
 ms=max(sumry1$TotalScore,na.rm=T)
-print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,ms+1)))
+print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,sumry1$FullScore[1]), na.rm = TRUE) + theme(axis.text=element_text(size=20),axis.title=element_text(size=20)))
 @
 
 <<echo=FALSE,results='asis'>>=

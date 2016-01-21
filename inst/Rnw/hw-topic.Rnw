@@ -33,6 +33,7 @@ if (!keepImage){
 }else{
   opts_chunk$set(fig.path = paste0(outFile,"/"))
 }
+outImage = c()
 
 plotprename=paste0('Stat101_Section',merged$format,"_")
 nfile = nrow(merged$file)
@@ -68,6 +69,7 @@ dat$CrtPct=as.numeric(as.character(dat$CrtPct))
 if (nfile<10) {
 fname=paste0(plotprename,'histbystu.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
+outImage = c(outImage, paste0(outFile,"/",fname))
 print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
 dev.off();invisible()
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -77,6 +79,7 @@ para = nfile %/% 7 + (nfile %% 7 > 0)
 for (j in 1:para) {
 fname=paste0(plotprename,'histbystu',j,'.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
+outImage = c(outImage, paste0(outFile,"/",fname))
 partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
 print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
 dev.off();invisible()
@@ -98,12 +101,11 @@ print(xtable(su,caption=sprintf('Summary statistics for correct percentage. %s h
 
 @
 
-\clearpage
-
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 
 fname=paste0(plotprename,'boxplotbystu.pdf')
 pdf(paste0(outFile,"/",fname),width=9,height=6)
+outImage = c(outImage, paste0(outFile,"/",fname))
 print(qplot(Hwk,CrtPct,data=dat,geom='boxplot')+
       geom_line(aes(group=Username),alpha=0.2)+
       geom_boxplot(aes(fill=Hwk))+
@@ -146,6 +148,7 @@ colnames(tmptile)[c(1,3,4)]=c('Student','Topic','Percentage')
 tmptile$Student=factor(tmptile$Student,levels=rev(tmp$Username))
 fname=paste0(plotprename,'tile_student_topic.pdf')
 pdf(paste0(outFile,"/",fname),width=8,height=12)
+outImage = c(outImage, paste0(outFile,"/",fname))
 print(qplot(Topic,Student,data=tmptile,geom='tile',fill=Percentage)+ theme(axis.text=element_text(size=20), axis.title=element_text(size=20), legend.text=element_text(size=20), legend.title = element_text(size=20)) + 
   scale_fill_continuous(low='red',high='white',name='Correct\nPercentage\n'))
 {dev.off();invisible()}

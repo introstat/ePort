@@ -7,8 +7,8 @@
 makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
   reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
   keepImage = FALSE, topic = NULL, section = NULL, path = NULL,
-  type = NULL, unit = NULL, rewrite = FALSE, skip = NULL,
-  outFile = NULL)
+  type = NULL, unit = 1, rewrite = FALSE, skip = NULL,
+  className = "Stat101", outFile = NULL)
 }
 \arguments{
 \item{keyFile}{file name with path for the answer key}
@@ -27,7 +27,7 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
 
 \item{topic}{the topic number, could be integer or character}
 
-\item{section}{the section name, usually one of 'AB', 'CD', 'GHQ', '201', ...}
+\item{section}{the section name, usually one of 'AB', 'CD', 'GHQ'}
 
 \item{path}{the directory to the data files}
 
@@ -36,6 +36,8 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
 \item{rewrite}{logical. If TRUE then the csv files are rewritten.}
 
 \item{skip}{a vector of integers. Same as the parameter in \code{cleanScore}.}
+
+\item{className}{the name of the class, default is "Stat101"}
 
 \item{outFile}{the directory to save the tex file}
 }

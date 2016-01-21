@@ -11,11 +11,12 @@
 #' @param keepTex keep .tex file, default is FALSE
 #' @param keepImage keep individual image files used to generate .tex file, default is FALSE
 #' @param topic the topic number, could be integer or character
-#' @param section the section name, usually one of 'AB', 'CD', 'GHQ', '201', ...
+#' @param section the section name, usually one of 'AB', 'CD', 'GHQ'
 #' @param path the directory to the data files
 #' @param type the strings before the topic number in the csv file name
 #' @param rewrite logical. If TRUE then the csv files are rewritten.
 #' @param skip a vector of integers. Same as the parameter in \code{cleanScore}.
+#' @param className the name of the class, default is "Stat101"
 #' @param outFile the directory to save the tex file
 #' @return a tex file to be compiled
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
@@ -25,7 +26,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #'
-makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, unit = NULL, rewrite=FALSE, skip=NULL, outFile=NULL){  
+makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, unit = 1, rewrite=FALSE, skip=NULL, className = "Stat101", outFile=NULL){  
     
     if (is.null(reportType)){
       reportMenu <- menu(choices=c("One topic for one section - short version (\"secTopicShort\")", "One topic for one section - long version (\"secTopicLong\")", "One topic comparing multiple sections - short version (\"crossSecTopicShort\")", "One topic comparing multiple sections - long version (\"crossSecTopicLong\")", "One unit (group of topics) for one section (\"secUnit\")", "One unit (group of topics) comparing multiple sections (\"crossSecUnit\")"), title=paste("\nPlease enter integer (1-6) corresponding to desired report type below.", "\n\n", trimws("Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).", which="both"), sep=""))
@@ -38,27 +39,41 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
   # Cross-topic report
   if (reportType=="secUnit"){
     reportType = system.file("inst/Rnw/hw-topic.Rnw", package="ePort")
-    #instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
     if (keepFiles){
-      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "_", section, ".tex"))
+      knit2pdf(reportType,paste0(outFile,"/", className, "hwk_","Unit", unit, "_", section, ".tex"))
     }else{
-      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "_", section, ".tex"),clean=T)
+      knit2pdf(reportType,paste0(outFile,"/", className, "hwk_","Unit", unit, "_", section, ".tex"),clean=T)
     }
-    if (!keepTex){
-      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit,"_", section, ".tex"))) 
+    if (!keepImage && !keepTex){
+      outImage = c(outImage, paste0(outFile,"/", className, "hwk_","Unit", unit, "_", section, ".tex"))
+      on.exit(unlink(outImage))
+    }
+    if (!keepImage && keepTex){
+      on.exit(unlink(outImage))
+    }        
+    if (keepImage && !keepTex){
+      on.exit(unlink(paste0(outFile,"/", className, "hwk_","Unit", unit, "_", section, ".tex")))
     }
     return()
   }
   
   if (reportType=="crossSecUnit"){
     reportType = system.file("inst/Rnw/hw-topic-section.Rnw", package="ePort")
+    #Score_filename = dataFile
     if (keepFiles){
-      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"))
+      knit2pdf(reportType,paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"))
     }else{
-      knit2pdf(reportType,paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"),clean=T)
+      knit2pdf(reportType,paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"),clean=T)
     }
-    if (!keepTex){
-      on.exit(unlink(paste0(outFile,"/Stat101hwk_","Unit_", unit, "crossSection.tex"))) 
+    if (!keepImage && !keepTex){
+      outImage = c(outImage, paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex"))
+      on.exit(unlink(outImage))
+    }
+    if (!keepImage && keepTex){
+      on.exit(unlink(outImage))
+    }        
+    if (keepImage && !keepTex){
+      on.exit(unlink(paste0(outFile,"/", className," hwk_","Unit", unit, "_crossSection.tex")))
     }
     return()
   }
@@ -101,25 +116,33 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
         reportType = system.file("inst/Rnw/hw-section-short.Rnw", package="ePort")
         instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
         if (keepFiles){
-          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"))
+          knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-short.tex"))
         }else{
-          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"),clean=T)
+          knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-short.tex"),clean=T)
         }
         if (!keepTex){
-          on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-short.tex"))) 
+          on.exit(unlink(paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-short.tex"))) 
         }
         return()
       }
+
       if (reportType=="crossSecTopicLong"){
         reportType = system.file("inst/Rnw/hw-section-long.Rnw", package="ePort")
         instructor_scores = mergeSection(Score_filename, answerkey,skip=NULL)
         if (keepFiles){
-          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"))
+          knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-long.tex"))
         }else{
-          knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"),clean=T)
+          knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-long.tex"),clean=T)
         }
-        if (!keepTex){
-          on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_crossSection-long.tex"))) 
+        if (!keepImage && !keepTex){
+          outImage = c(outImage, paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-long.tex"))
+          on.exit(unlink(outImage))
+        }
+        if (!keepImage && keepTex){
+          on.exit(unlink(outImage))
+        }        
+        if (keepImage && !keepTex){
+          on.exit(unlink(paste0(outFile,"/", className, "hwk_",type,topic,"_crossSection-long.tex")))
         }
         return()
       }
@@ -143,31 +166,32 @@ makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NUL
     if (reportType=="secTopicShort"){
       reportType = system.file("inst/Rnw/hw-individual-short.Rnw", package="ePort")
       if (keepFiles){
-        knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
+        knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
       }else{
-        knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
+        knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
       }
       if (!keepTex){
-        on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))) 
+        on.exit(unlink(paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))) 
       }
     }
 
     if (reportType=="secTopicLong"){
       reportType = system.file("inst/Rnw/hw-individual-long.Rnw", package="ePort")
       if (keepFiles){
-        knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
+        knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
       }else{
-        knit2pdf(reportType,paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
+        knit2pdf(reportType,paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))),clean=T)
       }
       if (!keepImage && !keepTex){
-        outImage = c(outImage, paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
+        outImage = c(outImage, paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType)))))
         on.exit(unlink(outImage))
       }
       if (!keepImage && keepTex){
         on.exit(unlink(outImage))
       }
       if (keepImage && !keepTex){
-        on.exit(unlink(paste0(outFile,"/Stat101hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType))))))      }
+        on.exit(unlink(paste0(outFile,"/", className, "hwk_",type,topic,"_",section,gsub("Rnw$","tex",gsub("hw-individual","",basename(reportType))))))
+      }
     }
 }
 

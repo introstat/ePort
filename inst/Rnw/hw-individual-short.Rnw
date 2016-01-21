@@ -50,7 +50,7 @@ rows = nrow(sumry1)
 plotprename=gsub('\\.','_',gsub('\\.csv$','',basename(Score_filename)))
 @
 
-\centerline{\Large\bf Introductory Statistics Homework Short Report
+\centerline{\Large\bf \Sexpr{className} Homework Short Report
 for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_","
 ",plotprename))}}
 \vspace{1cm}
