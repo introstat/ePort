@@ -33,7 +33,7 @@ if (!keepImage){
 }
 outImage = c()
 
-plotprename='Stat101_allSections_'
+plotprename=paste0(className, '_allSections_')
 nfile = nrow(merged$file)
 nsection = length(unique(merged$file$section))
 ntopic = length(unique(merged$file$topic))
@@ -599,9 +599,10 @@ write.table(c("With semicolon:","",
               paste(emailaddress,collapse='; '),
               "","","With comma:","",
               paste(emailaddress,collapse=', ')),
-            file=sprintf('../Stat101_section_%s_lower20pct.txt',i),
+            file=paste0(outFile, "/", className, "hwk_Unit", unit, "_lowScore.txt"),
             quote=FALSE,row.names=FALSE,col.names=FALSE)
 }
+
 @
 
 

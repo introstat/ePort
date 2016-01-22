@@ -17,6 +17,8 @@
 #' @param rewrite logical. If TRUE then the csv files are rewritten.
 #' @param skip a vector of integers. Same as the parameter in \code{cleanScore}.
 #' @param className the name of the class, default is "Stat101"
+#' @param lowScore the value that instructors designate as a minimally acceptable score (out of 100) for a given topic and section, when running the makeReport() routine with a reportType of "secTopicShort". Any student who scores below this value on their assignment will have their e-mail listed in a text file. Default value is 80
+#' @param repeatLowScore the proportion that instructors use to determine students who have performed poorly across multiple assignments. If a student has been ranked below this proportion (out of the other students), for at least half of the assignments, then their e-mail will be listed in a text file. This can be defined when running the makeReport() routine with a reportType of "crossSecUnit". Default value is 20
 #' @param outFile the directory to save the tex file
 #' @return a tex file to be compiled
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
@@ -26,7 +28,7 @@
 #' @export
 #' @example inst/ex-reportHwk.R
 #'
-makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, unit = 1, rewrite=FALSE, skip=NULL, className = "Stat101", outFile=NULL){  
+makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, topic=NULL, section=NULL, path=NULL, type=NULL, unit = 1, rewrite=FALSE, skip=NULL, className = "Stat101", lowScore = 80, outFile=NULL){  
     
     if (is.null(reportType)){
       reportMenu <- menu(choices=c("One topic for one section - short version (\"secTopicShort\")", "One topic for one section - long version (\"secTopicLong\")", "One topic comparing multiple sections - short version (\"crossSecTopicShort\")", "One topic comparing multiple sections - long version (\"crossSecTopicLong\")", "One unit (group of topics) for one section (\"secUnit\")", "One unit (group of topics) comparing multiple sections (\"crossSecUnit\")"), title=paste("\nPlease enter integer (1-6) corresponding to desired report type below.", "\n\n", trimws("Note: If running many reports, it is more efficient to exit now and hard-code the reportType parameter. See help(makeReport).", which="both"), sep=""))

@@ -8,7 +8,7 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
   reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
   keepImage = FALSE, topic = NULL, section = NULL, path = NULL,
   type = NULL, unit = 1, rewrite = FALSE, skip = NULL,
-  className = "Stat101", outFile = NULL)
+  className = "Stat101", lowScore = 80, outFile = NULL)
 }
 \arguments{
 \item{keyFile}{file name with path for the answer key}
@@ -39,7 +39,11 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
 
 \item{className}{the name of the class, default is "Stat101"}
 
+\item{lowScore}{the value that instructors designate as a minimally acceptable score for a given topic and section,when running the makeReport() routine with a reportType of "secTopicShort". Any student who scores below this value on their assignment will have their e-mail listed in a text file. Default value is 80}
+
 \item{outFile}{the directory to save the tex file}
+
+\item{repeatLowScore}{the}
 }
 \value{
 a tex file to be compiled
