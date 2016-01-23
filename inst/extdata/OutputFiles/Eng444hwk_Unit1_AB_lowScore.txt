@@ -1,0 +1,8 @@
+With semicolon:
+
+w.introstat31@iastate.edu; w.introstat60@iastate.edu; w.introstat48@iastate.edu; w.introstat61@iastate.edu; w.introStat56@iastate.edu; w.introstat66@iastate.edu; w.introStat54@iastate.edu; w.introStat58@iastate.edu; w.introstat46@iastate.edu; w.introStat51@iastate.edu; w.introStat53@iastate.edu; w.introstat21@iastate.edu; w.introstat28@iastate.edu; w.introstat47@iastate.edu; w.introstat35@iastate.edu; w.introstat62@iastate.edu; w.introstat23@iastate.edu; w.introstat32@iastate.edu; w.introStat57@iastate.edu; w.introstat63@iastate.edu; w.introstat36@iastate.edu; w.introstat67@iastate.edu; w.introstat30@iastate.edu; w.introstat22@iastate.edu; w.introstat29@iastate.edu; w.introstat68@iastate.edu; w.introstat38@iastate.edu; w.introstat24@iastate.edu; w.introstat27@iastate.edu; w.introstat25@iastate.edu; w.introstat64@iastate.edu
+
+
+With comma:
+
+w.introstat31@iastate.edu, w.introstat60@iastate.edu, w.introstat48@iastate.edu, w.introstat61@iastate.edu, w.introStat56@iastate.edu, w.introstat66@iastate.edu, w.introStat54@iastate.edu, w.introStat58@iastate.edu, w.introstat46@iastate.edu, w.introStat51@iastate.edu, w.introStat53@iastate.edu, w.introstat21@iastate.edu, w.introstat28@iastate.edu, w.introstat47@iastate.edu, w.introstat35@iastate.edu, w.introstat62@iastate.edu, w.introstat23@iastate.edu, w.introstat32@iastate.edu, w.introStat57@iastate.edu, w.introstat63@iastate.edu, w.introstat36@iastate.edu, w.introstat67@iastate.edu, w.introstat30@iastate.edu, w.introstat22@iastate.edu, w.introstat29@iastate.edu, w.introstat68@iastate.edu, w.introstat38@iastate.edu, w.introstat24@iastate.edu, w.introstat27@iastate.edu, w.introstat25@iastate.edu, w.introstat64@iastate.edu

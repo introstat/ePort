@@ -588,10 +588,10 @@ cat(sprintf('\\begin{marginfigure}
 
 <<echo=FALSE,results="asis">>=
 lagStudents = merged$dat$CorrectPct[,-ncol(merged$dat$CorrectPct)]
-lagStudents[,-(1:2)] = apply(lagStudents[,-(1:2)],2,function(x) x<quantile(x,.2,na.rm=TRUE))
+lagStudents[,-(1:2)] = apply(lagStudents[,-(1:2)],2,function(x) x<quantile(x,repeatLowScore/100,na.rm=TRUE))
 lagStudents = lagStudents[rowMeans(lagStudents[,-(1:2)],na.rm=TRUE)>0.5,]
 
-print(xtable(t(table(lagStudents$Section)),caption='Number of students that have at least a half of the homework scores in the bottom 20\\%.', label='tab:bottom20'), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
+print(xtable(t(table(lagStudents$Section)),caption=paste0("Number of students that have at least a half of the homework scores in the bottom ", repeatLowScore, "\\%."), label='tab:bottom20'), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
 
 for (i in unique(lagStudents$Section)) {
   emailaddress = paste0(lagStudents$Username[lagStudents$Section==i],'@iastate.edu')
@@ -599,7 +599,7 @@ write.table(c("With semicolon:","",
               paste(emailaddress,collapse='; '),
               "","","With comma:","",
               paste(emailaddress,collapse=', ')),
-            file=paste0(outFile, "/", className, "hwk_Unit", unit, "_lowScore.txt"),
+            file=paste0(outFile, "/", className, "hwk_Unit", unit, "_", i, "_lowScore.txt"),
             quote=FALSE,row.names=FALSE,col.names=FALSE)
 }
 

@@ -5,25 +5,33 @@
 \title{Generate a report for one homework}
 \usage{
 makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
-  reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
-  keepImage = FALSE, topic = NULL, section = NULL, path = NULL,
-  type = NULL, unit = 1, rewrite = FALSE, skip = NULL,
-  className = "Stat101", lowScore = 80, outFile = NULL)
+  outFile = NULL, reportType = NULL, keepFiles = FALSE, keepTex = FALSE,
+  keepImage = FALSE, className = "Stat101", lowScore = 80,
+  repeatLowScore = 20, topic = NULL, section = NULL, path = NULL,
+  type = NULL, unit = 1, rewrite = FALSE, skip = NULL)
 }
 \arguments{
 \item{keyFile}{file name with path for the answer key}
 
 \item{dataFile}{the file name with path for the data}
 
-\item{loFile}{the file name with path for the learning outcomes.}
+\item{loFile}{the file name with path for the learning outcomes}
+
+\item{outFile}{the directory to save the tex file}
 
 \item{reportType}{the type of report}
 
-\item{keepFiles}{keep files (.aux, .log, etc) used to generate .tex file, default is FALSE}
+\item{keepFiles}{keep files (.aux, .log, etc) used to generate .tex file, default value is FALSE}
 
-\item{keepTex}{keep .tex file, default is FALSE}
+\item{keepTex}{keep .tex file, default value is FALSE}
 
-\item{keepImage}{keep individual image files used to generate .tex file, default is FALSE}
+\item{keepImage}{keep individual image files used to generate .tex file, default value is FALSE}
+
+\item{className}{the name of the class, default value is "Stat101"}
+
+\item{lowScore}{the value that instructors designate as a minimally acceptable score (out of 100) for a given topic and section, when running the makeReport() routine with a reportType of "secTopicShort". Any student who scores below this value on their assignment will have their e-mail listed in a text file. Default value is 80}
+
+\item{repeatLowScore}{the proportion that instructors use to determine students who have performed poorly across multiple assignments. If a student has been ranked below this proportion (out of the other students) for at least half of the assignments, then their e-mail will be listed in a text file. This parameter can be defined when running the makeReport() routine with a reportType of "crossSecUnit". Default value is 20}
 
 \item{topic}{the topic number, could be integer or character}
 
@@ -33,17 +41,9 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
 
 \item{type}{the strings before the topic number in the csv file name}
 
-\item{rewrite}{logical. If TRUE then the csv files are rewritten.}
+\item{rewrite}{logical. If TRUE then the csv files are rewritten}
 
-\item{skip}{a vector of integers. Same as the parameter in \code{cleanScore}.}
-
-\item{className}{the name of the class, default is "Stat101"}
-
-\item{lowScore}{the value that instructors designate as a minimally acceptable score for a given topic and section,when running the makeReport() routine with a reportType of "secTopicShort". Any student who scores below this value on their assignment will have their e-mail listed in a text file. Default value is 80}
-
-\item{outFile}{the directory to save the tex file}
-
-\item{repeatLowScore}{the}
+\item{skip}{a vector of integers. Same as the parameter in \code{cleanScore}}
 }
 \value{
 a tex file to be compiled
