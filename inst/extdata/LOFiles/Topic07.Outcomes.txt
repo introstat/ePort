@@ -1,0 +1,11 @@
+Topic 07: Summarizing Scatterplots
+
+After studying this topic, students should be able to:
+
+A. Describe the relationship between two quantitative variables in a scatterplot.
+B. Interpret the value of the correlation coefficient between two quantitative variables.
+C. Match scatterplots to the appropriate value of the correlation coefficient.
+D. Describe the properties of the correlation coefficient.
+E. Explain why correlation does not imply causation.
+F. Describe the impact of lurking variables on correlation.
+

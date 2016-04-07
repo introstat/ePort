@@ -1,0 +1,14 @@
+Topic 08: Summarizing the Least Squares Regression Line
+
+After studying this topic, students should be able to:
+ 
+A. Interpret the slope of the regression line in the context of the data.
+B. Interpret the intercept of the regression line in the context of the data.
+C. Determine when the interpretation of an intercept is reasonable given the context of the data.
+D. Calculate predictions and residuals for points using the regression line.
+E. Determine, given the context of the data, when it is appropriate to make predictions using the regression line.
+F. Interpret a residual plot and determine what it indicates about the fit of the regression line.
+G. Interpret the R-squared value for the regression line in the context of the data.
+H. Describe the relationship and the difference between the correlation coefficient, r, and R-squared.
+I. Identify unusual points and their effect on the regression line.
+

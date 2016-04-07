@@ -1,3 +1,7 @@
+Topic 06: Normal Distribution
+
+After studying this topic, students should be able to:
+
 A. Use standardizing to determine how many standard deviations an observation is away from the mean value.
 B. Use z-scores to compare observations for different quantitative variables. 
 C. Explain how standardizing affects the shape, center, and variability of the distribution of a quantitative variable. 

@@ -439,9 +439,9 @@ An instructor may be motivated to generate a short report for one topic and one 
 
 We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet. \\
 
-In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section AB}. Like any individual report, we will require three input files (an answer key file, a data file, and a learning outcome file). There should be two example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm} and \texttt{Topic03.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. Additionally, there should be four example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic03.AB.csv}, \texttt{Topic03.CD.csv}, \texttt{Topic06.AB.csv}, and \texttt{Topic06.CD.csv}), and we will use the \texttt{Topic06.AB.csv} file. Lastly, there should be two example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic03.Outcomes.txt} and \texttt{Topic06.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
+In this demonstration, we will create a report for \texttt{Topic 06} and \texttt{Section A}. Like any individual report, we will require three input files (an answer key file, a data file, and a learning outcome file). There should be three example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm}, \texttt{Topic07.Questions.htm}, and (\texttt{Topic08.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. Additionally, there should be twelve example data files in the subdirectory \texttt{DataFiles} (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, \texttt{Topic06.C.csv}, \texttt{Topic07.A.csv}, \texttt{Topic07.B.csv}, \texttt{Topic07.C.csv}, \texttt{Topic08.A.csv}, \texttt{Topic08.B.csv}, and \texttt{Topic08.C.csv}), and we will use the \texttt{Topic06.A.csv} file. Lastly, there should be three example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic06.Outcomes.txt}, \texttt{Topic07.Outcomes.txt}, and \texttt{Topic08.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file. \\
 
-The block of code we will use to generate our report for \texttt{Topic 06} and \texttt{Section AB} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure; we will discuss each line of the code afterward.
+The block of code we will use to generate our report for \texttt{Topic 06} and \texttt{Section A} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure; we will discuss each line of the code afterward.
 
 <<eval=FALSE>>=
 keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
@@ -451,7 +451,7 @@ refineKey(keyHTM)
 
 keyPath = gsub("htm$", "txt", keyHTM)
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.AB.csv", package =
+dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
   "ePort")
 
 rewriteData(dataPath)

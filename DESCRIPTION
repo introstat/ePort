@@ -5,7 +5,9 @@ Version: 0.0.1
 Date: 2015-11-03
 Author: Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich
 Maintainer: Amy Froelich <amyf@iastate.edu>
-Description: Electronic reporting software that provides course instructors supervisors with timely summarizations and analyses of student learning and performance.
+Description: Electronic reporting software that provides course instructors
+    supervisors with timely summarizations and analyses of student learning and
+    performance.
 Imports:
     knitr (>= 1.11),
     plyr (>= 1.8.3),
@@ -23,3 +25,4 @@ Suggests:
 License: GPL (>= 2.0)
 LazyData: true
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
