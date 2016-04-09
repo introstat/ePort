@@ -1,0 +1,47 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Summary}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Installation}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Help files}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Online homework database}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Database structure}{4}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Topics}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Learning outcomes}{5}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Question types}{6}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Question sets}{9}{subsubsection.2.1.4}
+\contentsline {subsection}{\numberline {2.2}Report generation outline}{9}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}External software - Respondus}{10}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}External software - Blackboard}{11}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Input files}{11}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}Parsing input files}{11}{subsubsection.2.2.4}
+\contentsline {section}{\numberline {3}Example data}{12}{section.3}
+\contentsline {section}{\numberline {4}Generating Reports}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}One topic for one section - short version}{13}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Code}{13}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Output}{16}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Contacts of low-performing students}{20}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}One topic for one section - long version}{20}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Code}{20}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Output}{21}{subsubsection.4.2.2}
+\contentsline {subsection}{\numberline {4.3}One topic comparing multiple sections - short version}{24}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Code}{24}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Output}{24}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}One topic comparing multiple sections - long version}{25}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Code}{26}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Output}{26}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}One unit (group of topics) for one section}{30}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Code}{31}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Output}{32}{subsubsection.4.5.2}
+\contentsline {subsection}{\numberline {4.6}One unit (group of topics) comparing multiple sections}{34}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Code}{34}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Output}{34}{subsubsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.3}Contacts of low-performing students}{36}{subsubsection.4.6.3}
+\contentsline {section}{\numberline {5}Additional tools}{36}{section.5}
+\contentsline {subsection}{\numberline {5.1}Splitting files}{36}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Merging files}{37}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Deidentifying files}{38}{subsection.5.3}
+\contentsline {section}{\numberline {6}Running reports sequentially}{39}{section.6}
+\contentsline {section}{\numberline {7}Report Defaults}{41}{section.7}
+\contentsline {subsection}{\numberline {7.1}Parameter options}{41}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Examples}{42}{subsection.7.2}
+\contentsline {section}{\numberline {8}Future avenues}{43}{section.8}
+\contentsline {section}{\numberline {9}Conclusions}{44}{section.9}

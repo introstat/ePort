@@ -40,8 +40,8 @@ ntopic = length(unique(merged$file$topic))
 nstudent = nrow(merged$dat$CorrectPct)
 
 theme101 = theme(legend.position = "none",
-                 axis.text.x=element_text(size=15),
-                 axis.text.y=element_text(size=15))
+                 axis.text=element_text(size=20),
+                 axis.title=element_text(size=20))
 @
 
 \centerline{\Large\bf \Sexpr{className} Homework Report for Unit \Sexpr{unit}}
@@ -146,11 +146,11 @@ fname=paste0(plotprename,'histbystu.pdf')
 if (ntopic < 7) {
   pdf(paste0(outFile,"/",fname),width=3*ntopic, height=2*nsection)
   outImage = c(outImage, paste0(outFile,"/",fname))
-  print(qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 )
+  print(qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + theme(strip.text = element_text(size = 20)))
 } else {
   pdf(paste0(outFile,"/",fname),width=1.5*nsection, height=ntopic)
   outImage = c(outImage, paste0(outFile,"/",fname))
-  print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101)
+  print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + theme(strip.text = element_text(size = 20)))
 }
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}

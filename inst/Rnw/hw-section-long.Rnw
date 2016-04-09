@@ -135,7 +135,7 @@ print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section
 @
 
 <<sbsb-os, echo=FALSE, fig.env = "figure", out.width = "0.7\\linewidth", fig.cap = "Side-by-side boxplots for learning outcomes by section. The learning outcome on the left has the highest average correct percentage, while the one on the right has the lowest.", fig.height = 10, fig.width = 14, fig.lp = "fig:">>=
-print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text=element_text(size=24), axis.title =element_text(size=24), legend.text = element_text(size=24), legend.title = element_text(size=24)) )
+print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text=element_text(size=30), axis.title =element_text(size=30), legend.text = element_text(size=30), legend.title = element_text(size=30)) )
 @
 
 \clearpage
