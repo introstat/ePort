@@ -1,0 +1,8 @@
+With semicolon:
+
+bloxham@iastate.edu; bhartz@iastate.edu; congerf@iastate.edu
+
+
+With comma:
+
+bloxham@iastate.edu, bhartz@iastate.edu, congerf@iastate.edu

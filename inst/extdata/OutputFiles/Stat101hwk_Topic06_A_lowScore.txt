@@ -1,0 +1,8 @@
+With semicolon:
+
+bourdan@iastate.edu; heidenc@iastate.edu; hurshe@iastate.edu; chadd@iastate.edu; chene@iastate.edu; cutshall@iastate.edu; emileeh@iastate.edu; wickd@iastate.edu; clemorn@iastate.edu; bowned@iastate.edu; bloxham@iastate.edu; cherishl@iastate.edu; shackela@iastate.edu; arnetta@iastate.edu; proehld@iastate.edu; 16@iastate.edu
+
+
+With comma:
+
+bourdan@iastate.edu, heidenc@iastate.edu, hurshe@iastate.edu, chadd@iastate.edu, chene@iastate.edu, cutshall@iastate.edu, emileeh@iastate.edu, wickd@iastate.edu, clemorn@iastate.edu, bowned@iastate.edu, bloxham@iastate.edu, cherishl@iastate.edu, shackela@iastate.edu, arnetta@iastate.edu, proehld@iastate.edu, 16@iastate.edu
