@@ -252,7 +252,7 @@ The topics in the database cover a broad range of material that includes curricu
 
 \subsubsection{Learning outcomes}
 
-Each topic contains learning outcomes, which are a list of statements that describe what a student is expected to understand after completing the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for Topic 03 are provided in List \hyperref[sec:lo]{1} below.
+Each topic contains learning outcomes, which are a list of statements that describe what a student is expected to understand after completing the topic. Learning outcomes form the main structure of the electronic assessment model of \texttt{ePort}. The average topic contains about seven learning outcomes. As an example, the learning outcomes for \texttt{Topic 03} are provided in List \hyperref[sec:lo]{1} below.
 
 \newpage
 \centerline{List 1: Learning outcomes for Topic 03}
@@ -428,7 +428,7 @@ Typically, assignments on \texttt{Blackboard} can be made available to students 
 
 The three necessary input files for \texttt{ePort} to generate reports are represented in green in Figure \ref{fig:overviewFigure}. A file that enumerates the learning outcomes is required; an example of this type of file has already been displayed in List \hyperref[sec:lo]{1}. An answer key file is also required, and can be generated from the database in \texttt{Respondus}. The third required file consists of the answers that students submit when they complete their assignments on \texttt{Blackboard}.
 
-????? Add examples here ?????
+????? Description of how to create answer key file ?????
 
 \subsubsection{Parsing input files}
 
@@ -657,7 +657,7 @@ In addition to understanding how students from this section performed overall fo
 \begin{center}
 \fbox{\includegraphics[width=0.75\textwidth]{image1b.png}}
 \captionsetup{width=0.75\textwidth}
-\captionof{figure}{Fluctuation diagram of percentage correct by learning outcome. The area of each square corresponds to the number of students who obtained that score for that learning outcome. Learning outcomes are ordered on the horizontal axis by mean score, with the highest mean score positioned on the left side of the axis. The mean score for each learning outcome is represented with a blue horizontal line. For this section, learning outcome \texttt{D} had the highest mean score, and learning outcome \texttt{G} had the lowest mean score. For each learning outcome, there remained a sizeable proportion of the total of 50 students who scored poorly (a score of at most 50\%).}
+\captionof{figure}{Fluctuation diagram of percentage correct by learning outcome. The area of each square corresponds to the number of students who obtained that score for that learning outcome. Learning outcomes are ordered on the horizontal axis by mean score, with the highest mean score positioned on the left side of the axis. The mean score for each learning outcome is represented with a blue horizontal line. For this section, learning outcome \texttt{D} had the highest mean score, and learning outcome \texttt{G} had the lowest mean score. For each learning outcome, there remained a sizeable proportion of the 50 students who scored poorly (a score of at most 50\%).}
 \label{fig:image1b}
 \end{center}
 
@@ -673,8 +673,8 @@ Additionally, instructors and course coordinators may wish to obtain an overview
 An instructor may wish to know which students from this section are performing poorly overall on this assignment. To assist this need, the report also includes a list of student names and their corresponding scores, for all cases of students who received a score below 80\% on the assignment, as is demonstrated in Figure \ref{fig:image1d}.
 
 \begin{center}
-\captionsetup{width=\textwidth}
-\fbox{\includegraphics[width=\textwidth]{image1d.png}}
+\captionsetup{width=0.85\textwidth}
+\fbox{\includegraphics[width=0.85\textwidth]{image1d.png}}
 \captionof{figure}{Of the 50 students in this section, 15 of them scored less than 80\% on this assignment.}
 \label{fig:image1d}
 \end{center}
@@ -718,7 +718,7 @@ The short report featured tools that identified individual students from the sec
 \begin{center}
 \captionsetup{width=0.75\textwidth}
 \fbox{\includegraphics[width=0.75\textwidth]{image2a.png}}
-\captionof{figure}{Heat map of the student ranks. Blue represents the top ranks, while yellow represents the bottom ranks. The order of students on the vertical axis is by overall rank across all learning outcomes. We see that the five students with the highest overall scores (ales, clarinep, eloish, eveline, and wallazu), performed well across all learning outcomes. Moreover, we see that the student with the lowest overall score (proehld) performed poorly for all learning outcomes, except for learning outcome \texttt{D}.}
+\captionof{figure}{Heat map of the student ranks. Blue represents the top ranks, while yellow represents the bottom ranks. The order of students on the vertical axis is by overall rank across all learning outcomes. We see that the five students with the highest overall scores (ales, clarinep, eloish, eveline, and wallazu) performed well across all learning outcomes. Moreover, we see that the student with the lowest overall score (proehld) performed poorly for all learning outcomes, except for learning outcome \texttt{D}.}
 \label{fig:image2a}
 \end{center}
 
@@ -727,18 +727,18 @@ Oftentimes, one of the aims in an online homework assignment is to ensure that a
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{image2b.png}}
-\captionof{figure}{Comparison of student performance in this section on each of the 89 possible questions of \texttt{Topic 06}, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set \texttt{A} contained four questions, with mean scores that ranged from 82\% to 100\%. Three of these questions (IDs: 1, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of at least one other question in this same question set. In contrast, question set \texttt{L} contained nine questions, with mean scores that ranged from 89\% to 100\%. Hence, none of these nine questions were flagged as demonstrating a concerningly large difference of at least 15\% in difficulty level from within the same question set.}
+\captionof{figure}{Comparison of student performance in this section on each of the 89 possible questions of \texttt{Topic 06}, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set \texttt{A} contained four questions, with mean scores that ranged from 81.82\% to 100.00\%. Three of these questions (IDs: 1, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of at least one other question in this same question set. In contrast, question set \texttt{L} contained nine questions, with mean scores that ranged from 88.89\% to 100.00\%. Hence, none of these nine questions were flagged as demonstrating a concerningly large difference of at least 15\% in difficulty level from within the same question set.}
 \label{fig:image2b}
 \end{center}
 
 As per the figure above, an instructor can quickly determine if there are questions for which students tend to show poor performance, and if there are question sets for which students tend to show disparate performance between their comprising questions. In either situation, an instructor may wish to examine these questions more closely, and determine how students are answering these questions incorrectly. For this reason, the long report also includes a summary of student responses for each individual question in the assignment, allowing instructors to determine the most common mistakes students in this section are making for these difficult questions.
 
-If you open the long report we generated (\texttt{Stat101hwk\_Topic06\_A-long.pdf}), then you can view the summary for each of the 89 questions in this assignment. Each question has its summary printed on a separate page, beginning on Page 13 and ending on Page 101 of the report. As we saw in Figure \ref{fig:image2b}, the first question ID of the assignment had a mean score of 82\%. We can ascertain what types of errors students from this section made on this question ID by viewing its summary (on Page 13 of the report), which is provided below in Figure \ref{fig:image2c}. 
+If you open the long report we generated (\texttt{Stat101hwk\_Topic06\_A-long.pdf}), then you can view the summary for each of the 89 questions in this assignment. Each question has its summary printed on a separate page, beginning on Page 13 and ending on Page 101 of the report. As we saw in Figure \ref{fig:image2b}, the first Question ID of the assignment had a mean score of 81.82\%. We can ascertain what types of errors students from this section made on this Question ID by viewing its summary (on Page 13 of the report), which is provided below in Figure \ref{fig:image2c}. 
 
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{image2c.png}}
-\captionof{figure}{A detailed summary of student performance for the first question ID in the assignment. We see that 11 of the 50 students from this section received this question at random out of a question set that contains four similar questions. All 11 students responded with an answer: Nine correctly selected answer choice \texttt{A}, and two incorrectly selected answer choice \texttt{C}. No student incorrectly responded with answer choice \texttt{B} or \texttt{D}.}
+\captionof{figure}{A detailed summary of student performance for the first Question ID in the assignment. We see that 11 of the 50 students from this section received this question at random out of a question set that contains four similar questions. All 11 students responded with an answer: Nine correctly selected answer choice \texttt{A}, and two incorrectly selected answer choice \texttt{C}. No student incorrectly responded with answer choice \texttt{B} or \texttt{D}.}
 \label{fig:image2c}
 \end{center}
 
@@ -811,8 +811,8 @@ We received a brief comparative summary between the three sections for \texttt{T
 The code above should have generated the long edition of the report (\texttt{Stat101hwk\_Topic06\_crossSection\-long.pdf}). One of the most immediate pieces of information that a course coordinator may wish to glean is whether or not there are discrepancies in student performance for a given topic across multiple sections. This could be especially true if there are different instructors and/or different teaching methods being employed across the different sections. In the report we just produced, we can indeed quickly compare how the students performed overall for \texttt{Topic 06} across the three sections in a table that has been copied here in Figure \ref{fig:image4a}.
 
 \begin{center}
-\captionsetup{width=0.65\textwidth}
-\fbox{\includegraphics[width=0.65\textwidth]{image4a.png}}
+\captionsetup{width=0.7\textwidth}
+\fbox{\includegraphics[width=0.7\textwidth]{image4a.png}}
 \captionof{figure}{The mean, standard deviation, and five number summary for student performance across the three sections. We see that the overall student performance was relatively similar across the three sections, although sections \texttt{A} and \texttt{C} had overall mean scores that were at least 1.5 points larger than the overall mean score of section \texttt{B}.}
 \label{fig:image4a}
 \end{center}
@@ -831,7 +831,7 @@ The long edition of the report breaks it down further by comparing the three sec
 \begin{center}
 \captionsetup{width=0.55\textwidth}
 \fbox{\includegraphics[width=0.55\textwidth]{image4c.png}}
-\captionof{figure}{Mean percentage scores for each question set by section. The question sets are sorted by decreasing overall mean scores. Both question sets with the highest overall mean scores across sections are from learning outcome \texttt{D}. We see that sections performed fairly consistently across question sets. However, question set \texttt{H} had a mean score difference of 24\% between sections \texttt{A} and \texttt{B}.}
+\captionof{figure}{Mean percent scores for each question set by section. The question sets are sorted by decreasing overall mean scores. Both question sets with the highest overall mean scores across sections are from learning outcome \texttt{D}. We see that sections performed fairly consistently across question sets. However, question set \texttt{H} had a mean score difference of 24\% between sections \texttt{A} and \texttt{B}.}
 \label{fig:image4c}
 \end{center}
 
@@ -842,18 +842,18 @@ A course coordinator could again explore this same potential predicament, only n
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{image4d.png}}
-\captionof{figure}{Combined student performance from sections \texttt{A}, \texttt{B}, and \texttt{C} on each question of \texttt{Topic 06}, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set \texttt{A} contained four problems, and when we only used student performance information from the 50 students in section \texttt{A}, three IDs (1, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another question in the same question set (see Figure \ref{fig:image2b}). However, now that we have combined student performance information from all 150 students across the three sections, only two IDs (1 and 3) remain flagged. In contrast, question set \texttt{I} contained nine problems, and none of these problems were flagged whether we only used the 50 student performances in only section \texttt{A} or whether we used all 150 student performances across the three sections.}
+\captionof{figure}{Combined student performance from sections \texttt{A}, \texttt{B}, and \texttt{C} on each question of \texttt{Topic 06}, grouped by question set. If any pair of questions in a given question set have a difference in mean scores of more than 15\%, then both questions are flagged. Question set \texttt{A} contained four problems, and when we only used student performance information from the 50 students in section \texttt{A}, three IDs (1, 3, and 4) were flagged as having a mean score that was at least 15\% different than the mean score of another question in the same question set (see Figure \ref{fig:image2b}). However, now that we have combined student performance information from all 150 students across the three sections, only two IDs (1 and 3) remain flagged. In contrast, question set \texttt{I} contained nine problems, and none of these problems were flagged first when we only used the 50 student performances in section \texttt{A} (see Figure \ref{fig:image2b}) and now when we use all 150 student performances across the three sections.}
 \label{fig:image4d}
 \end{center}
 
 As per the figure above, an instructor can quickly determine if there are questions for which students tend to perform poorly, and if there question sets for which students tend to show inconsistent performance between the individual questions. In either situation, an instructor may wish to examine these questions more closely, and determine how students are answering these problems incorrectly. For this reason, the long report also includes a summary of student responses for each individual problem in the assignment, allowing instructors to determine the most common mistakes students across the sections are making for these difficult questions.
 
-If you open the long report we generated (\texttt{Stat101hwk\_Topic06\_crossSection-long.pdf}), then you can view the summary for each of the 89 possible questions in this assignment. Each question summary is printed on a separate page, beginning on Page 11 and ending on Page 100 of the report. As we saw in Figure \ref{fig:image4d}, question ID 1 had an overall mean score of 78.26\% across the three sections. We can ascertain what types of errors students made on this problem, regardless of section, by viewing the summary for question ID 1 (on Page 11 of the report), which is provided below in Figure \ref{fig:image4e}. Of course, now that we are collecting student responses from the 46 students who received this problem in any of the three sections, we are provided with more power about the distribution of student responses than when only considered the 11 students in section \texttt{A}, as was done in Figure \ref{fig:image2c}.
+If you open the long report we generated (\texttt{Stat101hwk\_Topic06\_crossSection-long.pdf}), then you can view the summary for each of the 89 possible questions in this assignment. Each question summary is printed on a separate page, beginning on Page 11 and ending on Page 100 of the report. As we saw in Figure \ref{fig:image4d}, Question ID 1 had an overall mean score of 78.26\% across the three sections. We can ascertain what types of errors students made on this problem, regardless of section, by viewing the summary for Question ID 1 (on Page 11 of the report), which is provided below in Figure \ref{fig:image4e}. Of course, now that we are collecting student responses from the 46 students who received this problem in any of the three sections, we are provided with more power about the distribution of student responses than when only considered the 11 students in section \texttt{A}, as was done in Figure \ref{fig:image2c}.
 
 \begin{center}
 \captionsetup{width=\textwidth}
 \fbox{\includegraphics[width=\textwidth]{image4e.png}}
-\captionof{figure}{A detailed summary of student performance for the first question ID in the assignment. Of the 46 students who received this question ID,  36 students correctly selected answer choice \texttt{A}. The most frequently incorrect response from students was answer choice \texttt{C}, followed by answer choice \texttt{B}. No students incorrectly answered choice \texttt{D}. One student did not respond. In general, this is a similar distribution to what we saw in Figure \ref{fig:image2c}, when only examined at the 10 students from section \texttt{A} who received this question ID.}
+\captionof{figure}{A detailed summary of student performance for the first Question ID in the assignment. Of the 46 students who received this Question ID,  36 students correctly selected answer choice \texttt{A}. The most frequently incorrect response from students was answer choice \texttt{C}, followed by answer choice \texttt{B}. No students incorrectly answered choice \texttt{D}. One student did not respond. In general, this is a similar distribution to what we saw in Figure \ref{fig:image2c}, when we only examined the 11 students from section \texttt{A} who received this Question ID.}
 \label{fig:image4e}
 \end{center}
 
@@ -873,13 +873,11 @@ To generate this type of report, we must be sure to provide a \texttt{dataFolder
 
 Indeed, the \texttt{ePort} package contains such an example folder, which he have not yet used in this vignette. It is located in \texttt{extdata/DataFiles/Topic06\_07\_08}. You can examine this folder to confirm that there is nothing but our nine necessary input files (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, \texttt{Topic06.C.csv}, \texttt{Topic07.A.csv}, \texttt{Topic07.B.csv}, \texttt{Topic07.C.csv}, \texttt{Topic08.A.csv}, \texttt{Topic08.B.csv}, and \texttt{Topic08.C.csv}). We save the pathway to all nine of these files to a variable called \texttt{dataList}.
 
-For this type of report, we must also prepare a few variables before running the \texttt{makeReport()} function. We prepare these variables using the \texttt{setDir()}, \texttt{mergeData()}, and \texttt{subsetData()} functions. For more information about these functions, please use the \texttt{help()} command.
-
-The \texttt{dataTable} variable we create below is a simple data frame that specifies the topic and section for each input data file of interest. The \texttt{mergedData} variable we also create below is a list of data frames that contains the scores that each student from the three sections earned on each topic assignment, the number of missed assignments, and the total scores across all students for each section and topic.
+For this type of report, we must also prepare a few variables before running the \texttt{makeReport()} function. We prepare these variables using the \texttt{setDir()}, \texttt{mergeData()}, and \texttt{subsetData()} functions. For more information about these functions, please use the \texttt{help()} command. The \texttt{dataTable} variable we create below is a simple data frame that specifies the topic and section for each input data file of interest. The \texttt{mergedData} variable we also create below is a list of data frames that contains the scores that each student from the three sections earned on each topic assignment, the number of missed assignments, and the total scores across all students for each section and topic.
 
 Our goal here is to create a separate report for each section of interest, where each report compares how students from that section performed across topics. We can most efficiently accomplish this by using a for loop, as shown below, where we create one last variable \texttt{merged}. This variable is the subset of our \texttt{mergedData} variable that only applies for the section of interest.
 
-Lastly, we can run our \texttt{makeReport()} function on this section and group of topics. We should specify our unit variable, which contains a default value of 1. In our example, we are indicating that we consider topics \texttt{06}, \texttt{07}, and \texttt{08} to be from Unit 2.\\
+Lastly, we can run our \texttt{makeReport()} function on this section and group of topics. We should specify our unit variable, which contains a default value of 1. In our example, we are indicating that we consider topics \texttt{06}, \texttt{07}, and \texttt{08} to be from \texttt{Unit 2}.\\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -902,15 +900,15 @@ Lastly, we can run our \texttt{makeReport()} function on this section and group 
 \end{kframe}
 \end{knitrout}
 
-Upon running this code, you should have created three files into your \texttt{OutputFiles} folder, \texttt{Stat101hwk\_Unit2\_A.pdf}, \texttt{Stat101hwk\_Unit2\_B.pdf}, and \texttt{Stat101hwk\_Unit2\_C.pdf}. Each of these files compares how students in that section performed for the three topics that we defined as comprising Unit 2.
+Upon running this code, you should have created three files into your \texttt{OutputFiles} folder, \texttt{Stat101hwk\_Unit2\_A.pdf}, \texttt{Stat101hwk\_Unit2\_B.pdf}, and \texttt{Stat101hwk\_Unit2\_C.pdf}. Each of these files compares how students in that section performed for the three topics that we defined as comprising \texttt{Unit 2}.
 
 \subsubsection{Output}
 
-An instructor might want to know how their section of students is performing throughout the course duration, and in partiular, if there are any topics within a unit of interest for which their students perform well or poorly. We will examine one of the three reports we just generated (\texttt{Stat101hwk\_Unit2\_A.pdf}) to discover the types of tools that instructors could use in such situations. The report begins with a quick summary of how students performed for this section (\texttt{A}) for all topics in Unit 2 (topics \texttt{06}, \texttt{07}, and \texttt{08}), as is provided in Figure \ref{fig:image5a}.
+An instructor might want to know how their section of students is performing throughout the course duration, and in partiular, if there are any topics within a unit of interest for which their students perform well or poorly. We will examine one of the three reports we just generated (\texttt{Stat101hwk\_Unit2\_A.pdf}) to discover the types of tools that instructors could use in such situations. The report begins with a quick summary of how students performed for this section (\texttt{A}) across all topics in \texttt{Unit 2} (topics \texttt{06}, \texttt{07}, and \texttt{08}), as is provided in Figure \ref{fig:image5a}.
 
 \begin{center}
-\captionsetup{width=0.6\textwidth}
-\fbox{\includegraphics[width=0.6\textwidth]{image5a.png}}
+\captionsetup{width=0.65\textwidth}
+\fbox{\includegraphics[width=0.65\textwidth]{image5a.png}}
 \captionof{figure}{Overall summary of how students in section \texttt{A} performed for topics \texttt{06}, \texttt{07}, and \texttt{08}. Students showed the highest mean and median for \texttt{Topic 07}, and the lowest mean and median for \texttt{Topic 08}.}
 \label{fig:image5a}
 \end{center}
@@ -929,7 +927,7 @@ While the figure above can allow us to see if there are trends in how individual
 \begin{center}
 \captionsetup{width=0.65\textwidth}
 \fbox{\includegraphics[width=0.65\textwidth]{image5c.png}}
-\captionof{figure}{Heat map of the student scores in this section for the three topics of interest. The students are listed in descending order of their overall average score across the three sections. We can determine that the lowest-performing student (congerf) performed worse as the topics progressed. In contrast, the highest-performing student (bessbr) performed better as the topics progressed.}
+\captionof{figure}{Heat map of the student scores in this section for the three topics of interest. The students are listed in descending order of their overall average score across the three sections. We can determine that the lowest-performing student (congerf) performed much worse as the topics progressed. In contrast, the highest-performing student (bessbr) performed slightly better as the topics progressed.}
 \label{fig:image5c}
 \end{center}
 
@@ -948,7 +946,7 @@ An instructor may be motivated to generate a report for multiple topics and mult
 \subsubsection{Code}
 \label{sec:crossSecU}
 
-To accomplish this task, we create a \texttt{merged} variable that contains a list of data frames that include the raw scores, percentage scores, number of missing assignments, and average scores for the three sections and three topics of interest. After that, we can simply use our \texttt{makeReport()} command, being sure to specify that we are designating the three topics (\texttt{06}, \texttt{07}, and texttt{08}) as Unit 2. \\
+To accomplish this task, we create a \texttt{merged} variable that contains a list of data frames that include the raw scores, percentage scores, number of missing assignments, and average scores for the three sections and three topics of interest. After that, we can simply use our \texttt{makeReport()} command, being sure to specify that we are designating the three topics (\texttt{06}, \texttt{07}, and \texttt{08}) as \texttt{Unit 2}. \\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -959,7 +957,7 @@ To accomplish this task, we create a \texttt{merged} variable that contains a li
 \end{kframe}
 \end{knitrout}
 
-Running the code above should have created four new files, \texttt{Stat101hwk\_Unit2\_crossSection.pdf}, \texttt{Stat101hwk\_Unit2\_A\_lowScore.txt}, \texttt{Stat101hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Stat101hwk\_Unit2\_C\_lowScore.txt}. The first file contains our report that compares all combinations of the three sections and three topics of interest. The latter three .txt files contain lists of the e-mail contacts of students from each respective section who performed poorly consistently across the three topics of interest.
+This creates four files, \texttt{Stat101hwk\_Unit2\_crossSection.pdf}, \texttt{Stat101hwk\_Unit2\_A\_lowScore.txt}, \texttt{Stat101hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Stat101hwk\_Unit2\_C\_lowScore.txt}. The first file contains our report that compares all combinations of the three sections and three topics of interest. The latter three .txt files contain lists of the e-mail contacts of students from each respective section who performed poorly consistently across the three topics of interest.
 
 \subsubsection{Output}
 
@@ -972,7 +970,7 @@ From the report we just generated (\texttt{Stat101hwk\_Unit2\_crossSection.pdf})
 \label{fig:image6a}
 \end{center}
 
-In this report, we can also compare score distributions for each combination of section and topic, see Figure \ref{fig:image6b}.
+In this report, we can also compare score distributions for each combination of section and topic (see Figure \ref{fig:image6b}).
 
 \begin{center}
 \captionsetup{width=0.8\textwidth}
@@ -1025,9 +1023,9 @@ Upon running the above code, if you return to the \texttt{Topic06\_Split} folder
 
 \subsection{Merging files}
 
-In some cases, one topic might encompass two homework assignments. In order to generate a report for the overall topic, we will first need to combine the two data files. Such a scenario exists in the \hyperref[sec:OnlineHomework]{online database}, in which chapter 9 and 12 homework assignments together form Topic 11.
+In some cases, one topic might encompass two homework assignments. In order to generate a report for the overall topic, we will first need to combine the two data files. Such a scenario exists in the \hyperref[sec:OnlineHomework]{online database}, in which chapter 9 and 12 homework assignments together form \texttt{Topic 11}.
 
-In our example, we will combine the Chapter 9 and 12 homework assignments to form the Topic 11 data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, \texttt{Ch12.C.csv}, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, and \texttt{Ch9.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
+In our example, we will combine the Chapter 9 and 12 homework assignments to form the \texttt{Topic 11} data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, \texttt{Ch12.C.csv}, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, and \texttt{Ch9.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1204,7 +1202,7 @@ We can do this one of two ways. We can hard code the two data files needed for t
 \end{kframe}
 \end{knitrout}
 
-Or, we can create the same variable using the \texttt{list.files()} function of base R: \\
+Or, we can create the same variable using the \texttt{list.files()} function of base \textbf{\textsf{R}}: \\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1267,7 +1265,7 @@ To best illustrate the default parameters, we will begin by clearing all files i
 \end{kframe}
 \end{knitrout}
 
-Next, we will rerun the \hyperref[sec:oneTopicSectionShort]{short version of the report on one section and one topic}. Here, we are specifying three boolean default parameters to values of \texttt{TRUE}, the \texttt{className} default parameter to a value of "Math123", and the \texttt{lowScore} default parameter to a value of 60. \\
+Next, we will rerun the \hyperref[sec:oneTopicSectionShort]{short version of the report on one section and one topic}. Here, we are specifying three boolean default parameters to values of \texttt{TRUE}, the \texttt{className} default parameter to a value of ``Math123", and the \texttt{lowScore} default parameter to a value of 60. \\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1295,7 +1293,7 @@ To prepare for another example, we will again clear all files in our \texttt{Out
 \end{kframe}
 \end{knitrout}
 
-Now, we will run the \hyperref[sec:crossSecU]{report for one unit (group of topics) comparing multiple sections }, only this time altering the default parameters. We specify the \texttt{className} parameter to a value of \texttt{Eng444}, and the \texttt{repeatLowScore} parameter to a value of \texttt{70}. \\
+Now, we will run the \hyperref[sec:crossSecU]{report for one unit (group of topics) comparing multiple sections }, only this time altering the default parameters. We specify the \texttt{className} parameter to a value of ``Eng444", and the \texttt{repeatLowScore} parameter to a value of \texttt{70}. \\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1307,7 +1305,7 @@ Now, we will run the \hyperref[sec:crossSecU]{report for one unit (group of topi
 \end{kframe}
 \end{knitrout}
 
-Running the code above should have created four new files, \texttt{Eng444hwk\_Unit2\_crossSection.pdf}, \texttt{Eng444hwk\_Unit2\_A\_lowScore.txt}, \texttt{Eng444hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Eng444hwk\_Unit2\_C\_lowScore.txt}. Both in our report summaries and in our .txt files of e-mail contacts of low-performing students, we see that there are now 36 students from section \texttt{A} who performed poorly, 32 students from section \texttt{B} who performed poorly, and 33 students from section \texttt{C} who performed poorly. As expected, the number of students who were deemed to have performed poorly has increased from when we ran this same code using the \hyperref[sec:lowPer]{default value of 20}.
+This creates four files, \texttt{Eng444hwk\_Unit2\_crossSection.pdf}, \texttt{Eng444hwk\_Unit2\_A\_lowScore.txt}, \texttt{Eng444hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Eng444hwk\_Unit2\_C\_lowScore.txt}. Both in our report summaries and in our .txt files of e-mail contacts of low-performing students, we see that there are now 36 students from section \texttt{A} who performed poorly, 32 students from section \texttt{B} who performed poorly, and 33 students from section \texttt{C} who performed poorly. As expected, the number of students who were deemed to have performed poorly has increased from when we ran this same code using the default value of 20 (see \hyperref[sec:lowPer]{Contacts of low-performing students}).
 
 \section{Future avenues}
 

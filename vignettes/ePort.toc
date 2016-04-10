@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {5}Additional tools}{35}{section.5}
 \contentsline {subsection}{\numberline {5.1}Splitting files}{35}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Merging files}{36}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Deidentifying files}{37}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.3}Deidentifying files}{36}{subsection.5.3}
 \contentsline {section}{\numberline {6}Running reports sequentially}{38}{section.6}
 \contentsline {section}{\numberline {7}Report Defaults}{40}{section.7}
 \contentsline {subsection}{\numberline {7.1}Parameter options}{40}{subsection.7.1}
