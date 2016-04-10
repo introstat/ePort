@@ -1,8 +1,0 @@
-With semicolon:
-
-allenm@iastate.edu; anglesn@iastate.edu; bogler@iastate.edu; disalvot@iastate.edu; baran@iastate.edu; gheenm@iastate.edu; sandford@iastate.edu; trudig@iastate.edu; vevers@iastate.edu; bettst@iastate.edu; luot@iastate.edu; retap@iastate.edu; rosep@iastate.edu; marshall@iastate.edu; marcelln@iastate.edu; wehnerp@iastate.edu; reddins@iastate.edu; orriss@iastate.edu; 19@iastate.edu; 20@iastate.edu
-
-
-With comma:
-
-allenm@iastate.edu, anglesn@iastate.edu, bogler@iastate.edu, disalvot@iastate.edu, baran@iastate.edu, gheenm@iastate.edu, sandford@iastate.edu, trudig@iastate.edu, vevers@iastate.edu, bettst@iastate.edu, luot@iastate.edu, retap@iastate.edu, rosep@iastate.edu, marshall@iastate.edu, marcelln@iastate.edu, wehnerp@iastate.edu, reddins@iastate.edu, orriss@iastate.edu, 19@iastate.edu, 20@iastate.edu
