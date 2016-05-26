@@ -1,11 +1,10 @@
 Package: ePort
 Type: Package
-Title: Student Performance Report Generation for Statistics Instructors
-Version: 0.0.1
-Date: 2015-11-03
-Author: Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich
+Title: Electronic Reporting of Academic Learning and Performance
+Version: 0.1.0
+Author: Xiaoyue Cheng, Dianne Cook, Lindsay Rutter, Amy Froelich
 Maintainer: Amy Froelich <amyf@iastate.edu>
-Description: Electronic reporting software that provides course instructors
+Description: Electronic reporting software that provides course instructors and
     supervisors with timely summarizations and analyses of student learning and
     performance.
 Imports:
