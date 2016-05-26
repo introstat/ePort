@@ -892,25 +892,25 @@ Upon running the above code, if you return to the \texttt{Topic06\_Split} folder
 
 \subsection{Merging files}
 
-In some cases, one topic might encompass two homework assignments. In order to generate a report for the overall topic, we will first need to combine the two data files. Such a scenario exists in the \hyperref[sec:OnlineHomework]{online database}, in which chapter 9 and 12 homework assignments together form \texttt{Topic 11}.
+In some cases, one topic might encompass two homework assignments. In order to generate a report for the overall topic, we will first need to combine the two data files. Such a scenario exists in the \hyperref[sec:OnlineHomework]{online database}, in which Chapter 9 and 12 homework assignments together form \texttt{Topic 11}.
 
-In our example, we will combine the Chapter 9 and 12 homework assignments to form the \texttt{Topic 11} data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, \texttt{Ch12.C.csv}, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, and \texttt{Ch9.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
+In our example, we will combine the Chapter 9 and 12 homework assignments to form the \texttt{Topic 11} data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, \texttt{Ch9.C.csv}, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, and \texttt{Ch12.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
 
 <<eval=FALSE>>=
 dataFolder = system.file("inst/extdata/DataFiles/Topic11_Merge", package="ePort")
-dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
+dataList = list.files(path = dataFolder, full.names=TRUE)[1:6]
 topicNum = "Topic11"
 
 for (i in dataList) rewriteData(i)
 
-for(i in c('AB', 'CD')){
+for(i in c('A', 'B', 'C')){
   tmp = dataList[grep(i, basename(dataList))]
   combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]), "/", paste(topicNum, i, "csv",
     sep = '.'), sep = ""))
 }
 @
 
-Running this code should produce two new files (\texttt{Topic11.A.csv} and \texttt{Topic11.B.csv}) into the \texttt{Topic11\_Merge} folder. If we explore these files, we see that they have a maximum Question ID value of 15 and a maximum RsQ value of 32. This can verify that this is correct if we explore the original files for the Chapter 9 and 12 homework assignments. The Chapter 9 homework data file had a maximum Question ID value of 10 and a maximum RsQ value of 23, while the Chaper 12 homework data file had a maximum Question ID value of 5, and a maximum RsQ value of 9. Hence, the total number of Question ID and RsQ values in the combined files appear to have been added correctly given the total number of Question ID and RsQ values from the individual files.
+Running this code should produce three new files (\texttt{Topic11.A.csv}, \texttt{Topic11.B.csv}, and \texttt{Topic11.C.csv}) into the \texttt{Topic11\_Merge} folder. If we explore these files, we see that they have a maximum Question ID value of 25 and a maximum RsQ value of 55. We can verify that this is correct if we explore the original files for the Chapter 9 and 12 homework assignments. The Chapter 9 homework data file had a maximum Question ID value of 10 and a maximum RsQ value of 23, while the Chaper 12 homework data file had a maximum Question ID value of 15, and a maximum RsQ value of 32. Hence, the total number of Question ID and RsQ values in the combined files appear to have been added correctly given the total number of Question ID and RsQ values from the individual files.
 
 \subsection{Deidentifying files}
 
