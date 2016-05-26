@@ -89,6 +89,7 @@
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \sloppy
 
 
@@ -105,7 +106,7 @@
 
 \title{ePort Vignette:\\ Academic report generation for instructors}
 \author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
-\date{\pkg{ePort} version 0.0.1 , 2016-04-10 }
+\date{\pkg{ePort} version 0.0.1 , 2016-05-01 }
 \maketitle
 
 \tableofcontents
@@ -428,8 +429,6 @@ Typically, assignments on \texttt{Blackboard} can be made available to students 
 
 The three necessary input files for \texttt{ePort} to generate reports are represented in green in Figure \ref{fig:overviewFigure}. A file that enumerates the learning outcomes is required; an example of this type of file has already been displayed in List \hyperref[sec:lo]{1}. An answer key file is also required, and can be generated from the database in \texttt{Respondus}. The third required file consists of the answers that students submit when they complete their assignments on \texttt{Blackboard}.
 
-????? Description of how to create answer key file ?????
-
 \subsubsection{Parsing input files}
 
 The functions needed to transform input files to final report files are represented in red in Figure \ref{fig:overviewFigure}. There are simple cleaning procedures that must be applied to the student response data files from \texttt{Blackboard}. One task that must then get done here is matching student answers from the cleaned student response data file to possible answer choices in the answer key from \texttt{Respondus}. This step simultaneously requires that the questions that a particular student received at random from each question set are successfully matched to the corresponding question titles in the answer key from \texttt{Respondus}.
@@ -449,15 +448,6 @@ The absolute pathway to the \texttt{extdata} directory on your local computer ca
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
-?????\\
-* Add in picture with layout of the example data file  \\
-* Describe necessary format of each type of example data file \\ 
-* Describe how htm, files folder get created \\
-* Warn that real data should not be added to this example data file.\\
-To view this file, simply open it in a Web Brower (Mozilla Firefox, Google Chrome, Microsoft Internet Explorer, Apple Safari). \\
-* Explain that data is not real, but for demonstration purposes\\
-?????\\
 
 \section{Generating Reports}
 

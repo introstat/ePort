@@ -1,4 +1,53 @@
-\documentclass{article}
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 \setlength{\parindent}{0pt} % Remove indent at new paragraphs
 \setcounter{secnumdepth}{4}  % Remove section numbering at certain depth # If zero, then no numbering of sections
 \setcounter{tocdepth}{4} % Determines number of subsections that will have tabs
@@ -38,24 +87,17 @@
 \newcommand{\pkg}[1]{{\texttt{#1}}}
 \newcommand{\class}[1]{{\textit{#1}}}
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+
+
+
 \sloppy
 
-<<include=FALSE,echo=FALSE>>=
-library(knitr)
-opts_chunk$set(
-concordance=TRUE
-)
-options(width=40)
-@
 
 
-<<echo=FALSE>>=
-options(width = 60)
-options(SweaveHooks = list(fig = function() par(mar=c(3,3,1,0.5),mgp = c(2,1,0))))
-@
+
+
 
 %\SweaveOpts{prefix.string=fig,include=F,keep.source=T,eps=FALSE}
 
@@ -66,17 +108,14 @@ options(SweaveHooks = list(fig = function() par(mar=c(3,3,1,0.5),mgp = c(2,1,0))
 
 \title{ePort Vignette:\\ Academic report generation for instructors}
 \author{Xiaoyue Cheng, Di Cook, Lindsay Rutter, Amy Froelich}
-\date{\pkg{ePort} version \Sexpr{packageDescription("ePort")[["Version"]]} , \Sexpr{Sys.Date()} }
+\date{\pkg{ePort} version 0.0.1 , 2016-05-01 }
 \maketitle
 
 \tableofcontents
 \setcounter{footnote}{1} \footnotetext{This \LaTeX\ vignette document is created using the \textbf{\textsf{R}} function \code{knitr} on the \textbf{\textsf{R}} package \pkg{ePort}. It is automatically downloaded with the package and can be accessed with the \textbf{\textsf{R}} command \code{vignette("ePort")}. This vignette was written by Lindsay Rutter.}  \newpage
 \setlength{\parskip}{10pt} % Inter-paragraph spacing
 
-<<echo=FALSE>>=
-rm(list=ls())
-library(knitr)
-@ 
+
 
 \section{Introduction}
 
@@ -96,31 +135,47 @@ In general, both short and long versions of reports can be generated. Short vers
 
 \textbf{\textsf{R}} is a open source software project for statistical computing, and can be freely downloaded from the Comprehensive \textbf{\textsf{R}} Archive Network (\texttt{CRAN}) website. The link to contributed documentation on the \texttt{CRAN} website offers practical resources for an introduction to \textbf{\textsf{R}} in several languages. After downloading and installing \textbf{\textsf{R}}, the installation of additional packages is straightforward. To install the \pkg{ePort} package from \textbf{\textsf{R}}, use the command: \\
 
-<<eval=FALSE>>=
-install.packages("ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \noindent
 The \pkg{ePort} package should now be successfully installed. Next, to render it accessible to the current \textbf{\textsf{R}} session, simply type: \\
 
-<<eval=FALSE>>=
-library(ePort)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(ePort)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \subsection{Help files}
 \label{sec:helpSection}
 
 To access help pages with example syntax and documentation for the available functions of the \pkg{ePort} package, please type: \\
 
-<<eval=FALSE>>=
-help(package="ePort")
-@ 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{help}\hlstd{(}\hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 To access more detailed information about a specific function in the \pkg{ePort} package, use the following help command on that function, such as: \\
 
-<<eval=FALSE>>=
-help(mergeSection)
-@ 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{help}\hlstd{(mergeSection)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \textbf{\textsf{R}} session.
 
@@ -388,9 +443,13 @@ A directory that contains example data is automatically installed with the \text
 
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the \textbf{\textsf{R}} console: \\
 
-<<eval=FALSE>>=
-system.file("inst/extdata/", package = "ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \section{Generating Reports}
 
@@ -429,81 +488,117 @@ In this demonstration, we will create a report for \texttt{Topic 06} and section
 
 The block of code we will use to generate our report for \texttt{Topic 06} and section \texttt{A} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure; we will discuss each line of the code afterward. \\
 
-<<eval=FALSE>>=
-keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
-  "ePort")
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{keyHTM} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/KeyFiles/Topic06.Questions.htm"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
 
-refineKey(keyHTM)
+\hlkwd{refineKey}\hlstd{(keyHTM)}
 
-keyPath = gsub("htm$", "txt", keyHTM)
+\hlstd{keyPath} \hlkwb{=} \hlkwd{gsub}\hlstd{(}\hlstr{"htm$"}\hlstd{,} \hlstr{"txt"}\hlstd{, keyHTM)}
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
-  "ePort")
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.A.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
 
-rewriteData(dataPath)
+\hlkwd{rewriteData}\hlstd{(dataPath)}
 
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
+\hlstd{loPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/LOFiles/Topic06.Outcomes.txt"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
 
-outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
+\hlstd{outPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutputFiles"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
 
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath)
-@
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{keyHTM}. \\
 
-<<eval=FALSE>>=
-keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
-  "ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{keyHTM} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/KeyFiles/Topic06.Questions.htm"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Second, we must parse and clean the .htm answer key file, and convert it to plain text format. We do this by calling the \texttt{refineKey()} function of \texttt{ePort} on the .htm answer key file. By running the line below, we will create the cleaned .txt file: \\
 
-<<eval=FALSE>>=
-refineKey(keyHTM)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{refineKey}\hlstd{(keyHTM)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 By default, the \texttt{refineKey()} function will place the cleaned .txt file into the same directory as the original .html file, and with the same name. Hence, if the  you navigate to the \texttt{extdata} directory and its \texttt{KeyFiles} subdirectory, you should now see the new and cleaned .txt file we just created, \texttt{Topic06.Questions.txt}.
 
 Our third step is to save the absolute pathway of this new and cleaned .txt answer key. Below, we save it to a string variable called \texttt{keyPath}. \\
 
-<<eval=FALSE>>=
-keyPath = gsub("htm$", "txt", keyHTM)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{keyPath} \hlkwb{=} \hlkwd{gsub}\hlstd{(}\hlstr{"htm$"}\hlstd{,} \hlstr{"txt"}\hlstd{, keyHTM)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{dataPath}. \\
 
-<<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
-  "ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.A.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 After this, our fifth step is to prime the data file to be compatible with steps later down the pipeline of generating the reports. We do this by running the \texttt{rewriteData()} function of \texttt{ePort} on the data file. This function parses through the data file, and modifies certain trivial character issues that would otherwise cause a problem when running the reports. For more details about the specific process, please consider running a help command on the function. Below, we rewrite the data file: \\
 
-<<eval=FALSE>>=
-rewriteData(dataPath)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{rewriteData}\hlstd{(dataPath)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Upon running the above code snippet, you do not obtain a new file. Instead, the original file is overwritten. For this reason, you might inadvertantly run the function \texttt{rewriteData()} on a certain data file more than once, not remembering whether or not you have already converted it. It should not be a problem to run the function any number of times; you would simply receive a message that reads something like: ``Note: \texttt{Topic06.A.csv} was already successfully converted to usable format."
 
 Our sixth step is to save the absolute pathway of our learning outcome file. Below, we save this path to a variable called \texttt{loPath}. \\
 
-<<eval=FALSE>>=
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{loPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/LOFiles/Topic06.Outcomes.txt"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 After that, the seventh step is to specify our desired output directory. This is the absolute pathway of where the reports should be saved. Below, we create a variable called \texttt{outPath} to specify that we want to output our report to the \texttt{OutputFiles} subdirectory. \\
 
-<<eval=FALSE>>=
-outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{outPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutputFiles"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file) and specified our output directory, our last step is to generate the report using the \texttt{makeReport()} function. \\
 
-<<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Upon running this code, you will receive a message and menu (as shown below). We received this menu because we did not specify a value for the \texttt{reportType} parameter. The menu automatically appears in such circumstances to remind users that, as already mentioned, the \texttt{makeReport()} function can produce any one of six reports, and hence we cannot make any report at all until we make that specification.
 
@@ -523,10 +618,14 @@ Note: If running many reports, it is more efficient to exit now and hard-code th
 
 Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. However, we can also escape out of the menu, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below: \\
 
-<<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicShort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 The advantage to hard-coding the value of the \texttt{reportType} parameter is especially pertinent for users who wish to run these reports serially for each of many sections. Otherwise, in this situation, a user would not be able to automate the process, and would need to enter in the same menu selection as each report is generated. This will be made more clear in a later section of the vignette (\hyperref[sec:sequential]{Running sequentially on batch of sections}).
 
@@ -593,10 +692,14 @@ An instructor may be motivated to generate a long report for one topic and one s
 
 The short report we created for one section one topic (\texttt{Stat101hwk\_Topic06\_A-short.pdf}) may be helpful for users who want to view a brief and overall summarization of student performance. However, we can also generate a more verbose report summarization for one section one topic that would include additional details, such as a separate analysis for each problem in the assignment. We have already defined our three input file pathways and one output file pathway. Hence, if we wish to generate this longer version of the report summarization for one section one topic (sticking with section \texttt{A} and \texttt{Topic 06}), then all we need to rerun is the \texttt{makeReport()} function, only this time specifying the \texttt{reportType} parameter with the value of ``secTopicLong". \\
 
-<<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicLong")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicLong"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 We can find our output report in the \texttt{OutputFiles} subdirectory of the \texttt{extdata} example directory. Indeed, we see that we now have a much longer report, called \texttt{Stat101hwk\_Topic06\_A-long.pdf}.
 
@@ -645,12 +748,16 @@ An instructor may be motivated to generate a short report for one topic across m
 
 Now that we know how to successfully generated reports for the three sections (\texttt{A}, \texttt{B}, and \texttt{C}) of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these three sections. In this case, we use the same \texttt{makeReport()} function, just as we did before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that contains the paths to the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic: \\
 
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
-dataList = list.files(path = dataFolder, full.names = TRUE)[1:3]
-makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
-  outPath, reportType = "crossSecTopicShort")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
+\hlstd{dataList} \hlkwb{=} \hlkwd{list.files}\hlstd{(}\hlkwc{path} \hlstd{= dataFolder,} \hlkwc{full.names} \hlstd{=} \hlnum{TRUE}\hlstd{)[}\hlnum{1}\hlopt{:}\hlnum{3}\hlstd{]}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataList,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"crossSecTopicShort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Please ensure that the variable \texttt{dataList} contains exactly the full pathway to the three data files (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, and \texttt{Topic06.C.csv}). If your variable contains additional pathways, then you have more than just the three necessary input data files in your \texttt{DataFiles/Topic06} folder. If that is the case, then you will need to move these extraneous files elsewhere or hardcode the three full pathways into the \texttt{dataList} variable. 
 
@@ -682,10 +789,14 @@ An instructor may be motivated to generate a long report for one topic across mu
 
 We received a brief comparative summary between the three sections for \texttt{Topic 06} in the previous section of this vignette. If we would like to see a more detailed version of this report that includes comparative information for each question in the topic of interest, then we can simply run the previous line of code, only now specifying the \texttt{reportType} parameter to indicate that we wish to generate a long report that compares sections for a given topic: \\
 
-<<eval=FALSE>>=
-makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
-  outPath, reportType = "crossSecTopicLong")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataList,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"crossSecTopicLong"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \subsubsection{Output}
 
@@ -760,22 +871,26 @@ Our goal here is to create a separate report for each section of interest, where
 
 Lastly, we can run our \texttt{makeReport()} function on this section and group of topics. We should specify our unit variable, which contains a default value of 1. In our example, we are indicating that we consider topics \texttt{06}, \texttt{07}, and \texttt{08} to be from \texttt{Unit 2}.\\
 
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_07_08", package="ePort")
-dataList = list.files(path = dataFolder, full.names = TRUE)
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06_07_08"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\hlstd{dataList} \hlkwb{=} \hlkwd{list.files}\hlstd{(}\hlkwc{path} \hlstd{= dataFolder,} \hlkwc{full.names} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 
-for (file in dataList){
-  rewriteData(file)
-}
+\hlkwa{for} \hlstd{(file} \hlkwa{in} \hlstd{dataList)\{}
+  \hlkwd{rewriteData}\hlstd{(file)}
+\hlstd{\}}
 
-dataTable = setDir(dataFolder)
-mergedData = mergeData(dataTable)
+\hlstd{dataTable} \hlkwb{=} \hlkwd{setDir}\hlstd{(dataFolder)}
+\hlstd{mergedData} \hlkwb{=} \hlkwd{mergeData}\hlstd{(dataTable)}
 
-for (section in unique(dataTable$section)){
-  merged = subsetData(mergedData, dataTable, choice = section)
-  makeReport(outFile = outPath, unit = 2, section = section, reportType = "secUnit")
-}
-@
+\hlkwa{for} \hlstd{(section} \hlkwa{in} \hlkwd{unique}\hlstd{(dataTable}\hlopt{$}\hlstd{section))\{}
+  \hlstd{merged} \hlkwb{=} \hlkwd{subsetData}\hlstd{(mergedData, dataTable,} \hlkwc{choice} \hlstd{= section)}
+  \hlkwd{makeReport}\hlstd{(}\hlkwc{outFile} \hlstd{= outPath,} \hlkwc{unit} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{section} \hlstd{= section,} \hlkwc{reportType} \hlstd{=} \hlstr{"secUnit"}\hlstd{)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Upon running this code, you should have created three files into your \texttt{OutputFiles} folder, \texttt{Stat101hwk\_Unit2\_A.pdf}, \texttt{Stat101hwk\_Unit2\_B.pdf}, and \texttt{Stat101hwk\_Unit2\_C.pdf}. Each of these files compares how students in that section performed for the three topics that we defined as comprising \texttt{Unit 2}.
 
@@ -825,10 +940,14 @@ An instructor may be motivated to generate a report for multiple topics and mult
 
 To accomplish this task, we create a \texttt{merged} variable that contains a list of data frames that include the raw scores, percentage scores, number of missing assignments, and average scores for the three sections and three topics of interest. After that, we can simply use our \texttt{makeReport()} command, being sure to specify that we are designating the three topics (\texttt{06}, \texttt{07}, and \texttt{08}) as \texttt{Unit 2}. \\
 
-<<eval=FALSE>>=
-merged = subsetData(mergedData, dataTable)
-makeReport(outFile = outPath, unit = 2, reportType = "crossSecUnit")
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{merged} \hlkwb{=} \hlkwd{subsetData}\hlstd{(mergedData, dataTable)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{outFile} \hlstd{= outPath,} \hlkwc{unit} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{reportType} \hlstd{=} \hlstr{"crossSecUnit"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 This creates four files, \texttt{Stat101hwk\_Unit2\_crossSection.pdf}, \texttt{Stat101hwk\_Unit2\_A\_lowScore.txt}, \texttt{Stat101hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Stat101hwk\_Unit2\_C\_lowScore.txt}. The first file contains our report that compares all combinations of the three sections and three topics of interest. The latter three .txt files contain lists of the e-mail contacts of students from each respective section who performed poorly consistently across the three topics of interest.
 
@@ -878,15 +997,19 @@ If you open any of these three files, then you will notice there is a ``Question
 
 Because of this, if an instructor wants to split the data files, there are two parameters they can use to designate the cut location. If you run a \hyperref[sec:helpSection]{help()} function on the \texttt{ePort} function \texttt{splitFile()}, then you see that these cut types are called ``RsQ" and ``ID". Let us say that we need to split these data files into one file that only contains the first 9 ID Questions and another file that only contains the last 16 ID Questions. In that case, we can choose a cut type of ``ID" with a value of 9, which corresponds to a cut type of ``RsQ" with a value of 22. We show this process below using the cut type of ``ID". \\
 
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_Split", package = "ePort")
-dataList = list.files(path = dataFolder, full.names = TRUE)[1:3]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06_Split"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{)}
+\hlstd{dataList} \hlkwb{=} \hlkwd{list.files}\hlstd{(}\hlkwc{path} \hlstd{= dataFolder,} \hlkwc{full.names} \hlstd{=} \hlnum{TRUE}\hlstd{)[}\hlnum{1}\hlopt{:}\hlnum{3}\hlstd{]}
 
-for(file in dataList){
-  rewriteData(file)
-  splitFile(file, 9, "ID")
-}
-@
+\hlkwa{for}\hlstd{(file} \hlkwa{in} \hlstd{dataList)\{}
+  \hlkwd{rewriteData}\hlstd{(file)}
+  \hlkwd{splitFile}\hlstd{(file,} \hlnum{9}\hlstd{,} \hlstr{"ID"}\hlstd{)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Upon running the above code, if you return to the \texttt{Topic06\_Split} folder, then you will see that six new files have been created, \texttt{Topic06.A.part1.csv}, \texttt{Topic06.A.part2.csv}, \texttt{Topic06.B.part1.csv}, \texttt{Topic06.B.part2.csv}, \texttt{Topic06.C.part1.csv}, and \texttt{Topic06.C.part2.csv}. You can verify that the \texttt{part1} files contain the first 9 Question IDs, while the \texttt{part2} files contain the last 16 Question IDs.
 
@@ -896,19 +1019,23 @@ In some cases, one topic might encompass two homework assignments. In order to g
 
 In our example, we will combine the Chapter 9 and 12 homework assignments to form the \texttt{Topic 11} data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, \texttt{Ch12.C.csv}, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, and \texttt{Ch9.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
 
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic11_Merge", package="ePort")
-dataList = list.files(path = dataFolder, full.names=TRUE)[1:4]
-topicNum = "Topic11"
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic11_Merge"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\hlstd{dataList} \hlkwb{=} \hlkwd{list.files}\hlstd{(}\hlkwc{path} \hlstd{= dataFolder,} \hlkwc{full.names}\hlstd{=}\hlnum{TRUE}\hlstd{)[}\hlnum{1}\hlopt{:}\hlnum{4}\hlstd{]}
+\hlstd{topicNum} \hlkwb{=} \hlstr{"Topic11"}
 
-for (i in dataList) rewriteData(i)
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlstd{dataList)} \hlkwd{rewriteData}\hlstd{(i)}
 
-for(i in c('AB', 'CD')){
-  tmp = dataList[grep(i, basename(dataList))]
-  combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]), "/", paste(topicNum, i, "csv",
-    sep = '.'), sep = ""))
-}
-@
+\hlkwa{for}\hlstd{(i} \hlkwa{in} \hlkwd{c}\hlstd{(}\hlstr{'AB'}\hlstd{,} \hlstr{'CD'}\hlstd{))\{}
+  \hlstd{tmp} \hlkwb{=} \hlstd{dataList[}\hlkwd{grep}\hlstd{(i,} \hlkwd{basename}\hlstd{(dataList))]}
+  \hlkwd{combineFiles}\hlstd{(tmp[}\hlnum{2}\hlstd{], tmp[}\hlnum{1}\hlstd{],} \hlkwd{paste}\hlstd{(}\hlkwd{dirname}\hlstd{(tmp[}\hlnum{1}\hlstd{]),} \hlstr{"/"}\hlstd{,} \hlkwd{paste}\hlstd{(topicNum, i,} \hlstr{"csv"}\hlstd{,}
+    \hlkwc{sep} \hlstd{=} \hlstr{'.'}\hlstd{),} \hlkwc{sep} \hlstd{=} \hlstr{""}\hlstd{))}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Running this code should produce two new files (\texttt{Topic11.A.csv} and \texttt{Topic11.B.csv}) into the \texttt{Topic11\_Merge} folder. If we explore these files, we see that they have a maximum Question ID value of 15 and a maximum RsQ value of 32. This can verify that this is correct if we explore the original files for the Chapter 9 and 12 homework assignments. The Chapter 9 homework data file had a maximum Question ID value of 10 and a maximum RsQ value of 23, while the Chaper 12 homework data file had a maximum Question ID value of 5, and a maximum RsQ value of 9. Hence, the total number of Question ID and RsQ values in the combined files appear to have been added correctly given the total number of Question ID and RsQ values from the individual files.
 
@@ -949,14 +1076,18 @@ ales & Sester & Alejandra & Question ID 4 & -2.57 \\
 
 As is demonstrated below, we first save the pathway to the directory that contains nothing but the files we wish to deidentify. Then, we call the \texttt{getNameList()} function of \texttt{ePort}. We choose the \texttt{save = TRUE} option so that a dictionary file \texttt{nameCode.csv} will be generated. This dictionary file contains a list of the original student names and their corresponding deidentified codes. Lastly, we call the \texttt{encodeName()} function, which will use the dictionary file we just created to translate the original data files into deidentified data files. \\
 
-<<eval=FALSE>>=
-set.seed(1)
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_Deidentified", package =
-  "ePort")
-getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save =
-  TRUE)
-encodeName(dataFolder, dict = paste(dataFolder, "nameCode.csv", sep = '/'))
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{1}\hlstd{)}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06_Deidentified"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\hlkwd{getNameList}\hlstd{(dataFolder,} \hlkwc{section} \hlstd{=} \hlkwa{NULL}\hlstd{,} \hlkwc{semester} \hlstd{=} \hlkwa{NULL}\hlstd{,} \hlkwc{secblind} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{save} \hlstd{=}
+  \hlnum{TRUE}\hlstd{)}
+\hlkwd{encodeName}\hlstd{(dataFolder,} \hlkwc{dict} \hlstd{=} \hlkwd{paste}\hlstd{(dataFolder,} \hlstr{"nameCode.csv"}\hlstd{,} \hlkwc{sep} \hlstd{=} \hlstr{'/'}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 If you complete this process, you will notice that the original data files have been overwritten to have anonymized student names. Specifically, if we reexamine the \texttt{Topic06.A.csv} file, we see that the column called ``Username" now contains deidentified names of students (in the form of something like ``ID0034"), and the columns called ``First Name" and ``Last Name" now contains values of \texttt{NA} (see Table \ref{tab:afterDeidentify}).
 
@@ -1025,52 +1156,68 @@ bhartz & ID0009 \\
 
 If we wish to create an individual report for a given topic for each of many sections, then one inconvenient way to accomplish this would be to run the code separately for each section at a time. Since the reports we wish to generate are all from the same topic, then we would be using the same key and learning outcome files. We can demonstrate this approach by building off similar code to what we used at the beginning of the vignette when we covered \hyperref[sec:codeOnce]{short version of the report on one section and one topic}, where we already defined the key and learning outcome files. Our demonstration of this inefficient method below will use three data files. As we have only ran the \texttt{rewriteData()} function on the data file for section \texttt{A}, we will now have to run it on the data files for sections \texttt{B} and \texttt{C}. \\
 
-<<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
-  "ePort")
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicShort")
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.A.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.B.csv", package =
-  "ePort")
-rewriteData(dataPath)
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicShort")
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.B.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\hlkwd{rewriteData}\hlstd{(dataPath)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.C.csv", package =
-  "ePort")
-rewriteData(dataPath)
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicShort")
-@
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.C.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\hlkwd{rewriteData}\hlstd{(dataPath)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 This successfully creates the output reports and text files of low performers for each of our three sections (\texttt{Stat101hwk\_Topic06\_A\--short.pdf}, \texttt{Stat101hwk\_Topic06\_B\--short.pdf}, \texttt{Stat101hwk\_Topic06\_C\--short.pdf}, \texttt{Stat101hwk\_Topic06\_A\_lowScore.txt}, \texttt{Stat101hwk\_Topic06\_B\_lowScore.txt}, and \texttt{Stat101hwk\_Topic06\_C\_lowScore.txt}). However, this method could become burdensome if we were to run the report for many sections. A more convenient way to accomplish the task would be to run all the reports at once. To do this, we need to save a variable \texttt{dataListPath} that contains the data files for all sections for this topic of interest.
 
 We can do this one of two ways. We can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below: \\
 
-<<eval=FALSE>>=
-dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv",
-  package = "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.B.csv",
-  package = "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.C.csv",
-  package = "ePort"))
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataListPath} \hlkwb{=} \hlkwd{c}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.A.csv"}\hlstd{,}
+  \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{),} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.B.csv"}\hlstd{,}
+  \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{),} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.C.csv"}\hlstd{,}
+  \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Or, we can create the same variable using the \texttt{list.files()} function of base \textbf{\textsf{R}}: \\
 
-<<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
-dataList = list.files(path = dataFolder, full.names=TRUE)[1:3]
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataFolder} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06"}\hlstd{,} \hlkwc{package}\hlstd{=}\hlstr{"ePort"}\hlstd{)}
+\hlstd{dataList} \hlkwb{=} \hlkwd{list.files}\hlstd{(}\hlkwc{path} \hlstd{= dataFolder,} \hlkwc{full.names}\hlstd{=}\hlnum{TRUE}\hlstd{)[}\hlnum{1}\hlopt{:}\hlnum{3}\hlstd{]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Next, as demonstrated below, we can generate a report for all three sections listed in our \texttt{dataListPath} object using a for loop. Our three data files of interest in the for loop (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, and \texttt{Topic06.C.csv}) are from the same topic, and so they share the same key file and learning outcome file. Hence, we do not have to run the \texttt{refineKey()} function on the key file for this topic, as we have already completed this step earlier. However, our three data files of interest do not share the same data file. We have already executed the \texttt{rewriteData()} function for the \texttt{Topic06.A.csv} data file, but we have not yet done so for the \texttt{Topic06.B.csv} and \texttt{Topic06.C.csv} files. Hence, we must include the \texttt{rewriteData()} function in our for loop to ensure that all data files have this priming step completed (it is not a problem to run the \texttt{rewriteData()} function on a file for which it has already been executed). \\
 
-<<eval=FALSE>>=
-for (i in dataListPath){
-  rewriteData(i)
-  makeReport(keyFile = keyPath, dataFile = i, loFile = loPath, outFile = outPath,
-    reportType = "secTopicShort")
-}
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlstd{dataListPath)\{}
+  \hlkwd{rewriteData}\hlstd{(i)}
+  \hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= i,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{= outPath,}
+    \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 \section{Report Defaults}
 \label{sec:repOptions}
@@ -1102,19 +1249,27 @@ The last two parameters (\texttt{lowScore} and \texttt{repeatLowScore}) hold int
 
 To best illustrate the default parameters, we will begin by clearing all files in our \texttt{OutputFiles} directory. \\
 
-<<eval=FALSE>>=
-unlink(paste0(system.file("inst/extdata/OutputFiles", package = "ePort"), "/*"))
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{unlink}\hlstd{(}\hlkwd{paste0}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutputFiles"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{),} \hlstr{"/*"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Next, we will rerun the \hyperref[sec:oneTopicSectionShort]{short version of the report on one section and one topic}. Here, we are specifying three boolean default parameters to values of \texttt{TRUE}, the \texttt{className} default parameter to a value of ``Math123", and the \texttt{lowScore} default parameter to a value of 60. \\
 
-<<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
-  "ePort")
-makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
-  outPath, reportType = "secTopicShort", keepFiles = TRUE, keepTex = TRUE, keepImage
-  = TRUE, className = "Math123", lowScore = 60)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dataPath} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/DataFiles/Topic06/Topic06.A.csv"}\hlstd{,} \hlkwc{package} \hlstd{=}
+  \hlstr{"ePort"}\hlstd{)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{keyFile} \hlstd{= keyPath,} \hlkwc{dataFile} \hlstd{= dataPath,} \hlkwc{loFile} \hlstd{= loPath,} \hlkwc{outFile} \hlstd{=}
+  \hlstd{outPath,} \hlkwc{reportType} \hlstd{=} \hlstr{"secTopicShort"}\hlstd{,} \hlkwc{keepFiles} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{keepTex} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{keepImage}
+  \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{className} \hlstd{=} \hlstr{"Math123"}\hlstd{,} \hlkwc{lowScore} \hlstd{=} \hlnum{60}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 If you examine the \texttt{OutputFiles} directory, you should see that we successfully generated the report \texttt{Math123hwk\_Topic06\_A-short.pdf}. The name of the report file itself, and the title (and any other mention of the class name within the report) have been changed. Since we set the two boolean parameters \texttt{keepText} and \texttt{keepFiles} to \texttt{TRUE}, then we should also find the corresponding .tex, .aux, .out, and .log files in our output directory. Additionally, since we set the boolean paramater \texttt{keepImage} to \texttt{TRUE}, then we have a separate copy of all images that were printed in the report, each saved separately as .pdf files. In this case, there were two images in the report, which were saved as \texttt{LearningObj\_summary-1.pdf} and \texttt{histScore-1.pdf}.
 
@@ -1122,17 +1277,25 @@ We also set the parameter \texttt{lowScore} to a value of \texttt{60}. Because o
 
 To prepare for another example, we will again clear all files in our \texttt{OutputFiles} directory. \\
 
-<<eval=FALSE>>=
-unlink(paste0(system.file("inst/extdata/OutputFiles", package = "ePort"), "/*"))
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{unlink}\hlstd{(}\hlkwd{paste0}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{"inst/extdata/OutputFiles"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"ePort"}\hlstd{),} \hlstr{"/*"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 Now, we will run the \hyperref[sec:crossSecU]{report for one unit (group of topics) comparing multiple sections }, only this time altering the default parameters. We specify the \texttt{className} parameter to a value of ``Eng444", and the \texttt{repeatLowScore} parameter to a value of \texttt{70}. \\
 
-<<eval=FALSE>>=
-merged = subsetData(mergedData, dataTable)
-makeReport(outFile = outPath, unit = 2, reportType = "crossSecUnit", className =
-  "Eng444", repeatLowScore = 70)
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{merged} \hlkwb{=} \hlkwd{subsetData}\hlstd{(mergedData, dataTable)}
+\hlkwd{makeReport}\hlstd{(}\hlkwc{outFile} \hlstd{= outPath,} \hlkwc{unit} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{reportType} \hlstd{=} \hlstr{"crossSecUnit"}\hlstd{,} \hlkwc{className} \hlstd{=}
+  \hlstr{"Eng444"}\hlstd{,} \hlkwc{repeatLowScore} \hlstd{=} \hlnum{70}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 This creates four files, \texttt{Eng444hwk\_Unit2\_crossSection.pdf}, \texttt{Eng444hwk\_Unit2\_A\_lowScore.txt}, \texttt{Eng444hwk\_Unit2\_B\_lowScore.txt}, and \texttt{Eng444hwk\_Unit2\_C\_lowScore.txt}. Both in our report summaries and in our .txt files of e-mail contacts of low-performing students, we see that there are now 36 students from section \texttt{A} who performed poorly, 32 students from section \texttt{B} who performed poorly, and 33 students from section \texttt{C} who performed poorly. As expected, the number of students who were deemed to have performed poorly has increased from when we ran this same code using the default value of 20 (see \hyperref[sec:lowPer]{Contacts of low-performing students}).
 
