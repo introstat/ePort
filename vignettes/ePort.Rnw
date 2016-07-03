@@ -40,7 +40,7 @@
 \newcommand{\R}{{\normalfont\textsf{R }}{}}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+%\SweaveOpts{concordance=TRUE}
 \sloppy
 
 <<include=FALSE,echo=FALSE>>=
@@ -888,7 +888,7 @@ for(file in dataList){
 }
 @
 
-Upon running the above code, if you return to the \texttt{Topic06\_Split} folder, then you will see that six new files have been created, \texttt{Topic06.A.part1.csv}, \texttt{Topic06.A.part2.csv}, \texttt{Topic06.B.part1.csv}, \texttt{Topic06.B.part2.csv}, \texttt{Topic06.C.part1.csv}, and \texttt{Topic06.C.part2.csv}. You can verify that the \texttt{part1} files contain the first 9 Question IDs, while the \texttt{part2} files contain the last 16 Question IDs.
+Upon running the above code, if you return to the \texttt{Chapter20\_Split} folder, then you will see that six new files have been created, \texttt{Topic06.A.part1.csv}, \texttt{Topic06.A.part2.csv}, \texttt{Topic06.B.part1.csv}, \texttt{Topic06.B.part2.csv}, \texttt{Topic06.C.part1.csv}, and \texttt{Topic06.C.part2.csv}. You can verify that the \texttt{part1} files contain the first 9 Question IDs, while the \texttt{part2} files contain the last 16 Question IDs.
 
 \subsection{Merging files}
 
