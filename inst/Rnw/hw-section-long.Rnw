@@ -357,7 +357,7 @@ for (j in 1:nQuestion) {
 
     fname1=paste(plotprename,'_',j,'_answer.pdf',sep='')
     fname2=paste(plotprename,'_',j,'_score.pdf',sep='')
-    if (any(nchar(as.character(instructor_scores$Qanswer[,j]))>12)){
+    if (any(nchar(as.character(na.omit(instructor_scores$Qanswer[,j])))>12)){
       abbrscore=shortenAnswers(instructor_scores$Qanswer[,j])$abbrv
 		  glssry=shortenAnswers(instructor_scores$Qanswer[,j])$glossary
       glssry[,1] = gsub('\\_','\\\\_',glssry[,1])
