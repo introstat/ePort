@@ -220,9 +220,27 @@ print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=n
 Nevertheless, the assumption is probably incorrect, as we could check the residuals in
 Figure \ref{fig:lmeQQNorm}.
 
-<<lmeQQNorm, echo=FALSE, fig.env = "figure", out.width = "0.98\\linewidth", fig.align = "center", fig.cap = "QQ-plot of the residuals by the generalized mixed effects model",fig.lp = "fig:">>=
+
+<<echo=FALSE,results='asis'>>=
+
+fname=paste(plotprename,'_lme_qqnorm.pdf',sep='')
+pdf(paste0(outFile,"/",fname),width=6,height=4)
+outImage = c(outImage, paste0(outFile,"/",fname))
 print(qqnorm(f,~resid(., type = "p") | Objective, abline=c(0,1)))
+{dev.off();invisible()}
+cat(sprintf('\\begin{center}
+\\begin{wrapfigure}{o}{0.8\\columnwidth}
+\\begin{centering}
+\\includegraphics[width=0.98\\linewidth]{%s}
+\\par\\end{centering}
+\\caption{\\label{fig:lme_qqnorm}QQ-plot of the residuals by the generalized mixed effects model}
+\\end{wrapfigure}\\par\\end{center}',sub('\\.pdf','',fname)))
+
 @
+
+%<<lmeQQNorm, echo=FALSE, fig.env = "figure", out.width = "0.98\\linewidth", fig.align = %"center", fig.cap = "QQ-plot of the residuals by the generalized mixed effects model",fig%.lp = "fig:">>=
+%print(qqnorm(f,~resid(., type = "p") | Objective, abline=c(0,1)))
+%@
 
 \clearpage
 \newpage{}
