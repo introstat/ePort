@@ -80,7 +80,7 @@ The histogram and summary statistics for the scores are given by Figure \ref{mar
 
 <<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores.",fig.lp = "mar:">>=
 ms=max(sumry1$TotalScore,na.rm=T)
-print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,sumry1$FullScore[1]), na.rm = TRUE) + theme(axis.text=element_text(size=20),axis.title=element_text(size=20)))
+print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,sumry1$FullScore[1]), na.rm = TRUE) + theme(axis.text=element_text(size=25),axis.title=element_text(size=25)))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -134,7 +134,7 @@ output1$value = output1$value*100
 @
 
 <<LearningObjSummary, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Side-by-side boxplots of the correct percentages by learning outcome.",fig.lp = "mar:">>=
-print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ labs(x="Learning Outcome", y="Percentage Correct"))
+print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text=element_text(size=25), axis.title=element_text(size=25)) + labs(x="Learning Outcome", y="Percentage Correct"))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -181,7 +181,7 @@ Hence we assume that $Y$ is binomial with the logit link function,
 then the results are in Table \ref{tab:lme_fixed} and Figure \ref{mar:lmeCoef}.
 
 <<crtpctHist, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "Histogram of the scaled scores by learning outcome.",fig.lp = "mar:">>=
-print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(legend.text=element_text(size=25),legend.title=element_text(size=25), axis.text=element_text(size=25), axis.title=element_text(size=25)))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -214,11 +214,11 @@ fixedcoef_plot$variable[fixedcoef_plot$variable %in% c("lower","upper")]="bounda
 @
 
 <<lmeCoef, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "95\\% confidence intervals of the fixed effects coefficients",fig.lp = "mar:">>=
-print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)))
+print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA", axis.text=element_text(size=25),axis.title=element_text(size=25)))
 @
 
 Nevertheless, the assumption is probably incorrect, as we could check the residuals in
-Figure \ref{fig:lmeQQNorm}.
+Figure \ref{fig:lme_qqnorm}.
 
 
 <<echo=FALSE,results='asis'>>=
@@ -238,17 +238,11 @@ cat(sprintf('\\begin{center}
 
 @
 
-%<<lmeQQNorm, echo=FALSE, fig.env = "figure", out.width = "0.98\\linewidth", fig.align = %"center", fig.cap = "QQ-plot of the residuals by the generalized mixed effects model",fig%.lp = "fig:">>=
-%print(qqnorm(f,~resid(., type = "p") | Objective, abline=c(0,1)))
-%@
-
 \clearpage
 \newpage{}
 \subsection{Question Sets}
 
-Table \ref{tab:QuestionSet_summary} and Figure \ref{mar:questionSetBoxplot} shows the summary statistics of the percentage correct score by question for each question set. Percentage correct scores for questions in the same question set should have small variability.
-%As is shown, Question Set \Sexpr{colnames(sumry2$SetCorrectPct)[which.max(sumry2$SetCorrectPct[1,])]} has the highest mean correct percentage and question set \Sexpr{colnames(sumry2$SetCorrectPct)[which.min(sumry2$SetCorrectPct[1,])]} has the lowest mean.
-
+Table \ref{tab:QuestionSet_summary} shows the summary statistics of the percentage correct score by question for each question set. Percentage correct scores for questions in the same question set should have small variability.
 
 <<echo=FALSE,results='asis'>>=
 
@@ -274,7 +268,7 @@ print(xtable(Qsetsumry,caption='Summary statistics of the percentage correct sco
 
 <<questionSetBoxplot, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.align = "center", fig.cap = "Side-by-side boxplots of the question correct percentage score for each question set",fig.lp = "fig:">>=
 output1$Qset=factor(output1$Qset,levels=Qsetsumry$Qset)
-print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) + labs(x="Question Set",y="Percentage Correct"))
+print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(legend.text=element_text(size=25), legend.title=element_text(size=25), axis.text.y=element_text(size=25), axis.text.x=element_text(size=20), axis.title=element_text(size=25)) + labs(x="Question Set",y="Percentage Correct"))
 @
 
 \clearpage
