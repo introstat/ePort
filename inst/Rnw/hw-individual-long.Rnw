@@ -214,7 +214,7 @@ fixedcoef_plot$variable[fixedcoef_plot$variable %in% c("lower","upper")]="bounda
 @
 
 <<lmeCoef, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "95\\% confidence intervals of the fixed effects coefficients",fig.lp = "mar:">>=
-print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=variable,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA", axis.text=element_text(size=25),axis.title=element_text(size=25)))
+print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=1,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA", axis.text=element_text(size=25),axis.title=element_text(size=25)))
 @
 
 Nevertheless, the assumption is probably incorrect, as we could check the residuals in
