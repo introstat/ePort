@@ -202,7 +202,7 @@ Learning_Objectives$FullPoints = ObjFullPt[Learning_Objectives$Objective,1]
 # f2=glmmPQL(data=Learning_Objectives,fixed=Score~Objective+Section,random=~1|student,family=quasibinomial(link="logit"))
 # f3 = glmer(Score~Objective+Section+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
 # f4 = glmer(Score~Objective*Section+(1+Section|student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
-f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=quasibinomial(link="logit"),weights=FullPoints,nAGQ=0)
 
 f=f5
 est=fixef(f)[-1]
