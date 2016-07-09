@@ -57,7 +57,7 @@ for \Sexpr{gsub("([a-zA-Z])([0-9])","\\1 \\2",gsub("_","
 
 <<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = paste("Histogram of scores. Blue data represent scores less than", lowScore, "percent."),fig.lp = "mar:">>=
 ms=sumry1$FullScore[1]
-print(qplot(TotalScore,data=sumry1,na.rm = T, geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(1.5)), axis.title = element_text(size = rel(1.5))) + labs(x="Total Score", y = "Count"))
+print(qplot(TotalScore,data=sumry1,na.rm = T, geom='histogram',fill=factor(TotalScore<ms*.8),binwidth=1,main='',xlim=c(0,ms+1)) + theme(legend.position="none", axis.text = element_text(size=rel(2.8)), axis.title = element_text(size = rel(2.8))) + labs(x="Total Score", y = "Count"))
 @
 
 <<echo=FALSE,results='asis'>>=
