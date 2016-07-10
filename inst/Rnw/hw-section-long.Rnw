@@ -197,12 +197,12 @@ Learning_Objectives$Objective = factor(Learning_Objectives$Objective, levels=lev
 Learning_Objectives$FullPoints = ObjFullPt[Learning_Objectives$Objective,1]
 
 # f1=glmmPQL(data=Learning_Objectives,fixed=Score~Objective*Section,random=~1+Section|student,family=binomial(link="logit"),weights=FullPoints)
-# f2=glmmPQL(data=Learning_Objectives,fixed=Score~Objective+Section,random=~1|student,family=quasibinomial(link="logit"))
+f2=glmmPQL(data=Learning_Objectives,fixed=Score~Objective+Section,random=~1|student,family=quasibinomial(link="logit"))
 # f3 = glmer(Score~Objective+Section+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
 # f4 = glmer(Score~Objective*Section+(1+Section|student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
-f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+#f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
 
-f=f5
+f=f2
 est=fixef(f)[-1]
 estcov=as.matrix(vcov(f)[-1,-1])
 
@@ -250,7 +250,7 @@ for (i in 2:length(instructor_scores$QsetCrtPct)){
 tmp1$Overall = round(colMeans(QsetCrtPct)*100,2)
 tmp1$Qset = QC[rownames(tmp1),1]
 tmp1$LO = QC[rownames(tmp1),2]
-tmp1$"#Qn"=unname(table(answerkey[[2]]$Question.Set))
+tmp1$"Qn"=unname(table(answerkey[[2]]$Question.Set))
 @
 
 <<echo=FALSE, results = 'asis', warning=FALSE, message=FALSE>>=
@@ -268,7 +268,7 @@ dtmp2=ddply(d,.(QuestionSet,LearningObj),summarise,std=sd(Percent*100,na.rm=TRUE
 rownames(dtmp2)=dtmp2$QuestionSet
 d=dcast(dtmp[,1:4],QuestionSet+LearningObj~Section,value.var='std')
 rownames(d)=d$QuestionSet
-d$"#Qn"=dcast(dtmp,QuestionSet~Section,value.var='n')[,2]
+d$"Qn"=dcast(dtmp,QuestionSet~Section,value.var='n')[,2]
 d$Overall=dtmp2[rownames(d),3]
 colnames(d)[1:2]=c('Qset',"LO")
 d=d[,c(1,2,ncol(d)-(1:0),3:(ncol(d)-2))]
