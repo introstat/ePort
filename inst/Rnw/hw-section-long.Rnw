@@ -254,6 +254,7 @@ tmp1$"Qn"=unname(table(answerkey[[2]]$Question.Set))
 @
 
 <<echo=FALSE, results = 'asis', warning=FALSE, message=FALSE>>=
+tmp1$Qn = as.character(tmp1$Qn)
 print(xtable(tmp1[levels(b$QuestionSet),c('Qset','LO','Qn','Overall',levels(b$Section))],caption='Average percentages correct for each question set by section. The question sets are sorted by the section means. The second column indicates the corresponding learning outcomes.', label='tab:Qset-mean',align=paste("ccc|cc|",paste(rep('c',sec_r),collapse=''),sep='')), floating=FALSE, tabular.environment = "longtable",include.rownames=FALSE)
 @
 
