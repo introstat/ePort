@@ -1,8 +1,0 @@
-With semicolon:
-
-gertvas@iastate.edu; lakeas@iastate.edu
-
-
-With comma:
-
-gertvas@iastate.edu, lakeas@iastate.edu
