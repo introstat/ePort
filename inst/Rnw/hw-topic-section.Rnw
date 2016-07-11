@@ -511,6 +511,8 @@ Since \Sexpr{bestcut} clusters is a reasonable choice,
 the mean scaled scores of each cluster on each topic is displayed in 
 Figure \ref{fig:bestcut}.
 
+\clearpage
+
 <<echo=FALSE,results="asis",warning=FALSE,fig.show='hide'>>=
 #bestcut = 5
 
@@ -525,6 +527,11 @@ bestcut_dat2=melt(bestcut_dat,id.var=1:3)
 bestcut_mean=ddply(bestcut_dat2,c('Cluster','variable'),summarise,center=mean(value))
 
 ##########
+##########
+bestcut_table = table(bestcut_dat[,2],bestcut_dat[,1])
+bestcut_table_pct = prop.table(bestcut_table,2)*100
+print(xtable(bestcut_table_pct,caption='Contingency table in Column\\% between sections and clusters.', label='tab:cluster_pct',digits=2), floating=FALSE, tabular.environment = "longtable")
+
 asw = data.frame(cluster=2:9,criterion=bestcut_pamk$crit[-1])
 fname=paste0(plotprename,'clustasw.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
@@ -537,11 +544,6 @@ cat(sprintf('\\begin{marginfigure}
 width criterion to find the number of clusters. The larger value, 
 the better model.}
 \\end{marginfigure}', sub('\\.pdf$','',fname)))
-
-##########
-bestcut_table = table(bestcut_dat[,2],bestcut_dat[,1])
-bestcut_table_pct = prop.table(bestcut_table,2)*100
-print(xtable(bestcut_table_pct,caption='Contingency table in Column\\% between sections and clusters.', label='tab:cluster_pct',digits=2), floating=FALSE, tabular.environment = "longtable")
 
 fname=paste0(plotprename,'bestclust.pdf')
 pdf(paste0(outFile,"/",fname),width=7,height=4)

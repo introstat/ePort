@@ -1,0 +1,8 @@
+With semicolon:
+
+marshall@iastate.edu; rosep@iastate.edu; wehnerp@iastate.edu; marcelln@iastate.edu; bettst@iastate.edu; reddins@iastate.edu
+
+
+With comma:
+
+marshall@iastate.edu, rosep@iastate.edu, wehnerp@iastate.edu, marcelln@iastate.edu, bettst@iastate.edu, reddins@iastate.edu
