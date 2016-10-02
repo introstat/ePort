@@ -15,7 +15,6 @@ globalVariables(c("sd", "quantile", "median", "Qscores"))
 #' @importFrom plyr ddply
 #' @importFrom plyr summarise
 #' @export
-#' @example inst/ex-mergeSections.R
 #' 
 mergeSection = function(filenmlist, answerkey, skip=NULL){
   dat=tmp=scores=counts=QsetCrtPct=CsetCrtPct=list()
