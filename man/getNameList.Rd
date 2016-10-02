@@ -29,19 +29,6 @@ and the corresponding code
 Read the students' names from the data files, and write
 a dictionary for the names with de-identified code.
 }
-\examples{
-library(ePort)
-
-##### *. De-identify students #####
-
-# Copy the data files into a new folder, say, "Data Files (de-identified)".
-# Make sure that any csv files other than the student data are already removed, e.g. "nameCode.csv"
-
-set.seed(1)
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_Deidentified", package = "ePort")
-getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save = TRUE)
-encodeName(dataFolder, dict = paste(dataFolder, "nameCode.csv", sep = '/'))
-}
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }

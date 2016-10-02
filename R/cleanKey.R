@@ -134,13 +134,13 @@ convertKey = function(filenm){
 #' @param key path of the .htm file
 #' @return the cleaned answer key in plain text format.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 4.1.1)
 #' @importFrom XML htmlParse
 #' @importFrom XML xpathSApply
 #' @importFrom XML xmlValue
 #' @importFrom XML xmlChildren
 #' @importFrom XML xmlGetAttr
 #' @export
-#' Refer to package vignette (Section 4.1.1)
 #'
 refineKey = function(key){
   doc.html = htmlParse(key,useInternalNodes=TRUE,encoding='UTF-8')

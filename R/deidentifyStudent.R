@@ -16,8 +16,8 @@ globalVariables(c("read.csv", "write.csv", "dataFolder"))
 #' @return a data frame of two columns: students' names
 #' and the corresponding code
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 5.3)
 #' @export
-#' Refer to package vignette (Section 5.3)
 getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=TRUE){
   if(file.exists((paste(dataFolder,"/nameCode.csv",sep="")))) stop("Please erase the nameCode.csv file located in your dataFolder path")
   filenames = list.files(dpath,full.names=TRUE)
@@ -55,8 +55,8 @@ getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=T
 #' @param dict File name with path for the dictionary. Default is "nameCode.csv"
 #' @return NULL
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 5.3)
 #' @export
-#' Refer to package vignette (Section 5.3)
 #' 
 encodeName = function(dpath, dict="nameCode.csv"){
   dictnry = read.csv(dict,colClasses=rep('character',2))

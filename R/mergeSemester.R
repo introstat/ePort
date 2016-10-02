@@ -11,8 +11,8 @@ globalVariables(c("txtProgressBar", "setTxtProgressBar"))
 #' if data.dir is not NULL.
 #' @return a data frame of file names (with path), topics, and sections
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 4.5.1)
 #' @export
-#' Refer to package vignette (Section 4.5.1)
 #' 
 setDir = function(data.dir=NULL, data.list=NULL){
   if (is.null(data.dir) && is.null(data.list)) {
@@ -47,9 +47,9 @@ setDir = function(data.dir=NULL, data.list=NULL){
 #' scores and correct percentage. The third and fourth data frames
 #' give the count of missings and full scores by section and topic.
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 4.5.1)
 #' @importFrom reshape2 dcast
 #' @export
-#' Refer to package vignette (Section 4.5.1)
 #' 
 mergeData = function(files){
   nfile=nrow(files)
@@ -116,8 +116,8 @@ mergeData = function(files){
 #' which means all the sections are selected.
 #' @return a subset of \code{mergedat} with the same format
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette (Section 4.5.1)
 #' @export
-#' Refer to package vignette (Section 4.5.1)
 #' 
 subsetData = function(mergedat,files,choice='all'){
   if (choice!='all'){
