@@ -120,7 +120,7 @@ To access more detailed information about a specific function in the \pkg{ePort}
 help(mergeSection)
 @ 
 
-The above command will return the help file for the function. Notice that this help file includes freestanding example syntax to illustrate how function commands are executed. This is the case in help files for most functions. The provided example code can be pasted directly into an \textbf{\textsf{R}} session.
+The above command will return the help file for the function. This should include a description of the function, proper usage syntax of the function, input parameter options and defaults, and output values.
 
 \section{Online homework database}
 \label{sec:OnlineHomework}

@@ -18,7 +18,6 @@ globalVariables(c("read.csv", "write.csv", "dataFolder"))
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
 #' @example Refer to package vignette (Section 5.3)
-#' 
 getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=TRUE){
   if(file.exists((paste(dataFolder,"/nameCode.csv",sep="")))) stop("Please erase the nameCode.csv file located in your dataFolder path")
   filenames = list.files(dpath,full.names=TRUE)
@@ -57,6 +56,7 @@ getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=T
 #' @return NULL
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
+#' @example Refer to package vignette (Section 5.3)
 #' 
 encodeName = function(dpath, dict="nameCode.csv"){
   dictnry = read.csv(dict,colClasses=rep('character',2))
