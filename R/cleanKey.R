@@ -140,6 +140,7 @@ convertKey = function(filenm){
 #' @importFrom XML xmlChildren
 #' @importFrom XML xmlGetAttr
 #' @export
+#' @example Refer to package vignette (Section 4.1.1)
 #'
 refineKey = function(key){
   doc.html = htmlParse(key,useInternalNodes=TRUE,encoding='UTF-8')
