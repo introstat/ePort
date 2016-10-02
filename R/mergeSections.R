@@ -1,3 +1,5 @@
+globalVariables(c("sd", "quantile", "median", "Qscores"))
+
 #' Summarise several files of the same topic
 #' 
 #' There are usually 6-7 sections each semester. This function

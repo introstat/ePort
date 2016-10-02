@@ -1,3 +1,5 @@
+globalVariables(c("txtProgressBar", "setTxtProgressBar", "na.omit", "hclust", "dist", "cutree", "combn", "pt", "p.adjust"))
+
 #' Flag the unusual questions
 #' 
 #' Two methods are provided to detect the unusual questions.

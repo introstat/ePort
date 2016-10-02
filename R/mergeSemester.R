@@ -1,3 +1,5 @@
+globalVariables(c("txtProgressBar", "setTxtProgressBar"))
+
 #' Set and parse the data directory
 #' 
 #' All of the csv files in the directory with specific

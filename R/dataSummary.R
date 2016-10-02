@@ -1,3 +1,5 @@
+globalVariables(c("sd", "median"))
+
 #' Summary on students
 #' 
 #' Merge the scores at different levels (total, learning

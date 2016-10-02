@@ -1,3 +1,5 @@
+globalVariables(c("read.csv", "write.csv", "dataFolder"))
+
 #' Get a full list of the students' names
 #' 
 #' Read the students' names from the data files, and write

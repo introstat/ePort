@@ -1,3 +1,5 @@
+globalVariables(c("read.csv", "write.csv", "Possible Points", "Auto Score", "Attempt", "Score"))
+
 #' Extract useful information from Blackboard data files
 #' 
 #' Organize the data into a table with rows as students and columns
@@ -80,6 +82,8 @@ cleanScore = function(HWsheet, key, skip=NULL){
   r1 = HWsheet$score
   r2 = HWsheet$answer
   r0 = r1[,c(1,3,4)]
+  Attempt <- NULL
+  Score <- NULL
   r0idx=plyr::ddply(r0,'Username',summarise,idx=rev(Attempt)[which.max(rev(Score))])
   idx = paste(r0idx$idx, r0idx$Username, sep='-')
   res1 = r1[idx,-c(1:3,if(length(skip)){skip+4})]

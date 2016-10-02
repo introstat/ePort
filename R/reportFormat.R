@@ -1,3 +1,5 @@
+globalVariables(c("menu", "setNames", "knit2pdf", "read.delim"))
+
 #' Generate a report for one homework
 #'
 #' A tex file will be generated from the specified data files,
@@ -18,6 +20,7 @@
 #' @param section the section name, usually one of 'AB', 'CD', 'GHQ'
 #' @param path the directory to the data files
 #' @param type the strings before the topic number in the csv file name
+#' @param unit the unit of the class
 #' @param rewrite logical. If TRUE then the csv files are rewritten
 #' @param skip a vector of integers. Same as the parameter in \code{cleanScore}
 #' @return a tex file to be compiled

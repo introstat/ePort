@@ -1,3 +1,5 @@
+globalVariables(c("write.table"))
+
 #' Convert a TXT answer key to a data frame
 #'
 #' Answer keys downloaded from Respondus are plain txt files. This function will convert them into data frames.

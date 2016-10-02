@@ -41,6 +41,8 @@ makeReport(keyFile = NULL, dataFile = NULL, loFile = NULL,
 
 \item{type}{the strings before the topic number in the csv file name}
 
+\item{unit}{the unit of the class}
+
 \item{rewrite}{logical. If TRUE then the csv files are rewritten}
 
 \item{skip}{a vector of integers. Same as the parameter in \code{cleanScore}}
