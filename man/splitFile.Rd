@@ -35,4 +35,7 @@ and \code{cut_idx=16}. An alternative way is to set
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 5.1
+}
 

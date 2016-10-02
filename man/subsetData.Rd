@@ -25,4 +25,7 @@ section from the output of \code{mergeData}.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 4.5.1
+}
 

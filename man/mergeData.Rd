@@ -23,4 +23,7 @@ into data frames with rows being students and columns being topics.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 4.5.1
+}
 

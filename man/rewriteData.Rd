@@ -20,4 +20,7 @@ same file.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 4.1.1
+}
 

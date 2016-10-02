@@ -32,4 +32,7 @@ a dictionary for the names with de-identified code.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 5.3
+}
 

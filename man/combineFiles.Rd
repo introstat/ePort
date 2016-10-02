@@ -24,4 +24,7 @@ are updated for the second file upon merging.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 5.2
+}
 

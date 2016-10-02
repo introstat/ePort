@@ -12,8 +12,8 @@ globalVariables(c("read.csv", "write.csv", "read.delim"))
 #' @param filenm file name with path
 #' @return NULL
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette Section 4.1.1
 #' @export
-#' Refer to package vignette (Section 4.1.1)
 #' 
 rewriteData = function(filenm){
   csv = read.delim(filenm,header=FALSE)[,1]
@@ -57,8 +57,8 @@ rewriteData = function(filenm){
 #' @param cut_type either "RsQ" or "ID". See detail.
 #' @return two new csv files
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette Section 5.1
 #' @export
-#' Refer to package vignette (Section 5.1)
 #' 
 splitFile = function(filenm,cut_idx,cut_type){
   stopifnot(cut_type %in% c('RsQ','ID'))
@@ -93,9 +93,9 @@ splitFile = function(filenm,cut_idx,cut_type){
 #' @param newnm File name for the returned merged file
 #' @return A new CSV file
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
+#' @references Refer to package vignette Section 5.2
 #' @export
-#' Refer to package vignette (Section 5.2)
-
+#' 
 combineFiles = function(file1,file2,newnm){
   dat1 = read.csv(file1, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))
   dat2 = read.csv(file2, check.names = FALSE, colClasses=c(rep('character',6),rep('numeric',3)))

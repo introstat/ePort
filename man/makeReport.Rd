@@ -57,4 +57,7 @@ answer key, and learning outcomes.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 4
+}
 

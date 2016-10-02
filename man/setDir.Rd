@@ -23,4 +23,7 @@ format will be detected and recorded.
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 4.5.1
+}
 

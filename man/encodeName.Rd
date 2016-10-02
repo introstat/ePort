@@ -18,4 +18,7 @@ into the de-identified names
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }
+\references{
+Refer to package vignette Section 5.3
+}
 
