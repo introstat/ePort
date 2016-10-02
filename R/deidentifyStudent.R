@@ -17,7 +17,7 @@ globalVariables(c("read.csv", "write.csv", "dataFolder"))
 #' and the corresponding code
 #' @author Xiaoyue Cheng <\email{xycheng@@iastate.edu}>
 #' @export
-#' @example inst/ex-deidentify.R
+#' @example Refer to package vignette (Section 5.3)
 #' 
 getNameList = function(dpath, section=NULL, semester=NULL, secblind=TRUE, save=TRUE){
   if(file.exists((paste(dataFolder,"/nameCode.csv",sep="")))) stop("Please erase the nameCode.csv file located in your dataFolder path")

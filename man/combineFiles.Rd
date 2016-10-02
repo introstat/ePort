@@ -21,6 +21,18 @@ If one topic is organized into two chapters, then we must
 merge together the two files. Note that the Question ID and RsQ ID
 are updated for the second file upon merging.
 }
+\examples{
+#library(ePort)
+#library(devtools)
+
+#dataFolder = system.file("inst/extdata/DataFiles/Topic11_Merge", package="ePort")
+#dataList = list.files(path = dataFolder, full.names=TRUE)[1:6]
+#topicNum = "Topic11"
+#for (i in dataList) rewriteData(i)
+#for(i in c('A', 'B', 'C')){
+#  tmp = dataList[grep(i, basename(dataList))]
+#  combineFiles(tmp[2], tmp[1], paste(dirname(tmp[1]), "/", paste(topicNum, i, "csv", sep = '.'), sep = "")) }
+}
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
 }

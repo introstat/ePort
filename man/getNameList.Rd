@@ -37,9 +37,10 @@ library(ePort)
 # Copy the data files into a new folder, say, "Data Files (de-identified)".
 # Make sure that any csv files other than the student data are already removed, e.g. "nameCode.csv"
 
-dataPath = "~/Dropbox/NSF Grant 2013-2015/Semesters/Spring 2015/Data Files (de-identified)"
-a = getNameList(dataPath, section=NULL, semester="s15", secblind=TRUE, save=TRUE)
-encodeName(dataPath, dict=paste(dataPath,"nameCode.csv",sep='/'))
+set.seed(1)
+dataFolder = system.file("inst/extdata/DataFiles/Topic06_Deidentified", package = "ePort")
+getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save = TRUE)
+encodeName(dataFolder, dict = paste(dataFolder, "nameCode.csv", sep = '/'))
 }
 \author{
 Xiaoyue Cheng <\email{xycheng@iastate.edu}>
