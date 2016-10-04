@@ -381,14 +381,17 @@ The functions needed to transform input files to final report files are represen
 The final reports consist of data summaries, graphics, and analyses regarding how students performed on the assignments. As will later be explained in more detail, some report types have more verbose versions, which include individual summaries for each question in the topic of interest. This means that it is not only the text, but also any graphs and equations that must be parsed in the answer key file. Doing so allows for the verbose reports to publish all components of a given question, such as relevant graphics, equations, and text, in the same way that it had been presented to students. The analysis of student performance for that question can then also be displayed alongisde the complete question itself.
 
 \section{Example data}
+\label{sec:createOut}
 
 A directory that contains example data is automatically installed with the \texttt{ePort} package. The name of this directory is \texttt{extdata}. Understanding the location, layout, and content of the \texttt{extdata} directory will be necessary to continue with the examples provided in the vignette.
 
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the \textbf{\textsf{R}} console: \\
 
 <<eval=FALSE>>=
-system.file("inst/extdata/", package = "ePort")
+system.file("inst/extdata", package = "ePort")
 @
+
+Please create a subdirectory called \texttt{OutputFiles} within the \texttt{extdata} directory on your local computer. Later in this vignette, we will save the example reports we create to the \texttt{OutputFiles} subdirectory.
 
 \section{Generating Reports}
 
@@ -421,7 +424,7 @@ An instructor may be motivated to generate a short report for one topic and one 
 \subsubsection{Code}
 \label{sec:codeOnce}
 
-We start by demonstrating how to generate the electronic report for one section one topic. This demonstration will use the example input files provided in the previously-described \texttt{extdata} directory, and will output the report to the \texttt{OutputFiles} subdirectory of the \texttt{extdata} directory. If you have not modified anything in the \texttt{extdata} directory, then the \texttt{OutputFiles} subdirectory should be empty, as we have not generated any example reports yet. 
+We start by demonstrating how to generate the electronic report for one section one topic. To accomplish this, we will use the example input files provided in the previously-described \texttt{extdata} directory.
 
 In this demonstration, we will create a report for \texttt{Topic 06} and section \texttt{A}. Like any individual report, we will require three input files (an answer key file, a data file, and a learning outcome file). There should be three example answer key files in the subdirectory \texttt{KeyFiles} (\texttt{Topic06.Questions.htm}, \texttt{Topic07.Questions.htm}, and \texttt{Topic08.Questions.htm}), and we will use the \texttt{Topic06.Questions.htm} file. Additionally, there should be twelve example data files in the subdirectory \texttt{Topic06\_07\_08} (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, \texttt{Topic06.C.csv}, \texttt{Topic07.A.csv}, \texttt{Topic07.B.csv}, \texttt{Topic07.C.csv}, \texttt{Topic08.A.csv}, \texttt{Topic08.B.csv}, and \texttt{Topic08.C.csv}), and we will use the \texttt{Topic06.A.csv} file. Lastly, there should be three example learning outcome files in the subdirectory \texttt{LOFiles} (\texttt{Topic06.Outcomes.txt}, \texttt{Topic07.Outcomes.txt}, and \texttt{Topic08.Outcomes.txt}), and we will use the \texttt{Topic06.Outcomes.txt} file.
 
@@ -496,6 +499,8 @@ After that, the seventh step is to specify our desired output directory. This is
 outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 @
 
+Check briefly that your variable \texttt{outPath} is not an emptry string. If it is an empty string, you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:ResSection]{Respondus}). 
+
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file) and specified our output directory, our last step is to generate the report using the \texttt{makeReport()} function. \\
 
 <<eval=FALSE>>=
@@ -519,7 +524,9 @@ Note: If running many reports, it is more efficient to exit now and hard-code th
 6: One unit (group of topics) comparing multiple sections (``crossSecUnit")
 \end{framed}
 
-Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. However, we can also escape out of the menu, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below: \\
+Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. Note that if you receive an error: ``Error in file(con, ``w") : cannot open the connection", then you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:ResSection]{Respondus}).
+
+However, we can also escape out of the menu, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below: \\
 
 <<eval=FALSE>>=
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
@@ -750,7 +757,7 @@ An instructor may be motivated to generate a long report for one unit (group of 
 
 To generate this type of report, we must be sure to provide a \texttt{dataFolder} variable that contains the pathway to a folder that contains our data files of interest. As usual, it is important to ensure that there are no extraneous files in our folder. Since we want to examine three sections (\texttt{A}, \texttt{B}, and \texttt{C}) and three topics (\texttt{06}, \texttt{07}, and \texttt{08}), then we need a folder that contains nothing other than the data files for the nine possible combinations of these sections and topics.
 
-Indeed, the \texttt{ePort} package contains such an example folder, which he have not yet used in this vignette. It is located in \texttt{extdata/DataFiles/Topic06\_07\_08}. You can examine this folder to confirm that there is nothing but our nine necessary input files (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, \texttt{Topic06.C.csv}, \texttt{Topic07.A.csv}, \texttt{Topic07.B.csv}, \texttt{Topic07.C.csv}, \texttt{Topic08.A.csv}, \texttt{Topic08.B.csv}, and \texttt{Topic08.C.csv}). We save the pathway to all nine of these files to a variable called \texttt{dataList}.
+Indeed, the \texttt{ePort} package contains such an example folder, which he have not yet used in this vignette. It is located in \texttt{data/DataFiles/Topic06\_07\_08}. You can examine this folder to confirm that there is nothing but our nine necessary input files (\texttt{Topic06.A.csv}, \texttt{Topic06.B.csv}, \texttt{Topic06.C.csv}, \texttt{Topic07.A.csv}, \texttt{Topic07.B.csv}, \texttt{Topic07.C.csv}, \texttt{Topic08.A.csv}, \texttt{Topic08.B.csv}, and \texttt{Topic08.C.csv}). We save the pathway to all nine of these files to a variable called \texttt{dataList}.
 
 For this type of report, we must also prepare a few variables before running the \texttt{makeReport()} function. We prepare these variables using the \texttt{setDir()}, \texttt{mergeData()}, and \texttt{subsetData()} functions. For more information about these functions, please use the \texttt{help()} command. The \texttt{dataTable} variable we create below is a simple data frame that specifies the topic and section for each input data file of interest. The \texttt{mergedData} variable we also create below is a list of data frames that contains the scores that each student from the three sections earned on each topic assignment, the number of missed assignments, and the total scores across all students for each section and topic.
 

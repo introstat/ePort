@@ -1,0 +1,828 @@
+T06.A.A.04-1.1.MC.1 
+The z-score for a particular observation is z = 1.5. This means the observation is
+
+*a. 1.5 standard deviations above the mean.
+b. 1.5 standard deviations below the mean.
+c. 1.5 units above the mean.
+d. 1.5 units below the mean.
+
+
+T06.A.A.04-1.1.MC.2 
+The z-score for a particular observation is z = 0.4. This means the observation is
+
+*a. 0.4 standard deviations above the mean.
+b. 0.4 standard deviations below the mean.
+c. 0.4 units above the mean.
+d. 0.4 units below the mean.
+
+
+T06.A.A.04-1.1.MC.3 
+The z-score for a particular observation is z = 2.3. This means the observation is
+
+*a. 2.3 standard deviations above the mean.
+b. 2.3 standard deviations below the mean.
+c. 2.3 units above the mean.
+d. 2.3 units below the mean.
+
+
+T06.A.A.04-1.1.MC.4 
+The z-score for a particular observation is z = 3.4. This means the observation is
+
+*a. 3.4 standard deviations above the mean.
+b. 3.4 standard deviations below the mean.
+c. 3.4 units above the mean.
+d. 3.4 units below the mean.
+
+
+T06.A.B.04-1.1.MC.1 
+The z-score for a particular observation is z = -1.2. This means the observation is
+
+a. 1.2 standard deviations above the mean.
+*b. 1.2 standard deviations below the mean.
+c. 1.2 units above the mean.
+d. 1.2 units below the mean.
+
+
+T06.A.B.04-1.1.MC.2 
+The z-score for a particular observation is z = -0.8. This means the observation is
+
+a. 0.8 standard deviations above the mean.
+*b. 0.8 standard deviations below the mean.
+c. 0.8 units above the mean.
+d. 0.8 units below the mean.
+
+
+T06.A.B.04-1.1.MC.3 
+The z-score for a particular observation is z = -2.7. This means the observation is
+
+a. 2.7 standard deviations above the mean.
+*b. 2.7 standard deviations below the mean.
+c. 2.7 units above the mean.
+d. 2.7 units below the mean.
+
+
+T06.A.B.04-1.1.MC.4 
+The z-score for a particular observation is z = -3.1. This means the observation is
+
+a. 3.1 standard deviations above the mean.
+*b. 3.1 standard deviations below the mean.
+c. 3.1 units above the mean.
+d. 3.1 units below the mean.
+
+
+T06.A.C.04-1.1.FB.1 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 4.5 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. 3.14 
+b. 3.15 
+c. 3.13
+
+
+T06.A.C.04-1.1.FB.2 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 4.0 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. 1.71 
+b. 1.72 
+c. 1.70 
+d. 1.7
+
+
+T06.A.C.04-1.1.FB.3 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 4.2 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. 2.28 
+b. 2.29 
+c. 2.27
+
+
+T06.A.C.04-1.1.FB.4 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 4.3 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. 2.57 
+b. 2.56 
+c. 2.58
+
+
+T06.A.D.04-1.1.FB.1 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 2.3 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. -3.14 
+b. -3.13 
+c. -3.15
+
+
+T06.A.D.04-1.1.FB.2 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 2.5 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. -2.57 
+b. -2.58 
+c. -2.56
+
+
+T06.A.D.04-1.1.FB.3 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 2.2 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. -3.43 
+b. -3.44 
+c. -3.42
+
+
+T06.A.D.04-1.1.FB.4 
+In a sample of 25 male newborns, the mean birth weight was 3.4 kg and the standard deviation was 0.35 kg. 
+The z-score for a birth weight of 2.8 kg is __________. Round your answer to 2 decimal places.
+
+Correct Answer(s): 
+a. -1.71 
+b. -1.72 
+c. -1.70 
+d. -1.7
+
+
+T06.B.E.01-1.1.MC.compare1 
+The height of adult women is thought to have a mean of 65 inches and a standard deviation of 2.5 inches. The height of adult men is thought to have a mean of 71 inches and a standard deviation of 3 inches. In the same family, the son is 73 inches tall and the daughter is 67 inches tall. Who is taller among their gender, the son or daughter?
+
+*a. The daughter
+b. The son
+c. The daughter and son are the same height within their gender.
+
+
+T06.B.F.01-1.1.MC.compare2 
+The height of adult women is thought to have a mean of 65 inches and a standard deviation of 2.5 inches. The height of adult men is thought to have a mean of 71 inches and a standard deviation of 3 inches. In the same family, the son is 67 inches tall and the daughter is 59 inches tall. Who is taller among their gender, the son or daughter?
+
+a. The daughter
+*b. The son
+c. The daughter and son are the same height within their gender.
+
+
+T06.C.G.01-1.1.MC.1 
+Standardizing makes the following change(s) to a distribution: I. Shifts the distribution by subtracting the mean. II. Rescales the distribution by dividing by the standard deviation. III. Changes the skewness or symmetry of the distribution. IV. Creates outliers.
+
+a. I, II, and III
+*b. I and II
+c. III and IV
+d. II and III
+e. I, II and IV
+
+
+T06.C.H.01-1.1.MC.1 
+Which part of the distribution is NOT affected by standardizing?
+
+*a. shape
+b. median
+c. IQR
+d. range
+
+
+T06.D.I.02-1.1.TF.feet 
+NBA players tend to have very large feet. The following plots display what these shoe sizes may hypothetically look like. Based on the output, it is reasonable to model the distribution of NBA players shoe sizes with a normal distribution.  
+ <img> Topic06.Questions_files/image002.png
+
+
+
+*a. True
+b. False
+
+
+T06.D.I.02-1.1.TF.lowtemp 
+Below is the distribution of low temperatures (in degrees F) for 52 cities in the U.S. Based on the output, it is reasonable to model the distribution of low temperature for these cities with a normal distribution. 
+ 
+ <img> Topic06.Questions_files/image004.png
+
+
+*a. True
+b. False
+
+
+T06.D.J.04-1.1.TF.gain 
+The distribution of the gain of 120 different amplifiers is depicted below. 
+Based on the output, it is reasonable to model the distribution of amplifier values with a normal distribution.  
+ <img> Topic06.Questions_files/image006.png
+
+
+
+a. True
+*b. False
+
+
+T06.D.J.04-1.1.TF.mpg 
+The distribution of estimated highway miles per gallon (mpg) for various makes and models of cars is given below. Based on the output, it is reasonable to model the distribution of highway mpg values with a normal distribution.  
+ <img> Topic06.Questions_files/image008.png
+
+
+
+a. True
+*b. False
+
+
+T06.D.J.04-1.1.TF.blowhole 
+A blowhole is a hole in a cliff that produces eruptions of water when the ocean swell hits the cliff. Below are 40 times (in seconds) between eruptions for the Kiama blowhole in Australia. 
+Based on the output, it is reasonable to model the distribution of times between eruptions with a normal distribution.  
+ <img> Topic06.Questions_files/image010.png
+
+
+
+a. True
+*b. False
+
+
+T06.D.J.04-1.1.TF.CDs 
+A random sample of 120 students was selected from those students who completed the Stat 101 survey over the last 2 years. The survey asked the number of music CDs owned by each of these students. The histogram of the number of music CDs owned by the students is shown below. Based on the output, it is reasonable to model the distribution of the number of CDs owned by Stat 101 students with a normal distribution.  
+ <img> Topic06.Questions_files/image012.png
+
+
+
+a. True
+*b. False
+
+
+T06.E.K.09-3.1.FB.whale1 
+Fill in the blank with the correct number: Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. According to the Empirical Rule or 68-95-99.7 Rule, _______ percent of female humpback whales will have a length between 13.2 meters and 14.2 meters.
+
+Correct Answer(s): 
+a. 68 
+b. 68%
+
+
+T06.E.K.09-3.1.FB.whale2 
+Fill in the blank with the correct number: Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. According to the Empirical Rule or 68-95-99.7 Rule, _______ percent of female humpback whales will have a length between 12.7 meters and 14.7 meters.
+
+Correct Answer(s): 
+a. 95 
+b. 95%
+
+
+T06.E.K.09-3.1.FB.whale3 
+Fill in the blank with the correct number: Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. According to the Empirical Rule or 68-95-99.7 Rule, _______ percent of female humpback whales will have a length between 12.2 meters and 15.2 meters.
+
+Correct Answer(s): 
+a. 99.7 
+b. 99.7%
+
+
+T06.E.K.09-3.1.FB.cow1 
+Fill in the blank with the correct number: Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. According to the Empirical Rule or 68-95-99.7 Rule, _________ percent of cows from this breed will weigh between 720 kg and 780 kg.
+
+Correct Answer(s): 
+a. 68 
+b. 68%
+
+
+T06.E.K.09-3.1.FB.cow2 
+Fill in the blank with the correct number: Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. According to the Empirical Rule or 68-95-99.7 Rule, _________ percent of cows from this breed will weigh between 690 kg and 810 kg.
+
+Correct Answer(s): 
+a. 95 
+b. 95%
+
+
+T06.E.K.09-3.1.FB.cow3 
+Fill in the blank with the correct number: Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. According to the Empirical Rule or 68-95-99.7 Rule, _________ percent of cows from this breed will weigh between 660 kg and 840 kg.
+
+Correct Answer(s): 
+a. 99.7 
+b. 99.7%
+
+
+T06.E.K.09-3.1.FB.bulbs1 
+Fill in the blank with the correct number: Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. According to the Empirical Rule or 68-95-99.7 Rule, __________ percent of light bulbs made by Bright Inc. will last between 260 and 340 days.
+
+Correct Answer(s): 
+a. 68 
+b. 68%
+
+
+T06.E.K.09-3.1.FB.bulbs2 
+Fill in the blank with the correct number: Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. According to the Empirical Rule or 68-95-99.7 Rule, __________ percent of light bulbs made by Bright Inc. will last between 220 and 380 days.
+
+Correct Answer(s): 
+a. 95 
+b. 95%
+
+
+T06.E.K.09-3.1.FB.bulbs3 
+Fill in the blank with the correct number: Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. According to the Empirical Rule or 68-95-99.7 Rule, __________ percent of light bulbs made by Bright Inc. will last between 180 and 420 days.
+
+Correct Answer(s): 
+a. 99.7 
+b. 99.7%
+
+
+T06.E.L.09-3.1.MC.heights1 
+Assume the distribution of the height of adult females can be modeled with a normal distribution with mean 66 inches and standard deviation 3 inches. According to the Empirical Rule or 68-95-99.7 Rule, the center 99.7% of all women will have heights between _______ and 75 inches.
+
+a. 60
+*b. 57
+c. 63
+d. 66
+
+
+T06.E.L.09-3.1.MC.heights2 
+Assume the distribution of the height of adult females can be modeled with a normal distribution with mean 66 inches and standard deviation 3 inches. According to the Empirical Rule or 68-95-99.7 Rule, the center 68% of all women will have heights between _______ and 69 inches.
+
+a. 60
+b. 57
+*c. 63
+d. 66
+
+
+T06.E.L.09-3.1.MC.heights3 
+Assume the distribution of the height of adult females can be modeled with a normal distribution with mean 66 inches and standard deviation 3 inches. According to the Empirical Rule or 68-95-99.7 Rule, the center 95% of all women will have heights between _______ and 72 inches.
+
+*a. 60
+b. 57
+c. 63
+d. 66
+
+
+T06.E.L.09-3.1.MC.mm1 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. According to the Empirical Rule or 68-95-99.7 rule, 99.7% of all M&M bags will have weights between _______ and 53 grams.
+
+*a. 47
+b. 48
+c. 49
+d. 50
+
+
+T06.E.L.09-3.1.MC.mm2 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. According to the Empirical Rule or 68-95-99.7 rule, 68% of all M&M bags will have weights between _______ and 51 grams.
+
+a. 47
+b. 48
+*c. 49
+d. 50
+
+
+T06.E.L.09-3.1.MC.mm3 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. According to the Empirical Rule or 68-95-99.7 rule, 95% of all M&M bags will have weights between _______ and 52 grams.
+
+a. 47
+*b. 48
+c. 49
+d. 50
+
+
+T06.E.L.09-3.1.MC.IQ1 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. According to the Empirical Rule or 68-95-99.7 Rule, the middle 95% of all adults will have an IQ score between 80 and _______ points.
+
+a. 110
+b. 100
+*c. 120
+d. 130
+
+
+T06.E.L.09-3.1.MC.IQ2 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. According to the Empirical Rule or 68-95-99.7 Rule, the middle 68% of all adults will have an IQ score between 90 and _______ points.
+
+*a. 110
+b. 100
+c. 120
+d. 130
+
+
+T06.E.L.09-3.1.MC.IQ3 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. According to the Empirical Rule or 68-95-99.7 Rule, the middle 99.7% of all adults will have an IQ score between 70 and _______ points.
+
+a. 110
+b. 100
+c. 120
+*d. 130
+
+
+T06.F.M.05-1.1.MC.mm1 
+For the remaining questions, use either a z-table or an applet or both to do the calculations. Depending on the method used, the final answer could be subject to a small amount of rounding error. Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. The weight on the label of these M&M bags is 47.9 grams. What percentage of all M&M bags have a weight below the label weight?
+
+*a. 1.79%
+b. 98.21%
+c. 1.39%
+d. 2.28%
+e. 97.72%
+
+
+T06.F.M.05-1.1.MC.Bulb1 
+For the remaining questions, use either a z-table or an applet or both to do the calculations. Depending on the method used, the final answer could be subject to a small amount of rounding error. Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. What percentage of light bulbs produced by Bright Inc. will survive less than 200 days?
+
+a. 99.38%
+*b. 0.62%
+c. 96.49%
+d. 12.3%
+e. 2.02%
+
+
+T06.F.M.05-1.1.MC.IQ1 
+For the remaining questions, use either a z-table or an applet or both to do the calculations. Depending on the method used, the final answer could be subject to a small amount of rounding error. Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. What percentage of adults have an IQ score of less than 87 points?
+
+*a. 9.68%
+b. 15.15%
+c. 4.46%
+d. 90.32%
+e. 84.85%
+
+
+T06.F.M.05-1.1.MC.Whale1 
+For the remaining questions, use either a z-table or an applet or both to do the calculations. Depending on the method used, the final answer could be subject to a small amount of rounding error. Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. What percentage of female humpback whales will be shorter than 13 meters in length?
+
+*a. 8.08%
+b. 91.92%
+c. 14.92%
+d. 85.08%
+e. 0.82%
+
+
+T06.F.M.05-1.1.MC.Cow1 
+For the remaining questions, use either a z-table or an applet or both to do the calculations. Depending on the method used, the final answer could be subject to a small amount of rounding error. Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. What percentage of cows from this breed will weigh less than 680 kg?
+
+*a. 0.99%
+b. 99.01%
+c. 2.12%
+d. 97.88%
+e. 0.38%
+
+
+T06.F.N.05-1.1.MC.mm2 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. What percentage of all M&M bags will have a weight below 51.5 grams?
+
+*a. 93.32%
+b. 6.68%
+c. 85.31%
+d. 14.69%
+e. 90.32%
+
+
+T06.F.N.05-1.1.MC.Bulb2 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. What percentage of light bulbs produced by Bright Inc. will survive less than 405 days?
+
+*a. 99.57%
+b. 0.43%
+c. 99.09%
+d. 0.91%
+e. 94.84%
+
+
+T06.F.N.05-1.1.MC.IQ2 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. What percentage of adults have an IQ score of less than 107 points?
+
+*a. 75.8%
+b. 24.2%
+c. 72.3%
+d. 85.7%
+e. 14.3%
+
+
+T06.F.N.05-1.1.MC.Whale2 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. What percentage of female humpback whales will be shorter than 14 meters in length?
+
+a. 77.04%
+*b. 72.57%
+c. 27.43%
+d. 68.44%
+e. 22.96%
+
+
+T06.F.N.05-1.1.MC.Cow2 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. What percentage of cows from this breed will weigh less than 790 kg?
+
+a. 6.81%
+b. 86.21%
+c. 93.19%
+*d. 90.82%
+e. 9.18%
+
+
+T06.F.O.05-1.1.MC.mm3 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. What percent of M&M bags will have a weigh more than 48.5 grams?
+
+a. 6.68%
+*b. 93.32%
+c. 86.64%
+d. 1.5%
+e. 98.5%
+
+
+T06.F.O.05-1.1.MC.Bulb3 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. What percentage of light bulbs produced by Bright Inc. will survive longer than 225 days?
+
+a. 3.01%
+*b. 96.99%
+c. 14.01%
+d. 85.99%
+e. 98.08%
+
+
+T06.F.O.05-1.1.MC.IQ3 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. What percentage of adults have an IQ score higher than 88 points?
+
+a. 11.51%
+*b. 88.49%
+c. 15.39%
+d. 84.61%
+e. 89.80%
+
+
+T06.F.O.05-1.1.MC.Whale3 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. What percentage of female humpback whales are longer than 12.1 meters?
+
+a. 0.07%
+*b. 99.93%
+c. 98.61%
+d. 1.39%
+e. 94.52%
+
+
+T06.F.O.05-1.1.MC.Cow3 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. What percentage of cows from this breed will weigh more than 675 kg?
+
+*a. 99.38%
+b. 0.62%
+c. 97.98%
+d. 2.02%
+e. 93.32%
+
+
+T06.F.P.05-1.1.MC.mm4 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. What percent of M&M bags will weigh more than 52.3 grams?
+
+a. 98.93%
+*b. 1.07%
+c. 2.30%
+d. 97.70%
+e. 9.68%
+
+
+T06.F.P.05-1.1.MC.Bulb4 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. What percentage of light bulbs produced by Bright Inc. will survive longer than 365 days?
+
+a. 2.94%
+b. 94.84%
+*c. 5.16%
+d. 9.34%
+e. 90.68%
+
+
+T06.F.P.05-1.1.MC.IQ4 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. What percentage of adults have an IQ score higher than 128 points?
+
+a. 99.74%
+*b. 0.26%
+c. 89.97%
+d. 0.56%
+e. 10.03%
+
+
+T06.F.P.05-1.1.MC.Whale4 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. What percentage of female humpback whales are longer than 14.3 meters?
+
+a. 14.46%
+*b. 11.51%
+c. 13.14%
+d. 88.49%
+e. 85.54%
+
+
+T06.F.P.05-1.1.MC.Cow4 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. What percentage of cows from this breed will weigh more than 770 kg?
+
+*a. 25.14%
+b. 31.21%
+c. 74.86%
+d. 27.09%
+e. 68.79%
+
+
+T06.F.Q.05-1.1.MC.mm5 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. What percent of M&M bags will have a weight between 49.5 and 51.5 grams?
+
+*a. 62.47%
+b. 97.72%
+c. 24.17%
+d. 84.13%
+
+
+T06.F.Q.05-1.1.MC.Bulb5 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. What percentage of light bulbs produced by Bright Inc. will survive for between 230 days and 330 days?
+
+*a. 73.33%
+b. 99.38%
+c. 62.55%
+d. 34.46%
+
+
+T06.F.Q.05-1.1.MC.IQ5 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. What percentage of adults have an IQ score between 92 and 112 points?
+
+a. 97.72%
+b. 77.4%
+*c. 67.3%
+d. 63.2%
+
+
+T06.F.Q.05-1.1.MC.Whale5 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. What percentage of female humpback whales are between 12.5 and 14.7 meters in length?
+
+*a. 96.90%
+b. 99.91%
+c. 65.54%
+d. 91.92%
+
+
+T06.F.Q.05-1.1.MC.Cow5 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. What percentage of cows from this breed will weigh between 725 kg and 785 kg?
+
+*a. 67.57%
+b. 97.72%
+c. 63.31%
+d. 53.59%
+
+
+T06.G.R.05-1.1.MC.mm1 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. The Mars Company that manufacturers M&Ms wants to set the label weight so that only 2% of all bags of this size are under the label weight. What should they make the label weight?
+
+*a. 47.95 grams
+b. 49.16 grams
+c. 50.51 grams
+d. 50.58 grams
+
+
+T06.G.R.05-1.1.MC.Bulb1 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. 20% of light bulbs produced by Bright Inc. survive less than how many days?
+
+*a. 266.4 days
+b. 218.0 days
+c. 248.8 days
+d. 273.2 days
+
+
+T06.G.R.05-1.1.MC.IQ1 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. 25% of adults have an IQ score lower than what value?
+
+a. 100.3 points
+b. 89.1 points
+*c. 93.3 points
+d. 97.8 points
+
+
+T06.G.R.05-1.1.MC.Whale1 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. 15% of female humpback whales are shorter than what length?
+
+a. 14.79 meters
+b. 12.62 meters
+c. 14.22 meters
+*d. 13.18 meters
+
+
+T06.G.R.05-1.1.MC.Cow1 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. 35% of cows from this breed will weigh less than what weight?
+
+a. 703.2 kg
+b. 802.3 kg
+c. 751.2 kg
+*d. 738.3 kg
+
+
+T06.G.S.05-1.1.MC.mm2 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. 80% of all bags will have a weight under what value?
+
+*a. 50.84 grams
+b. 51.28 grams
+c. 50.67 grams
+d. 51.65 grams
+
+
+T06.G.S.05-1.1.MC.Bulb2 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. 95% of light bulbs produced by Bright Inc. survive less than how many days?
+
+a. 359.1 days
+b. 331.2 days
+c. 394.4 days
+*d. 365.8 days
+
+
+T06.G.S.05-1.1.MC.IQ2 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. 90% of adults will have an IQ score lower than what value?
+
+a. 126.9 points
+b. 109.8 points
+c. 115.6 points
+*d. 112.8 points
+
+
+T06.G.S.05-1.1.MC.Whale2 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. 65% of female humpback whales are shorter than what length?
+
+a. 14.65 meters
+b. 13.51 meters
+c. 14.07 meters
+*d. 13.90 meters
+
+
+T06.G.S.05-1.1.MC.Cow2 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. 70% of cows from this breed will weigh less than what weight?
+
+*a. 765.6 kg
+b. 770.1 kg
+c. 775.2 kg
+d. 788.4 kg
+
+
+T06.G.T.05-1.1.MC.mm3 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. 20% of all M&M bags will weigh more than what weight?
+
+*a. 50.84 grams
+b. 49.16 grams
+c. 50.20 grams
+d. 49.80 grams
+
+
+T06.G.T.05-1.1.MC.Bulb3 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. 5% of light bulbs produced by Bright Inc. survive more than how many days?
+
+*a. 366.0 days
+b. 378.4 days
+c. 351.2 days
+d. 341.6 days
+
+
+T06.G.T.05-1.1.MC.IQ3 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. 30% of adults will have an IQ score higher than what value?
+
+a. 109.1 points
+b. 116.6 points
+c. 98.6 points
+*d. 105.2 points
+
+
+T06.G.T.05-1.1.MC.Whale3 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. 40% of female humpback whales are longer than what length?
+
+a. 13.90 meters
+b. 14.06 meters
+*c. 13.83 meters
+d. 11.95 meters
+
+
+T06.G.T.05-1.1.MC.Cow3 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. 45% of cows from this breed will weigh more than what weight?
+
+a. 772.0 kg
+*b. 753.9 kg
+c. 761.3 kg
+d. 758.9 kg
+
+
+T06.G.U.05-1.1.MC.mm4 
+Assume the weight of bags of M&Ms can be modeled with the normal distribution with mean 50 grams and standard deviation 1 gram. 65% of all M&M bags will weigh more than what weight?
+
+*a. 49.61 grams
+b. 50.39 grams
+c. 50.35 grams
+d. 49.65 grams
+
+
+T06.G.U.05-1.1.MC.Bulb4 
+Assume the lifespan of light bulbs manufactured by Bright Inc. can be modeled with a normal distribution with a mean of 300 days and a standard deviation of 40 days. 70% of light bulbs produced by Bright Inc. survive longer than how many days?
+
+*a. 279.2 days
+b. 303.2 days
+c. 281.0 days
+d. 263.5 days
+
+
+T06.G.U.05-1.1.MC.IQ4 
+Assume the distribution of IQ scores for adults can be modeled with a normal distribution with a mean score of 100 points and a standard deviation of 10 points. 90% of adults will have an IQ score higher than what value?
+
+*a. 87.2 points
+b. 112.8 points
+c. 91.0 points
+d. 109.0 points
+
+
+T06.G.U.05-1.1.MC.Whale4 
+Assume the length of female humpback whales can be modeled with a normal distribution with a mean of 13.7 meters and a standard deviation of 0.5 meters. 75% of female humpback whales are longer than what length?
+
+a. 13.90 meters
+b. 14.05 meters
+*c. 13.37 meters
+d. 14.04 meters
+
+
+T06.G.U.05-1.1.MC.Cow4 
+Assume the weight of a certain breed of cow can be modeled with a normal distribution with a mean of 750 kg and a standard deviation of 30 kg. 85% of cows from this breed will weigh more than what weight?
+
+*a. 718.8 kg
+b. 781.2 kg
+c. 775.5 kg
+d. 724.5 kg
+
