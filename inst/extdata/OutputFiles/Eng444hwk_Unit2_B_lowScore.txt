@@ -1,0 +1,8 @@
+With semicolon:
+
+bechtold@iastate.edu; harlandw@iastate.edu; malisay@iastate.edu; gorderj@iastate.edu; grovert@iastate.edu; onorato@iastate.edu; blassg@iastate.edu; shehorn@iastate.edu; lexieh@iastate.edu; keishaa@iastate.edu; kendalls@iastate.edu; tankm@iastate.edu; louisc@iastate.edu; shortl@iastate.edu; katied@iastate.edu; babinh@iastate.edu; jaquezl@iastate.edu; ligias@iastate.edu; freeda@iastate.edu; mercedes@iastate.edu; parkinsl@iastate.edu; kindlel@iastate.edu; hillenl@iastate.edu; gertvas@iastate.edu; keesham@iastate.edu; mallenl@iastate.edu; keric@iastate.edu; aldridgeg@iastate.edu; gaving@iastate.edu; whaleyg@iastate.edu; hannahy@iastate.edu; lakeas@iastate.edu
+
+
+With comma:
+
+bechtold@iastate.edu, harlandw@iastate.edu, malisay@iastate.edu, gorderj@iastate.edu, grovert@iastate.edu, onorato@iastate.edu, blassg@iastate.edu, shehorn@iastate.edu, lexieh@iastate.edu, keishaa@iastate.edu, kendalls@iastate.edu, tankm@iastate.edu, louisc@iastate.edu, shortl@iastate.edu, katied@iastate.edu, babinh@iastate.edu, jaquezl@iastate.edu, ligias@iastate.edu, freeda@iastate.edu, mercedes@iastate.edu, parkinsl@iastate.edu, kindlel@iastate.edu, hillenl@iastate.edu, gertvas@iastate.edu, keesham@iastate.edu, mallenl@iastate.edu, keric@iastate.edu, aldridgeg@iastate.edu, gaving@iastate.edu, whaleyg@iastate.edu, hannahy@iastate.edu, lakeas@iastate.edu

@@ -1,0 +1,8 @@
+With semicolon:
+
+alinev@iastate.edu; deloresm@iastate.edu; elyseb@iastate.edu; eugenem@iastate.edu; sherrick@iastate.edu; jakesb@iastate.edu; bardena@iastate.edu; eleaset@iastate.edu; eloish@iastate.edu; clarinep@iastate.edu; carrym@iastate.edu; guanc@iastate.edu; chene@iastate.edu; ernad@iastate.edu; doriansc@iastate.edu; dollyd@iastate.edu; rasmusson@iastate.edu; hurshe@iastate.edu; cutshall@iastate.edu; fazioe@iastate.edu; arnetta@iastate.edu; bourdan@iastate.edu; delgadc@iastate.edu; bowned@iastate.edu; hilkerc@iastate.edu; heidenc@iastate.edu; chadd@iastate.edu; adelmanc@iastate.edu; swiharta@iastate.edu; stanwood@iastate.edu; wickd@iastate.edu; alisond@iastate.edu; bloxham@iastate.edu; proehld@iastate.edu; bhartz@iastate.edu; congerf@iastate.edu
+
+
+With comma:
+
+alinev@iastate.edu, deloresm@iastate.edu, elyseb@iastate.edu, eugenem@iastate.edu, sherrick@iastate.edu, jakesb@iastate.edu, bardena@iastate.edu, eleaset@iastate.edu, eloish@iastate.edu, clarinep@iastate.edu, carrym@iastate.edu, guanc@iastate.edu, chene@iastate.edu, ernad@iastate.edu, doriansc@iastate.edu, dollyd@iastate.edu, rasmusson@iastate.edu, hurshe@iastate.edu, cutshall@iastate.edu, fazioe@iastate.edu, arnetta@iastate.edu, bourdan@iastate.edu, delgadc@iastate.edu, bowned@iastate.edu, hilkerc@iastate.edu, heidenc@iastate.edu, chadd@iastate.edu, adelmanc@iastate.edu, swiharta@iastate.edu, stanwood@iastate.edu, wickd@iastate.edu, alisond@iastate.edu, bloxham@iastate.edu, proehld@iastate.edu, bhartz@iastate.edu, congerf@iastate.edu
