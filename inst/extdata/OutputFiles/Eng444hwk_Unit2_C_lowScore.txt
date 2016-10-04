@@ -1,8 +1,0 @@
-With semicolon:
-
-anglesn@iastate.edu; veliam@iastate.edu; burdget@iastate.edu; pulsshee@iastate.edu; silvam@iastate.edu; tuanc@iastate.edu; adans@iastate.edu; mullinss@iastate.edu; sharlas@iastate.edu; calensha@iastate.edu; fagerr@iastate.edu; vevers@iastate.edu; baran@iastate.edu; disalvot@iastate.edu; sandford@iastate.edu; silasm@iastate.edu; renaldoc@iastate.edu; danksm@iastate.edu; gheenm@iastate.edu; luot@iastate.edu; bogler@iastate.edu; valsaul@iastate.edu; kostt@iastate.edu; manross@iastate.edu; paezm@iastate.edu; marshall@iastate.edu; vroyston@iastate.edu; rosep@iastate.edu; wehnerp@iastate.edu; marcelln@iastate.edu; bettst@iastate.edu; orriss@iastate.edu; reddins@iastate.edu
-
-
-With comma:
-
-anglesn@iastate.edu, veliam@iastate.edu, burdget@iastate.edu, pulsshee@iastate.edu, silvam@iastate.edu, tuanc@iastate.edu, adans@iastate.edu, mullinss@iastate.edu, sharlas@iastate.edu, calensha@iastate.edu, fagerr@iastate.edu, vevers@iastate.edu, baran@iastate.edu, disalvot@iastate.edu, sandford@iastate.edu, silasm@iastate.edu, renaldoc@iastate.edu, danksm@iastate.edu, gheenm@iastate.edu, luot@iastate.edu, bogler@iastate.edu, valsaul@iastate.edu, kostt@iastate.edu, manross@iastate.edu, paezm@iastate.edu, marshall@iastate.edu, vroyston@iastate.edu, rosep@iastate.edu, wehnerp@iastate.edu, marcelln@iastate.edu, bettst@iastate.edu, orriss@iastate.edu, reddins@iastate.edu
