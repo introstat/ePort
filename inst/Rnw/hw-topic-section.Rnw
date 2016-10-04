@@ -456,7 +456,7 @@ bestcut_bbww = if (bestcut_bw == bestcut_wb) bestcut_bw else min(bestcut_bw,best
 #if ((height9[1]-height9[2]) > (0.7*height9[1])) bestcut=2
 
 ##########
-bestcut_pamk = pamk(clorig[,1:ntopic+9],krange=2:9)
+bestcut_pamk = fpc::pamk(clorig[,1:ntopic+9],krange=2:9)
 
 ##########
 bestcut_vote = table(c(bestcut_hclust,bestcut_bw,bestcut_wb,bestcut_pamk$nc))
