@@ -203,7 +203,7 @@ f2=glmmPQL(data=Learning_Objectives,fixed=Score~Objective+Section,random=~1|stud
 #f5 = glmer(Score~Objective*Section + (1|student) + (1|Section:student),data=Learning_Objectives, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
 
 f=f2
-est=fixef(f)[-1]
+est=lme4::fixef(f)[-1]
 estcov=as.matrix(vcov(f)[-1,-1])
 
 obj_r=length(levels(b$LearningObj))

@@ -159,7 +159,7 @@ Learning_Objectives$Objective = factor(Learning_Objectives$Objective,levels=LOsu
 
 Learning_Objectives$score = Learning_Objectives$score*0.0098+.01
 f=glmmPQL(data=Learning_Objectives,fixed=score~Objective,random=~1|student,family=binomial(link="logit"))
-# f = glmer(score~Objective+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
+# f = lme4::glmer(score~Objective+(1|student),data=Learning_Objectives, family=binomial(link="logit"))
 @
 
 

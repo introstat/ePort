@@ -186,14 +186,14 @@ score=score[score$Score>0,]
 
 #f1=glmmPQL(data=score,fixed=Score~Topic+Section,random=~1+Section|Student,family=quasibinomial(link="logit"),weights=FullPoints)
 #f2=glmmPQL(data=score,fixed=Score~Topic+Section,random=~1|Student,family=quasibinomial(link="logit"),weights=FullPoints)
-f3=glmer(Score~Topic*Section+(1|Student),data=score, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
+f3=lme4::glmer(Score~Topic*Section+(1|Student),data=score, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
 #f4=glmer(Score~Topic*Section+(1+Section|Student),data=score, family=binomial(link="logit"),weights=FullPoints,nAGQ=0)
 f=f3
 
 score$Predict=fitted(f)
 score$Residual=score$Score-score$Predict
 
-est=fixef(f)
+est=lme4::fixef(f)
 estcov=vcov(f)
 
 ##########
