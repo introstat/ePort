@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Xiaoyue Cheng, Dianne Cook, Lindsay Rutter, Amy Froelich
 Maintainer: Lindsay Rutter <lrutter@iastate.edu>
 Description: Electronic reporting software that provides course instructors and
-    supervisors with timely summarization and analyses of student learning and
+    supervisors with timely summaries and analyses of student learning and
     performance.
 Imports:
     knitr (>= 1.11),
