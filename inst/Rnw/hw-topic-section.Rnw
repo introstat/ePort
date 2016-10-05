@@ -95,7 +95,7 @@ fname=paste0(plotprename,'lineplot.pdf')
 pdf(paste0(outFile,"/",fname),width=4,height=15)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(Hwk,`50%`,data=sumdat,geom='line',group=Section,fill=Section,
-      facets=Section~.,ggplot2::xlab='Topic',ggplot2::ylab='Correct Percentage') +
+      facets=Section~.,xlab='Topic',ylab='Correct Percentage') +
         ggplot2::theme(strip.text.y=ggplot2::element_text(size=15), axis.text.x = ggplot2::element_text(angle = 90, hjust = 1)) +
         ggplot2::geom_line(aes(x=Hwk,y=CrtPct,group=Username),data=dat,alpha=0.1) +
         ggplot2::geom_ribbon(aes(ymin=`5%`, ymax=`95%`),alpha=I(0.3)) +
@@ -294,7 +294,7 @@ fname=paste0(plotprename,'fitted.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(Score,Predict,data=score,color=Section,geom='point',alpha=I(0.4),
-            ggplot2::ylab='Predicted correct probability') + 
+            ylab='Predicted correct probability') + 
         ggplot2::geom_abline(intercept=0, slope=1, color='grey')
       + ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
@@ -325,7 +325,7 @@ fname=paste0(plotprename,'est_section.pdf')
 pdf(paste0(outFile,"/",fname),width=7,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(Topic,Predict,data=predprob,group=Section,
-      geom='line',size=I(1.2),ggplot2::ylab='Estimated correct probability')+
+      geom='line',size=I(1.2),ylab='Estimated correct probability')+
         ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
         ggplot2::geom_ribbon(aes(ymin=lower,ymax=upper,fill=Section),alpha=0.3)+
         ggplot2::geom_line(aes(color=Section),size=1.2))
@@ -425,7 +425,7 @@ fname=paste0(plotprename,'hclust.pdf')
 pdf(paste0(outFile,"/",fname),width=4,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(value,height,data=clhc6,group=student,color=Section,geom='path',
-      ggplot2::ylab='Clustering Height',xlab='Student') +
+      ylab='Clustering Height',xlab='Student') +
         ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
@@ -542,7 +542,7 @@ asw = data.frame(cluster=2:9,criterion=bestcut_pamk$crit[-1])
 fname=paste0(plotprename,'clustasw.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(ggplot2::qplot(cluster,criterion,data=asw,geom=c('point','line'),ggplot2::ylab='criterion value') +
+print(ggplot2::qplot(cluster,criterion,data=asw,geom=c('point','line'),ylab='criterion value') +
         ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
@@ -557,7 +557,7 @@ pdf(paste0(outFile,"/",fname),width=7,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(variable,value,data=bestcut_dat2,group=Student,
             color=Cluster,geom='line',alpha=I(0.05),
-            ggplot2::xlab='Topic',ggplot2::ylab='Scaled score') +
+            xlab='Topic',ylab='Scaled score') +
         ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
         ggplot2::geom_line(aes(x=variable,y=center,group=Cluster,color=Cluster),
                   data=bestcut_mean,size=I(2)) + 

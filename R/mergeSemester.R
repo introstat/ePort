@@ -68,7 +68,7 @@ mergeData = function(files){
   score$Section = factor(score$Section,levels=unique(score$Section))
   
   FullScore=unique(score[,c('Topic','Section','Grade')])
-  FullScore=reshape2::dcast(FullScore,Section~Topic,fun.aggregate=max,na.rm=TRUE,value.var='Grade')
+  #FullScore=reshape2::dcast(FullScore,Section~Topic,fun.aggregate=max,na.rm=TRUE,value.var='Grade')
   rownames(FullScore)=FullScore$Section
   FullScore=FullScore[,-1]
     

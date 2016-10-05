@@ -64,7 +64,7 @@ The histogram and summary statistics for the scores are given by Figure \ref{mar
 fname=paste(plotprename,'_score.pdf',sep='')
 pdf(paste0("../",fname),width=4,height=4)
 ms=max(sumry1$TotalScore,na.rm=T)
-print(ggplot2::qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',ggplot2::xlim=c(0,ms+1)))
+print(ggplot2::qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,ms+1)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
@@ -333,7 +333,7 @@ tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
 fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
 pdf(paste0("../",fname),width=8,height=12)
 print(ggplot2::qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
-        ggplot2::xlab('Learning Outcome')+
+        xlab('Learning Outcome')+
         ggplot2::scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank'))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}

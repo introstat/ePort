@@ -105,6 +105,12 @@ The \pkg{ePort} package should now be successfully installed. Next, to render it
 library(ePort)
 @
 
+You may also wish to ensure you have the \pkg{knitr} package available for this vignette:
+
+<<eval=FALSE>>=
+library(knitr)
+@
+
 \subsection{Help files}
 \label{sec:helpSection}
 

@@ -315,7 +315,7 @@ fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
 pdf(paste0(outFile,"/",fname),width=8,height=12)
 outImage = c(outImage, paste0(outFile,"/",fname))
 print(ggplot2::qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
-        ggplot2::xlab('Learning Outcome')+ 
+        xlab('Learning Outcome')+ 
         ggplot2::theme(axis.text=ggplot2::element_text(size=12), axis.title=ggplot2::element_text(size=12)) +
         ggplot2::scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank') + ggplot2::theme(legend.text = ggplot2::element_text(size=12)))
 {dev.off();invisible()}
@@ -387,7 +387,7 @@ for (j in 1:nQuestion) {
     ord=table(abbrscore,useNA='no')
     pdf(paste0(outFile,"/",fname1))
     outImage = c(outImage, paste0(outFile,"/",fname1))
-    print(ggplot2::qplot(abbrscore,main=answerkey$simplekey$Question[j],ggplot2::xlab='Answer')+ ggplot2::theme(plot.title = ggplot2::element_text(size = 25), axis.text = ggplot2::element_text(size = 25), axis.title = ggplot2::element_text(size = 25)) + ggplot2::xlim(names(ord)[order(ord, decreasing=TRUE)])+ggplot2::coord_flip())
+    print(ggplot2::qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+ ggplot2::theme(plot.title = ggplot2::element_text(size = 25), axis.text = ggplot2::element_text(size = 25), axis.title = ggplot2::element_text(size = 25)) + xlim(names(ord)[order(ord, decreasing=TRUE)])+ggplot2::coord_flip())
     dev.off()
 
     pdf(paste0(outFile,"/",fname2))
