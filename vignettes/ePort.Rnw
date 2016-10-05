@@ -499,7 +499,7 @@ After that, the seventh step is to specify our desired output directory. This is
 outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
 @
 
-Check briefly that your variable \texttt{outPath} is not an emptry string. If it is an empty string, you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:ResSection]{Respondus}). 
+Check briefly that your variable \texttt{outPath} is not an emptry string. If it is an empty string, you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:createOut]{Example Data}). 
 
 Now that we have primed our three input files (cleaned answer key, data file, and learning outcomes file) and specified our output directory, our last step is to generate the report using the \texttt{makeReport()} function. \\
 
@@ -524,7 +524,7 @@ Note: If running many reports, it is more efficient to exit now and hard-code th
 6: One unit (group of topics) comparing multiple sections (``crossSecUnit")
 \end{framed}
 
-Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. Note that if you receive an error: ``Error in file(con, ``w") : cannot open the connection", then you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:ResSection]{Respondus}).
+Since we wish to generate the type of report that is the short version of one topic for one section, then we can type the number \texttt{1} into the menu console. If we do so, then the report will be generated. Note that if you receive an error \texttt{Cannot open the connection}, then you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:createOut]{Example Data}).
 
 However, we can also escape out of the menu, and rerun the last line of code, only this time hard-code specifying the \texttt{reportType} parameter as \texttt{secTopicShort}. This is shown below: \\
 
