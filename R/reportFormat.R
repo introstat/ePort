@@ -29,6 +29,9 @@ globalVariables(c("menu", "setNames", "knit2pdf", "read.delim"))
 #' @importFrom knitr knit
 #' @importFrom stringr str_trim
 #' @importFrom Matrix diag
+#' @importFrom fpc pamk
+#' @importFrom lme4 fixef
+#' @importFrom ggplot2 qplot
 #' @export
 #'
 makeReport = function(keyFile=NULL, dataFile=NULL, loFile=NULL, outFile=NULL, reportType = NULL, keepFiles=FALSE, keepTex=FALSE, keepImage=FALSE, className = "Stat101", lowScore = 80, repeatLowScore = 20, topic=NULL, section=NULL, path=NULL, type=NULL, unit = 1, rewrite=FALSE, skip=NULL){  
