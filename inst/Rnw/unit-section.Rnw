@@ -68,7 +68,7 @@ fname=paste0(plotprename,'_overallscore.pdf')
 sectionscore=instructor_scores$score[,1:2]
 sectionscore$Section=factor(sectionscore$Section,levels=rownames(a))
 pdf(paste0("../",fname),width=4,height=18)
-print(qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+print(ggplot2::qplot(Score,data=sectionscore,geom='histogram',facets=Section~., binwidth=1, fill=Section)+ ggplot2::theme(legend.position = "none",axis.text.x=ggplot2::element_text(size=15),axis.text.y=ggplot2::element_text(size=15)) )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:hist}Histograms of overall scores by section. The support of the scores is [0,%s].}\\end{marginfigure}', sub('\\.pdf','',fname), HWFullPt))
@@ -79,7 +79,7 @@ print(xtable(a,caption='Summary of overall scores by section. Sections are order
 
 fname=paste0(plotprename,'_boxplot_score.pdf')
 pdf(paste0("../",fname),width=9,height=6)
-print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text.x=element_text(size=15),axis.text.y=element_text(size=15)) )
+print(ggplot2::qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+ggplot2::theme(legend.position = "none",axis.text.x=ggplot2::element_text(size=15),axis.text.y=ggplot2::element_text(size=15)) )
 {dev.off();invisible()}
 #cat(sprintf('\\begin{figure}[!hpbt]\\centering \\includegraphics[width=0.9\\linewidth]{%s}
 #\\end{figure}',sub('\\.pdf','',fname)))
@@ -130,7 +130,7 @@ b$QuestionSet=factor(as.character(b$QuestionSet),levels=names(sort(rowMeans(inst
 b$Section=factor(b$Section,levels=rownames(a)[rownames(a)%in% colnames(instructor_scores$QsetAvgScore)])
 b$section=factor(b$Section,levels=rev(levels(b$Section)))
 pdf(paste0("../",fname),width=4,height=18)
-print(qplot(section,Percent,data=b,geom='point',facets=LearningObj~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15)) + coord_flip() )
+print(ggplot2::qplot(section,Percent,data=b,geom='point',facets=LearningObj~.,col=Section,size=I(8),alpha=I(0.3)) + ggplot2::theme(legend.position = "none", axis.text.x=ggplot2::element_text(size=15), axis.text.y=ggplot2::element_text(size=15)) + ggplot2::coord_flip() )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:LOpct}Scatterplot of correct percentage by learning outcomes. The sections are sorted by their overall mean scores, and the learning outcomes are ordered by the mean correct percentage.}\\end{marginfigure}',sub('\\.pdf','',fname)))
@@ -140,7 +140,7 @@ print(xtable(instructor_scores$CsetAvgPct[levels(b$LearningObj),levels(b$Section
 
 fname=paste0(plotprename,'_Sidebyside_Boxplots_LearningObj.pdf')
 pdf(paste0("../",fname),width=12,height=6)
-print(qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + labs(x="Learning Outcome", y="Percentage Correct") + theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15)) )
+print(ggplot2::qplot(LearningObj, Percent, data=b, geom='boxplot',fill=Section) + ggplot2::labs(x="Learning Outcome", y="Percentage Correct") + ggplot2::theme(axis.text.x=ggplot2::element_text(size=15), axis.text.y=ggplot2::element_text(size=15)) )
 {dev.off();invisible()}
 
 cat(sprintf('\\begin{center}
@@ -233,7 +233,7 @@ The average percentages correct for question sets are shown in Table \ref{tab:Qs
 
 fname=paste0(plotprename,'_Scatterplot_QSetpct.pdf')
 pdf(paste0("../",fname),width=4,height=19)
-print(qplot(section,Percent,data=b,geom='point',facets=QuestionSet~.,col=Section,size=I(8),alpha=I(0.3)) + theme(legend.position = "none", axis.text.x=element_text(size=15), axis.text.y=element_text(size=15))+ coord_flip() )
+print(ggplot2::qplot(section,Percent,data=b,geom='point',facets=QuestionSet~.,col=Section,size=I(8),alpha=I(0.3)) + ggplot2::theme(legend.position = "none", axis.text.x=ggplot2::element_text(size=15), axis.text.ggplot2::y=element_text(size=15))+ ggplot2::coord_flip() )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:Qsetpct}Scatterplot of Correct Percentage by Question Set.}\\end{marginfigure}',sub('\\.pdf','',fname)))
@@ -381,11 +381,11 @@ for (j in 1:nQuestion) {
   	ord=table(abbrscore,useNA='no')
     
     pdf(paste0("../",fname1))
-    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip()+theme(axis.text = element_text(size = rel(2))))
+    print(ggplot2::qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+xlim(names(ord)[order(ord, decreasing=TRUE)])+ggplot2::coord_flip()+ggplot2::theme(axis.text = ggplot2::element_text(size = rel(2))))
     dev.off()
 
     pdf(paste0("../",fname2))
-    print(qplot(factor(subset(instructor_scores$Qscore[,j], !is.na(instructor_scores$Qscore[,j]))), main=colnames(instructor_scores$Qscore)[j],xlab='Score')+theme(axis.text = element_text(size = rel(2))))
+    print(ggplot2::qplot(factor(subset(instructor_scores$Qscore[,j], !is.na(instructor_scores$Qscore[,j]))), main=colnames(instructor_scores$Qscore)[j],xlab='Score')+ggplot2::theme(axis.text = ggplot2::element_text(size = rel(2))))
     dev.off()
 
     cat(sprintf('\\begin{center} \\includegraphics[width=.45\\linewidth]{%s} \\includegraphics[width=.45\\linewidth]{%s} \\end{center}',sub('\\.pdf','',fname1), sub('\\.pdf','',fname2)), '\n\n')

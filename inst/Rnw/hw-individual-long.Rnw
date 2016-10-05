@@ -80,7 +80,7 @@ The histogram and summary statistics for the scores are given by Figure \ref{mar
 
 <<histScore, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Histogram of scores.",fig.lp = "mar:">>=
 ms=max(sumry1$TotalScore,na.rm=T)
-print(qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,sumry1$FullScore[1]), na.rm = TRUE) + theme(axis.text=element_text(size=25),axis.title=element_text(size=25)))
+print(ggplot2::qplot(TotalScore,data=sumry1,geom='histogram',binwidth=1,main='',xlim=c(0,sumry1$FullScore[1]), na.rm = TRUE) + ggplot2::theme(axis.text=ggplot2::element_text(size=25),axis.title=ggplot2::element_text(size=25)))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -134,7 +134,7 @@ output1$value = output1$value*100
 @
 
 <<LearningObjSummary, echo=FALSE, fig.env = "marginfigure", out.width = "0.98\\linewidth", fig.cap = "Side-by-side boxplots of the correct percentages by learning outcome.",fig.lp = "mar:">>=
-print(qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ theme(legend.position = "none", axis.text=element_text(size=25), axis.title=element_text(size=25)) + labs(x="Learning Outcome", y="Percentage Correct"))
+print(ggplot2::qplot(variable,value,data=output1,geom='boxplot',fill=variable)+ ggplot2::theme(legend.position = "none", axis.text=ggplot2::element_text(size=25), axis.title=ggplot2::element_text(size=25)) + ggplot2::labs(x="Learning Outcome", y="Percentage Correct"))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -181,7 +181,7 @@ Hence we assume that $Y$ is binomial with the logit link function,
 then the results are in Table \ref{tab:lme_fixed} and Figure \ref{mar:lmeCoef}.
 
 <<crtpctHist, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "Histogram of the scaled scores by learning outcome.",fig.lp = "mar:">>=
-print(qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+theme(legend.text=element_text(size=25),legend.title=element_text(size=25), axis.text=element_text(size=25), axis.title=element_text(size=25)))
+print(ggplot2::qplot(score,data=Learning_Objectives,geom='histogram',fill=Objective,binwidth=0.02,ylab="count of students",xlab="Scaled score")+ggplot2::theme(legend.text=ggplot2::element_text(size=25),legend.title=ggplot2::element_text(size=25), axis.text=ggplot2::element_text(size=25), axis.title=ggplot2::element_text(size=25)))
 @
 
 <<echo=FALSE,results='asis'>>=
@@ -214,7 +214,7 @@ fixedcoef_plot$variable[fixedcoef_plot$variable %in% c("lower","upper")]="bounda
 @
 
 <<lmeCoef, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "95\\% confidence intervals of the fixed effects coefficients",fig.lp = "mar:">>=
-print(qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=1,color=name,xlab="",ylab="")+geom_vline(xintercept=0,color=I(1))+geom_line(size=I(2.5))+scale_colour_hue(h=c(52,320))+theme(legend.position="NA", axis.text=element_text(size=25),axis.title=element_text(size=25)))
+print(ggplot2::qplot(value,name,data=fixedcoef_plot,geom=c('point'),size=1,color=name,xlab="",ylab="")+ggplot2::geom_vline(xintercept=0,color=I(1))+ggplot2::geom_line(size=I(2.5))+ggplot2::scale_colour_hue(h=c(52,320))+ggplot2::theme(legend.position="NA", axis.text=ggplot2::element_text(size=25),axis.title=ggplot2::element_text(size=25)))
 @
 
 Nevertheless, the assumption is probably incorrect, as we could check the residuals in
@@ -268,7 +268,7 @@ print(xtable(Qsetsumry,caption='Summary statistics of the percentage correct sco
 
 <<questionSetBoxplot, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.align = "center", fig.cap = "Side-by-side boxplots of the question correct percentage score for each question set",fig.lp = "fig:">>=
 output1$Qset=factor(output1$Qset,levels=Qsetsumry$Qset)
-print(qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ theme(legend.text=element_text(size=25), legend.title=element_text(size=25), axis.text.y=element_text(size=25), axis.text.x=element_text(size=20), axis.title=element_text(size=25)) + labs(x="Question Set",y="Percentage Correct"))
+print(ggplot2::qplot(Qset,CrtPct,data=output1,geom='boxplot',fill=LearnObj)+ ggplot2::theme(legend.text=ggplot2::element_text(size=25), legend.title=ggplot2::element_text(size=25), axis.text.y=ggplot2::element_text(size=25), axis.text.x=ggplot2::element_text(size=20), axis.title=ggplot2::element_text(size=25)) + ggplot2::labs(x="Question Set",y="Percentage Correct"))
 @
 
 \clearpage
@@ -314,10 +314,10 @@ tmptile$Student=factor(tmptile$Student,levels=rev(CSRank$Student))
 fname=paste(plotprename,'_tile_student_rank.pdf',sep='')
 pdf(paste0(outFile,"/",fname),width=8,height=12)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
-        xlab('Learning Outcome')+ 
-        theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +
-        scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank') + theme(legend.text = element_text(size=12)))
+print(ggplot2::qplot(LO,Student,data=tmptile,geom='tile',fill=Percentage)+
+        ggplot2::xlab('Learning Outcome')+ 
+        ggplot2::theme(axis.text=ggplot2::element_text(size=12), axis.title=ggplot2::element_text(size=12)) +
+        ggplot2::scale_fill_gradient2(low='blue',high='yellow',midpoint=50,name='Percentage\nRank') + ggplot2::theme(legend.text = ggplot2::element_text(size=12)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
 \\begin{wrapfigure}{o}{0.95\\columnwidth}
@@ -387,12 +387,12 @@ for (j in 1:nQuestion) {
     ord=table(abbrscore,useNA='no')
     pdf(paste0(outFile,"/",fname1))
     outImage = c(outImage, paste0(outFile,"/",fname1))
-    print(qplot(abbrscore,main=answerkey$simplekey$Question[j],xlab='Answer')+ theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size = 25)) + xlim(names(ord)[order(ord, decreasing=TRUE)])+coord_flip())
+    print(ggplot2::qplot(abbrscore,main=answerkey$simplekey$Question[j],ggplot2::xlab='Answer')+ ggplot2::theme(plot.title = ggplot2::element_text(size = 25), axis.text = ggplot2::element_text(size = 25), axis.title = ggplot2::element_text(size = 25)) + ggplot2::xlim(names(ord)[order(ord, decreasing=TRUE)])+ggplot2::coord_flip())
     dev.off()
 
     pdf(paste0(outFile,"/",fname2))
     outImage = c(outImage, paste0(outFile,"/",fname2))
-    print(qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+theme(plot.title = element_text(size = 25), axis.text = element_text(size = 25), axis.title = element_text(size=25)))
+    print(ggplot2::qplot(factor(subset(ScorebyQuestion[,j+1], !is.na(ScorebyQuestion[,j+1]))), main=colnames(ScorebyQuestion)[j+1],xlab='Score')+ggplot2::theme(plot.title = ggplot2::element_text(size = 25), axis.text = ggplot2::element_text(size = 25), axis.title = ggplot2::element_text(size=25)))
     dev.off()
 
     cat(sprintf('\\begin{center} \\includegraphics[width=.45\\linewidth]{%s} \\includegraphics[width=.45\\linewidth]{%s} \\end{center}',sub('\\.pdf','',fname1), sub('\\.pdf','',fname2)), '\n\n')

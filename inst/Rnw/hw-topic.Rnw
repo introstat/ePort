@@ -69,7 +69,7 @@ if (nfile<10) {
 fname=paste0(plotprename,'histbystu.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
+print(ggplot2::qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ ggplot2::theme(strip.text.y = ggplot2::element_text(size = 20), legend.position = "none",axis.text=ggplot2::element_text(size=20),axis.title=ggplot2::element_text(size=20)))
 dev.off();invisible()
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:hist}Histograms of the percentages correct by students homeworks.}\\end{marginfigure}',sub('\\.pdf','',fname)))
@@ -80,7 +80,7 @@ fname=paste0(plotprename,'histbystu',j,'.pdf')
 pdf(paste0(outFile,"/",fname),width=4, height=18)
 outImage = c(outImage, paste0(outFile,"/",fname))
 partplotdat=subset(dat, Hwk %in% levels(Hwk)[((j-1)*7+1):(min(nfile,j*7))])
-print(qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+scale_fill_hue(h=c(0,120)+(j-1)*120+15)+theme(strip.text.y = element_text(size = 20), legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)))
+print(ggplot2::qplot(CrtPct,data=partplotdat,geom='histogram',facets=Hwk~., binwidth=5,xlab='Correct Percentage',fill=Hwk)+ggplot2::scale_fill_hue(h=c(0,120)+(j-1)*120+15)+ggplot2::theme(strip.text.y = ggplot2::element_text(size = 20), legend.position = "none",axis.text=ggplot2::element_text(size=20),axis.title=ggplot2::element_text(size=20)))
 dev.off();invisible()
 }
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
@@ -105,11 +105,11 @@ print(xtable(su,caption=sprintf('Summary statistics for correct percentage. %s h
 fname=paste0(plotprename,'boxplotbystu.pdf')
 pdf(paste0(outFile,"/",fname),width=9,height=6)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(Hwk,CrtPct,data=dat,geom='boxplot')+
-      geom_line(aes(group=Username),alpha=0.2)+
-      geom_boxplot(aes(fill=Hwk))+
-      labs(x="Homework", y="Percentage Correct")+
-      theme(legend.position = "none",axis.text=element_text(size=20),axis.title=element_text(size=20)) )
+print(ggplot2::qplot(Hwk,CrtPct,data=dat,geom='boxplot')+
+      ggplot2::geom_line(aes(group=Username),alpha=0.2)+
+      ggplot2::geom_boxplot(aes(fill=Hwk))+
+      ggplot2::labs(x="Homework", y="Percentage Correct")+
+      ggplot2::theme(legend.position = "none",axis.text=ggplot2::element_text(size=20),axis.title=ggplot2::element_text(size=20)) )
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
 \\begin{wrapfigure}{o}{0.9\\columnwidth}
@@ -148,8 +148,8 @@ tmptile$Student=factor(tmptile$Student,levels=rev(tmp$Username))
 fname=paste0(plotprename,'tile_student_topic.pdf')
 pdf(paste0(outFile,"/",fname),width=8,height=12)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(Topic,Student,data=tmptile,geom='tile',fill=Percentage)+ theme(axis.text=element_text(size=20), axis.title=element_text(size=20), legend.text=element_text(size=20), legend.title = element_text(size=20)) + 
-  scale_fill_continuous(low='red',high='white',name='Correct\nPercentage\n'))
+print(ggplot2::qplot(Topic,Student,data=tmptile,geom='tile',fill=Percentage)+ ggplot2::theme(axis.text=ggplot2::element_text(size=20), axis.title=ggplot2::element_text(size=20), legend.text=ggplot2::element_text(size=20), legend.title = ggplot2::element_text(size=20)) + 
+  ggplot2::scale_fill_continuous(low='red',high='white',name='Correct\nPercentage\n'))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
 \\begin{wrapfigure}{o}{0.95\\columnwidth}
@@ -286,7 +286,7 @@ tmp1[rownames(tmp2),1]=tmp2[,1]
 @
 
 <<missing, echo=FALSE, fig.env = "marginfigure", out.width = "\\linewidth", fig.cap = "Histogram of the missing homeworks.", fig.lp = "mar:">>=
-print(qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks') + theme(axis.text=element_text(size=25), axis.title=element_text(size=25)))
+print(ggplot2::qplot(Username,data=tmp1,geom='histogram',binwidth=1,xlab='Number of missing homeworks') + ggplot2::theme(axis.text=ggplot2::element_text(size=25), axis.title=ggplot2::element_text(size=25)))
 @
 
 <<echo=FALSE,results="asis">>=

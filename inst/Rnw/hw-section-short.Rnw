@@ -79,7 +79,7 @@ b$section=factor(b$Section,levels=rev(levels(b$Section)))
 
 
 <<boxplot-score, echo=FALSE, fig.env = "marginfigure", out.width = "0.99\\linewidth", fig.cap = "Boxplot for the overall scores by section.", fig.lp = "fig:">>=
-print(qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+theme(legend.position = "none",axis.text=element_text(size=27),axis.title=element_text(size=27)) )
+print(ggplot2::qplot(Section,Score,data=sectionscore,geom='boxplot',fill=Section)+ggplot2::theme(legend.position = "none",axis.text=ggplot2::element_text(size=27),axis.title=ggplot2::element_text(size=27)) )
 @
 
 

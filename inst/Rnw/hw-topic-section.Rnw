@@ -94,15 +94,15 @@ sumdat=ddply(dat,c('Section','Hwk'),summarize,
 fname=paste0(plotprename,'lineplot.pdf')
 pdf(paste0(outFile,"/",fname),width=4,height=15)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(Hwk,`50%`,data=sumdat,geom='line',group=Section,fill=Section,
-      facets=Section~.,xlab='Topic',ylab='Correct Percentage') +
-        theme(strip.text.y=element_text(size=15), axis.text.x = element_text(angle = 90, hjust = 1)) +
-        geom_line(aes(x=Hwk,y=CrtPct,group=Username),data=dat,alpha=0.1) +
-        geom_ribbon(aes(ymin=`5%`, ymax=`95%`),alpha=I(0.3)) +
-        geom_ribbon(aes(ymin=`25%`, ymax=`75%`),alpha=I(0.7)) +
-        geom_line(aes(y=`25%`,color=Section)) +
-        geom_line(aes(y=`75%`,color=Section)) +
-        geom_line(aes(y=`50%`)) + theme101)
+print(ggplot2::qplot(Hwk,`50%`,data=sumdat,geom='line',group=Section,fill=Section,
+      facets=Section~.,ggplot2::xlab='Topic',ggplot2::ylab='Correct Percentage') +
+        ggplot2::theme(strip.text.y=ggplot2::element_text(size=15), axis.text.x = ggplot2::element_text(angle = 90, hjust = 1)) +
+        ggplot2::geom_line(aes(x=Hwk,y=CrtPct,group=Username),data=dat,alpha=0.1) +
+        ggplot2::geom_ribbon(aes(ymin=`5%`, ymax=`95%`),alpha=I(0.3)) +
+        ggplot2::geom_ribbon(aes(ymin=`25%`, ymax=`75%`),alpha=I(0.7)) +
+        ggplot2::geom_line(aes(y=`25%`,color=Section)) +
+        ggplot2::geom_line(aes(y=`75%`,color=Section)) +
+        ggplot2::geom_line(aes(y=`50%`)) + theme101)
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:line}Line plots of the correct percentages by section.
@@ -147,11 +147,11 @@ fname=paste0(plotprename,'histbystu.pdf')
 if (ntopic < 7) {
   pdf(paste0(outFile,"/",fname),width=3*ntopic, height=2*nsection)
   outImage = c(outImage, paste0(outFile,"/",fname))
-  print(qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + theme(strip.text = element_text(size = 20)))
+  print(ggplot2::qplot(CrtPct,data=dat,geom='histogram',facets=Section~Hwk, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + ggplot2::theme(strip.text = ggplot2::element_text(size = 20)))
 } else {
   pdf(paste0(outFile,"/",fname),width=1.5*nsection, height=ntopic)
   outImage = c(outImage, paste0(outFile,"/",fname))
-  print(qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + theme(strip.text = element_text(size = 20)))
+  print(ggplot2::qplot(CrtPct,data=dat,geom='histogram',facets=Hwk~Section, binwidth=5,xlab='Correct Percentage',fill=Section) + theme101 + ggplot2::theme(strip.text = ggplot2::element_text(size = 20)))
 }
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
@@ -293,10 +293,10 @@ shows the estimated correct probability.
 fname=paste0(plotprename,'fitted.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(Score,Predict,data=score,color=Section,geom='point',alpha=I(0.4),
-            ylab='Predicted correct probability') + 
-        geom_abline(intercept=0, slope=1, color='grey')
-      + theme(axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)))
+print(ggplot2::qplot(Score,Predict,data=score,color=Section,geom='point',alpha=I(0.4),
+            ggplot2::ylab='Predicted correct probability') + 
+        ggplot2::geom_abline(intercept=0, slope=1, color='grey')
+      + ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}\\includegraphics[width=0.95\\linewidth]{%s}
 \\caption{\\label{mar:fitted}Scatterplot between the scaled scores and the 
@@ -324,11 +324,11 @@ summary(f)
 fname=paste0(plotprename,'est_section.pdf')
 pdf(paste0(outFile,"/",fname),width=7,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(Topic,Predict,data=predprob,group=Section,
-      geom='line',size=I(1.2),ylab='Estimated correct probability')+
-        theme(axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)) +
-        geom_ribbon(aes(ymin=lower,ymax=upper,fill=Section),alpha=0.3)+
-        geom_line(aes(color=Section),size=1.2))
+print(ggplot2::qplot(Topic,Predict,data=predprob,group=Section,
+      geom='line',size=I(1.2),ggplot2::ylab='Estimated correct probability')+
+        ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
+        ggplot2::geom_ribbon(aes(ymin=lower,ymax=upper,fill=Section),alpha=0.3)+
+        ggplot2::geom_line(aes(color=Section),size=1.2))
 #qplot(Topic,Score,data=score,geom='line',group=Student,color=Section,alpha=I(0.05)) +
 #geom_line(aes(x=Topic,y=Predict,group=Section,color=Section),data=predprob,size=I(1))
 {dev.off();invisible()}
@@ -424,9 +424,9 @@ bestcut_hclust = which.min(diff(unique(clhc6$height)))+1
 fname=paste0(plotprename,'hclust.pdf')
 pdf(paste0(outFile,"/",fname),width=4,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(value,height,data=clhc6,group=student,color=Section,geom='path',
-      ylab='Clustering Height',xlab='Student') +
-        theme(axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)))
+print(ggplot2::qplot(value,height,data=clhc6,group=student,color=Section,geom='path',
+      ggplot2::ylab='Clustering Height',xlab='Student') +
+        ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
@@ -487,10 +487,10 @@ A and B can be grouped together.
 fname=paste0(plotprename,'screeplot.pdf')
 pdf(paste0(outFile,"/",fname),width=4,height=6)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(cluster,value,data=dfboot2,geom='point',alpha=I(0.1)) + 
-  facet_grid(criteria~., scales = "free_y") +
-    theme(strip.text.y=element_text(size=15), axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)) +
-    geom_line(data=clusterCriteriaorig))
+print(ggplot2::qplot(cluster,value,data=dfboot2,geom='point',alpha=I(0.1)) + 
+  ggplot2::facet_grid(criteria~., scales = "free_y") +
+    ggplot2::theme(strip.text.y=ggplot2::element_text(size=15), axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
+    ggplot2::geom_line(data=clusterCriteriaorig))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
@@ -542,8 +542,8 @@ asw = data.frame(cluster=2:9,criterion=bestcut_pamk$crit[-1])
 fname=paste0(plotprename,'clustasw.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(cluster,criterion,data=asw,geom=c('point','line'),ylab='criterion value') +
-        theme(axis.text=element_text(size=15),axis.title=element_text(size=15)))
+print(ggplot2::qplot(cluster,criterion,data=asw,geom=c('point','line'),ggplot2::ylab='criterion value') +
+        ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
@@ -555,13 +555,13 @@ the better model.}
 fname=paste0(plotprename,'bestclust.pdf')
 pdf(paste0(outFile,"/",fname),width=7,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(qplot(variable,value,data=bestcut_dat2,group=Student,
+print(ggplot2::qplot(variable,value,data=bestcut_dat2,group=Student,
             color=Cluster,geom='line',alpha=I(0.05),
-            xlab='Topic',ylab='Scaled score') +
-        theme(axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)) +
-        geom_line(aes(x=variable,y=center,group=Cluster,color=Cluster),
+            ggplot2::xlab='Topic',ggplot2::ylab='Scaled score') +
+        ggplot2::theme(axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
+        ggplot2::geom_line(aes(x=variable,y=center,group=Cluster,color=Cluster),
                   data=bestcut_mean,size=I(2)) + 
-        scale_colour_hue(h=c(40, 270)))
+        ggplot2::scale_colour_hue(h=c(40, 270)))
 {dev.off();invisible()}
 cat(sprintf('\\begin{center}
 \\begin{wrapfigure}{h}{0.95\\columnwidth}
@@ -583,10 +583,10 @@ colnames(plotData)[2]='Section'
 fname=paste0(plotprename,'clust_mosaic.pdf')
 pdf(paste0(outFile,"/",fname),width=5,height=4)
 outImage = c(outImage, paste0(outFile,"/",fname))
-print(ggplot(plotData, aes(Cluster, Proportion)) +
-        theme(strip.text.x=element_text(size=15), axis.text=element_text(size=15),axis.title=element_text(size=15),legend.text=element_text(size=15),legend.title=element_text(size=15)) +
-  geom_bar(stat = "identity", aes(width = marginVar1, fill = Section), col = "Black") +
-  geom_text(aes(label = as.character(Var1), x = Cluster, y = 1.05)) )
+print(ggplot2::ggplot(plotData, aes(Cluster, Proportion)) +
+        ggplot2::theme(strip.text.x=ggplot2::element_text(size=15), axis.text=ggplot2::element_text(size=15),axis.title=ggplot2::element_text(size=15),legend.text=ggplot2::element_text(size=15),legend.title=ggplot2::element_text(size=15)) +
+  ggplot2::geom_bar(stat = "identity", aes(width = marginVar1, fill = Section), col = "Black") +
+  ggplot2::geom_text(aes(label = as.character(Var1), x = Cluster, y = 1.05)) )
 {dev.off();invisible()}
 cat(sprintf('\\begin{marginfigure}
 \\includegraphics[width=0.98\\linewidth]{%s}
