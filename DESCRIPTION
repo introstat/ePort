@@ -3,7 +3,7 @@ Type: Package
 Title: Electronic Reporting of Academic Learning and Performance
 Version: 0.1.0
 Author: Xiaoyue Cheng, Dianne Cook, Lindsay Rutter, Amy Froelich
-Maintainer: Amy Froelich <amyf@iastate.edu>
+Maintainer: Lindsay Rutter <lrutter@iastate.edu>
 Description: Electronic reporting software that provides course instructors and
     supervisors with timely summaries and analyses of student learning and
     performance.
