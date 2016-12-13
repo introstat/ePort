@@ -394,7 +394,7 @@ A directory that contains example data is automatically installed with the \text
 The absolute pathway to the \texttt{extdata} directory on your local computer can be determined by typing the following command into the \textbf{\textsf{R}} console: \\
 
 <<eval=FALSE>>=
-system.file("inst/extdata", package = "ePort")
+system.file("extdata", package = "ePort")
 @
 
 \textbf{Please create a subdirectory called \texttt{OutputFiles} within the \texttt{extdata} directory on your local computer. Later in this vignette, we will save the example reports we create to the \texttt{OutputFiles} subdirectory.}
@@ -437,21 +437,21 @@ In this demonstration, we will create a report for \texttt{Topic 06} and section
 The block of code we will use to generate our report for \texttt{Topic 06} and section \texttt{A} is shown in the code block below. If this is your first time reading through the vignette, it is recommended that you do \textbf{not} run this code block all at once just yet. Instead, this code block is designed to provide you with an overview of the procedure; we will discuss each line of the code afterward. \\
 
 <<eval=FALSE>>=
-keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+keyHTM = system.file("extdata/KeyFiles/Topic06.Questions.htm", package =
   "ePort")
 
 refineKey(keyHTM)
 
 keyPath = gsub("htm$", "txt", keyHTM)
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.A.csv", package =
   "ePort")
 
 rewriteData(dataPath)
 
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
+loPath = system.file("extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 
-outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
+outPath = system.file("extdata/OutputFiles", package = "ePort")
 
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
   outPath)
@@ -460,7 +460,7 @@ makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
 Now that we have seen the entire code required for this procedure, we briefly explain each step of the above code block. Here, we recommend that you follow along by actively running each piece of code, as will be demonstrated below. The first line from the code block is where we save the absolute pathway of the answer key. Here, we save it to a string variable called \texttt{keyHTM}. \\
 
 <<eval=FALSE>>=
-keyHTM = system.file("inst/extdata/KeyFiles/Topic06.Questions.htm", package =
+keyHTM = system.file("extdata/KeyFiles/Topic06.Questions.htm", package =
   "ePort")
 @
 
@@ -481,7 +481,7 @@ keyPath = gsub("htm$", "txt", keyHTM)
 Now that we have the absolute path of our cleaned .txt answer key, our fourth step is to define the absolute pathway of our data file. We save this to a variable called \texttt{dataPath}. \\
 
 <<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.A.csv", package =
   "ePort")
 @
 
@@ -496,13 +496,13 @@ Upon running the above code snippet, you do not obtain a new file. Instead, the 
 Our sixth step is to save the absolute pathway of our learning outcome file. Below, we save this path to a variable called \texttt{loPath}. \\
 
 <<eval=FALSE>>=
-loPath = system.file("inst/extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
+loPath = system.file("extdata/LOFiles/Topic06.Outcomes.txt", package = "ePort")
 @
 
 After that, the seventh step is to specify our desired output directory. This is the absolute pathway of where the reports should be saved. Below, we create a variable called \texttt{outPath} to specify that we want to output our report to the \texttt{OutputFiles} subdirectory. \\
 
 <<eval=FALSE>>=
-outPath = system.file("inst/extdata/OutputFiles", package = "ePort")
+outPath = system.file("extdata/OutputFiles", package = "ePort")
 @
 
 Check briefly that your variable \texttt{outPath} is not an emptry string. If it is an empty string, you probably forgot to create the \texttt{OuptutFiles} subdirectory earlier in the vignette (see \hyperref[sec:createOut]{Example Data}). 
@@ -657,7 +657,7 @@ An instructor may be motivated to generate a short report for one topic across m
 Now that we know how to successfully generate reports for the three sections (\texttt{A}, \texttt{B}, and \texttt{C}) of \texttt{Topic 06} separately, we may wish to generate a report that compares the performance between these three sections. In this case, we use the same \texttt{makeReport()} function, just as we did before. However, for our parameter \texttt{dataFile}, we will input a list \texttt{dataList} that contains the paths to the data files for both sections we wish to compare. Of course, we must also correctly specify the \texttt{reportType} parameter to indicate that we wish to generate a short report that compares sections for a given topic: \\
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package = "ePort")
+dataFolder = system.file("extdata/DataFiles/Topic06", package = "ePort")
 dataList = list.files(path = dataFolder, full.names = TRUE)[1:3]
 makeReport(keyFile = keyPath, dataFile = dataList, loFile = loPath, outFile =
   outPath, reportType = "crossSecTopicShort")
@@ -772,7 +772,7 @@ Our goal here is to create a separate report for each section of interest, where
 Lastly, we can run our \texttt{makeReport()} function on this section and group of topics. We should specify our unit variable, which contains a default value of 1. In our example, we are indicating that we consider topics \texttt{06}, \texttt{07}, and \texttt{08} to be from \texttt{Unit 2}.\\
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_07_08", package="ePort")
+dataFolder = system.file("extdata/DataFiles/Topic06_07_08", package="ePort")
 dataList = list.files(path = dataFolder, full.names = TRUE)
 
 for (file in dataList){
@@ -890,7 +890,7 @@ If you open any of these three files, then you will notice there is a ``Question
 Because of this, if an instructor wants to split the data files, there are two parameters they can use to designate the cut location. If you run a \hyperref[sec:helpSection]{help()} function on the \texttt{ePort} function \texttt{splitFile()}, then you see that these cut types are called ``RsQ" and ``ID". Let us say that we need to split these data files into one file that only contains the first 7 ID Questions and another file that only contains the last 10 ID Questions. In that case, we can choose a cut type of ``ID" with a value of 7, which corresponds to a cut type of ``RsQ" with a value of 13. We show this process below using the cut type of ``ID". \\
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Chapter20_Split", package = "ePort")
+dataFolder = system.file("extdata/DataFiles/Chapter20_Split", package = "ePort")
 dataList = list.files(path = dataFolder, full.names = TRUE)[1:3]
 
 for(file in dataList){
@@ -908,7 +908,7 @@ In some cases, one topic might encompass two homework assignments. In order to g
 In our example, we will combine the Chapter 9 and 12 homework assignments to form the \texttt{Topic 11} data file for sections \texttt{A}, \texttt{B}, and \texttt{C}. We again have a special folder in our example data to complete this process. It is located in our example \texttt{DataFiles} folder in a subfolder called \texttt{Topic11\_Merge}. Upon entering this folder, you should see that it contains six files, \texttt{Ch9.A.csv}, \texttt{Ch9.B.csv}, \texttt{Ch9.C.csv}, \texttt{Ch12.A.csv}, \texttt{Ch12.B.csv}, and \texttt{Ch12.C.csv}. Notice in the code below that we save the topic number to a string variable called \texttt{topicNum}. \\
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic11_Merge", package="ePort")
+dataFolder = system.file("extdata/DataFiles/Topic11_Merge", package="ePort")
 dataList = list.files(path = dataFolder, full.names=TRUE)[1:6]
 topicNum = "Topic11"
 
@@ -962,7 +962,7 @@ As is demonstrated below, we first save the pathway to the directory that contai
 
 <<eval=FALSE>>=
 set.seed(1)
-dataFolder = system.file("inst/extdata/DataFiles/Topic06_Deidentified", package =
+dataFolder = system.file("extdata/DataFiles/Topic06_Deidentified", package =
   "ePort")
 getNameList(dataFolder, section = NULL, semester = NULL, secblind = TRUE, save =
   TRUE)
@@ -1037,18 +1037,18 @@ bhartz & ID0009 \\
 If we wish to create an individual report for a given topic for each of many sections, then one inconvenient way to accomplish this would be to run the code separately for each section at a time. Since the reports we wish to generate are all from the same topic, then we would be using the same key and learning outcome files. We can demonstrate this approach by building off similar code to what we used at the beginning of the vignette when we covered \hyperref[sec:codeOnce]{short version of the report on one section and one topic}, where we already defined the key and learning outcome files. Our demonstration of this inefficient method below will use three data files. As we have only ran the \texttt{rewriteData()} function on the data file for section \texttt{A}, we will now have to run it on the data files for sections \texttt{B} and \texttt{C}. \\
 
 <<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.A.csv", package =
   "ePort")
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
   outPath, reportType = "secTopicShort")
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.B.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.B.csv", package =
   "ePort")
 rewriteData(dataPath)
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
   outPath, reportType = "secTopicShort")
 
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.C.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.C.csv", package =
   "ePort")
 rewriteData(dataPath)
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
@@ -1060,16 +1060,16 @@ This successfully creates the output reports and text files of low performers fo
 We can do this one of two ways. We can hard code the two data files needed for the two sections into a vector called \texttt{dataListPath} as shown below: \\
 
 <<eval=FALSE>>=
-dataListPath = c(system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv",
-  package = "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.B.csv",
-  package = "ePort"), system.file("inst/extdata/DataFiles/Topic06/Topic06.C.csv",
+dataListPath = c(system.file("extdata/DataFiles/Topic06/Topic06.A.csv",
+  package = "ePort"), system.file("extdata/DataFiles/Topic06/Topic06.B.csv",
+  package = "ePort"), system.file("extdata/DataFiles/Topic06/Topic06.C.csv",
   package = "ePort"))
 @
 
 Or, we can create the same variable using the \texttt{list.files()} function of base \textbf{\textsf{R}}: \\
 
 <<eval=FALSE>>=
-dataFolder = system.file("inst/extdata/DataFiles/Topic06", package="ePort")
+dataFolder = system.file("extdata/DataFiles/Topic06", package="ePort")
 dataList = list.files(path = dataFolder, full.names=TRUE)[1:3]
 @
 
@@ -1114,13 +1114,13 @@ The last two parameters (\texttt{lowScore} and \texttt{repeatLowScore}) hold int
 To best illustrate the default parameters, we will begin by clearing all files in our \texttt{OutputFiles} directory. \\
 
 <<eval=FALSE>>=
-unlink(paste0(system.file("inst/extdata/OutputFiles", package = "ePort"), "/*"))
+unlink(paste0(system.file("extdata/OutputFiles", package = "ePort"), "/*"))
 @
 
 Next, we will rerun the \hyperref[sec:oneTopicSectionShort]{short version of the report on one section and one topic}. Here, we are specifying three boolean default parameters to values of \texttt{TRUE}, the \texttt{className} default parameter to a value of ``Math123", and the \texttt{lowScore} default parameter to a value of 60. \\
 
 <<eval=FALSE>>=
-dataPath = system.file("inst/extdata/DataFiles/Topic06/Topic06.A.csv", package =
+dataPath = system.file("extdata/DataFiles/Topic06/Topic06.A.csv", package =
   "ePort")
 makeReport(keyFile = keyPath, dataFile = dataPath, loFile = loPath, outFile =
   outPath, reportType = "secTopicShort", keepFiles = TRUE, keepTex = TRUE, keepImage
@@ -1134,7 +1134,7 @@ We also set the parameter \texttt{lowScore} to a value of \texttt{60}. Because o
 To prepare for another example, we will again clear all files in our \texttt{OutputFiles} directory. \\
 
 <<eval=FALSE>>=
-unlink(paste0(system.file("inst/extdata/OutputFiles", package = "ePort"), "/*"))
+unlink(paste0(system.file("extdata/OutputFiles", package = "ePort"), "/*"))
 @
 
 Now, we will run the \hyperref[sec:crossSecU]{report for one unit (group of topics) comparing multiple sections }, only this time altering the default parameters. We specify the \texttt{className} parameter to a value of ``Eng444", and the \texttt{repeatLowScore} parameter to a value of \texttt{70}. \\
