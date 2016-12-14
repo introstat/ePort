@@ -399,6 +399,10 @@ system.file("extdata", package = "ePort")
 
 \textbf{Please create a subdirectory called \texttt{OutputFiles} within the \texttt{extdata} directory on your local computer. Later in this vignette, we will save the example reports we create to the \texttt{OutputFiles} subdirectory.}
 
+<<eval=FALSE>>=
+dir.create(file.path(system.file("extdata", package = "ePort"), "OutputFiles"))
+@
+
 \section{Generating Reports}
 
 Currently, the \pkg{ePort} package offers six report types, depending on what the user is trying to compare and analyze about student performance. The same function \texttt{makeReport()} is used to generate each of these six report types; however, the input parameter \texttt{reportType} to the function will be different depending on which of the six report types the user wishes to run. It is most efficient for the user to hard-code in the \texttt{reportType} parameter. For that reason, below is a reference box for the six types of string options (in quotes) that can be used for the \texttt{reportType} parameter, depending on which of the six report types the user will run: 
